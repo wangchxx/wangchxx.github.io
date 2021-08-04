@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on My Math Notes</title>
-    <link>wangchxx.github.io/tags/</link>
+    <link>https://github.com/wangchxx/wangchxx.github.io/tags/</link>
     <description>Recent content in Tags on My Math Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="wangchxx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://github.com/wangchxx/wangchxx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>markdown</title>
-      <link>wangchxx.github.io/tags/markdown/</link>
+      <link>https://github.com/wangchxx/wangchxx.github.io/tags/markdown/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>wangchxx.github.io/tags/markdown/</guid>
+      <guid>https://github.com/wangchxx/wangchxx.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>wangchxx.github.io/tags/math/</link>
+      <link>https://github.com/wangchxx/wangchxx.github.io/tags/math/</link>
       <pubDate>Thu, 01 Apr 2021 10:52:59 +0200</pubDate>
       
-      <guid>wangchxx.github.io/tags/math/</guid>
+      <guid>https://github.com/wangchxx/wangchxx.github.io/tags/math/</guid>
       <description></description>
     </item>
     
