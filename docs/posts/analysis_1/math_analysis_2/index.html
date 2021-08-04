@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Mathematical Analysis | 2 Limit of Sequences" />
+<meta property="og:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
+ Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-02T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-02T10:52:59+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mathematical Analysis | 2 Limit of Sequences"/>
+<meta name="twitter:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
+ Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Mathematical Analysis | 2 Limit of Sequences
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Mathematical Analysis | 2 Limit of Sequences</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 2, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="1-limit-of-sequences">1. Limit of Sequences</h2>
+<p>Given a function $f:\mathbb{N}_{+}\to \mathbb{R}$, we call $f( \mathbb{N}_{+})$ as a <em>sequence</em>, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.</p>
+<dl>
+<dt>Definition 1 (Convergence)</dt>
+<dd>We say a sequence $\{a_n\}$ is <em>convergent</em> to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$,
+$$ 
+|a_n - a|&lt;\epsilon.
+$$
+And the point $a$ is called the <em>limit</em> of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$.</dd>
+</dl>
+<p>An equivalent definition of the convergence of a sequence is given by,</p>
+<dl>
+<dt>Definition 2 (Convergence 2)</dt>
+<dd>The sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there are at most finite elements $a_n$ outside the neighbourhood $U(a,\epsilon)$.</dd>
+</dl>
+<p>A sequence ${a_n}$ is called <code>infinitesimal</code> if $\lim_{n\to\infty}a_n = 0$.</p>
+<dl>
+<dt>Proposition 3 (Properties)</dt>
+<dd></dd>
+</dl>
+<ol>
+<li>the limit of a sequence is unique.</li>
+<li>${a_n}$ is bounded if $\lim_{n\to\infty}a_n = a$.</li>
+<li>if $\lim_{n\to\infty}a_n = a&gt;0$, then for any $b\in(0,a)$ there exists a constant $N$ s.t. for every $n\geq N$ 
+$$ 
+a_n &gt;b.<br>
+$$</li>
+<li>Given two convergent sequences ${a_n}$ and ${b_n}$. If there exist $N$ s.t for any $n\geq N$, $a_n\leq b_n$, then $\lim_{n\to\infty}a_n\leq \lim_{n\to\infty}b_n$.</li>
+<li>Given sequences ${a_n}$,${b_n}$ and ${c_n}$, if $\lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n =a$ and there exists $N$ s.t for any $n\geq N$
+$a_n \leq c_n\leq b_n,$ then $\lim_{n\to\infty}ac_n = a$.</li>
+</ol>
+<dl>
+<dt>Theorem 4 (Convergence)</dt>
+<dd>A sequence ${a_n}$ is convergent iff every subsequence of ${a_n}$ is convergent.</dd>
+</dl>
+<h2 id="2-existence-of-the-limit-of-sequence">2. Existence of the limit of sequence</h2>
+<dl>
+<dt>Theorem 5 (<strong>Monotone convergence theorem</strong>)</dt>
+<dd>If ${a_n}$ is monotonic and bounded sequence of real numbers, then ${a_n}$ is convergent.</dd>
+<dt>Theorem 6 (Dense)</dt>
+<dd>If ${a_n}$ is bounded, then ${a_n}$ possesses a convergent subsequence.</dd>
+<dt>Theorem 7 (<strong>Cauchy criterion</strong>)</dt>
+<dd>A sequence ${a_n}$ of real numbers is convergent iff it is a Cauchy sequence, i.e. for any $\epsilon&gt;0$ there exists $N$ s.t. for any $n,m\geq N$ 
+$$ 
+|a_n - a_m|&lt;\epsilon.
+$$</dd>
+</dl>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

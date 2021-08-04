@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Bayesian Statistics| Dirichlet Process" />
+<meta property="og:description" content="Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.
+0. Parametric VS Non-parametric Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.
+1. Definitions 有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&rsquo;s extension theorem, 我们可以证明其存在性。
+如何理解 dirichlet process prior? 对于一个随机过程 $(X_t:t\in T)$, 我们有两种方式理解，
+ For a fixed $t$, $X_t:\Omega\to\mathbb{R}$ is a random variable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-19T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-07-19T10:52:59+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bayesian Statistics| Dirichlet Process"/>
+<meta name="twitter:description" content="Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.
+0. Parametric VS Non-parametric Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.
+1. Definitions 有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&rsquo;s extension theorem, 我们可以证明其存在性。
+如何理解 dirichlet process prior? 对于一个随机过程 $(X_t:t\in T)$, 我们有两种方式理解，
+ For a fixed $t$, $X_t:\Omega\to\mathbb{R}$ is a random variable."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Bayesian Statistics| Dirichlet Process
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Bayesian Statistics| Dirichlet Process</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Jul 19, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<!-- raw HTML omitted -->
+<p>Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.</p>
+<h2 id="0-parametric-vs-non-parametric">0. Parametric VS Non-parametric</h2>
+<p>Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.</p>
+<h2 id="1-definitions">1. Definitions</h2>
+<p><img src="/img_bayes_DP/dirichlet_1.PNG" alt="dirichlet_definition"></p>
+<p>有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&rsquo;s extension theorem, 我们可以证明其存在性。</p>
+<p>如何理解 dirichlet process prior? 对于一个随机过程 $(X_t:t\in T)$, 我们有两种方式理解，</p>
+<ol>
+<li>For a fixed $t$, $X_t:\Omega\to\mathbb{R}$ is a random variable.</li>
+<li>For a fixed $\omega\in \Omega$, the mapping $t\mapsto X_t(\omega)$ is called a sample path of $(X_t:t\in T)$.</li>
+</ol>
+<p>因此，随机过程 $(X_t:t\in T)$ 可以理解为其sample paths的集合，而这个随机过程也定义了这些sample paths的分布。 对于DP而言，它的一条sample path就是一个 probability measure, 因此DP为这些probability measures 提供了一个 prior $\Pi$.</p>
+<h2 id="2-properties">2. Properties</h2>
+<p>首先介绍一种simulation的方法，叫做 stick-breaking.</p>
+<p><img src="/img_bayes_DP/dirichlet_2.PNG" alt="stick_breaking"></p>
+<p>这说明我们可以通过base measure $\alpha$ and scaling parameter $M$ 来模拟DP。</p>
+<dl>
+<dt>sketch of proof</dt>
+<dd>step 1: show that $P = \sum_j W_j \delta_{\theta_J}$ is  a random measure. 略
+step 2: show that $P \sim DP(M\bar{\alpha})$.
+<p>For $j\geq 2$, define $W_{j-1}' = W_j/(1-Y_1), \theta'_j = \theta_{j+1}$, then</p>
+<p>$$P= Y_1 \delta_{\theta_1} + (1-Y_1)\sum_{j\geq 1} W_j'\delta_{\theta'_j}$$.</p>
+<p>Notice that the random measure $P':= \sum_{j\geq 1} W_j'\delta_{\theta'_j}$ has the same structure as $P$, and hence has the same distribution. Thus we have the equation 
+$$P = Y\delta_{\theta} + (1-Y) P.$$
+剩下的工作就是解这个方程，可以证明 $P\sim DP(M\bar{\alpha}）$ 是它的唯一解。
+$\Box$</p>
+</dd>
+</dl>
+<p>第二个非常重要的性质叫做tail-free, 它的概念比较复杂 (see Freedman, 1963). 简单来说，它表示了一种独立性。不加证明得给出一个结论：$DP(\alpha)$ is tail-free. 这个性质对于求解它得 posterior十分重要。同样不加证明的给出一个定理，</p>
+<p><img src="/img_bayes_DP/dirichlet_3.PNG" alt="tail_free">
+where $N_\epsilon := \# \{i: X_i\in A_\epsilon\}$, i.e. the number of observations falling in $A_\epsilon$.</p>
+<p>这个tail-free 的性质非常方面，有了它，我们再求posterior的时候不用关心 $X_i$ 的具体数值，我们仅仅需要 $X_i$ 落在某一集合中的个数.</p>
+<dl>
+<dt>Theorem (Conjugacy of DP)</dt>
+<dd>The posterior of DP is again a DP.</dd>
+</dl>
+<p><img src="/img_bayes_DP/dirichlet_4.PNG" alt="dirichlet_conjugacy">
+where $MN$ indicates the multinomial distribution. And the Multinomial-Dirichlet distribution conjugacy is used in the proof.</p>
+<p>这个定理告诉我们，我们仅仅需要我们更新observations 出现的点的概率. Let $\mathbb{P}_n$ denote the empirical distribution of observations, then the posterior of DP can be written as $DP(\alpha + n\mathbb{P}_n)$.</p>
+<h2 id="3-consistency">3. Consistency</h2>
+<p>当我们用DP来估计某一probability measure时，我们还关心它的收敛问题，这几乎是所有learning algorithm的核心。 下面我们将证明 the DP prior does work.</p>
+<dl>
+<dt>Theorem (Consistency of DP)</dt>
+<dd>Suppose that observations $X_i\sim P_0$ independently.
+<img src="/img_bayes_DP/dirichlet_5.PNG" alt="dirichlet_consistency"></dd>
+<dt>sketch of proof</dt>
+<dd><img src="/img_bayes_DP/dirichlet_6.PNG" alt="dirichlet_consistency_prof"></dd>
+</dl>
+<p>DP的介绍就到此为止了，如果有空可能会再补充点 DP mixture的内容。 从直观上来看，DP 是离散的，所以并不能直接用于估计连续函数。因此下一章介绍可以用于估计连续函数的 Gaussian process.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[1] Ghosal, S. (2010). The Dirichlet process, related priors and posterior asymptotics</li>
+<li>[2] Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference</li>
+</ul>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

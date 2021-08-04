@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Mathematical Analysis | 9 Riemann Integrals" />
+<meta property="og:description" content="1. Definitions  Definition 1 (Partition) Let $[a,b]$ be a given interval, by a partition $T$ of $[a,b]$, we mean a finite set of points $x_0,x_1,&hellip;,x_n$, where $$ a = x_0\leq x_1\leq \cdots\leq x_n = b $$ We write $\Delta x_i = x_i - x_{i-1}$, and denote $|T| = \max_i \Delta x_i$ as the mesh of the partition $T$. Definition 2 (Riemann sum) Let $f$ be a given function defined on $[a,b]$, and $T$ be a partition of $[a,b]$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-09T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-09T10:52:59+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mathematical Analysis | 9 Riemann Integrals"/>
+<meta name="twitter:description" content="1. Definitions  Definition 1 (Partition) Let $[a,b]$ be a given interval, by a partition $T$ of $[a,b]$, we mean a finite set of points $x_0,x_1,&hellip;,x_n$, where $$ a = x_0\leq x_1\leq \cdots\leq x_n = b $$ We write $\Delta x_i = x_i - x_{i-1}$, and denote $|T| = \max_i \Delta x_i$ as the mesh of the partition $T$. Definition 2 (Riemann sum) Let $f$ be a given function defined on $[a,b]$, and $T$ be a partition of $[a,b]$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Mathematical Analysis | 9 Riemann Integrals
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Mathematical Analysis | 9 Riemann Integrals</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 9, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="1-definitions">1. Definitions</h2>
+<dl>
+<dt>Definition 1 (<strong>Partition</strong>)</dt>
+<dd>Let $[a,b]$ be a given interval, by a <code>partition</code> $T$ of $[a,b]$, we mean a finite set of points $x_0,x_1,&hellip;,x_n$, where
+$$ 
+a = x_0\leq x_1\leq \cdots\leq x_n = b
+$$
+We write $\Delta x_i = x_i  - x_{i-1}$, and denote $|T| = \max_i \Delta x_i$ as the <code>mesh</code> of the partition $T$.</dd>
+<dt>Definition 2 (<strong>Riemann sum</strong>)</dt>
+<dd>Let $f$ be a given function defined on $[a,b]$, and $T$ be a partition of $[a,b]$. For any points $x_{i-1}\leq\xi\leq x_i$, $i=1,2,&hellip;,n$, the summation 
+$$ 
+\sum_{i=1}^n f(\xi_i)\Delta x_i,
+$$
+is called the <code>Riemaan sum</code> of $f$ on $[a,b]$.</dd>
+<dt>Definition 3 (<strong>Riemann integrable</strong>)</dt>
+<dd>Let $f$ be a given function defined on $[a,b]$, and $J$ be a fixed number. If for any $\epsilon&gt;0$, there exists $\delta&gt;0$, s.t. for every partition $T$ of $[a,b]$ with $|T|&lt;\delta$ and for any choice of ${\xi_i}$ we have 
+$$ 
+|\sum_{i=1}^n f(\xi_i)\Delta x_i - J|  &lt;\epsilon,\tag{1}
+$$
+we say that the function $f$ is <code>Riemann integrable</code> on the interval $[a,b]$, we write $f\in\mathcal{R}$ and we denote the $J$ by $J = \int_a^b f(x) dx$.</dd>
+<dt>Definition 4 (Stieltjes integral)</dt>
+<dd>Let $\alpha$ be an increasing and bounded function on $[a,b]$, $f:[a,b]\to \mathbb{R}$. For each partition $T$ of $[a,b]$, we write $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1})$. If for any $\epsilon&gt;0$, there exists $\delta&gt;0$, s.t. for every partition $T$ of $[a,b]$ with $|T|&lt;\delta$ and for any choice of ${\xi_i}$ we have 
+$$ 
+|\sum_{i=1}^n f(\xi_i)\Delta \alpha_i - J|  &lt;\epsilon,\tag{2}
+$$
+we say that the function $f$ is <code>Stieltjes integrable</code> w.r.t. $\alpha$ on the interval $[a,b]$, and write $f\in \mathcal{R}(\alpha)$, denoted by $J = \int_a^b f(x) d\alpha(x)$.</dd>
+</dl>
+<p>By taking $\alpha(x) = x$, the Riemann integral can be viewed as a special case of the Stieltjes integral.</p>
+<h2 id="2-existence">2. Existence</h2>
+<dl>
+<dt>Theorem 5 (<strong>Necessary condition</strong>)</dt>
+<dd>If $f\in \mathcal{R}$ on $[a,b]$, then $f$ is bounded on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>By contradiction. If $f$ is unbounded on $[a,b]$, then for any partition $T$ of $[a,b]$, there exists an interval $[x_{k-1},x_k]$ where $f$ is unbounded. Let $G = |\sum_{i\neq k} f(\xi_i) \Delta x_i|$, then for any $M&gt;0$, there exists $\xi_k\in [x_{k-1},x_k]$ s.t. 
+$$ 
+|f(\xi_k)\Delta x_k|&gt; \frac{M+ G}{\Delta x_k}.
+$$
+So $|\sum_{i=1}^n f(\xi_i) \Delta x_i| \geq |f(\xi_k)\Delta x_k| - G &gt; M$.</dd>
+</dl>
+<p>$\Box$</p>
+<p>Suppose $T$ is a partition of $[a,b]$, and $f$ is bounded on $[a,b]$. Then we define $m_i,M_i$ as the lower bound and upper bound of $f$ on $[x_{i-1},x_i]$, respectively. Also we make summations,
+$$ 
+L(T,f) = \sum_{i=1}^n M_i \Delta x_i, \quad U(T,f)  \sum_{i=1}^n m_i \Delta x_i.
+$$
+They are called the <code>upper sum</code> and <code>lower sum</code> of $f$ on $[a,b]$ with partition $T$, respectively. Similarly, we can define 
+$$ 
+L(T,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i, \quad U(T,f,\alpha)  \sum_{i=1}^n m_i \Delta \alpha_i.
+$$</p>
+<dl>
+<dt>Theorem 6</dt>
+<dd>$f\in\mathcal{R}(\alpha)$ on $[a,b]$ iff for any $\epsilon&gt;0$, there exists a partition $T$ s.t. 
+$$ 
+U(T,f,\alpha)  - L(T,f,\alpha)&lt; \epsilon.\tag{3}
+$$</dd>
+<dt>proof</dt>
+<dd>For every $T$, we have that 
+$$ 
+L(T,f,\alpha) \leq \underline{\int} f d\alpha \leq \overline{\int}fd\alpha\leq U(T,f,\alpha),
+$$
+where $\underline{\int} f d\alpha = \sup_T  L(T,f,\alpha)$ and $\overline{\int}fd\alpha =\inf_T U(T,f,\alpha)$. Then the assumption (3) implies that 
+$$ 
+0\leq \overline{\int}fd\alpha - \underline{\int} f d\alpha &lt;\epsilon,
+$$
+and hence $\overline{\int}fd\alpha = \underline{\int} f d\alpha$.</dd>
+</dl>
+<p>Conversely, if $f\in\mathcal{R}(\alpha)$, then for every $\epsilon&gt;0$, there exist partitions $T_1,T_2$ s.t. 
+$$ 
+U(T_2,f,\alpha) - \int_a^b f d\alpha&lt;\epsilon/2, \quad \int_a^b f d\alpha - L(T_1,f,\alpha)&lt;\epsilon/2.\tag{4}
+$$
+We choose $T = T_1\cup T_2$, then we have 
+$$ 
+U(T,f,\alpha)\leq U(T_2,f,\alpha) &lt; \int_a^b f d\alpha + \epsilon/2 &lt; L(T_1,f,\alpha) + \epsilon \leq L(T,f,\alpha) + \epsilon.
+$$</p>
+<p>$\Box$</p>
+<dl>
+<dt>Corollary 7</dt>
+<dd>If $f$ is continuous on $[a,b]$, then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon&gt;0$, we can choose $\eta&gt;0$ s.t. 
+$$ 
+|\alpha(b)  -\alpha(a)|\eta &lt;\epsilon.
+$$
+Since $f$ is continuous on the closed interval $[a,b]$, it is uniformly continuous on $[a,b]$. There exists $\delta&gt;0$ s.t. for any $x_1,x_2\in[a,b]$ satisfying $|x_1 - x_2|&lt;\delta$,
+$$ 
+|f(x_1) - f(x_2)|&lt;\eta .
+$$</dd>
+</dl>
+<p>Given a partition $T$ s.t. $|T|&lt;\delta$, we have that $U(T,f,\alpha) - L(T,f,\alpha)&lt;\epsilon$.</p>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 8</dt>
+<dd>If $f$ is monotonic on $[a,b]$, and $\alpha$ is continuous on $[a,b]$,then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon&gt;0,n$, we choose a partition $T$ s.t. 
+$$ 
+\Delta \alpha_i = \frac{\alpha(b)- \alpha(a)}{n}.
+$$
+W.l.o.g. we assume that $f$ is increasing, then $M_i = f(x_i), m_i = f(x_{i-1})$, and thus $U(T,f,\alpha) - L(T,f,\alpha) = \frac{\alpha(b)- \alpha(a)}{n} (f(b) - f(a))&lt;\epsilon$, by letting $n$ large enough.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 9</dt>
+<dd>Suppose $f$ is bounded on $[a,b]$, and has only finitely many points of  discontinuity, and $\alpha$ is continuous at each point where $f$ is discontinuous. Then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>Given any $\epsilon&gt;0$, put $M = \sup_x |f(x)|$, and let $E$ be the set of points of discontinuity. Then we can cover $E$ by finitely many disjoint intervals $[u_i,v_i]\subset [a,b]$ s.t. $\sum |\alpha(v_i) - \alpha(u_i)|&lt;\epsilon$.</dd>
+</dl>
+<p>Let $K:= [a,b]\setminus \cup_i (u_i,v_i)$, we can see $K$ is a union of finitely many closed intervals, thus we can find a partition $T_K$ of $K$ s.t.
+$$ 
+U(T_K,f,\alpha) - L(T_K,f,\alpha)&lt;\epsilon.
+$$
+Consider intervals $(u_i,v_i)$, we can defined a partition $T$ of $[a,b]$ by $T = T_K\cup{u_1,v_1,&hellip;,u_k,v_k}$. It follows that 
+$$ 
+U(T,f,\alpha) - L(T,f,\alpha)\leq  U(T_K,f,\alpha) - L(T_K,f,\alpha) + 2M\epsilon&lt;\epsilon + 2M\epsilon.
+$$</p>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 10 (<strong>Fundamental theorem of calculus</strong>)</dt>
+<dd>If $f\in\mathcal{R}$ on $[a,b]$ and if $f$ possesses a primary function $F$, then 
+$$ 
+\int_a^b f(x)dx = F(b) - F(a).
+$$</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon&gt;0$, choose a partition $T$ s.t. $U(T,f) - L(T,f)&lt;\epsilon$. Then by the mean value theorem, we have $\eta_i\in[x_{i-1},x_i]$
+$$ 
+F(x_i)  - F(x_{i-1}) = f(\eta_i)\Delta x_i.
+$$
+Thus $\sum_{i}^n f(\eta_i)\Delta x_i = F(b) - F(a)$. Because $\sum_{i}^n f(\xi_i)\Delta x_i \in [L,U]$, we obtain that for any $\xi_i \in[x_{i-1},x_i]$
+$$ 
+|F(b) - F(a) - \sum_{i}^n f(\xi_i)\Delta x_i|&lt;\epsilon  .
+$$</dd>
+</dl>
+<p>$\Box$</p>
+<h2 id="3-properties">3. Properties</h2>
+<dl>
+<dt>Theorem 11 (<strong>Integral mean value I</strong>)</dt>
+<dd>If $f$ is continuous on $[a,b]$, then there exists $\xi\in[a,b]$ s.t. 
+$$ 
+\int_a^b f(x) dx = f(\xi)(b-a).
+$$</dd>
+<dt>proof</dt>
+<dd>$m(b-a)\leq \int_a^b f(x) dx \leq M(b-a)$. It follows that 
+$$ 
+m\leq \frac{1}{b-a}  \int_a^b f(x) dx \leq M.
+$$
+By the continuity of $f$, we can find $\xi\in[a,b]$ s.t. $f(\xi) = \frac{1}{b-a}  \int_a^b f(x) dx$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 12</dt>
+<dd>If $f\in\mathcal{R}$ on $[a,b]$. For $x\in[a,b]$, put 
+$$ 
+F(x) = \int_a^x f(t)dt.
+$$
+Then $F$ is continuous on $[a,b]$. Furthermore, if $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$, with 
+$$ 
+F'(x_0) = f(x_0) .
+$$</dd>
+<dt>proof</dt>
+<dd>We know that $f$ is bounded $|f|\leq M$. Then $|F(y) - F(x)|\leq M |y-x|$. Given $\epsilon&gt;0$, we see $|F(y) - F(x)|&lt;\epsilon$, provided $|y - x|&lt;\epsilon/M$. This shows the continuity of $F$.</dd>
+</dl>
+<p>Now suppose that $f$ is continuous at $x_0$. We can choose $\delta&gt;0$ s.t. $|f(t) - f(x_0)|&lt;\epsilon$ if $|t-x_0|&lt;\delta$. Hence for any $s,t\in [a,b]$ s.t. $x_0\in [s,t]\subset U(x_0,\delta)$, we have that $F(t) - F(s) = (t-s) f(\xi)$ for some $\xi\in[s,t]$ by the Integral mean value theorem I. Then,
+$$ 
+\bigg|\frac{F(t) - F(s)}{t-s} - f(x_0)\bigg| = |f(\xi) - f(x_0)|  &lt;\epsilon.
+$$</p>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 13 (<strong>Integral mean value II</strong>)</dt>
+<dd>Suppose that $f\in\mathcal{R}$ on $[a,b]$.</dd>
+</dl>
+<ol>
+<li>If $g$ is decreasing on $[a,b]$ and $g\geq 0$, then there exists $\xi\in [a,b]$ s.t. 
+$$ 
+\int_a^b f(x)g(x) dx = g(a)\int_a^\xi f(x)dx.
+$$</li>
+<li>If $g$ is increasing on $[a,b]$ and $g\geq 0$, then there exists $\eta\in [a,b]$ s.t. 
+$$ 
+\int_a^b f(x)g(x) dx = g(b)\int_\eta^b f(x)dx.
+$$</li>
+</ol>
+<dl>
+<dt>proof</dt>
+<dd>We have shown that $F(x) = \int_a^x f(t)dt$ is continuous on $[a,b]$, and thus bounded. $g(a) = 0$ is trivial so we show the case $g(a)&gt;0$ only. We shall find $\xi\in[a,b]$ s.t.
+$$ 
+F(\xi) = \frac{1}{g(a)} \int_a^b f(x)g(x) dx.
+$$</dd>
+</dl>
+<p>Now, by the intermediate value theorem, it suffices to show that
+$$ 
+m\leq \frac{1}{g(a)} \int_a^b f(x)g(x) dx \leq M.
+$$</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>
