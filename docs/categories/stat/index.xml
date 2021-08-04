@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stat on My Math Notes</title>
+    <link>wangchxx.github.io/categories/stat/</link>
+    <description>Recent content in stat on My Math Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="wangchxx.github.io/categories/stat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
+      <link>wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
+      <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
+      <description>在 GP(1) 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.
+同时，在 Posterior Consistency and Contraction 中我们得到了一个最重要的结论
+To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.
+1. Posterior Contraction Theorem (GP contraction) :这三个结论分别对应了上面Theorem 5.19 的那三个条件，因此这个结论意味着 GP contracts at $w_0$ at rate $\epsilon_n$.
+ Proof The assertion (7.7) is an immediate result of Lemma Small ball Then $Pr(||W-w_0||&amp;lt;2\epsilon_0) \geq e^{-\psi_{w_0}(\epsilon_n)}\geq e^{-n\epsilon_n^2}$.  Set $B_n = \epsilon_n\mathbb{B}_1 + M_n\mathbb{H}_1$, then by Borell&amp;rsquo;s inequality we have $$ \Pr(W\notin B_n) \leq 1 - \Phi(\alpha_n + M_n), $$ where $\alpha_n = \Phi^{-1}(e^{-\psi_0(\epsilon_n)})$.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Statistics| Gaussian Process Priors (1)</title>
+      <link>wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
+      <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
+      <description>在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是 $$Y = \beta X + \epsilon.$$
+我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成, $$Y_i = f(X_i) + \epsilon_i,$$
+where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.
+1. Gaussian Process GP 的一个简单定义是通过其 finite-dimensional distributions (FDDs) 实现的。
+ Definition (Gaussian process)   the map $t\mapsto W_t(\omega)$ is called the sample path of of $W$.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
+      <link>wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
+      <pubDate>Tue, 20 Jul 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
+      <description>这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。
+Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。
+1. Consistency  Definition (Posterior consistency)  Theorem (Doob&amp;rsquo;s consistency)   Doob&amp;rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。
+所以我们应该对于 prior 给出一定的限制，确保我们的目标 $\theta$ 不在 null set 里。下面给出一种叫做 Kullback-Leibler property 的限制。
+ Definition (KL property)   这个性质确保 prior assigns positive probability to any KL neighbourhood of the density $p_0:=p_{\theta_0}$ determined by parameter $\theta_0$.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Statistics| Dirichlet Process</title>
+      <link>wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
+      <pubDate>Mon, 19 Jul 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
+      <description>Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.
+0. Parametric VS Non-parametric Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.
+1. Definitions 有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&amp;rsquo;s extension theorem, 我们可以证明其存在性。
+如何理解 dirichlet process prior? 对于一个随机过程 $(X_t:t\in T)$, 我们有两种方式理解，
+ For a fixed $t$, $X_t:\Omega\to\mathbb{R}$ is a random variable.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Statistics| Bernstein-von Mises Theorem</title>
+      <link>wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
+      <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
+      <description>在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，
+$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
+in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).
+0. Notation  $I_\theta$: Fisher information,
+$\ell_\theta(x) = \log p_\theta(x)$,
+$\dot{\ell}_\theta(x) = \frac{d}{d \theta} \ell_\theta(x)$,
+$\ddot{\ell}_\theta(x) = \frac{d^2}{d\theta^2} \ell_\theta(x)$,
+$\Delta_{n,\theta} = 1/\sqrt{n} \sum_{i=1}^n \dot{\ell}_\theta(x_i)$,
+$I_{n,\theta} = -1/n \sum_{i=1}^n \ddot{\ell}_\theta(x_i)$,
+$||\cdot||_{TV}$: total variation,
+ 1. Preliminaries   Bayes&#39; formula By Bayes&#39; formula, the posterior density of $\vartheta$ is given by $$ \begin{align*} \pi(\theta|X_1,&amp;hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}.</description>
+    </item>
+    
+  </channel>
+</rss>

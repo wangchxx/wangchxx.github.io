@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Mathematical Analysis | 12 Power Series" />
+<meta property="og:description" content="In this Chapter we shall the power series formed by the sequence of power functions ${c_n (x-x_0)^n}$, i.e. of the form $$ \sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1} $$ W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. $$ \sum_{n=0}^\infty c_n x^n. \tag{2} $$
+1. Power Series First, we study the convergence of series (2).
+ Lemma 1 Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every $[-R&#43;\epsilon, R-\epsilon]$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-12T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-12T10:52:59+02:00" />
+<meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mathematical Analysis | 12 Power Series"/>
+<meta name="twitter:description" content="In this Chapter we shall the power series formed by the sequence of power functions ${c_n (x-x_0)^n}$, i.e. of the form $$ \sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1} $$ W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. $$ \sum_{n=0}^\infty c_n x^n. \tag{2} $$
+1. Power Series First, we study the convergence of series (2).
+ Lemma 1 Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every $[-R&#43;\epsilon, R-\epsilon]$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Mathematical Analysis | 12 Power Series
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/wangchxx.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="wangchxx.github.io/">Home</a>
+  
+    <a href="wangchxx.github.io/categories">Categories</a>
+  
+    <a href="wangchxx.github.io/series">Series</a>
+  
+    <a href="wangchxx.github.io/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Mathematical Analysis | 12 Power Series</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 12, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<p>In this Chapter we shall the power series formed by the sequence of power functions ${c_n (x-x_0)^n}$, i.e. of the form 
+$$ 
+\sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1}
+$$
+W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. 
+$$ 
+\sum_{n=0}^\infty c_n x^n. \tag{2}
+$$</p>
+<h2 id="1-power-series">1. Power Series</h2>
+<p>First, we study the convergence of series (2).</p>
+<dl>
+<dt>Lemma 1</dt>
+<dd>Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every  $[-R+\epsilon, R-\epsilon]$.</dd>
+<dt>proof</dt>
+<dd>Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\lim\sup_{n\to\infty}\sqrt[n]{a_n} = 0 &lt;1$. By root test we complete the proof.
+$\Box$</dd>
+<dt>Theorem 2</dt>
+<dd>Suppose the series (2) converges for $|x|&lt; R$, and define 
+$$ 
+f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; R). \tag{3}
+$$
+Then (2) converges uniformly on every $[-R+\epsilon, R-\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and 
+$$ 
+f'(x) = \sum_{n=1}^\infty n c_n x^{n-1}  , \quad (|x|&lt; R). \tag{4}
+$$</dd>
+<dt>proof</dt>
+<dd>For $|x|&lt; R-\epsilon$, we have 
+$$ 
+|c_n x^n|\leq |c_n (R-\epsilon)^n|
+$$
+and since $\sum c_n (R-\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R+\epsilon, R-\epsilon]$.
+Next, we have $\lim\sup_{n\to\infty} \sqrt[n]{n|c_n|} = \lim\sup_{n\to\infty} \sqrt[n]{|c_n|}$ since $\sqrt[n]{n} = 1$, which implies that $f$ and $f'$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R+\epsilon, R-\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4).
+Continuity of $f$ follows from the existence of $f'$.
+$\Box$</dd>
+<dt>Theorem 3</dt>
+<dd>Suppose $\sum c_n$ converges, Put 
+$$ 
+f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; 1).
+$$
+Then 
+$$ 
+\lim_{x\to 1_-} f(x) = \sum_{n=0}^\infty c_n.
+$$</dd>
+<dt>proof</dt>
+<dd>Let $f_n(x) = \sum_{j=0}^n c_j x^j$. $f_n \to f$ at $x=1$, so $f_n\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$).
+$\Box$</dd>
+</dl>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="2-power-series-expansion">2. Power Series Expansion</h2>
+<p>If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $f(x) = \sum_{n=0}^\infty c_n (x-x_0)^n$, then we say $f$ is <code>expanded in a power series</code>  about the point $x=x_0$.</p>
+<dl>
+<dt>Theorem 4 (<strong>Taylor expansion</strong>)</dt>
+<dd>Suppose $f(x) = \sum_{n=0}^\infty c_n x^n$, the series converging in $|x|&lt; R$. If $a\in(-R,R)$, then $f$ can be expanded in a power series about the point $x = a$, which converges in $|x-a|&lt; R - |a|$, i.e. 
+$$ 
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n.
+$$</dd>
+<dt>proof</dt>
+<dd>Notice that $f^{(k)}(x) = \sum_{n=k}^\infty n (n-1)\cdots (n-k+1) c_n x^{n-k}$. And 
+$$
+\begin{align*}
+f(x) &amp;= \sum_{n=0}^\infty c_n (x-a+a )^n \cr
+&amp;= \sum_{n=0}^\infty c_n \sum_{m=0}^n \binom{n}{m} a^{n-m} (x-a )^m \cr
+&amp;= \sum_{m=0}^\infty \sum_{n=m}^\infty \binom{n}{m} c_n a^{n-m} (x-a )^m
+\end{align*}
+$$</dd>
+</dl>
+<p>We can exchange the order of summation because  the series is convergent.
+$\Box$</p>
+<dl>
+<dt>Theorem 5</dt>
+<dd>Suppose the series $\sum a_n x^n$ and $\sum b_n x^n$ converge in the segment $S = (-R,R)$. Let $E$ be the set of all $x\in S$ where 
+$$ 
+\sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty b_n x^n . \tag{5}
+$$
+If $E$ has a limit point in $S$, then $a_n = b_n$ for $n=0,1,2,&hellip;$. Hence the equation (5) holds for all $x\in S$.</dd>
+<dt>proof</dt>
+<dd>Let $c_n = a_n - b_n$ and $f(x) = \sum_{n=0}^\infty c_n x^n $, then $f(x) = 0$ on $E$. 
+Let $A$ be the set of limit points of $E$ in $S$, and $B = S\setminus A$. It is clear that $B$ is open. Suppose we can prove that $A$ is open, because $S = A\cup B$ and $S$ is connected <code>(check definiiton)</code>, then it follows that $B$ is empty, thus $A = S$. Since $f$ is continuous in $S$, $A\subset E$. Thus $E=S$, and $c_n = 0$ for $n=0,1,&hellip;$.
+<p>Now we prove that $A$ is open. If $x_0\in A$, then we can expand $f$ at $x=x_0$ by 
+$$ 
+f(x) = \sum_{n=0}^\infty d_n (x - x_0)^n,\quad |x - x_0|&lt; R- |x_0|.
+$$
+By Theorem 12.4, $d_n = 0$ for all $n$. So that $f(x)=0$  for all $x:|x-x_0|&lt; R- |x_0|$, i.e. in a neighbourhood of $x_0$. This shows that $A$ is open.
+$\Box$</p>
+</dd>
+</dl>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

@@ -11,7 +11,7 @@ publishDir = "./docs"
 # Author has some of your information to be shown on the home 
 # page of your blog.
 [author]
-name = "C.Wang's math notes"
+name = "my math notes"
 slogon = ""
 description = ""
 

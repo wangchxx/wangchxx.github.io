@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on My Math Notes</title>
+    <link>wangchxx.github.io/tags/math/</link>
+    <description>Recent content in math on My Math Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Thu, 01 Apr 2021 10:52:59 +0200</lastBuildDate><atom:link href="wangchxx.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mathematical Analysis | 1 Real Numbers and Functions</title>
+      <link>wangchxx.github.io/posts/analysis_1/math_analysis_1/</link>
+      <pubDate>Thu, 01 Apr 2021 10:52:59 +0200</pubDate>
+      
+      <guid>wangchxx.github.io/posts/analysis_1/math_analysis_1/</guid>
+      <description>1. Real Numbers  Definition 1 (Bounds) $S\in\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\in S$ $x\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\geq M$, and $M$ is called the lower bound of $S$.  We say that $S$ is bounded if its upper bounds and lower bounds exist.</description>
+    </item>
+    
+  </channel>
+</rss>

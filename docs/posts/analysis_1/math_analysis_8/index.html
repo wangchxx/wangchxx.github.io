@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Mathematical Analysis | 8 Indefinite Integrals" />
+<meta property="og:description" content="1. Definitions  Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="wangchxx.github.io/posts/analysis_1/math_analysis_8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-08T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-08T10:52:59+02:00" />
+<meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_9/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mathematical Analysis | 8 Indefinite Integrals"/>
+<meta name="twitter:description" content="1. Definitions  Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Mathematical Analysis | 8 Indefinite Integrals
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/wangchxx.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="wangchxx.github.io/">Home</a>
+  
+    <a href="wangchxx.github.io/categories">Categories</a>
+  
+    <a href="wangchxx.github.io/series">Series</a>
+  
+    <a href="wangchxx.github.io/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Mathematical Analysis | 8 Indefinite Integrals</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 8, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="1-definitions">1. Definitions</h2>
+<dl>
+<dt>Definition 1 (<strong>Primary function</strong>)</dt>
+<dd>Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\in I$, we say that $F$ is the <code>primary function</code> of $f$ on $I$.</dd>
+<dt>Theorem 2 (<strong>Existence</strong>)</dt>
+<dd>If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.</dd>
+<dt>Definition 3 (<strong>Indefinite integral</strong>)</dt>
+<dd>The set of all primary functions of $f$ on $I$ is called the <code>indefinite integral</code> of $f$ on $I$, denoted by $\int f(x) dx= F(x) + C$.</dd>
+</dl>
+<h2 id="2-change-of-variable-and-integration-by-parts">2. Change of Variable and Integration by Parts</h2>
+<dl>
+<dt>Theorem 4 (<strong>Change of variable</strong>)</dt>
+<dd>Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.</dd>
+</dl>
+<ol>
+<li>If the indefinite integral $\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\int f(\phi(t))\phi'(t) dt$ exists too, and $\int f(\phi(t))\phi'(t) dt = F(\phi(t))+C$</li>
+<li>If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\int f(\phi(t))\phi'(t) dt = G(t) + C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) + C$.</li>
+</ol>
+<dl>
+<dt>Theorem 5 (<strong>Integration by Parts</strong>)</dt>
+<dd>If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u'(x) dx$ exists, then $\int v'(x) u(x) dx$ exists too, and $\int v'(x) u(x) dx = v(x)u(x) - \int v(x) u'(x) dx$.</dd>
+<dt>proof</dt>
+<dd>$[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$.</dd>
+</dl>
+<p>$\Box$</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

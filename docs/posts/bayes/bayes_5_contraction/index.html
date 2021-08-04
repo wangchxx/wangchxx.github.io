@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Bayesian Statistics| Posterior Consistency and Contraction" />
+<meta property="og:description" content="这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &ldquo;true&rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。
+Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。
+1. Consistency  Definition (Posterior consistency)  Theorem (Doob&rsquo;s consistency)   Doob&rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。
+所以我们应该对于 prior 给出一定的限制，确保我们的目标 $\theta$ 不在 null set 里。下面给出一种叫做 Kullback-Leibler property 的限制。
+ Definition (KL property)   这个性质确保 prior assigns positive probability to any KL neighbourhood of the density $p_0:=p_{\theta_0}$ determined by parameter $\theta_0$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-20T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-07-20T10:52:59+02:00" />
+<meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_2_bvm/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bayesian Statistics| Posterior Consistency and Contraction"/>
+<meta name="twitter:description" content="这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &ldquo;true&rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。
+Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。
+1. Consistency  Definition (Posterior consistency)  Theorem (Doob&rsquo;s consistency)   Doob&rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。
+所以我们应该对于 prior 给出一定的限制，确保我们的目标 $\theta$ 不在 null set 里。下面给出一种叫做 Kullback-Leibler property 的限制。
+ Definition (KL property)   这个性质确保 prior assigns positive probability to any KL neighbourhood of the density $p_0:=p_{\theta_0}$ determined by parameter $\theta_0$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Bayesian Statistics| Posterior Consistency and Contraction
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/wangchxx.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="wangchxx.github.io/">Home</a>
+  
+    <a href="wangchxx.github.io/categories">Categories</a>
+  
+    <a href="wangchxx.github.io/series">Series</a>
+  
+    <a href="wangchxx.github.io/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Bayesian Statistics| Posterior Consistency and Contraction</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Jul 20, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<!-- raw HTML omitted -->
+<p>这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &ldquo;true&rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。</p>
+<p>Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。</p>
+<h2 id="1-consistency">1. Consistency</h2>
+<dl>
+<dt>Definition (Posterior consistency)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_1.PNG" alt="consistency_def"></dd>
+<dt>Theorem (Doob&rsquo;s consistency)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_2.PNG" alt="consistency_thm"></dd>
+</dl>
+<p>Doob&rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。</p>
+<p>所以我们应该对于 prior 给出一定的限制，确保我们的目标 $\theta$ 不在 null set 里。下面给出一种叫做 Kullback-Leibler property 的限制。</p>
+<dl>
+<dt>Definition (KL property)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_3.PNG" alt="kl_p_def"></dd>
+</dl>
+<p>这个性质确保 prior assigns positive probability to any KL neighbourhood of the density $p_0:=p_{\theta_0}$ determined by parameter $\theta_0$. 有了这个性质，我们就可以确保 posterior is consistent at $\theta_0$. 下面不加证明地给出一个定理，以后有时间可以拿一章单独讲讲证明，</p>
+<dl>
+<dt>Theorem (Schwartz&rsquo;s)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_4.PNG" alt="consistency_schwartz"></dd>
+</dl>
+<p>这个定理有两个条件，第一个是KL property， 第二个是 tests. $P_0^n\theta_n$ 可以理解为假设检验里的 type I error, and $P_\theta^n (1-\theta_n)$ can be viewed as the type II error. 这个假设其实很强，有了这样的 tests，我们即使不用 Bayes，用其他任何统计方法都可以把 $\theta$ 找出来。</p>
+<p>下面我们对这个条件进行放松，我们不需要对于每个 complement $\mathcal{U}^\complement$ 都存在 tests, 我们可以允许在一个非常小的集合（with small prior probability）上 tests 不存在。</p>
+<dl>
+<dt>Theorem (Schwartz&rsquo;s extension)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_5.PNG" alt="consistency_schwartz"></dd>
+<dt>Sketch of proof</dt>
+<dd>我们需要证明 for any neighbourhood $\mathcal{U}$ of $p_0$, we have $\Pi_n(\mathcal{U}^\complement|X^{(n)})\to 0$ a.s..
+<p>step 1: show that $\Pi_n(\mathcal{U}^\complement\cap \mathcal{P}|X^{(n)})\to 0$ a.s.</p>
+<p>step 2: show that $\Pi_n( \mathcal{P}^\complement|X^{(n)})\to 0$ a.s.</p>
+</dd>
+</dl>
+<h2 id="2-tests">2. Tests</h2>
+<p>前面已经提到,对于 posterior consistency, 我们需要两个条件： KL property and tests。 第一个非常容易验证，the existence of tests 却没有这么直观. 因此我们用这一节讨论一下 the existence of tests.</p>
+<dl>
+<dt>Theorem (Convexity and tests)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_6.PNG" alt="tests_convex_H"></dd>
+</dl>
+<p>这个定理说明，当 the set of alternative hypotheses $\mathcal{Q}$ is convex and separated from the &ldquo;true&rdquo; parameter $P$ (in terms of Hellinger distance), desired tests exist.</p>
+<p>上面这个定理将 alternatives 限制在了 convex sets， 但在实际中，convexity 并不一定能满足， 所以我们将这个条件进行放松，思路是，即使 $\mathcal{Q}$ 并不是convex的，但如果它能被多个 convex 的集合给覆盖了, 我们仍然能找到合适的 tests. 这种思路叫做 conving number 也叫 entropy.</p>
+<dl>
+<dt>Theorem (Entropy)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_7.PNG" alt="tests_entropy"></dd>
+</dl>
+<p>到目前为止，结合 Schwartz&rsquo;s extension and the existence of entropy under entropy, we can give a more general consistency results.</p>
+<dl>
+<dt>Theorem (Posterior consistency under entropy)</dt>
+<dd><img src="/img_bayes_Rates/Consistency_8.PNG" alt="consistency_entropy"></dd>
+</dl>
+<p>这是一个非常general 的理论，它允许我们将所有的 posterior consistency 问题转化为 covering number 的问题。</p>
+<h2 id="3-posterior-contraction">3. Posterior Contraction</h2>
+<p>Contraction 是比consistency 更精确的概念，它对 $\epsilon$ 的大小进行了量化，衡量了 posterior 收敛的速度。</p>
+<dl>
+<dt>Definition (Posterior contraction)</dt>
+<dd><img src="/img_bayes_Rates/Contraction_1.PNG" alt="contraction_def"></dd>
+<dt>Theorrem (Posterior contraction)</dt>
+<dd><img src="/img_bayes_Rates/Contraction_2.PNG" alt="contraction_thm"></dd>
+<dt>Sketch of proof</dt>
+<dd>通过 条件 （5.7）我们限制了 covering number, 所以由 proposition 5.15 我们可以找到 合适 tests, 然后通过 bounded type I and type II errors 来限制 posterior.</dd>
+</dl>
+<p>Ok, 到目前为止我们得到了非常强大的理论，无论对于 consistency 还是 contraction, 我们都将他们转化为了 covering number or entropy 的问题。 对于一个具体的 non-parametric Bayes 问题，我们需要的仅仅是研究相应的 covering number.</p>
+<p>之后，会在新的一章中讨论一些具体的例子， 本章就到此为止了。</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[1] Van der Vaart, A. W. (2000). Asymptotic statistics.</li>
+<li>[2] Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference</li>
+</ul>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

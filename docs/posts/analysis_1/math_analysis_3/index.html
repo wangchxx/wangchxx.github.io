@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Mathematical Analysis | 3 Limit of Functions" />
+<meta property="og:description" content="1. Limit of Functions  Definition 1 (Limit at $\infty$) Given a function $f$ defined on $[a,\infty)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists $M$ s.t. for any $x\geq M$, $$ |f(x) - A|&lt;\infty, $$ we say that $f$ has limit $A$ as $x\to&#43;\infty$, denoted by $\lim_{x\to &#43;\infty}f(x) = A$.  If $\lim_{x\to &#43;\infty}f(x)= \lim_{x\to -\infty}f(x) = A$, we deonte it by $\lim_{x\to \infty}f(x) = A$.
+ Definition 2 (Limit at $x_0$) Given a function $f$ that is well defined on $U^o(x_0,\delta&#39;)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="wangchxx.github.io/posts/analysis_1/math_analysis_3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-03T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-03T10:52:59+02:00" />
+<meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mathematical Analysis | 3 Limit of Functions"/>
+<meta name="twitter:description" content="1. Limit of Functions  Definition 1 (Limit at $\infty$) Given a function $f$ defined on $[a,\infty)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists $M$ s.t. for any $x\geq M$, $$ |f(x) - A|&lt;\infty, $$ we say that $f$ has limit $A$ as $x\to&#43;\infty$, denoted by $\lim_{x\to &#43;\infty}f(x) = A$.  If $\lim_{x\to &#43;\infty}f(x)= \lim_{x\to -\infty}f(x) = A$, we deonte it by $\lim_{x\to \infty}f(x) = A$.
+ Definition 2 (Limit at $x_0$) Given a function $f$ that is well defined on $U^o(x_0,\delta&#39;)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Mathematical Analysis | 3 Limit of Functions
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/wangchxx.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="wangchxx.github.io/">Home</a>
+  
+    <a href="wangchxx.github.io/categories">Categories</a>
+  
+    <a href="wangchxx.github.io/series">Series</a>
+  
+    <a href="wangchxx.github.io/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Mathematical Analysis | 3 Limit of Functions</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 3, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="1-limit-of-functions">1. Limit of Functions</h2>
+<dl>
+<dt>Definition 1 (Limit at $\infty$)</dt>
+<dd>Given a function $f$ defined on $[a,\infty)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists $M$ s.t. for any $x\geq M$,
+$$ 
+|f(x) - A|&lt;\infty,
+$$
+we say that $f$ has limit $A$ as $x\to+\infty$, denoted by $\lim_{x\to +\infty}f(x) = A$.</dd>
+</dl>
+<p>If $\lim_{x\to +\infty}f(x)= \lim_{x\to -\infty}f(x) = A$, we deonte it by $\lim_{x\to \infty}f(x) = A$.</p>
+<dl>
+<dt>Definition 2 (Limit at $x_0$)</dt>
+<dd>Given a function $f$ that is well defined on $U^o(x_0,\delta')$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s.t. 
+$$ 
+|f(x)- A|&lt;\infty,
+$$
+for any $x\in U^o(x_0,\delta)$, we say that $f$ has limit $A$ as $x\to x_0$, denoted by $\lim_{x\to x_0}f(x) = A$.</dd>
+<dt>Definition 3 (One-sided limit)</dt>
+<dd>Given a function $f$ that is well defined on $U^o_+(x_0,\delta')$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s.t. 
+$$ 
+|f(x)- A|&lt;\infty,
+$$
+for any $x\in U^o_+(x_0,\delta)$, we say that $f$ has right limit $A$ as $x\to x_0$ from right, denoted by $\lim_{x\to x_0^+}f(x) = A$. Similarly, the left limit can be defined.</dd>
+<dt>Theorem 4</dt>
+<dd>$\lim_{x\to x_0}f(x) = A\Leftrightarrow \lim_{x\to x_0^+}f(x) = \lim_{x\to x_0^-}f(x) = A$.</dd>
+<dt>Proposition 5 (Properties)</dt>
+<dd></dd>
+</dl>
+<ol>
+<li>uniqueness. If $\lim_{x\to x_0}f(x)$ exists, then the limit is unique.</li>
+<li>local boundedness. If $\lim_{x\to x_0}f(x)$ exists, then $f$ is bouned on $U^o(x_0,\delta)$ for some $\delta$.</li>
+<li>signed. If $\lim_{x\to x_0}f(x) = A&gt;0$, then for any $0&lt;r&lt;A$, there exist a $U^o(x_0,\delta)$ on which $f(x)&gt;r&gt;0$.</li>
+<li>ordered. If both $\lim_{x\to x_0}f(x)$ and $\lim_{x\to x_0}g(x)$ exist, and  $f(x)\leq g(x)$ on some $U^o(x_0,\delta)$, then $\lim_{x\to x_0}f(x)\leq \lim_{x\to x_0}g(x)$.</li>
+<li>squeeze. If $\lim_{x\to x_0}f(x) =  \lim_{x\to x_0}g(x) = A$, and $f(x)\leq h(x)\leq g(x)$ on some $U^o(x_0,\delta)$, then  $\lim_{x\to x_0}h(x) = A$.</li>
+</ol>
+<h2 id="2-existence-of-limit">2. Existence of Limit</h2>
+<dl>
+<dt>Theorem 6 (Heine-Cantor)</dt>
+<dd>Suppose $f$ is well defined on $U^o(x_0,\delta')$. The limit of $f(x)$ exists iff for any sequence ${x_n}\subset U^o(x_0,\delta')$ that is convergent to $x_0$, the sequence ${f(x_n)}$  converges to a fixed point.</dd>
+</dl>
+<p>Proof: &ldquo;$\Rightarrow$&rdquo; is trivial. We only show the inverse. Suppse that  $f(x_n)\to A$ as $n\to\infty$ for all sequences described as the theorem. If $f(x)$ does not converge to $A$ as $x\to x_0$, then there exists $\epsilon_0$ s.t $\forall \delta&gt;0$, there is some $x\in U^o(x_0,\delta)$ with $|f(x)- A|\geq \epsilon_0$. We take $\delta = \delta'/n$, $n = 1,2,\ldots$, and thus obtain a sequence ${x_n}$ s.t. 
+$$ 
+|f(x_n)- A|\geq \epsilon_0
+$$
+and $x_n\in U^o(x_0,\delta'/n)$. Obviously, ${x_n}\subset U^o(x_0,\delta')$ and thus $x_n\to x_0$ as $n\to\infty$. Now we see a contradiction since $f(x_n)$ does not converge to $A$.</p>
+<p>$\Box$</p>
+<p>This theorem is useful because it transfers the limit of a function into the limit of sequences.</p>
+<dl>
+<dt>Theorem 7 (One-sided limit)</dt>
+<dd>Suppose $f$ is well defined on $U^o_+(x_0,\delta')$. $\lim_{x\to x_0^+}h(x) = A$ iff for every decreasing sequence ${x_n}\subset U^o(x_0,\delta')$ s.t. $x_n\to x_0$, we have $f(x_n)\to A$.</dd>
+<dt>Theorem 8</dt>
+<dd>If $f$ is a monotone and bounded function defined on $U^o_+(x_0,\delta')$, then the right limit of $f(x)$ at $x_0$ exists.</dd>
+</dl>
+<p>Proof: W.l.o.g. we assume that $f$ is increasing, then $\inf_{x\in U^o_+(x_0,\delta')} f(x)$ exists, denoted by $A$. It follows that there exists $x'\in U^o_+(x_0,\delta')$ with $f(x') &lt; A + \epsilon$. Because $f$ is increasing, for any $x\in U^o_+(x_0,\delta):= (x_0,x')$, 
+$$ 
+f(x)\leq f(x')&lt;A +\epsilon
+$$
+On the other hand, $A-\epsilon&lt;f(x)$, hence $\lim_{x\to x_0^+}f(x) = A$.</p>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 9 (Cauchy criterion)</dt>
+<dd>Suppose $f$ is well defined on $U^o(x_0,\delta')$. $\lim_{x\to x_0}f(x) = A$ iff for any $\epsilon&gt;0$, there exists a $U^o(x_0,\delta)$ s.t. for any $x_1,x_2\in U^o(x_0,\delta)$ we have 
+$$ 
+|f(x_1) - f(x_2)|&lt;\epsilon.
+$$
+Proof: &ldquo;$\Rightarrow$&rdquo; is trivial. We only show the inverse. For any sequence ${ x_n}\subset U^o(x_0,\delta)$ with $x_n\to x_0$, by assumption, we can find an integer $N$ s.t. for any $n,m\geq N$, 
+$$ 
+|f(x_n) - f(x_m)|&lt;\epsilon.
+$$
+By Cauchy criterion for sequences, $\lim_{n\to\infty}f(x_n)$ exists, denoted by $A$. Now for any $x\in U^o(x_0,\delta)$ and $n\geq N$, 
+$$ 
+|f(x) - f(x_n)|&lt;\epsilon.
+$$
+With $n\to\infty$, it gives $|f(x) - A|\leq \epsilon$, thus $\lim_{x\to x_0}f(x) = A$.</dd>
+</dl>
+<p>$\Box$</p>
+<h2 id="3-two-important-limits">3. Two Important Limits</h2>
+<h3 id="31-show-that-lim_xto-0-fracsin-xx--1">3.1 show that $\lim_{x\to 0} \frac{\sin x}{x} = 1$.</h3>
+<p>Proof: for $x\in (0,\pi/2)$, $0&lt;\sin x &lt;&gt; x &lt; \tan x$. It follows that 
+$$
+\cos x &lt; \frac{\sin x}{x} &lt; 1. \tag{1}
+$$
+The display (1) still holds when $x\in(-\pi/2,0)$. Then we can draw the conclusion by squeeze theorem.</p>
+<p>$\Box$</p>
+<h3 id="32-show-that-lim_xtoinfty-1--1xx--e">3.2 show that $\lim_{x\to\infty} (1 + 1/x)^x = e$.</h3>
+<p>Proof: It is equivalent to show 
+$$
+\begin{aligned}
+\lim_{x\to+\infty} (1 + 1/x)^x = e \cr
+\lim_{x\to-\infty} (1 + 1/x)^x = e
+\end{aligned} \tag{2}
+$$
+Use the fact $\lim_n(1 + 1/n)^n = e$. Because 
+$$ 
+\lim_{n\to\infty}(1+1/(1+n))^n =   \lim_{n\to\infty}(1+1/n)^{(1+n)} = e,
+$$
+for any $\epsilon&gt;0$, and sufficiently large $n$, 
+$$ 
+e - \epsilon&lt;  (1+1/(1+n))^n  &lt;(1+1/n)^{(1+n)} &lt; e + \epsilon. 
+$$
+Then for sufficiently large $x$, and let $n = [x]$, 
+$$ 
+(1+1/(1+n))^n &lt;  (1+1/x)^x &lt;(1+1/n)^{(1+n)} \tag{3}
+$$
+It follows that $\lim_{x\to+\infty} (1 + 1/x)^x = e$. Similarly, we can show the second limit by replacing $x$ by $-y$.</p>
+<p>$\Box$</p>
+<h2 id="4-infinitesimals">4. Infinitesimals</h2>
+<p>Similar with the infinitesimals defind for sequences, the infinitesimal of functions is given by</p>
+<dl>
+<dt>Definition 10 (Infinitesimal)</dt>
+<dd>Given a function $f$ that is defined on $U^o(x_0,\delta)$. If $\lim_{x\to x_0} f(x) = 0$, we say that $f$ is an *infinitesimal* as $x\to x_0$.</dd>
+</dl>
+<p>Let $f$ and $g$ be two infinitesimals as $x\to x_0$.</p>
+<ol>
+<li>
+<p>If $\lim_{x\to x_0} \frac{f(x)}{g(x)} = 0$, we say that $f$ is an infinitesimal of higher order than $g$, denoted by $f(x) = o(g(x))$ as $x\to x_0$.</p>
+</li>
+<li>
+<p>If there exist finite numbers $K$ and $L$ s.t. for any $x\in U^o(x_0,\delta)$,
+$$ 
+K\leq |\frac{f(x)}{g(x)}| \leq L,
+$$
+we say that $f$ is an infinitesimal of the same order as $g$, denoted by $f(x) = O(g(x))$ as $x\to x_0$. In particular, if $\lim_{x\to x_0} \frac{f(x)}{g(x)} = c\neq 0$, $f$ and $g$ must be infinitesimals of the same order.</p>
+</li>
+<li>
+<p>If $\lim_{x\to x_0} \frac{f(x)}{g(x)} = 1$, $f$ and $g$ are said to be equivalent, denoted by $f(x) \sim g(x)$ as $x\to x_0$.</p>
+</li>
+</ol>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

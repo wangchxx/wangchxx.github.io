@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (2)" />
+<meta property="og:description" content="在 GP(1) 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.
+同时，在 Posterior Consistency and Contraction 中我们得到了一个最重要的结论
+To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.
+1. Posterior Contraction Theorem (GP contraction) :这三个结论分别对应了上面Theorem 5.19 的那三个条件，因此这个结论意味着 GP contracts at $w_0$ at rate $\epsilon_n$.
+ Proof The assertion (7.7) is an immediate result of Lemma Small ball Then $Pr(||W-w_0||&lt;2\epsilon_0) \geq e^{-\psi_{w_0}(\epsilon_n)}\geq e^{-n\epsilon_n^2}$.  Set $B_n = \epsilon_n\mathbb{B}_1 &#43; M_n\mathbb{H}_1$, then by Borell&rsquo;s inequality we have $$ \Pr(W\notin B_n) \leq 1 - \Phi(\alpha_n &#43; M_n), $$ where $\alpha_n = \Phi^{-1}(e^{-\psi_0(\epsilon_n)})$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-22T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-07-22T10:52:59+02:00" />
+<meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" /><meta property="og:see_also" content="wangchxx.github.io/posts/bayes/bayes_2_bvm/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (2)"/>
+<meta name="twitter:description" content="在 GP(1) 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.
+同时，在 Posterior Consistency and Contraction 中我们得到了一个最重要的结论
+To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.
+1. Posterior Contraction Theorem (GP contraction) :这三个结论分别对应了上面Theorem 5.19 的那三个条件，因此这个结论意味着 GP contracts at $w_0$ at rate $\epsilon_n$.
+ Proof The assertion (7.7) is an immediate result of Lemma Small ball Then $Pr(||W-w_0||&lt;2\epsilon_0) \geq e^{-\psi_{w_0}(\epsilon_n)}\geq e^{-n\epsilon_n^2}$.  Set $B_n = \epsilon_n\mathbb{B}_1 &#43; M_n\mathbb{H}_1$, then by Borell&rsquo;s inequality we have $$ \Pr(W\notin B_n) \leq 1 - \Phi(\alpha_n &#43; M_n), $$ where $\alpha_n = \Phi^{-1}(e^{-\psi_0(\epsilon_n)})$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Bayesian Statistics| Gaussian Process Priors (2)
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/wangchxx.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="wangchxx.github.io/">Home</a>
+  
+    <a href="wangchxx.github.io/categories">Categories</a>
+  
+    <a href="wangchxx.github.io/series">Series</a>
+  
+    <a href="wangchxx.github.io/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Bayesian Statistics| Gaussian Process Priors (2)</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Jul 22, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<!-- raw HTML omitted -->
+<p>在 <a href="wangchxx.github.io/posts/bayes/bayes_4_gp1/">GP(1)</a> 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.</p>
+<p>同时，在 <a href="wangchxx.github.io/posts/bayes/bayes_5_contraction/">Posterior Consistency and Contraction</a> 中我们得到了一个最重要的结论</p>
+<p><img src="/img_bayes_GP/Contraction_2.PNG" alt="contraction_thm"></p>
+<p>To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.</p>
+<h2 id="1-posterior-contraction">1. Posterior Contraction</h2>
+<p>Theorem (GP contraction)
+:<img src="/img_bayes_GP/GPrate_1.PNG" alt="GP contraction"></p>
+<p>这三个结论分别对应了上面Theorem 5.19 的那三个条件，因此这个结论意味着 GP contracts at $w_0$ at rate $\epsilon_n$.</p>
+<dl>
+<dt>Proof</dt>
+<dd>The assertion (7.7) is an immediate result of Lemma <em>Small ball</em>
+<img src="/img_bayes_GP/GP_9.PNG" alt="small ball">
+Then $Pr(||W-w_0||&lt;2\epsilon_0) \geq e^{-\psi_{w_0}(\epsilon_n)}\geq e^{-n\epsilon_n^2}$.</dd>
+</dl>
+<p>Set $B_n = \epsilon_n\mathbb{B}_1 + M_n\mathbb{H}_1$, then by Borell&rsquo;s inequality we have 
+$$ 
+\Pr(W\notin B_n) \leq 1 - \Phi(\alpha_n + M_n),
+$$
+where $\alpha_n = \Phi^{-1}(e^{-\psi_0(\epsilon_n)})$. Since 
+$$ 
+\psi_0(\epsilon_n) \leq \psi_w(\epsilon_n) \leq n\epsilon_n^2,
+$$</p>
+<p>we have that $\alpha_n \geq -M_n/2$ if $M_n = -2\Phi^{-1}(e^{-Cn \epsilon_n^2})$, for some $C&gt;1$. It follows that 
+$$ 
+1 - \Phi(\alpha_n + M_n) \leq 1 - \Phi(M_n/2) =  e^{-Cn\epsilon_n^2}.
+$$</p>
+<p>For the assertion (7.8). Let $h_1,h_2,&hellip;,h_N \in M_n \mathbb{B}_n$ be $2\epsilon_n$-separated in terms of the Banach space norm, then the $\epsilon_n$-balls $h_i + \epsilon_n \mathbb{B}_1$ are disjoint, and hence by Lemma <em>decentered</em>,</p>
+<p>$$ 
+\begin{align}
+1 \geq \sum_{j=1}^N \Pr(W\in h_j + \epsilon_n\mathbb{B}_1) &amp;\geq \sum_{j=1}^N e^{-1/2 || h_j||^2} \Pr(||W||&lt;\epsilon_n)\cr
+&amp;\geq N e^{-1/2M_n^2} e^{-\psi_0(\epsilon_n)}.
+\end{align}
+$$</p>
+<p>Let $N$ be the maximal size of $2\epsilon_n$-separated elements in $M_n\mathbb{B}_1$, then we have 
+$$ 
+N(2\epsilon_n, M_n\mathbb{B}_1, ||\cdot||) \leq N\leq e^{1/2 M_n^2}e^{\psi_0(\epsilon_n)}.
+$$
+Notice that $d(w, M_n\mathbb{B}_1)\leq \epsilon_n$ for any $w\in B_n$, we have have 
+$$ 
+N(3\epsilon_n, B_n, ||\cdot||) \leq   e^{1/2 M_n^2}e^{\psi_0(\epsilon_n)}.
+$$
+We can finish the proof by choosing $M_n$ s.t. $M_n^2/2 \leq 8C n \epsilon_n^2$.</p>
+<h2 id="2-examples">2. Examples</h2>
+<h4 id="gaussian-regression">Gaussian regression</h4>
+<p>$$ 
+Y_i = f(x_i) + \epsilon_i.
+$$
+We can construct a prior for $f$ by setting $f(x) = W_x$, where $(W_x)$ is a GP.</p>
+<p>Suppose that observations are generated by the true function $f_0 \in W$, then by the preceding theorem, we can show that the posterior 
+$$ 
+\Pi_n(|| f -f_0 || &gt; M \epsilon_n| Y^{(n)}) \to 0
+$$
+in $P_0^n$-probability for some $M&gt;0$.</p>
+<h4 id="density-estimation">Density estimation</h4>
+<p>GP cannot serve as a prior for a density function directly, because it can take negative values. Instead we use a link function, and construct a prior $\Pi$ for density function $p$ by 
+$$ 
+p(x) = \frac{e^{W_x}}{\int e^{W_y} dy}.
+$$
+Because the distance between two densities $p_w, p_h$, corresponding to $w,h\in W$, respectively, satisfies 
+$$ 
+d(p_w,p_h) \leq C || w- h ||,
+$$
+in terms of some norm $||\cdot||$, the posterior can also satisfy 
+$$ 
+\Pi_n(d(p, p_0) &gt; M\epsilon_n|  X^{(n)}) \to 0
+$$
+in $P_0^n$-probability for some $M&gt;0$.</p>
+<ul>
+<li>
+<p>[1] van der Vaart, A. W., &amp; van Zanten, J. H. (2008). Reproducing kernel Hilbert spaces of Gaussian priors.</p>
+</li>
+<li>
+<p>[2] Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference.</p>
+</li>
+</ul>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>
