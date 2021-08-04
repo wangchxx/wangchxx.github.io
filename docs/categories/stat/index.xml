@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>stat on My Math Notes</title>
-    <link>https://github.com/wangchxx/wangchxx.github.io/categories/stat/</link>
+    <link>https://wangchxx.github.io/categories/stat/</link>
     <description>Recent content in stat on My Math Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://github.com/wangchxx/wangchxx.github.io/categories/stat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/stat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
       <description>在 GP(1) 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.
 同时，在 Posterior Consistency and Contraction 中我们得到了一个最重要的结论
 To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.
@@ -23,10 +23,10 @@ To show the posterior contraction of GP, we only need to check conditions 5.7-5.
     
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (1)</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
       <description>在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是 $$Y = \beta X + \epsilon.$$
 我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成, $$Y_i = f(X_i) + \epsilon_i,$$
 where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.
@@ -36,10 +36,10 @@ where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个
     
     <item>
       <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
       <pubDate>Tue, 20 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
       <description>这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。
 Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。
 1. Consistency  Definition (Posterior consistency)  Theorem (Doob&amp;rsquo;s consistency)   Doob&amp;rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。
@@ -49,10 +49,10 @@ Dirichlet process priors and Gaussian process priors 都是常见的 non-paramet
     
     <item>
       <title>Bayesian Statistics| Dirichlet Process</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
       <pubDate>Mon, 19 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
       <description>Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.
 0. Parametric VS Non-parametric Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.
 1. Definitions 有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&amp;rsquo;s extension theorem, 我们可以证明其存在性。
@@ -62,10 +62,10 @@ Dirichlet process priors and Gaussian process priors 都是常见的 non-paramet
     
     <item>
       <title>Bayesian Statistics| Bernstein-von Mises Theorem</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
       <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
       <description>在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，
 $$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
 in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).

@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on My Math Notes</title>
-    <link>https://github.com/wangchxx/wangchxx.github.io/series/</link>
+    <link>https://wangchxx.github.io/series/</link>
     <description>Recent content in Series on My Math Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://github.com/wangchxx/wangchxx.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bayesian statistics</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/series/bayesian-statistics/</link>
+      <link>https://wangchxx.github.io/series/bayesian-statistics/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/series/bayesian-statistics/</guid>
+      <guid>https://wangchxx.github.io/series/bayesian-statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>functional analysis</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/series/functional-analysis/</link>
+      <link>https://wangchxx.github.io/series/functional-analysis/</link>
       <pubDate>Sat, 24 Apr 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/series/functional-analysis/</guid>
+      <guid>https://wangchxx.github.io/series/functional-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math analysis</title>
-      <link>https://github.com/wangchxx/wangchxx.github.io/series/math-analysis/</link>
+      <link>https://wangchxx.github.io/series/math-analysis/</link>
       <pubDate>Tue, 13 Apr 2021 10:52:59 +0200</pubDate>
       
-      <guid>https://github.com/wangchxx/wangchxx.github.io/series/math-analysis/</guid>
+      <guid>https://wangchxx.github.io/series/math-analysis/</guid>
       <description></description>
     </item>
     
