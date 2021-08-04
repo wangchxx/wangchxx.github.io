@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Functional Analysis | 2 Hilbert Spaces" />
+<meta property="og:description" content="1. Inner Product spaces  Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,  $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-22T10:52:59+02:00" />
+<meta property="article:modified_time" content="2021-04-22T10:52:59+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_4/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_0/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Functional Analysis | 2 Hilbert Spaces"/>
+<meta name="twitter:description" content="1. Inner Product spaces  Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,  $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Functional Analysis | 2 Hilbert Spaces
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Functional Analysis | 2 Hilbert Spaces</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Apr 22, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="1-inner-product-spaces">1. Inner Product spaces</h2>
+<dl>
+<dt>Definition 1 (<strong>Inner product</strong>)</dt>
+<dd>Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,
+<ol>
+<li>$&lt; x,x &gt;\geq 0$,</li>
+<li>$&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ ,</li>
+<li>$&lt; \alpha x + \beta y ,z&gt; = \alpha &lt; x,z &gt; + \beta &lt; y,z &gt;$,</li>
+<li>$ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$.</li>
+</ol>
+<p>A vector space $X$ with an inner product $&lt; &gt;$ is called an <code>inner product space</code>.</p>
+</dd>
+</dl>
+<p>With an inner product, we can define a norm by $|| x|| = \sqrt{&lt; x, x&gt;}$, and hence we can define a metric $d$.</p>
+<dl>
+<dt>Lemma 2 (<strong>Continuity of inner product</strong>)</dt>
+<dd>let $X$ be an inner product space, and suppose that ${x_n}, {y_n}$ are convergent sequences $X$ with $x_n \to x, y_n\to y$. Then 
+$$ 
+&lt; x_n, y_n &gt; \to &lt; x, y&gt;.
+$$</dd>
+<dt>proof</dt>
+<dd></dd>
+</dl>
+<p>$$
+\begin{align*}
+| &lt; x_n , y_n&gt; - &lt; x , y&gt; | &amp;\leq | &lt; x_n , y_n&gt; - &lt; x_n , y&gt; | + | &lt; x_n , y&gt; - &lt; x , y&gt; | \cr
+&amp;\leq ||x_n|| ||y_n - y|| + ||y|| ||x_n - x||\to 0 
+\end{align*}
+$$</p>
+<h2 id="2-hilbert-spaces">2. Hilbert Spaces</h2>
+<dl>
+<dt>Definition 3 (Hilbert space)</dt>
+<dd>An inner product space is called a <code>Hilbert space</code> if it is complete w.r.t. the metric associated with the norm induced by the inner product.</dd>
+<dt>Lemma 4</dt>
+<dd>Let $\mathcal{H}$ be a Hilbert and $Y\subset \mathcal{H}$  is a linear subspace, then $Y$ is a Hilbert space iff $Y$ is closed.</dd>
+<dt>proof</dt>
+<dd>A subset of a complete metric space is complete iff it is closed.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Lemma 5</dt>
+<dd>Let $Y$ be a linear subspace of an inner product space $X$. Then 
+$$ 
+x\in Y^\perp \Leftrightarrow || x-y|| \geq ||x||,;\forall y\in Y.
+$$</dd>
+<dt>proof</dt>
+<dd>($\Rightarrow$) $|| x - y||^2 = ||X||^2 + ||y||^2$ if $x\perp y$.
+<p>$\Leftarrow$ $||x - \alpha y||^2 - ||x||^2$ is minimized at $\alpha = $.</p>
+</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 6 (Projection theorem)</dt>
+<dd>Let $A$ be a closed linear subspace of a $\mathcal{H}$. Then for any $x\in \mathcal{H}$, there exists a unique $x_0 \in A$ s.t. 
+$$ 
+||x-x_a|| = \inf_{y\in A} || x- y||,
+$$
+and $x - x_a \in A^\perp$.</dd>
+<dt>proof</dt>
+<dd>Suppose  $\gamma = \inf_{y\in A} || x- y||$. We first prove the existence of $x_0$. For each $n$, there exists $x_n\in A$ s.t. 
+$$ 
+||x - x_n||^2 &lt; \gamma^2+ 1/n.
+$$
+Applying the parallelogram rule to $x-x_n, x - x_m$, we can show that ${x_n}$ is Cauchy. So $x_n \to x_0 , x_0 \in A$. Then we obtain the equality by the continuity of inner product.
+<p>Uniqueness. Suppose that $x'\in A$ makes the equality. Then $(x_0, x')/2 \in A$ by linearity, and $||x - (x_0, x')/2 \in A||\geq \gamma$. Applying the parallelogram rule to $x - x', x-x_0$, we obtain that $||x_0 - x'||^2 = 0$.</p>
+<p>Finally, $x-x_0\in A^\perp$ follows from Lemma 2.5.</p>
+</dd>
+</dl>
+<p>$\Box$</p>
+<p>Let ${e_n}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\in X$, 
+$$ 
+x = \sum_{n=1}^\infty &lt; x, e_n&gt; e_n.
+$$</p>
+<dl>
+<dt>proof</dt>
+<dd>By Bessel&rsquo;s inequality, we obtain that $ \sum_{n=1}^\infty |&lt; x, e_n&gt;|^2&lt;\infty$. Also we can show that $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$ is Cauchy and converges to $x$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Lemma 7 (<strong>Bessel&rsquo;s inequality</strong>)</dt>
+<dd>Let $X$ be an inner product space and let ${e_n}$ a orthonormal system in $X$. Then for any $x\in X$ the series $\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2$ converges and 
+$$ 
+\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2 \leq ||x ||^2.
+$$</dd>
+<dt>proof</dt>
+<dd>Let $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$. Then 
+$$ 
+||x - y_k||^2 = ||x||^2 - ||y_k||^2.
+$$
+It shows that $||y_k||^2 \leq ||x||^2$ for all $k\in\N$. In addition $||y_k||^2$ is increasing and bounded, so it is convergent.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Definition (<strong>Separability</strong>)</dt>
+<dd>A Hilbert space $\mathcal{H}$ is called <code>seperable</code> if there is an at most countable orthonormal system ${e_n}$ s.t. 
+$$ 
+\mathcal{H} = \overline{sp}({e_n}) .
+$$</dd>
+</dl>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>
