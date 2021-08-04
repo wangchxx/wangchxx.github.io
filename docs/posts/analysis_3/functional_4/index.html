@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Functional Analysis | 4 Duality and Hahn-Banach Theorem" />
 <meta property="og:description" content="1. Dual Spaces In this section we describe the dual of several of the standard spaces.
- Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by  $$f_j(x) = \alpha_j.$$
-It can be verified that $f_j$ is a linear transformation s." />
+ Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by $$f_j(x) = \alpha_j.$$ It can be verified that $f_j$ is a linear transformation s." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_4/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-24T10:52:59+02:00" />
@@ -17,8 +16,7 @@ It can be verified that $f_j$ is a linear transformation s." />
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Functional Analysis | 4 Duality and Hahn-Banach Theorem"/>
 <meta name="twitter:description" content="1. Dual Spaces In this section we describe the dual of several of the standard spaces.
- Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by  $$f_j(x) = \alpha_j.$$
-It can be verified that $f_j$ is a linear transformation s."/>
+ Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by $$f_j(x) = \alpha_j.$$ It can be verified that $f_j$ is a linear transformation s."/>
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -85,10 +83,9 @@ It can be verified that $f_j$ is a linear transformation s."/>
 <dt>Theorem 1 <!-- raw HTML omitted --></dt>
 <dd>If $X$ is a finite-dimensional normed linear space with basis ${v_1,&hellip;,v_n}$, then $X'$ has a basis ${f_1,&hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X') = dim (X)$.</dd>
 <dt>proof</dt>
-<dd>Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by</dd>
-</dl>
-<p>$$f_j(x) = \alpha_j.$$</p>
-<p>It can be verified that $f_j$ is a linear transformation s.t. $f_j(v_k) = \delta_{jk}$. Moreover, $f_j$ is continuous since $X$ is finite-dimensional, and thus $f_j\in X'$.</p>
+<dd>Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by 
+$$f_j(x) = \alpha_j.$$
+It can be verified that $f_j$ is a linear transformation s.t. $f_j(v_k) = \delta_{jk}$. Moreover, $f_j$ is continuous since $X$ is finite-dimensional, and thus $f_j\in X'$.
 <p>Next, we show that ${f_1,&hellip;,f_n}$ is a basis for $X'$. Suppose that $\beta_1,&hellip;,\beta_n$ are scalars s.t. $\sum_{j=1}^n \beta_j f_j = 0$. Then 
 $$ 
 0  =   \sum_{j=1}^n \beta_j f_j (v_k) = \sum_{j=1}^n \beta_j \delta_{jk} = \beta_k,
@@ -99,7 +96,7 @@ $$
 $$
 It follows that $f = \sum_{j=1}^n \gamma_j f_j $ since $v_1,&hellip;,v_n$ is a basis for $X$.</p>
 <p>$\Box$</p>
-<dl>
+</dd>
 <dt>Theorem 2 (<strong>Riesz-Frechet theorem</strong>) <!-- raw HTML omitted --></dt>
 <dd>Let $\mathcal{H}$ be a Hilbert space and let $f\in \mathcal{H}'$. Then there is a unique $y\in \mathcal{H}$ s.t. $f(x) = f_y(x) = &lt; x,y&gt;$ for all $x\in\mathcal{H}$. Moreover, $||f|| = ||y||$.</dd>
 <dt>proof</dt>
@@ -165,16 +162,14 @@ is called an <code>extension</code> of $f_W$.</dd>
 </ol>
 </dd>
 <dt>Theorem 7 (<strong>The Hahn-Banach theorem, real</strong>) <!-- raw HTML omitted --></dt>
-<dd>Let $X$ be a real vector space, $W\subset X$ a linear subspace of $X$, and $p$ a sublinear functional  defined on $X$. If a linear functional $f_W:W\to \R$ satisfies</dd>
-</dl>
-<p>$$ 
+<dd>Let $X$ be a real vector space, $W\subset X$ a linear subspace of $X$, and $p$ a sublinear functional  defined on $X$. If a linear functional $f_W:W\to \R$ satisfies 
+$$ 
 f_W(w)\leq   p(w), \; w\in W,
 $$
 then $f_W$ has an extension $f_X$ on $X$ s.t. 
 $$ 
 f_X(x)\leq p(x),\; x\in X.
-$$</p>
-<dl>
+$$</dd>
 <dt>proof</dt>
 <dd>Prove it in next section.</dd>
 </dl>

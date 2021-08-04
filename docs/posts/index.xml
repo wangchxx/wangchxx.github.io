@@ -86,8 +86,7 @@ $||\cdot||_{TV}$: total variation,
       
       <guid>https://wangchxx.github.io/posts/analysis_3/functional_4/</guid>
       <description>1. Dual Spaces In this section we describe the dual of several of the standard spaces.
- Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&amp;hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&amp;hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by  $$f_j(x) = \alpha_j.$$
-It can be verified that $f_j$ is a linear transformation s.</description>
+ Theorem 1  If $X$ is a finite-dimensional normed linear space with basis ${v_1,&amp;hellip;,v_n}$, then $X&#39;$ has a basis ${f_1,&amp;hellip;,f_n}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by $$f_j(x) = \alpha_j.$$ It can be verified that $f_j$ is a linear transformation s.</description>
     </item>
     
     <item>
