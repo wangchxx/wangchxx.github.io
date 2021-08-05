@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/stat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 00:01:41 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/stat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bayesian Statistics| Gaussian Process Priors (3)</title>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
+      <pubDate>Thu, 05 Aug 2021 00:01:41 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</guid>
+      <description>In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
+1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&amp;quot;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$.</description>
+    </item>
+    
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
