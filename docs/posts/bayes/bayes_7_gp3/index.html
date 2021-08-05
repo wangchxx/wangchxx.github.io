@@ -89,7 +89,7 @@
 It implies that the optimal consistency rate for GP priors cannot be better than $n^{-1/2}$ when $w_0\in \bar{\mathbb{H}}$. To estimate the density function, we need a RKHS containing continuous fucntions, so that Brownian motion is of interest.</p>
 <dl>
 <dt>Lemma (RKSH of BM)</dt>
-<dd>The RKSH of BM is the family of fuctions in $B^1[0,1]$   relasing at zero, where $B^k[0,1]$ is the Sobolev space of all functions $f\in L^2[0,1]$ that are $k-1$ times differentiable with $f^{(k-1)}$ absolutely continuous with $f^{(k)}\in L^2[0,1]$, equipped with the inner product
+<dd>The RKSH of BM is the family of fuctions in $B^1[0,1]$  vanishing at zero, where $B^k[0,1]$ is the Sobolev space of all functions $f\in L^2[0,1]$ that are $k-1$ times differentiable with $f^{(k-1)}$ absolutely continuous with $f^{(k)}\in L^2[0,1]$, equipped with the inner product
 $$
 &lt;f,g&gt;_{\mathbb{H}} = \int_0^1 f' g' d\mu.
 $$
@@ -98,7 +98,7 @@ proof</dd>
 $$
 &lt;s_1\wedge \cdot, s_2\wedge\cdot&gt;_{\mathbb{H}} = s_1\wedge s_2 = \int (s_1\wedge t)' (s_2\wedge t)' dt.
 $$
-Thus the RKHS contains every function that releases at 0, continuous, and piecewise linear on any partition of $[0,1]$. The derivatives of these functions are piecewise constant, and the set of piecewise constant function is dense in $L^2[0,1]$.</dd>
+Thus the RKHS contains every function that vanishes at 0, continuous, and piecewise linear on any partition of $[0,1]$. The derivatives of these functions are piecewise constant, and the set of piecewise constant function is dense in $L^2[0,1]$.</dd>
 </dl>
 <p>$\Box$</p>
 <p>Without proof, we state that, if $w_0\in C^\beta[0,1]$ for some $\beta\in(0,1]$, the contraction rate of BM prior is
