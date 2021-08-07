@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 05 Aug 2021 00:01:41 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 08:36:14 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading| Nonparametric binary regression using a Gaussian process prior</title>
+      <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
+      <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
+      <description>Let&amp;rsquo;s discuss the paper
+ Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
+    </item>
+    
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (3)</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
