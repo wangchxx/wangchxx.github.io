@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Reading| Nonparametric binary regression using a Gaussian process prior" />
-<meta property="og:description" content="Let&rsquo;s discuss the paper
+<meta property="og:description" content="Let&rsquo;s discuss this paper
  Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/" /><meta property="article:section" content="posts" />
@@ -15,7 +15,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Reading| Nonparametric binary regression using a Gaussian process prior"/>
-<meta name="twitter:description" content="Let&rsquo;s discuss the paper
+<meta name="twitter:description" content="Let&rsquo;s discuss this paper
  Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically."/>
 
   
@@ -77,7 +77,7 @@
 	</div>
 	<p></p>
 	<article class="md">
-		<p>Let&rsquo;s discuss the paper</p>
+		<p>Let&rsquo;s discuss this paper</p>
 <ul>
 <li>Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.</li>
 </ul>
@@ -152,6 +152,21 @@ N(\eta(x_i), V_i^{-1}) | Z_i&lt;0,  &amp;\; Y_i = -1.
 \end{cases}
 \end{align}
 $$</p>
+<h2 id="3-hierarchical-models">3. Hierarchical models</h2>
+<p>The choice of the hyper-parameters $\mu,\Sigma$ are critical in the prior elicitation. One may put priors on these hyper-parameters. For instance, we can consider a parametric form for $\Sigma$ by
+$$
+\Sigma_\tau = \Sigma/\tau,<br>
+$$
+for some known $\Sigma$ and unknown hyper-parameter $\tau&gt;0$. Note that $\tau$ determines the smoothness of data. A gamma distribution is an appropriate prior for $\tau$, thus we consider the following hierarchical model</p>
+<ol>
+<li>$\tau \sim Gamma(a,b)$.</li>
+<li>$\eta|\tau \sim N(\mu,\Sigma_\tau)$.</li>
+<li>$Z|\eta,\tau \sim N(\eta(x), I)$.</li>
+<li>$Y_i|Z_i \sim Bernoulli(H(Z_i))$.</li>
+</ol>
+<p>The distribution of $\tau$ given $Y,Z,\eta$ can be easily derived, which is still a Gamma distribution, wirte $Gamma(a^*, b^*)$. Then we can use a Gibbs sampler to generate samples from the distribution of $(\tau,Z,\eta|Y)$.</p>
+<h2 id="4-discussion">4. Discussion</h2>
+<p>This article described a nonparametric Bayesian approach to estimating the regression function for binary classification. The case where the link function $H$ who has smooth unimodal symmetric density was discussed. However, consistency behaviour was not mentioned.</p>
 
 	</article>
 </main>

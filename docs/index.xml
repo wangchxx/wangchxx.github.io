@@ -14,7 +14,7 @@
       <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
       
       <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
-      <description>Let&amp;rsquo;s discuss the paper
+      <description>Let&amp;rsquo;s discuss this paper
  Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
     </item>
     
