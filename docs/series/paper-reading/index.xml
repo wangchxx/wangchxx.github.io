@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sat, 07 Aug 2021 08:36:14 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 18:24:27 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading| Posterior consistency of Gaussian process prior for nonparametric binary regression</title>
+      <link>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</link>
+      <pubDate>Sat, 07 Aug 2021 18:24:27 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</guid>
+      <description>Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795  The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.
+1. Problem setup $$ p(x) = P(Y=1|x) = H(\eta(x)). $$ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form $$ \sigma(x,x&#39;) = \tau^{-1}\sigma_0(\lambda x, \lambda x&#39;), $$ where $\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\tau&amp;gt;0,\lambda&amp;gt;0$ play the roles of a scaling parameter and a bandwidth parameter, respectively.</description>
+    </item>
+    
     <item>
       <title>Reading| Nonparametric binary regression using a Gaussian process prior</title>
       <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
@@ -15,7 +25,7 @@
       
       <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
       <description>Let&amp;rsquo;s discuss this paper
- Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
+ Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
     </item>
     
   </channel>
