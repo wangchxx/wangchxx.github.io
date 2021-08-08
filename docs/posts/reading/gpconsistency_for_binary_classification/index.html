@@ -180,8 +180,8 @@ $$</dd>
 <p>Let $\psi_1 = p, \psi_2 = p_0$ and $\nu = Q_n$, we see
 $$
 \begin{equation}
-I_{n,p} = #{x_i: |p(x_i) - p_0(x_i)|&gt;\epsilon} \geq K&rsquo;n
-\end{equation}<br>
+I_{n,p} = \#\{x_i: |p(x_i) - p_0(x_i)|&gt;\epsilon\} \geq K&rsquo;n
+\end{equation}
 $$
 for some $K'$. $I_{n,p}$ contains those points s.t. either $p(x) &lt;p_0(x) - \epsilon$ or $p(x)&gt; p_0(x) +\epsilon$, and at least one case contains more than $K&rsquo;n/2$ points. So we would not lose order of the number of indices to work with one case only.</p>
 <dl>
@@ -193,11 +193,11 @@ $$</dd>
 </dl>
 <p>It can be extend to any $p_1 \in \Theta_n$. Consider the case $x_i$ s.t. $p(x_i) &gt; p_0(x_i) + \epsilon$ and $||p^* - p||&lt;\epsilon/2$, then
 $$
-p^*(x_i) - p_0(x_i) \geq p(x_i) - p_0(x_i) - ||p - p^*||_\infty &gt;\epsilon /2.<br>
+p^*(x_i) - p_0(x_i) \geq p(x_i) - p_0(x_i) - ||p - p^*||_\infty &gt;\epsilon /2.
 $$</p>
 <p>With $\epsilon$ replaced by $\epsilon/2$, Lemma 4 implies the existence of tests $\phi_{n,p}$ s.t.
 $$
-P_0(\phi_{n,p}) \leq e^{-m\epsilon^2/8}, \quad P^*(1-\phi_{n,p})\leq e^{-m\epsilon^2/8}. <br>
+P_0(\phi_{n,p}) \leq e^{-m\epsilon^2/8}, \quad P^*(1-\phi_{n,p})\leq e^{-m\epsilon^2/8}.
 $$
 Let $p_1,&hellip;,p_N \in\Theta_n$ be the maximal $\epsilon/2$-separated points. Consider $\phi_n = \max_{j\leq N} \phi_{n,p_j}$, then
 $$
@@ -216,7 +216,7 @@ for some constant $c'$.</p>
 <dt>Lemma 5 (taylor&rsquo;s expansion)</dt>
 <dd>Let $0&lt;\epsilon_0&lt;1/2$ and $\epsilon_0&lt;\alpha,b&lt;1-\epsilon_0$. Then there exists a constant $L_{\epsilon_0}$ s.t.
 $$
-\alpha(\log \alpha/\beta)^m + (1-\alpha)(\log \frac{1-\alpha}{1-\beta}) \leq L(\alpha-\beta)^2.<br>
+\alpha(\log \alpha/\beta)^m + (1-\alpha)(\log \frac{1-\alpha}{1-\beta}) \leq L(\alpha-\beta)^2.
 $$</dd>
 </dl>
 <h2 id="4-proof-of-the-main-theorems">4. Proof of the main theorems</h2>
@@ -226,37 +226,35 @@ $$</dd>
 $$
 f(x,y) = p(x)^y(1-p(x))^{1-y}.
 $$
-The corresponding true joint density is $f_0(x,y) = p_0(x)^y (1-p_0(x))^{1-y}$. Assumption (T) implies that $p_0$ is bounded s.t. $\epsilon_0&lt;p_0(x)&lt;1-\epsilon_0$ for some $\epsilon_0&lt;1/2$. Thus $f_0(x,y) &gt;\epsilon_0$. Note that $||f_1 - f_2||<em>{1} =  2||p_1 - p_2||</em>{1,Q} $ and
+The corresponding true joint density is $f_0(x,y) = p_0(x)^y (1-p_0(x))^{1-y}$. Assumption (T) implies that $p_0$ is bounded s.t. $\epsilon_0&lt;p_0(x)&lt;1-\epsilon_0$ for some $\epsilon_0&lt;1/2$. Thus $f_0(x,y) &gt;\epsilon_0$. Note that $||f_1 - f_2||_{1} =  2||p_1 - p_2||_{1,Q} $ and
 $$
-KL(f_0||f) = KL(p_0||p) + \int(1-p_0)\log \frac{1-p_0}{1-p} dQ.<br>
+KL(f_0||f) = KL(p_0||p) + \int(1-p_0)\log \frac{1-p_0}{1-p} dQ.
 $$
 First, we show that $f_0\in KL(\Pi)$, or equivalently,
 $$
-\Pi(p: KL(p_0||p) +  \int(1-p_0)\log \frac{1-p_0}{1-p} dQ &lt;\epsilon) &gt;0,<br>
+\Pi(p: KL(p_0||p) +  \int(1-p_0)\log \frac{1-p_0}{1-p} dQ &lt;\epsilon) &gt;0,
 $$
 for any $\epsilon&gt;0$. Lemma 5 implies that it suffices to show that
 $$
-\Pi(p:||p-p_0||<em>\infty &lt;\epsilon)&gt;0.<br>
+\Pi(p:||p-p_0||_\infty &lt;\epsilon)&gt;0.
 $$
 Because $p_0 = H(\eta)$ and the link funciton $H$ is bounded and Lipschitz continuous, thus it is enough to show that
 $$
-\Pi(\eta: ||\eta- \eta_0||</em>\infty&lt;\epsilon)&gt;0.<br>
+\Pi(\eta: ||\eta- \eta_0||_\infty&lt;\epsilon)&gt;0.
 $$
 This is an immediate result of Theorem 4.
 <p>Then we check the entropy condition. Consider the set $F_n = {f: p\in\Theta_n}$. Lemma 2, with $M_n = bn^{\alpha/d}$, gives
 $$
-\log N(\epsilon, F_n, ||\cdot||<em>\infty)\leq K \epsilon^{-d/\alpha}b^{d/\alpha}n.
+\log N(\epsilon, F_n, ||\cdot||_\infty)\leq K \epsilon^{-d/\alpha}b^{d/\alpha}n.
 $$
 Chose $b&lt;(\beta/K)^{\alpha/d}\epsilon$, we have that
 $$
-\log N(\epsilon, F_n, ||\cdot||</em>\infty)\leq n\beta.
+\log N(\epsilon, F_n, ||\cdot||_\infty)\leq n\beta.
 $$
 Finally, we check the prior mass, which is given by Lemma 1.</p>
-<dl>
+</dd>
 <dt>Proof of Thm 2</dt>
 <dd>Same.</dd>
-</dl>
-</dd>
 </dl>
 
 	</article>
