@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sun, 08 Aug 2021 17:02:19 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Aug 2021 23:28:03 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readding | Estimating a smooth function on a large graph (1)</title>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
+      <pubDate>Fri, 20 Aug 2021 23:28:03 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_1/</guid>
+      <description>This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+ Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515  1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph.</description>
+    </item>
+    
     <item>
       <title>Reading | Bayesian Classification of Multiclass Functional Data</title>
       <link>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</link>
