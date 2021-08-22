@@ -99,7 +99,7 @@ $$
 for some constant $c$.</p>
 <p>Define
 $$
-\Theta_n = \Theta_{n,\alpha} = { p: P(x) = H(\eta(x)), || D^2\eta||_\infty &lt; M_n, |w|\leq \alpha}.<br>
+\Theta_n = \Theta_{n,\alpha} = { p: P(x) = H(\eta(x)), || D^2\eta||_\infty &lt; M_n, |w|\leq \alpha}.
 $$</p>
 <p>Assumptions</p>
 <ul>
@@ -152,7 +152,7 @@ $$
 P(\sup_{t\in T} |W(t) - w(t)| &lt; \epsilon) &gt;0 \quad \text{for all } \epsilon&gt;0.
 $$</dd>
 <dt>proof</dt>
-<dd>W.l.o.g. we assume that $\mu$ is the zero function. Let $\sum_i \sqrt{\lambda_i} \xi_i \phi_i(t)$ be the Karhunen-Loeve expansion of $W(t)$, where $\lambda_i&rsquo;s$ are the eigenvalues of the kernel $\sigma(s,t)$, $\phi_i$ are the corresponding eigenfunctions and $\xi_i$ are independent $N(0,1)$. Represent $w(t)$ also as $\sum_i \sqrt{\lambda_i} a_i \phi_i(t)$, where $\sum_ki \lambda_i a_i^2 &lt;\infty$. It follows from Mercer&rsquo;s theorem that the series $\sum_i \sqrt{\lambda_i} a_i \psi_i(t)$ converges uniformly, and hence, the tail sum is uniformly small.</dd>
+<dd>W.l.o.g. we assume that $\mu$ is the zero function. Let $\sum_i \sqrt{\lambda_i} \xi_i \psi_i(t)$ be the Karhunen-Loeve expansion of $W(t)$, where $\lambda_i&rsquo;s$ are the eigenvalues of the kernel $\sigma(s,t)$, $\psi_i$ are the corresponding eigenfunctions and $\xi_i$ are independent $N(0,1)$. Represent $w(t)$ also as $\sum_i \sqrt{\lambda_i} a_i \psi_i(t)$, where $\sum_ki \lambda_i a_i^2 &lt;\infty$. It follows from Mercer&rsquo;s theorem that the series $\sum_i \sqrt{\lambda_i} a_i \psi_i(t)$ converges uniformly, and hence, the tail sum is uniformly small.</dd>
 </dl>
 <p>Theorem 5
 : Let $\eta$ be a GP on $\mathcal{X}$, a bouned subset of $\mathbb{R}^d$. Assume that the mean function $\mu \in C^\alpha(\mathcal{X})$ and the covariance kernel $\sigma$ has $2\alpha+2$ mixed partial derivatives for some $\alpha\geq 1$. Then $\eta$ has differentiable sample paths with mixed partial derivatives up to order $\alpha$ and the successive derivative process $D^w \eta$ are also Gaussian with continuous sample paths. Also the derivative processes are sub-Gaussian w.r.t. a constant multiple of the Euclidean distance. Further, there exits a constant $d_w$ s.t.
@@ -256,6 +256,11 @@ Finally, we check the prior mass, which is given by Lemma 1.</p>
 <dt>Proof of Thm 2</dt>
 <dd>Same.</dd>
 </dl>
+<h2 id="5-discussion">5. Discussion</h2>
+<p>This paper didn&rsquo;t study the contraction rate. A more general result with contraction rates was studied in</p>
+<ul>
+<li>van der Vaart, A. W., &amp; van Zanten, J. H. (2008). Rates of contraction of posterior distributions based on Gaussian process priors. The Annals of Statistics, 36(3), 1435–1463. <a href="https://doi.org/10/ctnd8h">https://doi.org/10/ctnd8h</a></li>
+</ul>
 
 	</article>
 </main>

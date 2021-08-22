@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Readding | Estimating a smooth function on a large graph (2)" />
+<meta property="og:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+ Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360  1. Main results  Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}.
+$$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&hellip;,Y_n)$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-21T04:18:02+02:00" />
+<meta property="article:modified_time" content="2021-08-21T04:18:02+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_graph_1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Readding | Estimating a smooth function on a large graph (2)"/>
+<meta name="twitter:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+ Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360  1. Main results  Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}.
+$$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&hellip;,Y_n)$."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - Readding | Estimating a smooth function on a large graph (2)
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>Readding | Estimating a smooth function on a large graph (2)</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Aug 21, 2021
+		
+		<span class="tag ml-1">
+			DRAFT
+		</span>
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<p>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.</p>
+<ul>
+<li>Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. <a href="http://arxiv.org/abs/1709.06360">http://arxiv.org/abs/1709.06360</a></li>
+</ul>
+<h2 id="1-main-results">1. Main results</h2>
+<dl>
+<dt>Theorem 1 (<em>Regression</em>)</dt>
+<dd>Under conditions (G), (L) and (S),
+$$
+\inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.<br>
+$$
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&hellip;,Y_n)$.</dd>
+</dl>
+<p>This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta+r)}$.</p>
+<dl>
+<dt>Theorem 2 (<em>Classification</em>)</dt>
+<dd>Under conditions (G), (L) and (S), suppose that the Laplacian eigenfunctions are uniformly bounded by a constant $C$, independent of $n$. Let $\Psi:\mathbb{R}\to (0,1)$ be a differentiable link function with bounded derivative. Then for $\beta\geq r/2$ and $Q&gt;0$
+$$
+\inf_{\hat{\rho}} \sup_{\rho_f: f\in H^\beta(Q)}\mathbb{E}_{f} || \hat{\rho} - \rho_f||_n^2 \asymp n^{-2\beta/(2\beta+r)},
+$$
+where the infimum is taken over all estimators $\hat{\rho} = \hat{\rho}(Y^{(n)})$.</dd>
+</dl>
+<p>Compared to the regression case, there is an extra requirement $\beta\geq r/2$.</p>
+<h2 id="2-preliminaries">2. Preliminaries</h2>
+<p>In the regression case, we assume that<br>
+$$
+Y_i = f_i + \sigma\xi_i,
+$$
+where $\xi_i$ are independent standard Gaussians. Let $\psi_i$ be the orthonormal (normalized) eigenfunctions of the Laplacian matrix s.t.
+$$
+\psi_i^T \psi_i = n.<br>
+$$
+Write $Y = (Y_1,&hellip;,Y_n)$, and  $\xi = (\xi_1,&hellip;,\xi_n)$. Denote
+$$
+\epsilon_i = &lt;\xi, \psi_i&gt;<em>n,
+$$
+and observe that the $h_i$ are centered Gaussian with
+$$
+\mathbb{E} \epsilon_i \epsilon_j = \frac{1}{n} \delta</em>{ij}.
+$$
+The inner product $Z_i := &lt;Y,\psi_i&gt;_n$ satisfy
+$$
+Z_i  = &lt;Y,\psi_i&gt;_n = h_i + \delta \epsilon_i,
+$$
+where $h_i$ are coefficients in the series representation of the target function $f^* = \sum_{i=1}^n h_i \psi_i$. Additionally, consider the decomposition of an estimator $\hat{f} = \sum_{i=1}^n \hat{h}_i \psi_i$. Then
+$$
+||\hat{f} - f^*||_n^2 = \sum_{i=1}^n(h_i - \hat{h}_i)^2.<br>
+$$</p>
+<p>Hence the original problem is converted into the problem of recovering coefficients $h_i$, given the observations
+$$
+\begin{equation}
+Z_i = h_i + \sigma \epsilon_i = h_i + e \xi_i,
+\end{equation}<br>
+$$
+where $e = \sigma/\sqrt{n}$ and $\xi_i$ are independent standard Gaussians. The Sobolev-type ball $H^\beta(Q)$ can be represented in terms of coefficients $h_i$, which is given by
+$$
+B_n(Q) = \{ h\in\mathbb{R}^n: \sum_{i=1}^n a_i^2 h_i^2 \leq Q^2  \},
+$$
+where $a_i^2 = 1 + \lambda_i^{\beta} n^{2\beta/r}$.</p>
+<p>We introduce Pinsker&rsquo;s estimator and recall the linear minimax lemma showing that Pinsker&rsquo;s estimator is optimal in the class of linear estimators. The risk of a linear estimator $\hat{f}(l) = (l_1 Z_1,&hellip;,l_n Z_n)$ with $l = (l_1,&hellip;,l_n)\in\mathbb{R}^n$ is given by
+$$
+R(l,f) = \mathbb{E}<em>f \sum</em>{i=1}^n(\hat{h}<em>i - h_i)^2 = \sum</em>{i=1}^n( (1-l_i)^2 h_i^2 + e^2l_i^2).<br>
+$$
+The Pinsker estimator for $B_n(Q)$ is $\hat{f}(l')$ for $l' = (1+ x a_j)<em>+$, where $x$ is the unique solution of the followsing equation
+$$
+\begin{equation}
+\frac{e^2}{x} \sum</em>{i=1}^n a_j(1 - x a_j)_+ = Q^2.
+\end{equation}<br>
+$$</p>
+<dl>
+<dt>Lemma 1 (<em>Linear minimax lemma</em>)</dt>
+<dd>Suppose that $B_n(Q)$ has positive coefficients $a_i$. Suppose there exists a unique solution $x$ of the equation (2) and suppose that the associated coefficients $l_i'$ satisfy
+$$
+\begin{equation}
+S = e^2 \sum_{i=1}^n l_i'&lt;\infty.
+\end{equation}<br>
+$$
+Then the linear minimax risk satisfies
+$$
+\inf_{l\in\mathbb{R}^n}\sup_{f\in B_n(Q)} R(l,f)  = \sup_{f\in B_n(Q)} R(l',f) = S.
+$$</dd>
+</dl>
+<p>It shows that the Pinsker estimator is the linear minimax estimator.</p>
+<dl>
+<dt>Lemma 2</dt>
+<dd>With $B_n(Q)$ and $a_i^2 = 1 + \lambda_i^\beta n^{2\beta/r}$, we have
+<ol>
+<li>The unique solution of the equation (2) satisfies
+$$
+x\asymp n^{-\beta/(2\beta + r)}.<br>
+$$</li>
+<li>The associated Pinsker&rsquo;s coefficients $l'_i$ satisfy
+$$
+S\asymp n^{-2\beta/(2\beta + r)}.
+$$</li>
+<li>For $e = \sigma/\sqrt{n}$ define $v_i = \frac{e^2(1+xa_j)<em>+}{xa_j}$. Then
+$$
+\max</em>{i\leq n} v_i^2 a_j^2 = O(n^{-r/(2\beta +r)})<br>
+$$</li>
+</ol>
+</dd>
+</dl>
+<h2 id="3-proofs-of-main-results">3. Proofs of main results</h2>
+<dl>
+<dt>Proof of Theorem 1</dt>
+<dd>First, we show the upper bound of the risk. Consider the Pinsker estimator $\hat{f} = (l_1' Z_1,&hellip;,l_n' Z_n)$ with
+$$
+l_i' = (1 - xa_j)<em>+.<br>
+$$
+By Lemma 1 and (ii) of Lemma 2, we conclude that
+$$
+\sup</em>{f\in B_n(Q)} \mathbb{E}<em>f\sum</em>{i}(\hat{h}<em>i - h_i)^2 \asymp n^{-2\beta/(2\beta +r)}.
+$$
+Then we show the lower bound of the risk. Define $N$ by
+$$
+N  = \max\{m: e^2 \sum</em>{i=1}^n a_i(a_m - a_j)&lt; Q^2 \}.<br>
+$$
+Define
+$$
+B_n(Q,N) = \{h^{(N)} = (h_1,&hellip;,h_N, 0 ,&hellip;,0): \sum_{i=1}^N a_i^2 h_i^2 \leq Q^2   \}.
+$$
+Denote the minimax risk by $R_n$, i.e.
+$$
+R_n =   \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2,
+$$
+then we have $B_n(Q,N)\subset B_n(Q)$ and hence
+$$
+R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sup_{f^{(N)}\in B_n(Q,N)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2.
+$$
+Then we can bound the minimax risk from below by the Bayes risk
+$$
+\begin{equation}
+R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \geq I^* - r^*,
+\end{equation}<br>
+$$
+where
+$$
+\begin{align*}
+I^* &amp;= \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \cr
+r^* &amp;= \sup_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N \setminus B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)}.
+\end{align*}
+$$
+From the proof of Pinsker&rsquo;s theorem, we get that
+$$
+I^* \gtrsim S, ; r^* \lesssim \exp(-K(\max_{i\leq n} v_j^2 a_j^2)^{-1}).
+$$
+By Lemma 2, we conclude that $R_n\gtrsim n^{-2\beta/(2\beta+r)}$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Proof of Theorem 2</dt>
+<dd>Consider the estimator $\hat{\rho} = \Psi(\sum_{i=1}^n \hat{h}_i \psi_i)$.</dd>
+</dl>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

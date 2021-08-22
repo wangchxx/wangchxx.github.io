@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="stat" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://wangchxx.github.io/categories/stat/" />
+  <meta property="og:title" content="Emoji Support" />
+<meta property="og:description" content="Guide to emoji usage in Hugo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/example/emoji-support/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-18T10:52:59+08:00" />
+<meta property="article:modified_time" content="2021-07-18T10:52:59+08:00" />
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="stat"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Emoji Support"/>
+<meta name="twitter:description" content="Guide to emoji usage in Hugo"/>
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
   <title>
     
-    My Math Notes - stat
+    My Math Notes - Emoji Support
     
   </title>
   
@@ -64,64 +66,62 @@
 </header>
   
   
-	<main>
+<main>
+	<h1>Emoji Support</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Jul 18, 2021
 		
-			<h2>Category - "stat"</h2>
+		<span class="tag ml-1">
+			DRAFT
+		</span>
 		
-		<div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Aug 20, 2021</div>
-					<a href="/posts/reading/gp_graph_1/">Reading | Estimating a smooth function on a large graph (1)</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Aug 8, 2021</div>
-					<a href="/posts/reading/gp_multiclass_classification/">Reading | Bayesian Classification of Multiclass Functional Data</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Aug 7, 2021</div>
-					<a href="/posts/reading/gpconsistency_for_binary_classification/">Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Aug 7, 2021</div>
-					<a href="/posts/reading/gppriors_for_binary_classification/">Reading | Nonparametric binary regression using a Gaussian process prior</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Aug 5, 2021</div>
-					<a href="/posts/bayes/bayes_7_gp3/">Bayesian Statistics| Gaussian Process Priors (3)</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Jul 22, 2021</div>
-					<a href="/posts/bayes/bayes_6_gp2/">Bayesian Statistics| Gaussian Process Priors (2)</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Jul 21, 2021</div>
-					<a href="/posts/bayes/bayes_4_gp1/">Bayesian Statistics| Gaussian Process Priors (1)</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Jul 20, 2021</div>
-					<a href="/posts/bayes/bayes_5_contraction/">Bayesian Statistics| Posterior Consistency and Contraction</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Jul 19, 2021</div>
-					<a href="/posts/bayes/bayes_3_dirichlet/">Bayesian Statistics| Dirichlet Process</a>
-				</div>
-			
-				<div class="row row-mob mb-1 mb-1_5-mob gap-3">
-					<div class="sm-2-mob mb-0_5-mob">Jul 18, 2021</div>
-					<a href="/posts/bayes/bayes_2_bvm/">Bayesian Statistics| Bernstein-von Mises Theorem</a>
-				</div>
-			
-		</div>
-	</main>
+	</div>
+	<p>Guide to emoji usage in Hugo</p>
+	<article class="md">
+		<p>Emoji can be enabled in a Hugo project in a number of ways.</p>
+<p>The <a href="https://gohugo.io/functions/emojify/"><code>emojify</code></a> function can be called directly in templates or <a href="https://gohugo.io/templates/shortcode-templates/#inline-shortcodes">Inline Shortcodes</a>.</p>
+<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href="https://gohugo.io/getting-started/configuration/">configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
+<!-- raw HTML omitted -->
+<p>The <a href="http://www.emoji-cheat-sheet.com/">Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
+<hr>
+<p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">.emoji {
+  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+}</code></pre></td></tr></table>
+</div>
+</div>
+	</article>
+</main>
+	
+
+	
+		<div id="disqus_thread" class="mt-2"></div>
+<script type="text/javascript">
+  (function () {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    const dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    const disqus_shortname = 'hugo-minima';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a></noscript>
+	
+
+	
+
 
 
   <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
