@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 20 Aug 2021 23:28:03 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Aug 2021 04:18:02 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading | Estimating a smooth function on a large graph (2)</title>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>
+      <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_2/</guid>
+      <description>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+ Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360  1. Main results  Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&amp;hellip;,Y_n)$.</description>
+    </item>
+    
     <item>
       <title>Reading | Estimating a smooth function on a large graph (1)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
