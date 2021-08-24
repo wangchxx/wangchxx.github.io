@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RL| Multi-armed Bandits" />
+<meta property="og:description" content="Notations    $A_t$: the action selected at time $t$.
+  $R_t$: the reward received at time $t$.
+  $q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
+  $Q_t(a)$: the estimated value of action $a$ at time $t$.
+   1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-24T00:56:37+02:00" />
+<meta property="article:modified_time" content="2021-08-24T00:56:37+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RL| Multi-armed Bandits"/>
+<meta name="twitter:description" content="Notations    $A_t$: the action selected at time $t$.
+  $R_t$: the reward received at time $t$.
+  $q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
+  $Q_t(a)$: the estimated value of action $a$ at time $t$.
+   1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - RL| Multi-armed Bandits
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>RL| Multi-armed Bandits</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Aug 24, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="notations">Notations</h2>
+<hr>
+<ul>
+<li>
+<p>$A_t$: the action selected at time $t$.</p>
+</li>
+<li>
+<p>$R_t$: the reward received at time $t$.</p>
+</li>
+<li>
+<p>$q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.</p>
+</li>
+<li>
+<p>$Q_t(a)$: the estimated value of action $a$ at time $t$.</p>
+</li>
+</ul>
+<hr>
+<h2 id="1-a-k-armed-bandit-problem">1. A k-armed Bandit Problem</h2>
+<p>Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.</p>
+<p>However, the value $q_*(a)$ is usually unknown, we need to estimate it by $Q_t(a)$, and we would like $Q_t(a)$ to be close to $q_*(a)$.</p>
+<h3 id="11-action-value-methods">1.1 Action-value methods</h3>
+<p>One natural way to estimate this is by averaging the rewards received
+$$
+Q_t(a) = \frac{\sum_{i=1}^{t-1} R_i 1_{A_i = a}}{\sum_{i=1}^{t-1} 1_{A_i = a}}
+$$</p>
+<p>Then the simplest action selection rule is $A_t = \arg\max_{a} Q_t(a)$, which is also known as *greedy* method. Greedy action selection always exploits current knowledge, and never tries inferior actions. An alternative method is called *$\epsilon$-greedy* that select random actions with some probability.</p>
+<h3 id="12-incremental-methods">1.2 Incremental methods</h3>
+<p>The action-value methods save all action rewards. A more efficient way is
+$$
+\begin{align*}
+Q_{n+1} &amp;= \frac{1}{n}\sum_{i=1}^n R_i \cr
+&amp;= \frac{1}{n}(R_n + \sum_{i=1}^{n-1} R_i) \cr
+&amp;= \frac{1}{n}(R_n + (n-1)Q_{n}) \cr
+&amp;= Q_{n} + \frac{1}{n}(R_n - Q_n)
+\end{align*}
+$$
+where the notation for action $a$ is omitted for simplicity.</p>
+<p>In some cases, the reward probabilities are nonstationary, i.e. the reward probabilities change over time. In such cases, we give more weight to recent rewards. We introduce a discounting factor $\alpha\in(0,1)$. We can update the values by
+$$
+Q_{n+1} = Q_n + \alpha (R_n - Q_n),
+$$
+which results in a weighted average of past rwards,
+$$
+\begin{align*}
+Q_{n+1} &amp;=  Q_n + \alpha (R_n - Q_n) \cr
+&amp;= (1-\alpha)^n Q_1  + \alpha \sum_{i=1}^n (1-\alpha)^{n-i} R_i.
+\end{align*}
+$$</p>
+<h2 id="2-ucb-action-selection">2. UCB Action Selection</h2>
+<p>The $\epsilon$-greedy method try non-greedy actions with equal probability. It would be better to select among the non-greedy actions according to their likelihood of being optimal. The UCB method selects action by
+$$
+A_t  = \arg\max_a \bigg[Q_t(a) + c \sqrt{\frac{\log t}{N_t(a)}}\bigg],
+$$
+where $N_t(a)$ is the number of times that action $a$ has been selected until time $t$.</p>
+<h2 id="3-gradient-algorithms">3. Gradient Algorithms</h2>
+<p>So far we have considered methods that estimate action values and use them to select actions. Now we introduce a method that learns the preference for each action $a$, denoted by $H_t(a)$. Then we select actions by
+$$
+\Pr(A_t = a) = \frac{\exp(H_t(a))}{\sum_{b=1}^k \exp(H_t(b))}  := \pi_t(a).
+$$
+We would like to generate a policy $\pi$ with high performance, measured in terms of expected reward, so  we can update $H_t(a)$ by the gradient ascent method,
+$$
+\begin{equation}
+H_{t+1}(a) = H_t(a) + \alpha \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)},
+\end{equation}
+$$
+where
+$$
+\mathbb{E}[R_t] = \sum_{x} \pi_t(x) q_*(x).
+$$
+Of course, it is not possible to implement the algorithm exactly since $q_*(x)$ are unknown. Take a closer look at the gradient
+$$
+\begin{align*}
+\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} &amp;= \frac{\partial }{\partial H_t(a)} \left[  \sum_{x} \pi_t(x) q_*(x) \right] \cr
+&amp;= \sum_x q_*(x) \frac{\partial }{\partial H_t(a)} \pi_t(x) \cr
+&amp;= \sum_x (q_*(x) - B_t)\frac{\partial }{\partial H_t(a)} \pi_t(x),
+\end{align*}
+$$
+where $B_t$, called the *baseline*, does not depend on $x$. The last equality holds because the gradient sums to zero over all actions, i.e. $\sum_x \frac{\partial }{\partial H_t(a)} \pi_t(x) = 0$. Next, we rewrite it in the expectation form
+$$
+\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \sum_x \pi_t(x)(q_*(x) - B_t)\frac{\partial \pi_t(x)}{\partial H_t(a)} /\pi_t(x).
+$$
+It can be represented as
+$$
+\mathbb{E}\left[ (q_*(A_t) - B_t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right]  \approx \mathbb{E}\left[ (R_t - \bar{R}_t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right],
+$$
+where $\bar{R}_t$ is the average of all rewards up to but not including time $t$. Note that the $\pi_t$ is in the form of soft-max function, so the partial derivative $\frac{\partial \pi_t(x)}{\partial H_t(a)}$ can be easily computed
+$$
+\frac{\partial \pi_t(x)}{\partial H_t(a)}  = \pi_t(x) (1_{a=x} - \pi_t(a)).
+$$
+Combining all above, we have
+$$
+\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \mathbb{E}\left[ (R_t - \bar{R}_t)  (1_{a=A_t} - \pi_t(a)) \right].
+$$
+Using a sample of the expectation to estimate the expectation yields
+$$
+H_{t+1}(a) = H_t(a) + \alpha  (R_t - \bar{R}_t)(1_{a=A_t} - \pi_t(a)).
+$$</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

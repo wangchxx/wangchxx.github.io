@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RL| Dynamic Programming" />
+<meta property="og:description" content="DP is of limited utility in RL both because of their assumption of a perfect model (environment&rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.
+1. Policy Evaluation Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$, $$ \begin{equation} v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s&#39;,r} p(s&#39;,r|s,a) (r &#43; \gamma v_\pi(s&#39;)). \end{equation} $$ If the environment&rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-24T03:00:31+02:00" />
+<meta property="article:modified_time" content="2021-08-24T03:00:31+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RL| Dynamic Programming"/>
+<meta name="twitter:description" content="DP is of limited utility in RL both because of their assumption of a perfect model (environment&rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.
+1. Policy Evaluation Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$, $$ \begin{equation} v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s&#39;,r} p(s&#39;,r|s,a) (r &#43; \gamma v_\pi(s&#39;)). \end{equation} $$ If the environment&rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - RL| Dynamic Programming
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>RL| Dynamic Programming</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Aug 24, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<p>DP is of limited utility in RL both because of their assumption of a perfect model (environment&rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.</p>
+<h2 id="1-policy-evaluation">1. Policy Evaluation</h2>
+<p>Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$,
+$$
+\begin{equation}
+v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) (r + \gamma v_\pi(s')).
+\end{equation}
+$$
+If the environment&rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations. Its solution is straightforward by computation. Alternatively, it can be solved by iterative methods.</p>
+<p>Given an initial approximation $v_0$, by the Bellman equation (1), the successive approximation can be obtained by
+$$
+v_{k+1}(s):=   \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) (r + \gamma v_k(s')).
+$$
+If the $v_\pi$ exits ($\gamma&lt;1$), the sequence $v_k$ would converge to $v_\pi$ as $k\to\infty$.</p>
+<p>Moreover, in view of the special form of Bellman optimality equation for $v_*$,<br>
+$$
+v_*(s) = \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')],
+$$
+that it does not involve the factor $\pi_*(a|s)$. It implies that we can estimate $v_*$ even though we do not know what the optimal policy is. In particular, we can  estimate $v_*$ by
+$$
+v_{k+1}(s) = \max_{a} \sum_{s',r} p(s',r|s,a)(r +\gamma v_k(s')).
+$$</p>
+<h2 id="2-policy-iteration">2. Policy Iteration</h2>
+<p>For simplicity, we take the deterministic policy $\pi$ as an example. Suppose we have solved the value function $v_\pi$ for an arbitrary deterministic policy $\pi$, we want to improve it.</p>
+<dl>
+<dt><em>Theorem 3.1 (policy improvement theorem)</em></dt>
+<dd>Let $\pi,\pi'$ be any pair of deterministic policies s.t., for all $s\in\mathcal{S}$,
+$$
+q_\pi(s, \pi'(s)) \geq v_\pi(s),
+$$
+then $v_{\pi'}(s) \geq v_\pi(s)$ for all $s\in\mathcal{S}$.</dd>
+<dt><em>Proof</em></dt>
+<dd>By the Bellman equation for $q_\pi$, we have
+$$
+q_\pi(s,a) = \sum_{s',r} p(s',r|s,a)[r + \gamma v_\pi(s')].
+$$
+Then by the given condition, we have
+$$
+\begin{align*}
+v_\pi(s) &amp;\leq q_\pi(s,\pi'(s)) \cr
+&amp;= \mathbb{E}[R_{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s, A_t = \pi'(s)] \cr
+&amp;= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s]\cr
+&amp;\leq \mathbb{E}_{\pi'}[R_{t+1}+ \gamma q_{\pi}(S_{t+1}, \pi'(S_{t+1}))| S_t = s]\cr
+&amp;= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma \mathbb{E}[R_{t+2} + \gamma v_\pi(S_{t+2})|S_{t+1}, A_{t+1} = \pi'(S_{t+1})]| S_t = s]\cr
+&amp;= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma R_{t+2} + \gamma^2 v_\pi(S_{t+2})| S_t = s] \cr
+&amp;\vdots \cr
+&amp;\leq \mathbb{E}_{\pi'}[R_{t+1}+ \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots| S_t = s] = v_{\pi'}(s).
+\end{align*}
+$$</dd>
+</dl>
+<p>$\Box$</p>
+<p>This theorem implies that we can obtain an improved policy $\pi'$ by
+$$
+\begin{align*}
+\pi'(s) &amp;:= \arg\max_{a} q_\pi(s,a) \cr
+&amp;=\arg\max_a \sum_{s',r}p(s',r|s,a) [ r+ \gamma v_\pi(s')].
+\end{align*}
+$$</p>
+<p>Suppose that we have got the new policy $\pi'$ s.t. $v_\pi = v_{\pi'}$, then it follows that
+$$
+v_{\pi'}(s)  = \max_a  \sum_{s',r} p(s',r|s,a) [r + \gamma v_{\pi'}(s')].
+$$
+This is the same as the Bellman equation for $v_{*}$, and hence $\pi'$ must be the optimal policy. So far we have shown how to get an optimal deterministic policy. In the general case, a stochastic policy $\pi$ can be improved by the same way.</p>
+<p>So far we have studied how to improve a policy $\pi$ using its value function $v_\pi$. We can thus improve it iteratively: given an initial policy $\pi_0$,
+$$
+\pi_0 \xrightarrow{E} v_{\pi_0} \xrightarrow{I} \pi_1  \xrightarrow{E} v_{\pi_1} \to \cdots \pi_* \xrightarrow{E} v_*,
+$$
+where $\xrightarrow{E}$ denotes a policy evaluation and $\xrightarrow{I}$ denotes a policy improvement. This way of finding an optimal policy is called *policy iteration*.</p>
+<h2 id="3-value-iteration">3. Value Iteration</h2>
+<p>One drawback of policy iteration is that each step involves policy evaluation, which may itself be an iterative computation. One may consider truncating the policy evaluation in some ways without losing convergence.</p>
+<p>The idea of the <em>value iteration</em> algorithm is to estimate the optimal value function $v_*$ first, and then do the policy improvement. In other words,
+$$
+v_0 \to v_1 \to \cdots \to v_*   \xrightarrow{I} \pi_{*},
+$$
+where the policy evaluation steps are given by
+$$
+v_{k+1}(s) = \max_{a} \sum_{s',r} p(s',r|s,a)(r +\gamma v_k(s')).
+$$</p>
+<p>Note that the value iteration requires the maximum to be taken over all actions.</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

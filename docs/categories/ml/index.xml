@@ -7,7 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sat, 21 Aug 2021 04:18:02 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 03:00:31 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL| Dynamic Programming</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
+      <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
+      <description>DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.
+1. Policy Evaluation Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$, $$ \begin{equation} v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s&#39;,r} p(s&#39;,r|s,a) (r + \gamma v_\pi(s&#39;)). \end{equation} $$ If the environment&amp;rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations.</description>
+    </item>
+    
+    <item>
+      <title>RL| Markov Decision Processes</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
+      <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
+      <description>Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP.</description>
+    </item>
+    
+    <item>
+      <title>RL| Multi-armed Bandits</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
+      <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</guid>
+      <description>Notations    $A_t$: the action selected at time $t$.
+  $R_t$: the reward received at time $t$.
+  $q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
+  $Q_t(a)$: the estimated value of action $a$ at time $t$.
+   1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected.</description>
+    </item>
+    
     <item>
       <title>Reading | Estimating a smooth function on a large graph (2)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>

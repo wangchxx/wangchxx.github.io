@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RL| Markov Decision Processes" />
+<meta property="og:description" content="Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-24T03:00:02+02:00" />
+<meta property="article:modified_time" content="2021-08-24T03:00:02+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RL| Markov Decision Processes"/>
+<meta name="twitter:description" content="Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - RL| Markov Decision Processes
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>RL| Markov Decision Processes</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Aug 24, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h2 id="notations">Notations</h2>
+<hr>
+<ul>
+<li>$\mathcal{S}$: state space.</li>
+<li>$\mathcal{A}$: action space.</li>
+<li>$\mathcal{R}$: reward space.</li>
+</ul>
+<hr>
+<h2 id="1-agent-environment-scheme">1. Agent-Environment Scheme</h2>
+<p>On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.</p>
+<p>Write
+$$
+p(s',r|s,a) = \Pr(S_t = s', R_t = r| S_{t-1} = s, A_{t-1} = a).
+$$
+The function $p$ defines the *dynamics* of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as</p>
+<ol>
+<li>state-transition probabilities.
+$$
+p(s'|s,a) = \sum_{r\in\mathcal{R}} p(s',r|s,a).
+$$</li>
+<li>expected rewards given $(s,a)$.
+$$
+r(s,a) = \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a] = \sum_{r} r \sum_{s'} p(s',r|s,a).
+$$</li>
+<li>expected rewards given $(s,a,s')$.
+$$
+r(s,a,s') =   \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a, S_t = s'] = \sum_{r} r \frac{p(s',r|s,a)}{p(s'|s,a)}.
+$$</li>
+</ol>
+<p>The objective is to maximize the expected <em>return</em>, denoted $G_t$, that measures the cumulative reward in the long run. The simplest definition is given by
+$$
+G_t = R_{t+1} + R_{t+2} + \cdots<br>
+$$</p>
+<p>Given a discount factor $\gamma\in[0,1]$, we can define the <em>discounted return</em> by
+$$
+G_t =   R_{t+1} + \gamma R_{t+2} + \cdots  = \sum_{k=1}^\infty \gamma^k R_{t+k+1} = R_{t+1} + \gamma G_{t+1}.
+$$</p>
+<h2 id="2-policies-and-value-functions">2. Policies and Value Functions</h2>
+<dl>
+<dt><em>Definition 2.1 (policy)</em></dt>
+<dd>A policy is a mapping $\pi:\mathcal{S}\to \mu(\mathcal{A})$ where $\mu$ is a probability measure. We use the notion $\pi(a|s)$ to denote the probability that $A_t  =a $ given the state $S_t = s$.</dd>
+<dt><em>Definition 2.2 (value function)</em></dt>
+<dd>The value function of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expected return when starting in state $s$ and following the policy $\pi$. For MDPs, we can define $v_\pi(s)$ by
+$$
+v_\pi(s) = \mathbb{E}_{\pi}[G_t|S_t = s] = \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s \right].
+$$</dd>
+<dt><em>Definition 2.3 (action-value function)</em></dt>
+<dd>The action-value function of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, is defined as the expected return starting from state $s$, taking the action $a$ and following the policy $\pi$, i.e.
+$$
+q_\pi(s,a) =    \mathbb{E}_{\pi}[G_t|S_t = s, A_t = a] = \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s, A_t = a \right].
+$$</dd>
+</dl>
+<p>A fundamental property of value functions is that they satisfy recursive relationships
+$$
+\begin{align}
+v_\pi(s) &amp;= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1}|S_t = s] \cr
+&amp;= \sum_a \pi(a|s) \sum_{s'}\sum_{r} p(s',r|s,a) \left( r + \gamma \mathbb{E}_\pi[G_{t+1}|S_{t+1} = s']  \right)
+\end{align}
+$$</p>
+<p>Equation (2) is the *Bellman equation for $v_\pi$*. It expresses a relationship between the value of a state and the values of its successor states.</p>
+<h2 id="3-optimal-policies-and-optimal-value-functions">3. Optimal Policies and Optimal Value Functions</h2>
+<p>We would like to find a policy that achieves highest expected return. We say a policy $\pi$ is better than policy $\pi'$ if $v_\pi(s) \geq v_{\pi'}(s)$ for all $s\in\mathcal{S}$. There is always at least one optimal policy, denoted $\pi_*$. Then we can define</p>
+<ul>
+<li>optimal value function.
+$$
+v_*(s):= \max_{\pi}v_\pi(s).
+$$</li>
+<li>optimal action-value function.
+$$
+q_*(s,a) = \max_\pi q_\pi(s,a).
+$$</li>
+</ul>
+<p>If there are more than one optimal policies, they share the same value functions and action-value functions.</p>
+<p>The Bellman equation (2) for the optimal value function $v_*$ can be written in a specific form.
+$$
+\begin{align}
+v_*(s) &amp;= \max_{a} q_{\pi_*}(s,a) \cr
+&amp;= \max_a \mathbb{E}_{\pi_*}[R_{t+1}+ \gamma G_{t+1}|S_t = s, A_t = a] \cr
+&amp;= \max_a \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
+&amp;= \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')].
+\end{align}
+$$</p>
+<p>The Bellman equation for optimal action-value function $q_*$ is
+$$
+\begin{align}
+q_*(s,a) &amp;= \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
+&amp;= \mathbb{E}[R_{t+1}+ \gamma \max_{a'} q_*(S_{t+1},a')|S_t = s, A_t = a] \cr
+&amp;=\sum_{s'}\sum_{r} p(s',r|s,a) [r + \gamma \max_{a'} q_*(s',a')].
+\end{align}
+$$</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

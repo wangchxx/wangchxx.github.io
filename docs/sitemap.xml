@@ -3,24 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wangchxx.github.io/categories/</loc>
-    <lastmod>2021-08-21T04:18:02+02:00</lastmod>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/ml/</loc>
-    <lastmod>2021-08-21T04:18:02+02:00</lastmod>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/</loc>
-    <lastmod>2021-08-21T04:18:02+02:00</lastmod>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/</loc>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/series/reinforcement-learning/</loc>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/categories/rl/</loc>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</loc>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/series/</loc>
+    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</loc>
+    <lastmod>2021-08-24T03:00:02+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</loc>
+    <lastmod>2021-08-24T00:56:37+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/paper-reading/</loc>
     <lastmod>2021-08-21T04:18:02+02:00</lastmod>
   </url><url>
-    <loc>https://wangchxx.github.io/posts/</loc>
-    <lastmod>2021-08-21T04:18:02+02:00</lastmod>
-  </url><url>
     <loc>https://wangchxx.github.io/posts/reading/gp_graph_2/</loc>
-    <lastmod>2021-08-21T04:18:02+02:00</lastmod>
-  </url><url>
-    <loc>https://wangchxx.github.io/series/</loc>
     <lastmod>2021-08-21T04:18:02+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/stat/</loc>
