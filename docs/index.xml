@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Tue, 24 Aug 2021 03:00:31 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 18:28:15 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Model-Free: Temporal Difference Learning</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
+      <pubDate>Tue, 24 Aug 2021 18:28:15 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</guid>
+      <description>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
+1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs.</description>
+    </item>
+    
+    <item>
+      <title>RL | Model-Free: Monte Carlo Methods</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</link>
+      <pubDate>Tue, 24 Aug 2021 18:27:52 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</guid>
+      <description>We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
+In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
+1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$.</description>
+    </item>
+    
     <item>
       <title>RL | Dynamic Programming</title>
       <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>

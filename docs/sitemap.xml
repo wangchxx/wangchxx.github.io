@@ -3,27 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wangchxx.github.io/categories/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/ml/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/reinforcement-learning/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/rl/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
-    <loc>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</loc>
-    <lastmod>2021-08-24T03:00:31+02:00</lastmod>
+    <loc>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</loc>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/</loc>
+    <lastmod>2021-08-24T18:28:15+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</loc>
+    <lastmod>2021-08-24T18:27:52+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</loc>
     <lastmod>2021-08-24T03:00:31+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</loc>
