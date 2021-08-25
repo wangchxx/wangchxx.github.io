@@ -188,7 +188,7 @@ This rules uses the tuple $(S_t, A_t, R_{t+1}, S_{t+1}, A_{t+1})$, that makes up
 <li>choose action $A_{t+1}$ using policy derived from $Q$ (e.g., $\epsilon$-greedy).</li>
 <li>incremental update $Q$ by
 $$
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].<br>
+Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].
 $$</li>
 </ul>
 </li>
