@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="RL| Markov Decision Processes" />
+  <meta property="og:title" content="RL | Markov Decision Processes" />
 <meta property="og:description" content="Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
 Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP." />
 <meta property="og:type" content="article" />
@@ -14,7 +14,7 @@ Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RL| Markov Decision Processes"/>
+<meta name="twitter:title" content="RL | Markov Decision Processes"/>
 <meta name="twitter:description" content="Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
 Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP."/>
 
@@ -23,7 +23,7 @@ Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
   <title>
     
-    My Math Notes - RL| Markov Decision Processes
+    My Math Notes - RL | Markov Decision Processes
     
   </title>
   
@@ -70,7 +70,7 @@ Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
   
   
 <main>
-	<h1>RL| Markov Decision Processes</h1>
+	<h1>RL | Markov Decision Processes</h1>
 	<div class="sm-1 mtb-1">
 		Posted at &mdash; Aug 24, 2021
 		
@@ -126,17 +126,22 @@ $$</dd>
 <dt><em>Definition 2.3 (action-value function)</em></dt>
 <dd>The action-value function of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, is defined as the expected return starting from state $s$, taking the action $a$ and following the policy $\pi$, i.e.
 $$
-q_\pi(s,a) =    \mathbb{E}_{\pi}[G_t|S_t = s, A_t = a] = \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s, A_t = a \right].
+\begin{align*}
+q_\pi(s,a) &amp;=    \mathbb{E}_{\pi}[G_t|S_t = s, A_t = a] \cr
+&amp;= \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s, A_t = a \right] \cr
+&amp;= r(s,a) + \gamma \sum_{s'} p(s'|s,a) \sum_{a'} \pi(a'|s') q_\pi(s',a').
+\end{align*}
 $$</dd>
 </dl>
 <p>A fundamental property of value functions is that they satisfy recursive relationships
 $$
 \begin{align}
 v_\pi(s) &amp;= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1}|S_t = s] \cr
-&amp;= \sum_a \pi(a|s) \sum_{s'}\sum_{r} p(s',r|s,a) \left( r + \gamma \mathbb{E}_\pi[G_{t+1}|S_{t+1} = s']  \right)
+&amp;= \sum_a \pi(a|s) \sum_{s'}\sum_{r} p(s',r|s,a) \left( r + \gamma \mathbb{E}_\pi[G_{t+1}|S_{t+1} = s']  \right) \cr
+&amp;= \sum_a \pi(a|s) \left( r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_\pi(s') \right).
 \end{align}
 $$</p>
-<p>Equation (2) is the *Bellman equation for $v_\pi$*. It expresses a relationship between the value of a state and the values of its successor states.</p>
+<p>Equation (3) is the *Bellman equation for $v_\pi$*. It expresses a relationship between the value of a state and the values of its successor states.</p>
 <h2 id="3-optimal-policies-and-optimal-value-functions">3. Optimal Policies and Optimal Value Functions</h2>
 <p>We would like to find a policy that achieves highest expected return. We say a policy $\pi$ is better than policy $\pi'$ if $v_\pi(s) \geq v_{\pi'}(s)$ for all $s\in\mathcal{S}$. There is always at least one optimal policy, denoted $\pi_*$. Then we can define</p>
 <ul>
@@ -156,7 +161,8 @@ $$
 v_*(s) &amp;= \max_{a} q_{\pi_*}(s,a) \cr
 &amp;= \max_a \mathbb{E}_{\pi_*}[R_{t+1}+ \gamma G_{t+1}|S_t = s, A_t = a] \cr
 &amp;= \max_a \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
-&amp;= \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')].
+&amp;= \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')] \cr
+&amp;= \max_a r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_*(s')
 \end{align}
 $$</p>
 <p>The Bellman equation for optimal action-value function $q_*$ is
@@ -164,7 +170,8 @@ $$
 \begin{align}
 q_*(s,a) &amp;= \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
 &amp;= \mathbb{E}[R_{t+1}+ \gamma \max_{a'} q_*(S_{t+1},a')|S_t = s, A_t = a] \cr
-&amp;=\sum_{s'}\sum_{r} p(s',r|s,a) [r + \gamma \max_{a'} q_*(s',a')].
+&amp;=\sum_{s'}\sum_{r} p(s',r|s,a) [r + \gamma \max_{a'} q_*(s',a')] \cr
+&amp;= r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_*(s').
 \end{align}
 $$</p>
 

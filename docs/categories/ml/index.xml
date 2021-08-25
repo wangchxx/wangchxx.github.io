@@ -9,17 +9,17 @@
     <copyright>© Copyright notice</copyright>
     <lastBuildDate>Tue, 24 Aug 2021 03:00:31 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RL| Dynamic Programming</title>
+      <title>RL | Dynamic Programming</title>
       <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
       
       <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
-      <description>DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.
-1. Policy Evaluation Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$, $$ \begin{equation} v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s&#39;,r} p(s&#39;,r|s,a) (r + \gamma v_\pi(s&#39;)). \end{equation} $$ If the environment&amp;rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations.</description>
+      <description>There are two common tasks in an MDP
+ prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP.  In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.</description>
     </item>
     
     <item>
-      <title>RL| Markov Decision Processes</title>
+      <title>RL | Markov Decision Processes</title>
       <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
       
@@ -29,7 +29,7 @@ Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
     </item>
     
     <item>
-      <title>RL| Multi-armed Bandits</title>
+      <title>RL | Multi-armed Bandits</title>
       <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
       <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
       
