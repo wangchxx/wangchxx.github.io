@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Wed, 25 Aug 2021 22:17:58 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/rl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Aug 2021 03:20:07 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/rl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Policy Gradient Methods</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
+      <pubDate>Thu, 26 Aug 2021 03:20:07 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</guid>
+      <description>So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.</description>
+    </item>
+    
     <item>
       <title>RL | Value Function Approximation</title>
       <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
@@ -56,7 +66,7 @@ In this chapter we will consider the Monte Carlo methods for prediction and cont
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
       
       <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
-      <description>Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Scheme On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.
+      <description>Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.
 Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP.</description>
     </item>
     

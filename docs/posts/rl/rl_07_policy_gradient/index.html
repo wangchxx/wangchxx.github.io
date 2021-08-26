@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RL | Policy Gradient Methods" />
+<meta property="og:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-26T03:20:07+02:00" />
+<meta property="article:modified_time" content="2021-08-26T03:20:07+02:00" />
+<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RL | Policy Gradient Methods"/>
+<meta name="twitter:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods."/>
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - RL | Policy Gradient Methods
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>RL | Policy Gradient Methods</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Aug 26, 2021
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<p>So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.</p>
+<p>One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.</p>
+<h2 id="1-the-policy-gradient-theorem">1. The Policy Gradient Theorem</h2>
+<p>First we consider how to measure the performance of the parameter $\theta$. In episodic case, we can assume a fixed start state $s_0$ w.l.o.g. and define the performance as
+$$
+\begin{align}
+J(\theta) = v_{\pi_\theta}(s_0),
+\end{align}
+$$
+where $v_{\pi_\theta}(s_0)$ is the value function for policy $\pi_\theta$, the policy determined by $\theta$. In continuous case, where not start states or termination exit and no discounting factor for future rewards, we need to define performance in terms of the average rate of reward per time step:
+$$
+\begin{align}
+J(\theta) &amp;= \sum_s \mu_{\pi_\theta}(s) R_{\pi_\theta}(s) = \mathbb{E}_{\pi_\theta}[r],
+\end{align}
+$$
+Where $R_{\pi}(s)$ is the expected reward at state $s$ following the policy $\pi$, i.e. $R_\pi(s) = \sum_a \pi(a|s) r(s,a)$ and $\mu_\pi$ is the stationary measure of Markov chain for policy $\pi$.</p>
+<dl>
+<dt><em>Theorem 7.1 (policy gradient theorem)</em></dt>
+<dd>For any differentiable policy $\pi_\theta$, for both episodic and continuous cases, the gradient of $J(\theta) $ w.r.t. $\theta$ is
+$$
+\begin{equation}
+\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+\end{equation}
+$$</dd>
+</dl>
+<p>Naturally, we can define the loss function as $L(\theta) = -J(\theta)$, and improve the performance by SGD.</p>
+<dl>
+<dt><em>Proof</em></dt>
+<dd>For the epidotic case,
+$$
+\begin{align*}
+\nabla_\theta v_\pi(s) &amp;= \nabla_\theta \left[\sum_{a} \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right] \cr
+&amp;= \sum_{a} \left[ \nabla_\theta\pi_\theta(a|s) q_{\pi_\theta}(s,a) + \pi_\theta(a|s) \nabla_\theta q_{\pi_\theta}(s,a) \right] \cr
+&amp;= \sum_{x\in\mathcal{S}} \sum_n P^{\pi_\theta}_n(x|s) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a)\cr
+&amp;= \sum_{x\in\mathcal{S}} \eta(x) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a),
+\end{align*}
+$$
+where $P^\pi_n$ is the n-step transition probability following $\pi$, and $\eta(s)$ is the time spent on state $s$. It follows that
+$$
+\begin{align*}
+\nabla_\theta J(\theta) &amp;= \nabla_\theta v_\pi(s_0) \cr
+&amp;=\sum_{s} \eta(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;= \sum_{s'} \eta(s') \sum_{s} \frac{\eta(s)}{\sum \eta(s')} \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;= \sum_{s'} \eta(s') \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;\propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a).
+\end{align*}
+$$
+For the continuous case, we also have $\nabla_\theta J(\theta) = \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a)$. Since $\nabla_\theta \pi_\theta = \pi_\theta \nabla_\theta  \log \pi_\theta$, we see that
+$$
+\begin{align}
+\sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) &amp;= \sum_s \mu_{\pi_\theta}(s) \sum_a  \pi_\theta(a|s) \nabla_\theta  \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;=  \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+\end{align}
+$$</dd>
+</dl>
+<p>$\Box$</p>
+<h2 id="2-monte-carlo-policy-gradient">2. Monte Carlo Policy Gradient</h2>
+<p>Update $\theta$ by
+$$
+\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
+$$</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Monte Carlo Policy Gradient (REINFORCE)(episodic)</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Initialize $\theta$.</li>
+<li>Repeat: for each episode from $\pi_\theta$,
+<ul>
+<li>Update $\theta$ by
+$$
+\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
+$$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>However, Monte-Carlo policy gradient may of high variance and thus produce slow learning. One solution to this is to conclude a baseline $b(s)$ that does not depend on $a$. Then we have
+$$
+\nabla_\theta J(\theta) \propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) (q_{\pi_\theta}(s,a) - b(s)).
+$$
+The equation remains valid since the gradient of a probability measure sums up to 0. The update rule now becomes
+$$
+\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t)( G_t - b(S_t)).
+$$</p>
+<p>Moreover, the baseline function $b$ can be defined as a learnable function $b(s,w)$.</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>REINFORCE with Baseline (episodic)</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Initialize $\theta,w$.</li>
+<li>Initialize $S_0$</li>
+<li>Repeat: for each episode from $\pi_\theta$,
+<ul>
+<li>Compute $\delta = G_t - b(S_t,w)$</li>
+<li>Update $\theta$ by
+$$
+\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
+$$</li>
+<li>Update $w$ by
+$$
+w \leftarrow  w +  \alpha_w \nabla_w b(S_t, w) \delta.
+$$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-actor-critic-policy-gradient">3. Actor-Critic Policy Gradient</h2>
+<p>Methods that learn approximations to both policy and value functions are called <em>actor-critic methods</em>, where &lsquo;actor&rsquo; refers to the learned policy, and &lsquo;critic&rsquo; refers to the learned value function.</p>
+<p>Although the REINFORCE with baseline method learns both a policy and a state-value function, we don&rsquo;t consider it to be an actor-critic method because its state-value function is used only as a baseline.</p>
+<p>To apply the actor-critic method, we need approximate $q_\pi(s,a)$ using a learnable function $Q(s,a,w)$. First consider one-step actor-critic methods:</p>
+<ul>
+<li>actor: update $\theta$ by policy gradient.</li>
+<li>critic: update $w$ by TD(0).</li>
+</ul>
+<p>One-step AC methods replace the return $G_t$ with the one-step return $R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>One-step Aactor-Critic (episodic and continuous)</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Initialize $\theta,w$.</li>
+<li>Initialize $S_0$.</li>
+<li>Repeat: for each time step,
+<ul>
+<li>Choose action $A_t \sim \pi_\theta(\cdot|S_t)$, and observe $S_{t+1}, R_{t+1}$.</li>
+<li>Compute $\delta = R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$.</li>
+<li>Update $\theta$ by
+$$
+\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
+$$</li>
+<li>Update $w$ by
+$$
+w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta.
+$$</li>
+</ul>
+</li>
+</ul>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
+<hr>
+<p>Note that one-step methods are fully online and incremental. But the approximation to policy gradient is biased now since $Q$ dependents on action $A_t$. A biased policy gradient may not find the right solution. The following theorem shows that the bias can be avoid if we choose value function approximation carefully.</p>
+<dl>
+<dt><em>Theorem 7.2 (compatible function approximation theorem)</em></dt>
+<dd>If the value function approximation satisfies
+<ol>
+<li>Value function approximation is <em>compatible</em> to the policy, i.e.
+$$
+\nabla_w Q(s,a,w) = \nabla_\theta \log \pi_\theta(a|s).
+$$</li>
+<li>Parameters $w$ of $Q$ minimize the MSE
+$$
+\epsilon = \mathbb{E}_{\pi_\theta} [ q_{\pi_\theta}(s,a) - Q(s,a,w)]^2.
+$$
+Then the policy gradient is exact,
+$$
+\nabla_\theta J(\theta) =   \mathbb{E}_{\pi_\theta} [\nabla_\theta \log \pi_\theta(a|a) Q(s,a,w) ]
+$$</li>
+</ol>
+</dd>
+<dt><em>Proof</em></dt>
+<dd>$\nabla_w \epsilon = 0$, and it follows that
+$$
+\mathbb{E}_{\pi_\theta} [( q_{\pi_\theta}(s,a) - Q(s,a,w)) \nabla_w Q(s,a,w)] = 0.
+$$
+Then the condition (i) finishes the proof.</dd>
+</dl>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Aactor-Critic (episodic and continuous) with Eligibility Trances</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Initialize $\theta,w$.</li>
+<li>Initialize $S_0$.</li>
+<li>Initialize $E_\theta, E_\theta = 0$</li>
+<li>Repeat: for each time step,
+<ul>
+<li>Choose action $A_t \sim \pi_\theta(\cdot|S_t)$, and observe $S_{t+1}, R_{t+1}$.</li>
+<li>Compute $\delta = R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$.</li>
+<li>Update $E_w = \lambda_w E_{w}  + \nabla_w Q(S_t, A_t, w)$.</li>
+<li>Update $E_\theta = \lambda_\theta E_{\theta}  + \nabla_\theta \log \pi_\theta(A_t|S_t)$.</li>
+<li>Update $\theta$ by
+$$
+\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t| S_t) \delta E_\theta.
+$$</li>
+<li>Update $w$ by
+$$
+w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta E_w.
+$$</li>
+</ul>
+</li>
+</ul>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
+<hr>
+<h2 id="4-finite-difference--policy-gradient">4. Finite-Difference  Policy Gradient</h2>
+<p>In section 1, we derived the analytical policy gradient and both MC and AC methods introduced in section 2,3 were based on the analytical gradients. A simple way of estimating derivatives is the finite difference.</p>
+<p>$$
+\frac{\partial J(\theta)}{\partial \theta_k} \approx \frac{J(\theta + 1/2 e_k) - J(\theta - 1/2 e_k)}{\epsilon},
+$$
+where $e_k$ is unit vector with 1 in $k$-th element. Finite difference works even if $\pi_\theta$ is not differentiable.</p>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        
+      ],
+      
+      throwOnError: false
+    });
+  });
+</script>
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

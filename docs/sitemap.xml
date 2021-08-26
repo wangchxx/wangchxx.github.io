@@ -3,27 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wangchxx.github.io/categories/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/ml/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/reinforcement-learning/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/categories/rl/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
-    <loc>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</loc>
-    <lastmod>2021-08-25T22:17:58+02:00</lastmod>
+    <loc>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</loc>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/</loc>
+    <lastmod>2021-08-26T03:20:07+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</loc>
     <lastmod>2021-08-25T22:17:58+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</loc>
