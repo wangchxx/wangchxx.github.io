@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Tue, 24 Aug 2021 18:28:15 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/rl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Aug 2021 22:17:58 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/rl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Value Function Approximation</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
+      <pubDate>Wed, 25 Aug 2021 22:17:58 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</guid>
+      <description>So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
+$$ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a). $$
+For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.</description>
+    </item>
+    
     <item>
       <title>RL | Model-Free: Temporal Difference Learning</title>
       <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
