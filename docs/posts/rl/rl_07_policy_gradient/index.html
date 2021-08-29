@@ -104,7 +104,7 @@ $$</dd>
 </dl>
 <p>Naturally, we can define the loss function as
 $$
-L(\theta) = -J(\theta) = -\mathbb{E}<em>{\pi</em>\theta}[\log\pi_\theta q_{\pi_\theta}(s,a)],
+L(\theta) = -J(\theta) = -\mathbb{E}_{\pi_\theta}[\log \pi_\theta(a|s) q_{\pi_\theta}(s,a)],
 $$
 and improve the performance by SGD.</p>
 <dl>
