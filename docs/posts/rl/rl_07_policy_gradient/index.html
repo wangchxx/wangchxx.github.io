@@ -102,7 +102,11 @@ $$
 \end{equation}
 $$</dd>
 </dl>
-<p>Naturally, we can define the loss function as $L(\theta) = -J(\theta)$, and improve the performance by SGD.</p>
+<p>Naturally, we can define the loss function as
+$$
+L(\theta) = -J(\theta) = -\mathbb{E}<em>{\pi</em>\theta}[\log\pi_\theta q_{\pi_\theta}(s,a)],
+$$
+and improve the performance by SGD.</p>
 <dl>
 <dt><em>Proof</em></dt>
 <dd>For the epidotic case,
