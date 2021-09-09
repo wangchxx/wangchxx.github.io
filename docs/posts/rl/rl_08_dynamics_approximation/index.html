@@ -93,7 +93,7 @@ In practice, it&rsquo;s helpful to normalize the target $s_{t+1} - s_t$ as it in
 <h2 id="2-model-based-control">2. Model-Based Control</h2>
 <p>In this section, we consider how to make decisions given the learned dynamics model. The goal at each time step is to take the action that maximizes the future return, given by
 $$
-Q_\theta(a_t,&hellip;) \sum_{t' = t}^\infty \gamma^{t'- t} R(s_{t'}, a_{t'}),
+Q_\theta(a_t,&hellip;) = \sum_{t' = t}^\infty \gamma^{t'- t} R(s_{t'}, a_{t'}),
 $$
 where $R(s,a)$ is the rewrad obtained when executing action $a$ at state $s$ and $s_{t+1} = s_t + f_\theta(s_t,a_t)$.</p>
 <p>It is impossible to plan over an infinite sequence of actions, so we optimize the sequence of actions $\mathbf{A}_t = (a_t,&hellip;,a_{t+H-1})$ over a finite horizon $H$.</p>
