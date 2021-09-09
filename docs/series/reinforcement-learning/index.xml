@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 26 Aug 2021 03:20:07 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 13:26:05 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Dynamics Approximation for Model-Based RL</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</link>
+      <pubDate>Thu, 09 Sep 2021 13:26:05 +0200</pubDate>
+      
+      <guid>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</guid>
+      <description>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
+1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$.</description>
+    </item>
+    
     <item>
       <title>RL | Policy Gradient Methods</title>
       <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
