@@ -278,7 +278,7 @@ $$</li>
 </ul>
 <hr>
 <h2 id="4-off-policy-td-control-q-learning">4. Off-policy TD Control: Q-learning</h2>
-<p>We now apply TD methods to off-policy control. Given the a policy $\pi$ and a behavior policy $\mu$, when choosing next action $A_{t+1}$ conditioned on state $S_{t+1}$ using the policy $\mu$, we also consider alternative successor action $A'$ using the target policy $\lambda$. Then we can update $Q$ by
+<p>We now apply TD methods to off-policy control. Given the a policy $\pi$ and a behavior policy $\mu$, when choosing next action $A_{t+1}$ conditioned on state $S_{t+1}$ using the policy $\mu$, we also consider alternative successor action $A'$ using the target policy $\pi$. Then we can update $Q$ by
 $$
 Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A') -  Q(S_t, A_t)],
 $$
