@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Functional Analysis | 0 Preliminaries" />
-<meta property="og:description" content="Functional Analysis | 0 Preliminaries  Notation:
- $\R$: the set of real numbers, $\mathbb{C}$: the set of complex numbers, $\N$: the set of positive integers. $\mathbb{F} = {\R,\mathbb{C}}$, $\Re_z$: the real part of complex number $z$, $\Im_z$: the imaginary part of complex number $z$, $sp(A)$: span of set $A$. $dim V$: dimension of vector space $V$.   1. Linear Algebra  Definition 1 (Vector space) A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$,  $x&#43;y = y&#43;x$, there exists a unique $0\in V$ s." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_0/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-20T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-20T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_4/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_1/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_0/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Functional Analysis | 0 Preliminaries">
+  <meta property="og:description" content="Functional Analysis | 0 Preliminaries Notation:
+$\R$: the set of real numbers, $\mathbb{C}$: the set of complex numbers, $\N$: the set of positive integers. $\mathbb{F} = {\R,\mathbb{C}}$, $\Re_z$: the real part of complex number $z$, $\Im_z$: the imaginary part of complex number $z$, $sp(A)$: span of set $A$. $dim V$: dimension of vector space $V$. 1. Linear Algebra Definition 1 (Vector space) A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$, $x&#43;y = y&#43;x$, there exists a unique $0\in V$ s.t. $x&#43;0 = x$, there exists a unique $-x\in V$ s.t. $x &#43; (-x) = 0$, $1x = x$, $\alpha(x&#43;y) = \alpha x &#43; \alpha y, (\alpha&#43;\beta)x = \alpha x &#43; \beta x$. Definition 2 (Linear subspace) Let $V$ be a vector space. A non-empty set $U\subset V$ is a linear subspace of $V$ if $U$ is itself a vector space, which is equivalent to the condition $$ \alpha x &#43; \beta y \in U, ;\forall \alpha,\beta\in \mathbb{F}, x,y\in U. $$ Definition 3 Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$. Definition 4 (Linear transformation) Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a linear transformation if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$ $$ T(\alpha x &#43; \beta y) = \alpha T(x) &#43; \beta T(y). $$ The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space. 2. Metric Spaces Definition 5 (Metric space) A metric on a set $M$ is a function $d:M\times M\to \R$ with the following properties, $d(x,y)\geq 0$, $d(x,y)= 0 \Leftrightarrow x=y$, $d(x,y) = d(y,x)$, $d(x,z)\leq d(x,y) &#43; d(y,z)$. If $d$ is a metric on $M$, then the pair $(M,d)$ is called a metric space.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-20T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-20T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_4/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_3/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_2/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_1/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Functional Analysis | 0 Preliminaries"/>
-<meta name="twitter:description" content="Functional Analysis | 0 Preliminaries  Notation:
- $\R$: the set of real numbers, $\mathbb{C}$: the set of complex numbers, $\N$: the set of positive integers. $\mathbb{F} = {\R,\mathbb{C}}$, $\Re_z$: the real part of complex number $z$, $\Im_z$: the imaginary part of complex number $z$, $sp(A)$: span of set $A$. $dim V$: dimension of vector space $V$.   1. Linear Algebra  Definition 1 (Vector space) A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$,  $x&#43;y = y&#43;x$, there exists a unique $0\in V$ s."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Functional Analysis | 0 Preliminaries">
+  <meta name="twitter:description" content="Functional Analysis | 0 Preliminaries Notation:
+$\R$: the set of real numbers, $\mathbb{C}$: the set of complex numbers, $\N$: the set of positive integers. $\mathbb{F} = {\R,\mathbb{C}}$, $\Re_z$: the real part of complex number $z$, $\Im_z$: the imaginary part of complex number $z$, $sp(A)$: span of set $A$. $dim V$: dimension of vector space $V$. 1. Linear Algebra Definition 1 (Vector space) A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$, $x&#43;y = y&#43;x$, there exists a unique $0\in V$ s.t. $x&#43;0 = x$, there exists a unique $-x\in V$ s.t. $x &#43; (-x) = 0$, $1x = x$, $\alpha(x&#43;y) = \alpha x &#43; \alpha y, (\alpha&#43;\beta)x = \alpha x &#43; \beta x$. Definition 2 (Linear subspace) Let $V$ be a vector space. A non-empty set $U\subset V$ is a linear subspace of $V$ if $U$ is itself a vector space, which is equivalent to the condition $$ \alpha x &#43; \beta y \in U, ;\forall \alpha,\beta\in \mathbb{F}, x,y\in U. $$ Definition 3 Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$. Definition 4 (Linear transformation) Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a linear transformation if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$ $$ T(\alpha x &#43; \beta y) = \alpha T(x) &#43; \beta T(y). $$ The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space. 2. Metric Spaces Definition 5 (Metric space) A metric on a set $M$ is a function $d:M\times M\to \R$ with the following properties, $d(x,y)\geq 0$, $d(x,y)= 0 \Leftrightarrow x=y$, $d(x,y) = d(y,x)$, $d(x,z)\leq d(x,y) &#43; d(y,z)$. If $d$ is a metric on $M$, then the pair $(M,d)$ is called a metric space.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -105,14 +112,14 @@
 </dd>
 <dt>Definition 2 (<strong>Linear subspace</strong>)</dt>
 <dd>Let $V$ be a vector space. A non-empty set $U\subset V$ is a <code>linear subspace</code> of $V$ if $U$ is itself a vector space, which is equivalent to the condition
-$$ 
+$$
 \alpha x + \beta y \in U, ;\forall \alpha,\beta\in \mathbb{F}, x,y\in U.
 $$</dd>
 <dt>Definition 3</dt>
 <dd>Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$.</dd>
 <dt>Definition 4 (Linear transformation)</dt>
 <dd>Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a <code>linear transformation</code> if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$
-$$ 
+$$
 T(\alpha x + \beta y) = \alpha T(x) + \beta T(y).
 $$
 The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space.</dd>
@@ -135,13 +142,13 @@ The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With th
 <dt>Definition 6 (<strong>Continuity</strong>)</dt>
 <dd>Let $(M,d_M), (N,d_N)$ be two metric spaces and let $f:M\to N$ be a function.
 <ol>
-<li>$f$  is continuous at $x\in M$, if for any $\epsilon&gt;0$, there exists $\delta&gt;0$ s.t. $y\in M, d(x,y)&lt;\delta$ implies 
-$$ 
+<li>$f$  is continuous at $x\in M$, if for any $\epsilon&gt;0$, there exists $\delta&gt;0$ s.t. $y\in M, d(x,y)&lt;\delta$ implies
+$$
 d_N(f(x),f(y))&lt;\epsilon.
 $$</li>
 <li>$f$ is continuous on $M$ if it is continuous at each $x\in M$.</li>
-<li>$f$ is uniformly continuous on $M$, if for any $\epsilon&gt;0$, there exists $\delta&gt;0$ s.t. $d(x,y)&lt;\epsilon$ implies 
-$$ 
+<li>$f$ is uniformly continuous on $M$, if for any $\epsilon&gt;0$, there exists $\delta&gt;0$ s.t. $d(x,y)&lt;\epsilon$ implies
+$$
 d_N(f(x),f(y))&lt;\epsilon.
 $$</li>
 </ol>
@@ -176,8 +183,8 @@ $$</li>
 </ol>
 </dd>
 <dt>Definition 9</dt>
-<dd>Let $(M,d)$ be a compact metric space. The set of continuous functions $f:M\to \mathbb{F}$ will be denoted by $C(M)$. We define a metric on $C(M)$ by 
-$$ 
+<dd>Let $(M,d)$ be a compact metric space. The set of continuous functions $f:M\to \mathbb{F}$ will be denoted by $C(M)$. We define a metric on $C(M)$ by
+$$
 d(f,g) = \sup_{x\in M} |f(x) - g(x)|.
 $$</dd>
 </dl>

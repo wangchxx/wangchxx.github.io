@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="RL | Policy Gradient Methods" />
-<meta property="og:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
-One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-26T03:20:07+02:00" />
-<meta property="article:modified_time" content="2021-08-26T03:20:07+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="RL | Policy Gradient Methods">
+  <meta property="og:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-08-26T03:20:07+02:00">
+    <meta property="article:modified_time" content="2021-08-26T03:20:07+02:00">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_09_mcts/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RL | Policy Gradient Methods"/>
-<meta name="twitter:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
-One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RL | Policy Gradient Methods">
+  <meta name="twitter:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -89,7 +97,7 @@ $$
 where $v_{\pi_\theta}(s_0)$ is the value function for policy $\pi_\theta$, the policy determined by $\theta$. In continuous case, where not start states or termination exit and no discounting factor for future rewards, we need to define performance in terms of the average rate of reward per time step:
 $$
 \begin{align}
-J(\theta) &amp;= \sum_s \mu_{\pi_\theta}(s) R_{\pi_\theta}(s) = \mathbb{E}_{\pi_\theta}[r],
+J(\theta) &amp;= \sum_s \mu_{\pi_\theta}(s) R_{\pi_\theta}(s) = \mathbb{E}<em>{\pi</em>\theta}[r],
 \end{align}
 $$
 Where $R_{\pi}(s)$ is the expected reward at state $s$ following the policy $\pi$, i.e. $R_\pi(s) = \sum_a \pi(a|s) r(s,a)$ and $\mu_\pi$ is the stationary measure of Markov chain for policy $\pi$.</p>
@@ -98,7 +106,7 @@ Where $R_{\pi}(s)$ is the expected reward at state $s$ following the policy $\pi
 <dd>For any differentiable policy $\pi_\theta$, for both episodic and continuous cases, the gradient of $J(\theta) $ w.r.t. $\theta$ is
 $$
 \begin{equation}
-\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+\nabla_\theta J(\theta) = \mathbb{E}<em>{\pi</em>\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
 \end{equation}
 $$</dd>
 </dl>
@@ -114,7 +122,7 @@ $$
 \begin{align*}
 \nabla_\theta v_\pi(s) &amp;= \nabla_\theta \left[\sum_{a} \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right] \cr
 &amp;= \sum_{a} \left[ \nabla_\theta\pi_\theta(a|s) q_{\pi_\theta}(s,a) + \pi_\theta(a|s) \nabla_\theta q_{\pi_\theta}(s,a) \right] \cr
-&amp;= \sum_{x\in\mathcal{S}} \sum_n P^{\pi_\theta}_n(x|s) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a)\cr
+&amp;= \sum_{x\in\mathcal{S}} \sum_n P^{\pi_\theta}<em>n(x|s) \sum_a \nabla</em>\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a)\cr
 &amp;= \sum_{x\in\mathcal{S}} \eta(x) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a),
 \end{align*}
 $$
@@ -123,8 +131,8 @@ $$
 \begin{align*}
 \nabla_\theta J(\theta) &amp;= \nabla_\theta v_\pi(s_0) \cr
 &amp;=\sum_{s} \eta(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;= \sum_{s'} \eta(s') \sum_{s} \frac{\eta(s)}{\sum \eta(s')} \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;= \sum_{s'} \eta(s') \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;= \sum_{s&rsquo;} \eta(s&rsquo;) \sum_{s} \frac{\eta(s)}{\sum \eta(s&rsquo;)} \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+&amp;= \sum_{s&rsquo;} \eta(s&rsquo;) \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
 &amp;\propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a).
 \end{align*}
 $$
@@ -132,7 +140,7 @@ For the continuous case, we also have $\nabla_\theta J(\theta) = \sum_s \mu_{\pi
 $$
 \begin{align}
 \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) &amp;= \sum_s \mu_{\pi_\theta}(s) \sum_a  \pi_\theta(a|s) \nabla_\theta  \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;=  \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+&amp;=  \mathbb{E}<em>{\pi</em>\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
 \end{align}
 $$</dd>
 </dl>
@@ -144,11 +152,13 @@ $$
 $$</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>Monte Carlo Policy Gradient (REINFORCE)(episodic)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>Monte Carlo Policy Gradient (REINFORCE)(episodic)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>Initialize $\theta$.</li>
@@ -173,11 +183,13 @@ $$</p>
 <p>Moreover, the baseline function $b$ can be defined as a learnable function $b(s,w)$.</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>REINFORCE with Baseline (episodic)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>REINFORCE with Baseline (episodic)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>Initialize $\theta,w$.</li>
@@ -208,11 +220,13 @@ $$</li>
 <p>One-step AC methods replace the return $G_t$ with the one-step return $R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>One-step Aactor-Critic (episodic and continuous)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>One-step Aactor-Critic (episodic and continuous)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>Initialize $\theta,w$.</li>
@@ -232,7 +246,7 @@ $$</li>
 </ul>
 </li>
 </ul>
-<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}<em>{\pi</em>\theta}[ r]  + R_{t+2} - \mathbb{E}<em>{\pi</em>\theta}[ r] + \cdots.$</p>
 <hr>
 <p>Note that one-step methods are fully online and incremental. But the approximation to policy gradient is biased now since $Q$ dependents on action $A_t$. A biased policy gradient may not find the right solution. The following theorem shows that the bias can be avoid if we choose value function approximation carefully.</p>
 <dl>
@@ -249,7 +263,7 @@ $$
 $$
 Then the policy gradient is exact,
 $$
-\nabla_\theta J(\theta) =   \mathbb{E}_{\pi_\theta} [\nabla_\theta \log \pi_\theta(a|a) Q(s,a,w) ]
+\nabla_\theta J(\theta) =   \mathbb{E}<em>{\pi</em>\theta} [\nabla_\theta \log \pi_\theta(a|a) Q(s,a,w) ]
 $$</li>
 </ol>
 </dd>
@@ -262,11 +276,13 @@ Then the condition (i) finishes the proof.</dd>
 </dl>
 <hr>
 <table>
-<thead>
-<tr>
-<th>Aactor-Critic (episodic and continuous) with Eligibility Trances</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>Aactor-Critic (episodic and continuous) with Eligibility Trances</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>Initialize $\theta,w$.</li>
@@ -289,7 +305,7 @@ $$</li>
 </ul>
 </li>
 </ul>
-<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}<em>{\pi</em>\theta}[ r]  + R_{t+2} - \mathbb{E}<em>{\pi</em>\theta}[ r] + \cdots.$</p>
 <hr>
 <h2 id="4-finite-difference--policy-gradient">4. Finite-Difference  Policy Gradient</h2>
 <p>In section 1, we derived the analytical policy gradient and both MC and AC methods introduced in section 2,3 were based on the analytical gradients. A simple way of estimating derivatives is the finite difference.</p>

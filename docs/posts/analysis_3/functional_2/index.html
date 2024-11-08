@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Functional Analysis | 2 Hilbert Spaces" />
-<meta property="og:description" content="1. Inner Product spaces  Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,  $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_2/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-22T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-22T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_4/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_0/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_2/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Functional Analysis | 2 Hilbert Spaces">
+  <meta property="og:description" content="1. Inner Product spaces Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$, $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$. A vector space $X$ with an inner product $&lt; &gt;$ is called an inner product space.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-22T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-22T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_4/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_3/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_1/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_3/functional_0/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Functional Analysis | 2 Hilbert Spaces"/>
-<meta name="twitter:description" content="1. Inner Product spaces  Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,  $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Functional Analysis | 2 Hilbert Spaces">
+  <meta name="twitter:description" content="1. Inner Product spaces Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$, $&lt; x,x &gt;\geq 0$, $&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ , $&lt; \alpha x &#43; \beta y ,z&gt; = \alpha &lt; x,z &gt; &#43; \beta &lt; y,z &gt;$, $ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$. A vector space $X$ with an inner product $&lt; &gt;$ is called an inner product space.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -91,8 +98,8 @@
 <p>With an inner product, we can define a norm by $|| x|| = \sqrt{&lt; x, x&gt;}$, and hence we can define a metric $d$.</p>
 <dl>
 <dt>Lemma 2 (<strong>Continuity of inner product</strong>)</dt>
-<dd>let $X$ be an inner product space, and suppose that ${x_n}, {y_n}$ are convergent sequences $X$ with $x_n \to x, y_n\to y$. Then 
-$$ 
+<dd>let $X$ be an inner product space, and suppose that ${x_n}, {y_n}$ are convergent sequences $X$ with $x_n \to x, y_n\to y$. Then
+$$
 &lt; x_n, y_n &gt; \to &lt; x, y&gt;.
 $$</dd>
 <dt>proof</dt>
@@ -101,7 +108,7 @@ $$</dd>
 <p>$$
 \begin{align*}
 | &lt; x_n , y_n&gt; - &lt; x , y&gt; | &amp;\leq | &lt; x_n , y_n&gt; - &lt; x_n , y&gt; | + | &lt; x_n , y&gt; - &lt; x , y&gt; | \cr
-&amp;\leq ||x_n|| ||y_n - y|| + ||y|| ||x_n - x||\to 0 
+&amp;\leq ||x_n|| ||y_n - y|| + ||y|| ||x_n - x||\to 0
 \end{align*}
 $$</p>
 <h2 id="2-hilbert-spaces">2. Hilbert Spaces</h2>
@@ -116,8 +123,8 @@ $$</p>
 <p>$\Box$</p>
 <dl>
 <dt>Lemma 5</dt>
-<dd>Let $Y$ be a linear subspace of an inner product space $X$. Then 
-$$ 
+<dd>Let $Y$ be a linear subspace of an inner product space $X$. Then
+$$
 x\in Y^\perp \Leftrightarrow || x-y|| \geq ||x||,;\forall y\in Y.
 $$</dd>
 <dt>proof</dt>
@@ -128,24 +135,24 @@ $$</dd>
 <p>$\Box$</p>
 <dl>
 <dt>Theorem 6 (Projection theorem)</dt>
-<dd>Let $A$ be a closed linear subspace of a $\mathcal{H}$. Then for any $x\in \mathcal{H}$, there exists a unique $x_0 \in A$ s.t. 
-$$ 
+<dd>Let $A$ be a closed linear subspace of a $\mathcal{H}$. Then for any $x\in \mathcal{H}$, there exists a unique $x_0 \in A$ s.t.
+$$
 ||x-x_a|| = \inf_{y\in A} || x- y||,
 $$
 and $x - x_a \in A^\perp$.</dd>
 <dt>proof</dt>
-<dd>Suppose  $\gamma = \inf_{y\in A} || x- y||$. We first prove the existence of $x_0$. For each $n$, there exists $x_n\in A$ s.t. 
-$$ 
+<dd>Suppose  $\gamma = \inf_{y\in A} || x- y||$. We first prove the existence of $x_0$. For each $n$, there exists $x_n\in A$ s.t.
+$$
 ||x - x_n||^2 &lt; \gamma^2+ 1/n.
 $$
 Applying the parallelogram rule to $x-x_n, x - x_m$, we can show that ${x_n}$ is Cauchy. So $x_n \to x_0 , x_0 \in A$. Then we obtain the equality by the continuity of inner product.
-<p>Uniqueness. Suppose that $x'\in A$ makes the equality. Then $(x_0, x')/2 \in A$ by linearity, and $||x - (x_0, x')/2 \in A||\geq \gamma$. Applying the parallelogram rule to $x - x', x-x_0$, we obtain that $||x_0 - x'||^2 = 0$.</p>
+<p>Uniqueness. Suppose that $x&rsquo;\in A$ makes the equality. Then $(x_0, x&rsquo;)/2 \in A$ by linearity, and $||x - (x_0, x&rsquo;)/2 \in A||\geq \gamma$. Applying the parallelogram rule to $x - x&rsquo;, x-x_0$, we obtain that $||x_0 - x&rsquo;||^2 = 0$.</p>
 <p>Finally, $x-x_0\in A^\perp$ follows from Lemma 2.5.</p>
 </dd>
 </dl>
 <p>$\Box$</p>
-<p>Let ${e_n}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\in X$, 
-$$ 
+<p>Let ${e_n}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\in X$,
+$$
 x = \sum_{n=1}^\infty &lt; x, e_n&gt; e_n.
 $$</p>
 <dl>
@@ -155,13 +162,13 @@ $$</p>
 <p>$\Box$</p>
 <dl>
 <dt>Lemma 7 (<strong>Bessel&rsquo;s inequality</strong>)</dt>
-<dd>Let $X$ be an inner product space and let ${e_n}$ a orthonormal system in $X$. Then for any $x\in X$ the series $\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2$ converges and 
-$$ 
+<dd>Let $X$ be an inner product space and let ${e_n}$ a orthonormal system in $X$. Then for any $x\in X$ the series $\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2$ converges and
+$$
 \sum_{n=1}^\infty |&lt; x, e_n&gt;|^2 \leq ||x ||^2.
 $$</dd>
 <dt>proof</dt>
-<dd>Let $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$. Then 
-$$ 
+<dd>Let $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$. Then
+$$
 ||x - y_k||^2 = ||x||^2 - ||y_k||^2.
 $$
 It shows that $||y_k||^2 \leq ||x||^2$ for all $k\in\N$. In addition $||y_k||^2$ is increasing and bounded, so it is convergent.</dd>
@@ -169,8 +176,8 @@ It shows that $||y_k||^2 \leq ||x||^2$ for all $k\in\N$. In addition $||y_k||^2$
 <p>$\Box$</p>
 <dl>
 <dt>Definition (<strong>Separability</strong>)</dt>
-<dd>A Hilbert space $\mathcal{H}$ is called <code>seperable</code> if there is an at most countable orthonormal system ${e_n}$ s.t. 
-$$ 
+<dd>A Hilbert space $\mathcal{H}$ is called <code>seperable</code> if there is an at most countable orthonormal system ${e_n}$ s.t.
+$$
 \mathcal{H} = \overline{sp}({e_n}) .
 $$</dd>
 </dl>

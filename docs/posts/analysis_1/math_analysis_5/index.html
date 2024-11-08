@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Mathematical Analysis | 5 Derivatives and Differentiations" />
-<meta property="og:description" content="1. Derivatives  Definition 1 (Derivative at $x_0$) Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is differentiable at $x_0$ if the following limit exists $$ \lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;(x_0)$.  According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.
- Definition 2 (One-sided derivatives) Given a function $f$ defined on $[x_0,x_0&#43;\delta)$, then it has a right derivative at $x_0$, if the right limit exists $$ \lim_{x\to x_0^&#43;}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;_{&#43;}(x_0)$." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_5/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-05T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-05T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_5/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Mathematical Analysis | 5 Derivatives and Differentiations">
+  <meta property="og:description" content="1. Derivatives Definition 1 (Derivative at $x_0$) Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is differentiable at $x_0$ if the following limit exists $$ \lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f’(x_0)$. According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.
+Definition 2 (One-sided derivatives) Given a function $f$ defined on $[x_0,x_0&#43;\delta)$, then it has a right derivative at $x_0$, if the right limit exists $$ \lim_{x\to x_0^&#43;}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f’_{&#43;}(x_0)$. Theorem 3 $f’(x_0)$ exists iff both $f’_{&#43;}(x_0)$ and $f’_{-}(x_0)$ exist. Definition 4 (Local maximum) If there is a neighbourhood $U(x_0,\delta)$ where for any $x\in U(x_0,\delta)$ s.t. $$ f(x_0)\geq f(x), $$ we say that $f$ attains its local maximum at $x_0$. Theorem 5 (Fermat’s Theorem) If $f$ has a local extremum at $x_0$ and if it is differentiable at $x_0$, then $f’(x_0) = 0$. 2. Differentials Definition 5 (Differential) We define an increment of $f$ by $\Delta y = f(x_0 &#43; \Delta x) - f(x_0)$. If there exists a constant $A$ s.t. $$ \Delta y = A\Delta x &#43; o(\Delta x), $$ we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$. Theorem 6 $f$ has a differential at $x_0$ iff $f$ is differentiable at $x_0$ and $A = f’(x_0)$.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-05T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-05T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mathematical Analysis | 5 Derivatives and Differentiations"/>
-<meta name="twitter:description" content="1. Derivatives  Definition 1 (Derivative at $x_0$) Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is differentiable at $x_0$ if the following limit exists $$ \lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;(x_0)$.  According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.
- Definition 2 (One-sided derivatives) Given a function $f$ defined on $[x_0,x_0&#43;\delta)$, then it has a right derivative at $x_0$, if the right limit exists $$ \lim_{x\to x_0^&#43;}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;_{&#43;}(x_0)$."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mathematical Analysis | 5 Derivatives and Differentiations">
+  <meta name="twitter:description" content="1. Derivatives Definition 1 (Derivative at $x_0$) Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is differentiable at $x_0$ if the following limit exists $$ \lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f’(x_0)$. According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.
+Definition 2 (One-sided derivatives) Given a function $f$ defined on $[x_0,x_0&#43;\delta)$, then it has a right derivative at $x_0$, if the right limit exists $$ \lim_{x\to x_0^&#43;}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f’_{&#43;}(x_0)$. Theorem 3 $f’(x_0)$ exists iff both $f’_{&#43;}(x_0)$ and $f’_{-}(x_0)$ exist. Definition 4 (Local maximum) If there is a neighbourhood $U(x_0,\delta)$ where for any $x\in U(x_0,\delta)$ s.t. $$ f(x_0)\geq f(x), $$ we say that $f$ attains its local maximum at $x_0$. Theorem 5 (Fermat’s Theorem) If $f$ has a local extremum at $x_0$ and if it is differentiable at $x_0$, then $f’(x_0) = 0$. 2. Differentials Definition 5 (Differential) We define an increment of $f$ by $\Delta y = f(x_0 &#43; \Delta x) - f(x_0)$. If there exists a constant $A$ s.t. $$ \Delta y = A\Delta x &#43; o(\Delta x), $$ we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$. Theorem 6 $f$ has a differential at $x_0$ iff $f$ is differentiable at $x_0$ and $A = f’(x_0)$.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -81,40 +91,40 @@
 <dl>
 <dt>Definition 1 (Derivative at $x_0$)</dt>
 <dd>Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is <code>differentiable</code> at $x_0$ if the following limit exists
-$$ 
-\lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, 
 $$
-denoted by $f'(x_0)$.</dd>
+\lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0},
+$$
+denoted by $f&rsquo;(x_0)$.</dd>
 </dl>
 <p>According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.</p>
 <dl>
 <dt>Definition 2 (One-sided derivatives)</dt>
 <dd>Given a function $f$ defined on $[x_0,x_0+\delta)$, then it has a right derivative at $x_0$, if the right limit exists
-$$ 
-\lim_{x\to x_0^+}\frac{f(x)- f(x_0)}{x-x_0}, 
 $$
-denoted by $f'_{+}(x_0)$.</dd>
+\lim_{x\to x_0^+}\frac{f(x)- f(x_0)}{x-x_0},
+$$
+denoted by $f&rsquo;_{+}(x_0)$.</dd>
 <dt>Theorem 3</dt>
-<dd>$f'(x_0)$ exists iff both $f'_{+}(x_0)$ and $f'_{-}(x_0)$ exist.</dd>
+<dd>$f&rsquo;(x_0)$ exists iff both $f&rsquo;_{+}(x_0)$ and $f&rsquo;_{-}(x_0)$ exist.</dd>
 <dt>Definition 4 (Local maximum)</dt>
-<dd>If there is a neighbourhood $U(x_0,\delta)$ where for any $x\in U(x_0,\delta)$ s.t. 
-$$ 
+<dd>If there is a neighbourhood $U(x_0,\delta)$ where for any $x\in U(x_0,\delta)$ s.t.
+$$
 f(x_0)\geq f(x),
 $$
 we say that $f$ attains its local maximum at $x_0$.</dd>
 <dt>Theorem 5 (Fermat&rsquo;s Theorem)</dt>
-<dd>If $f$ has a local extremum at $x_0$ and if it is differentiable at $x_0$, then $f'(x_0) = 0$.</dd>
+<dd>If $f$ has a local extremum at $x_0$ and if it is differentiable at $x_0$, then $f&rsquo;(x_0) = 0$.</dd>
 </dl>
 <h2 id="2-differentials">2. Differentials</h2>
 <dl>
 <dt>Definition 5 (Differential)</dt>
-<dd>We define an increment of $f$ by $\Delta y = f(x_0 + \Delta x) - f(x_0)$. If there exists a constant $A$ s.t. 
-$$ 
+<dd>We define an increment of $f$ by $\Delta y = f(x_0 + \Delta x) - f(x_0)$. If there exists a constant $A$ s.t.
+$$
 \Delta y = A\Delta x + o(\Delta x),
 $$
 we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$.</dd>
 <dt>Theorem 6</dt>
-<dd>$f$ has a differential at $x_0$ iff $f$ is differentiable at $x_0$ and $A = f'(x_0)$.</dd>
+<dd>$f$ has a differential at $x_0$ iff $f$ is differentiable at $x_0$ and $A = f&rsquo;(x_0)$.</dd>
 </dl>
 
 	</article>

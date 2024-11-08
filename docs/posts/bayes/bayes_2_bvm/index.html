@@ -3,38 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Bayesian Statistics| Bernstein-von Mises Theorem" />
-<meta property="og:description" content="在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，
+  <meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Bayesian Statistics| Bernstein-von Mises Theorem">
+  <meta property="og:description" content="From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.
 $$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
-in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).
-0. Notation  $I_\theta$: Fisher information,
-$\ell_\theta(x) = \log p_\theta(x)$,
-$\dot{\ell}_\theta(x) = \frac{d}{d \theta} \ell_\theta(x)$,
-$\ddot{\ell}_\theta(x) = \frac{d^2}{d\theta^2} \ell_\theta(x)$,
-$\Delta_{n,\theta} = 1/\sqrt{n} \sum_{i=1}^n \dot{\ell}_\theta(x_i)$,
-$I_{n,\theta} = -1/n \sum_{i=1}^n \ddot{\ell}_\theta(x_i)$,
-$||\cdot||_{TV}$: total variation,
- 1. Preliminaries   Bayes&#39; formula By Bayes&#39; formula, the posterior density of $\vartheta$ is given by $$ \begin{align*} \pi(\theta|X_1,&hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-18T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-07-18T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" />
+From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-18T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-07-18T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bayesian Statistics| Bernstein-von Mises Theorem"/>
-<meta name="twitter:description" content="在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bayesian Statistics| Bernstein-von Mises Theorem">
+  <meta name="twitter:description" content="From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.
 $$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
-in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).
-0. Notation  $I_\theta$: Fisher information,
-$\ell_\theta(x) = \log p_\theta(x)$,
-$\dot{\ell}_\theta(x) = \frac{d}{d \theta} \ell_\theta(x)$,
-$\ddot{\ell}_\theta(x) = \frac{d^2}{d\theta^2} \ell_\theta(x)$,
-$\Delta_{n,\theta} = 1/\sqrt{n} \sum_{i=1}^n \dot{\ell}_\theta(x_i)$,
-$I_{n,\theta} = -1/n \sum_{i=1}^n \ddot{\ell}_\theta(x_i)$,
-$||\cdot||_{TV}$: total variation,
- 1. Preliminaries   Bayes&#39; formula By Bayes&#39; formula, the posterior density of $\vartheta$ is given by $$ \begin{align*} \pi(\theta|X_1,&hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}."/>
+From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -96,11 +88,11 @@ $||\cdot||_{TV}$: total variation,
 	<p></p>
 	<article class="md">
 		<!-- raw HTML omitted -->
-<p>在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，</p>
+<p>From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.</p>
 <p>$$
 \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)
 $$</p>
-<p>in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).</p>
+<p>From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.</p>
 <h2 id="0-notation">0. Notation</h2>
 <hr>
 <p>$I_\theta$: Fisher information,</p>
@@ -114,8 +106,8 @@ $$</p>
 <h2 id="1-preliminaries">1. Preliminaries</h2>
 <ol>
 <li>
-<p>Bayes' formula
-By Bayes' formula, the posterior density of  $\vartheta$ is given by
+<p>Bayes&rsquo; formula
+By Bayes&rsquo; formula, the posterior density of  $\vartheta$ is given by
 $$
 \begin{align*}
 \pi(\theta|X_1,&hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta  )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}.
@@ -125,7 +117,7 @@ $$</p>
 <li>
 <p>Taylor expansion
 $$
-\log \frac{p_{\theta+h}}{p_\theta} (x) = h^T \dot{\ell}_\theta(x) + \frac{1}{2} h^T \ddot{\ell}_\theta(x) h + o_p(||h||^2).
+\log \frac{p_{\theta+h}}{p_\theta} (x) = h^T \dot{\ell}<em>\theta(x) + \frac{1}{2} h^T \ddot{\ell}</em>\theta(x) h + o_p(||h||^2).
 $$</p>
 </li>
 </ol>
@@ -135,22 +127,22 @@ $$</p>
 <dd>Under some conditions,
 $$
 \begin{equation}
-\Vert \Pi(\sqrt{n}(\vartheta - \theta_0)\in \cdot| X_1,&hellip;,X_n) - N_d(I_{\theta_0}^{-1}\Delta_{n,\theta_0}, I_{\theta_0}^{-1}) \Vert _{TV}\to 0 ; \text{ in } P_{\theta_0}^n.
+\Vert \Pi(\sqrt{n}(\vartheta - \theta_0)\in \cdot| X_1,&hellip;,X_n) - N_d(I_{\theta_0}^{-1}\Delta_{n,\theta_0}, I_{\theta_0}^{-1}) \Vert <em>{TV}\to 0 ; \text{ in } P</em>{\theta_0}^n.
 \end{equation}
 $$
-Here the sequence of  variables  $ \Delta_{n,\theta_0} $ converges under  $ \theta_0 $ in distribution to  $ N_d(0, I_{\theta_0}) $.</dd>
+Here the sequence of  variables  $\Delta_{n,\theta_0}$ converges under  $ \theta_0 $ in distribution to  $N_d(0, I_{\theta_0})$.</dd>
 <dt>sketch pf proof</dt>
 <dd>step 1: Taylor expansion to apply CLT,
 <p><img src="/img_bayes_BvM/bvm_1.PNG" alt="taylor">
 Notice that $\Delta_{n,\theta} \to \Delta_\theta:=N(0, I_\theta)$ in distribution, and $I_{n,\theta}\to I_{\theta}$ in probability  by CLT.</p>
 <p>step 2: Rewrite the posterior.
-在第一步中我们看到，对log-likelihood进行泰勒展开，我们就可以运用CLT， 因此我们想对posterior进行泰勒展开
+In the first step, we observe that by performing a Taylor expansion on the log-likelihood, we can apply the CLT. Therefore, we aim to perform a Taylor expansion on the posterior distribution.
 <img src="/img_bayes_BvM/bvm_2.PNG" alt="approx">
-现在，我们已经将posterior改写成了step 1中的形式，因此我们对其泰勒展开，其分子约等于$h^T\Delta_{n,\theta} +  \frac{1}{2} h^T I_{\theta,n}h$.</p>
+Now that we have rewritten the posterior into the form from step 1, we can perform a Taylor expansion on it. The numerator is approximately equal to: $h^T\Delta_{n,\theta} +  \frac{1}{2} h^T I_{\theta,n}h$.</p>
 <p>step 3: Approximation posterior by Gaussian.
-另外,对于gaussian distribution, 通过计算可以得到
+Additionally, for a Gaussian distribution, we can derive through calculation that
 <img src="/img_bayes_BvM/bvm_3.PNG" alt="gaussian">
-将 $\Delta_\theta = I_\theta X$, 我们可以看到， $(P_{\theta+h/\sqrt{n}}) \to N(h,I_{\theta}^{-1})$， so the asymptotical behavior of the posterior can be represented in terms of $N(h,I_{\theta}^{-1})$ as 
+Let $\Delta_\theta = I_\theta X$, we can see that， $(P_{\theta+h/\sqrt{n}}) \to N(h,I_{\theta}^{-1})$， so the asymptotical behavior of the posterior can be represented in terms of $N(h,I_{\theta}^{-1})$ as
 <img src="/img_bayes_BvM/bvm_4.PNG" alt="gaussian_asy">
 where $X\sim I_{\theta_0}^{-1} N(0,I_{\theta_0})$.
 $\Box$</p>

@@ -3,18 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Mathematical Analysis | 10 Numerical Series" />
-<meta property="og:description" content="1. Convergence  Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-10T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-10T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Mathematical Analysis | 10 Numerical Series">
+  <meta property="og:description" content="1. Convergence Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon $$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-10T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-10T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mathematical Analysis | 10 Numerical Series"/>
-<meta name="twitter:description" content="1. Convergence  Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mathematical Analysis | 10 Numerical Series">
+  <meta name="twitter:description" content="1. Convergence Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon $$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -78,8 +87,8 @@
 		<h2 id="1-convergence">1. Convergence</h2>
 <dl>
 <dt>Definition 1 (Series)</dt>
-<dd>Given a sequence ${a_n}$, we define a sequence ${s_n}$ by 
-$$ 
+<dd>Given a sequence ${a_n}$, we define a sequence ${s_n}$ by
+$$
 s_n = \sum_{i=1}^n a_i.
 $$
 We call $\sum_{i=1}^\infty a_i$ an <code>infinite series</code> or just a <code>series</code>. The numbers $s_n$ are called the <code>partial sums</code> of the series.</dd>
@@ -87,7 +96,7 @@ We call $\sum_{i=1}^\infty a_i$ an <code>infinite series</code> or just a <code>
 <dd>If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge.</dd>
 <dt>Theorem 3 (Cauchy criterion)</dt>
 <dd>$\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t.
-$$ 
+$$
 |\sum_{k=n}^m a_k|&lt; \epsilon
 $$
 if $m\geq n\geq N$.</dd>
@@ -103,12 +112,12 @@ if $m\geq n\geq N$.</dd>
 </ol>
 </dd>
 <dt>proof</dt>
-<dd>Given $\epsilon&gt;0$, there exists $N$ s.t. $m\geq n\geq N$ implies 
-$$ 
+<dd>Given $\epsilon&gt;0$, there exists $N$ s.t. $m\geq n\geq N$ implies
+$$
 \sum_{k=n}^m c_k &lt;\epsilon,
 $$
-by Cauchy criterion. Hence 
-$$ 
+by Cauchy criterion. Hence
+$$
 |\sum_{k=n}^m a_k|\leq \sum_{k=n}^m |a_k|\leq \sum_{k=n}^m c_k &lt;\epsilon.
 $$</dd>
 </dl>
@@ -125,8 +134,8 @@ $$</dd>
 </ol>
 <dl>
 <dt>proof</dt>
-<dd>If $\alpha&lt;1$, we can choose $\alpha&lt;\beta&lt;1$, and an integer $N$ s.t. 
-$$ 
+<dd>If $\alpha&lt;1$, we can choose $\alpha&lt;\beta&lt;1$, and an integer $N$ s.t.
+$$
 \sqrt[n]{|a_n|}&lt;\beta
 $$
 for $n\geq N$. It follows that $|a_n|^n&lt;\beta^n$. Since $\sum \beta^n$ converges, by <code>Theorem 5 (i)</code>, $\sum a_n$ converges.
@@ -140,8 +149,8 @@ $\Box$</dd>
 </ol>
 </dd>
 <dt>proof</dt>
-<dd>Under condition (a), we can find $\beta&lt;1$ and integer $N$ s.t. 
-$$ 
+<dd>Under condition (a), we can find $\beta&lt;1$ and integer $N$ s.t.
+$$
 \left| \frac{a_{n+1}}{a_n} \right|&lt;\beta
 $$
 for $n\geq N$. It follows that $|a_n|&lt; |a_N|\beta^{n-N}$. Then (a) follows from the fact that $\sum \beta^n$ converges.

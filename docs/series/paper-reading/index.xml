@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>paper reading on My Math Notes</title>
+    <title>Paper Reading on My Math Notes</title>
     <link>https://wangchxx.github.io/series/paper-reading/</link>
-    <description>Recent content in paper reading on My Math Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Paper Reading on My Math Notes</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sat, 21 Aug 2021 04:18:02 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Aug 2021 04:18:02 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reading | Estimating a smooth function on a large graph (2)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>
       <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_graph_2/</guid>
-      <description>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
- Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360  1. Main results  Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&amp;hellip;,Y_n)$.</description>
+      <description>&lt;p&gt;This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1709.06360&#34;&gt;http://arxiv.org/abs/1709.06360&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-main-results&#34;&gt;1. Main results&lt;/h2&gt;&#xA;&lt;dl&gt;&#xA;&lt;dt&gt;Theorem 1 (&lt;em&gt;Regression&lt;/em&gt;)&lt;/dt&gt;&#xA;&lt;dd&gt;Under conditions (G), (L) and (S),&#xA;$$&#xA;\inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.&#xA;$$&#xA;where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&amp;hellip;,Y_n)$.&lt;/dd&gt;&#xA;&lt;/dl&gt;&#xA;&lt;p&gt;This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta+r)}$.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Estimating a smooth function on a large graph (1)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
       <pubDate>Fri, 20 Aug 2021 23:28:03 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_graph_1/</guid>
-      <description>This paper proposed an approach to estimating smooth functions on graphs using GP priors.
- Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515  1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph.</description>
+      <description>&lt;p&gt;This paper proposed an approach to estimating smooth functions on graphs using GP priors.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1511.02515&#34;&gt;http://arxiv.org/abs/1511.02515&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,&amp;hellip;,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by&#xA;$$&#xA;||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2.&#xA;$$&#xA;The corresponding inner product of two funtions $f,g$ is denoted by&#xA;$$&#xA;&amp;lt;f,g&amp;gt;&lt;em&gt;n = \frac{1}{n}\sum&lt;/em&gt;{i=1}^n f_i g_i.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Bayesian Classification of Multiclass Functional Data</title>
       <link>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</link>
       <pubDate>Sun, 08 Aug 2021 17:02:19 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</guid>
-      <description>Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
-Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
-1. Problem setup Consider a response $Y$ taking values $k = 1,&amp;hellip;,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by $$ P(Y= k|X) = H_k(\int \beta(t)X(t) dt), $$ where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.</description>
+      <description>&lt;p&gt;Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.&lt;/p&gt;&#xA;&lt;p&gt;Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. &lt;a href=&#34;http://arxiv.org/abs/1808.00662&#34;&gt;http://arxiv.org/abs/1808.00662&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;Consider a response $Y$ taking values $k = 1,&amp;hellip;,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by&#xA;$$&#xA;P(Y= k|X) = H_k(\int \beta(t)X(t) dt),&#xA;$$&#xA;where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</title>
       <link>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 18:24:27 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</guid>
-      <description>Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795  The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.
-1. Problem setup $$ p(x) = P(Y=1|x) = H(\eta(x)). $$ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form $$ \sigma(x,x&#39;) = \tau^{-1}\sigma_0(\lambda x, \lambda x&#39;), $$ where $\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\tau&amp;gt;0,\lambda&amp;gt;0$ play the roles of a scaling parameter and a bandwidth parameter, respectively.</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). &lt;a href=&#34;https://doi.org/10.1214/009053606000000795&#34;&gt;https://doi.org/10.1214/009053606000000795&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;p(x) = P(Y=1|x) = H(\eta(x)).&#xA;$$&#xA;A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&amp;rsquo;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form&#xA;$$&#xA;\sigma(x,x&amp;rsquo;) = \tau^{-1}\sigma_0(\lambda x, \lambda x&amp;rsquo;),&#xA;$$&#xA;where $\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\tau&amp;gt;0,\lambda&amp;gt;0$ play the roles of a scaling parameter and a bandwidth parameter, respectively. Let $\tau\sim \Pi_\tau, \lambda\sim \Pi_\lambda$, respectively.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Nonparametric binary regression using a Gaussian process prior</title>
       <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
-      <description>Let&amp;rsquo;s discuss this paper
- Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
+      <description>&lt;p&gt;Let&amp;rsquo;s discuss this paper&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem Setup&lt;/h2&gt;&#xA;&lt;p&gt;Consider a binary classification probem given by&#xA;$$&#xA;p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).&#xA;$$&#xA;This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as&#xA;$$&#xA;p(x) = H(\eta(x)),&#xA;$$&#xA;where $H$ is commonly choosen as a cdf, called the &lt;em&gt;link function&lt;/em&gt;, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Mathematical Analysis | 2 Limit of Sequences" />
-<meta property="og:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
- Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-02T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-02T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Mathematical Analysis | 2 Limit of Sequences">
+  <meta property="og:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
+Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-02T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-02T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mathematical Analysis | 2 Limit of Sequences"/>
-<meta name="twitter:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
- Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mathematical Analysis | 2 Limit of Sequences">
+  <meta name="twitter:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
+Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -82,7 +92,7 @@
 <dl>
 <dt>Definition 1 (Convergence)</dt>
 <dd>We say a sequence $\{a_n\}$ is <em>convergent</em> to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$,
-$$ 
+$$
 |a_n - a|&lt;\epsilon.
 $$
 And the point $a$ is called the <em>limit</em> of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$.</dd>
@@ -100,8 +110,8 @@ And the point $a$ is called the <em>limit</em> of the sequence ${a_n}$, denoted 
 <ol>
 <li>the limit of a sequence is unique.</li>
 <li>${a_n}$ is bounded if $\lim_{n\to\infty}a_n = a$.</li>
-<li>if $\lim_{n\to\infty}a_n = a&gt;0$, then for any $b\in(0,a)$ there exists a constant $N$ s.t. for every $n\geq N$ 
-$$ 
+<li>if $\lim_{n\to\infty}a_n = a&gt;0$, then for any $b\in(0,a)$ there exists a constant $N$ s.t. for every $n\geq N$
+$$
 a_n &gt;b.<br>
 $$</li>
 <li>Given two convergent sequences ${a_n}$ and ${b_n}$. If there exist $N$ s.t for any $n\geq N$, $a_n\leq b_n$, then $\lim_{n\to\infty}a_n\leq \lim_{n\to\infty}b_n$.</li>
@@ -119,8 +129,8 @@ $a_n \leq c_n\leq b_n,$ then $\lim_{n\to\infty}ac_n = a$.</li>
 <dt>Theorem 6 (Dense)</dt>
 <dd>If ${a_n}$ is bounded, then ${a_n}$ possesses a convergent subsequence.</dd>
 <dt>Theorem 7 (<strong>Cauchy criterion</strong>)</dt>
-<dd>A sequence ${a_n}$ of real numbers is convergent iff it is a Cauchy sequence, i.e. for any $\epsilon&gt;0$ there exists $N$ s.t. for any $n,m\geq N$ 
-$$ 
+<dd>A sequence ${a_n}$ of real numbers is convergent iff it is a Cauchy sequence, i.e. for any $\epsilon&gt;0$ there exists $N$ s.t. for any $n,m\geq N$
+$$
 |a_n - a_m|&lt;\epsilon.
 $$</dd>
 </dl>

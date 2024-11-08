@@ -1,97 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>reinforcement learning on My Math Notes</title>
+    <title>Reinforcement Learning on My Math Notes</title>
     <link>https://wangchxx.github.io/series/reinforcement-learning/</link>
-    <description>Recent content in reinforcement learning on My Math Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Reinforcement Learning on My Math Notes</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 09 Sep 2021 13:26:05 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 23:01:33 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Multiplayer Monte Carlo Tree Search</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_09_mcts/</link>
+      <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
+      <guid>https://wangchxx.github.io/posts/rl/rl_09_mcts/</guid>
+      <description>&lt;h2 id=&#34;1-multi-agent-systems&#34;&gt;1. Multi-Agent Systems&lt;/h2&gt;&#xA;&lt;p&gt;A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.&lt;/p&gt;&#xA;&lt;p&gt;MAS research spans a range of problems, such as&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;how to design MAS to incentivize certain behaviors in agents,&lt;/li&gt;&#xA;&lt;li&gt;how to design algorithms enabling agents to achieve specific goals in a MAS,&lt;/li&gt;&#xA;&lt;li&gt;how information is communicated and propagated among agents.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-monte-carlo-tree-search-mcts&#34;&gt;2. Monte Carlo Tree Search (MCTS)&lt;/h2&gt;&#xA;&lt;p&gt;The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>RL | Dynamics Approximation for Model-Based RL</title>
       <link>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</link>
       <pubDate>Thu, 09 Sep 2021 13:26:05 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</guid>
-      <description>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$.</description>
+      <description>&lt;p&gt;One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-dynamics-approximation&#34;&gt;1. Dynamics Approximation&lt;/h2&gt;&#xA;&lt;p&gt;Let $p(s&amp;rsquo;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}&lt;em&gt;{t+1}$. However, this function can be difficult to learn as $s_t$ and $s&lt;/em&gt;{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step&#xA;$$&#xA;f_\theta(s_t, a_t) = \hat{\Delta}&lt;em&gt;{t+1}:= \hat{s}&lt;/em&gt;{t+1} - s_t.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Policy Gradient Methods</title>
       <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
       <pubDate>Thu, 26 Aug 2021 03:20:07 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</guid>
-      <description>So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
-One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.</description>
+      <description>&lt;p&gt;So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.&lt;/p&gt;&#xA;&lt;p&gt;One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Value Function Approximation</title>
       <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
       <pubDate>Wed, 25 Aug 2021 22:17:58 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</guid>
-      <description>So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
-$$ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a). $$
-For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.</description>
+      <description>&lt;p&gt;So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g.&#xA;$$&#xA;J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2,&#xA;$$&#xA;we can approximate $v$ or $q$ by GD, i.e.&#xA;$$&#xA;w \leftarrow w - \frac{1}{2}\alpha \nabla_w J_w,&#xA;$$&#xA;where $\nabla_w J_w = 2 \mathbb{E}&lt;em&gt;{\pi} [(f(s,w) - v&lt;/em&gt;\pi(s)) \nabla_w f(s,w)]$. We assume that samples are generated by policy $\pi$, then we can estimate the gradient by sampling,&#xA;$$&#xA;\begin{equation}&#xA;\nabla_w J_w = 2(f(s,w) - v_\pi(s)) \nabla_w f(s,w).&#xA;\end{equation}&#xA;$$&#xA;This is known as SGD.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Model-Free: Temporal Difference Learning</title>
       <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
       <pubDate>Tue, 24 Aug 2021 18:28:15 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</guid>
-      <description>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
-1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs.</description>
+      <description>&lt;p&gt;Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-td-prediction&#34;&gt;1. TD Prediction&lt;/h2&gt;&#xA;&lt;p&gt;Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by&#xA;$$&#xA;V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)],&#xA;$$&#xA;where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by&#xA;$$&#xA;\begin{equation}&#xA;V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \big].&#xA;\end{equation}&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Model-Free: Monte Carlo Methods</title>
       <link>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</link>
       <pubDate>Tue, 24 Aug 2021 18:27:52 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</guid>
-      <description>We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
-In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
-1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$.</description>
+      <description>&lt;p&gt;We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: &lt;em&gt;Monte Carlo&lt;/em&gt; methods and &lt;em&gt;temporal-difference&lt;/em&gt; learning.&lt;/p&gt;&#xA;&lt;p&gt;In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-monte-carlo-prediction&#34;&gt;1. Monte Carlo Prediction&lt;/h2&gt;&#xA;&lt;p&gt;We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$&#xA;$$&#xA;S_0, A_0 , R_1, &amp;hellip;, S_{T-1}, A_{T-1}, R_T \sim \pi.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Dynamic Programming</title>
       <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
-      <description>There are two common tasks in an MDP
- prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP.  In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.</description>
+      <description>&lt;p&gt;There are two common tasks in an MDP&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$.&lt;/li&gt;&#xA;&lt;li&gt;control: finding optimal policy $\pi_&lt;em&gt;$ and corresponding optimal value function $v_&lt;/em&gt;$ given a MDP.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Markov Decision Processes</title>
       <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
-      <description>Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.
-Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP.</description>
+      <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\mathcal{S}$: state space.&lt;/li&gt;&#xA;&lt;li&gt;$\mathcal{A}$: action space.&lt;/li&gt;&#xA;&lt;li&gt;$\mathcal{R}$: reward space.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-agent-environment-interaction&#34;&gt;1. Agent-Environment Interaction&lt;/h2&gt;&#xA;&lt;p&gt;On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.&lt;/p&gt;&#xA;&lt;p&gt;Write&#xA;$$&#xA;p(s&amp;rsquo;,r|s,a) = \Pr(S_t = s&amp;rsquo;, R_t = r| S_{t-1} = s, A_{t-1} = a).&#xA;$$&#xA;The function $p$ defines the &lt;em&gt;dynamics&lt;/em&gt; of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Multi-armed Bandits</title>
       <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
       <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</guid>
-      <description>Notations    $A_t$: the action selected at time $t$.
-  $R_t$: the reward received at time $t$.
-  $q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
-  $Q_t(a)$: the estimated value of action $a$ at time $t$.
-   1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected.</description>
+      <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$A_t$: the action selected at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$R_t$: the reward received at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$q_&lt;em&gt;(a)$: the expected reward given an action $a$, i.e. $q_&lt;/em&gt;(a) = \mathbb{E}[R_t|A_t = a]$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$Q_t(a)$: the estimated value of action $a$ at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-a-k-armed-bandit-problem&#34;&gt;1. A k-armed Bandit Problem&lt;/h2&gt;&#xA;&lt;p&gt;Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

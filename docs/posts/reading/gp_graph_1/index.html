@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Reading | Estimating a smooth function on a large graph (1)" />
-<meta property="og:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
- Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515  1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_1/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-20T23:28:03+02:00" />
-<meta property="article:modified_time" content="2021-08-20T23:28:03+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_graph_2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_1/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Reading | Estimating a smooth function on a large graph (1)">
+  <meta property="og:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,…,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ &lt;f,g&gt;n = \frac{1}{n}\sum{i=1}^n f_i g_i. $$">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-08-20T23:28:03+02:00">
+    <meta property="article:modified_time" content="2021-08-20T23:28:03+02:00">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_graph_2/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (1)"/>
-<meta name="twitter:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
- Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515  1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (1)">
+  <meta name="twitter:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,…,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ &lt;f,g&gt;n = \frac{1}{n}\sum{i=1}^n f_i g_i. $$">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -120,10 +126,10 @@ $$
 where $\xi_i$ are independent standard Gaussian. By Theorem 1, we have
 $$
 \begin{equation}
-\Pi(||f - f^*||_n \geq M \epsilon_n| Y^{(n)}) \to 0
+\Pi(||f - f^<em>||<em>n \geq M \epsilon_n| Y^{(n)}) \to 0
 \end{equation}
 $$
-in $P_{f^*}$-probability at the rate $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$.</p>
+in $P</em>{f^</em>}$-probability at the rate $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$.</p>
 <p>In the binary classification case, we assume that $Y_1,&hellip;,Y_n$ are 0-1 valued variables satisfying
 $$
 p^*_i = \Pr(Y_i = 1).
@@ -134,7 +140,7 @@ $$
 $$</p>
 <dl>
 <dt>Theorem 1 (<em>Power of the Laplacian</em>)</dt>
-<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $0&lt; \beta\leq \alpha+r/2$. Let the random function $f$ on the graph be defined by
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^<em>\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $0&lt; \beta\leq \alpha+r/2$. Let the random function $f$ on the graph be defined by
 $$
 \begin{align}
 c &amp;\sim \exp(1) \cr
@@ -144,7 +150,7 @@ $$
 where $\Sigma_c^{-1} = (\frac{n}{c})^{2/r}(L + n^{-2} I)^{\alpha+r/2}$. Then there exists constants $K_1&gt;0,K_2&gt;1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
 $$
 \begin{align}
-\Pr(||f - f^*||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+\Pr(||f - f^</em>||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
 \Pr(f\notin B_n) &amp;\lesssim \exp(-K_2 n \epsilon_n^2), \cr
 \log N(\epsilon_n , B_n , ||\cdot||_n) &amp;\lesssim n\epsilon_n^2,
 \end{align}
@@ -154,7 +160,7 @@ where $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$.</dd>
 <p>This theorem obtains the rate $n^{-\beta/(2\beta+r)}$ for all $\beta$ up to $\alpha+r/2$.</p>
 <dl>
 <dt>Theorem 2 (<em>Exponential of the Laplacian</em>)</dt>
-<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $\beta&gt;0$. Let the random function $f$ on the graph be defined by
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^<em>\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $\beta&gt;0$. Let the random function $f$ on the graph be defined by
 $$
 \begin{align}
 c &amp;\sim \exp(1) \cr
@@ -164,7 +170,7 @@ $$
 where $\Sigma_c = n \exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1&gt;0,K_2&gt;1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
 $$
 \begin{align}
-\Pr(||f - f^*||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+\Pr(||f - f^</em>||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
 \Pr(f\notin B_n) &amp;\lesssim \exp(-K_2 n \epsilon_n^2), \cr
 \log N(\tilde{\epsilon}_n , B_n , ||\cdot||_n) &amp;\lesssim n\tilde{\epsilon}_n^2,
 \end{align}
@@ -200,12 +206,12 @@ $$</dd>
 <dt>Proof</dt>
 <dd>By the series representation of $f$, we have
 $$
-\Pr(||f||_n\leq \epsilon|c) = \Pr(\sum_i Z_i^2/(n\mu_i)\leq \epsilon^2).
+\Pr(||f||<em>n\leq \epsilon|c) = \Pr(\sum_i Z_i^2/(n\mu_i)\leq \epsilon^2).
 $$
 The assumption (G) allows us to bound $\mu_i$ from below, then it follows that
 $$
 \begin{align*}
-\Pr(||f||_n\leq 2\epsilon^2|c) &amp;\geq \Pr(\sum_{i\leq i_0}Z_i^2/(n\mu_i)\leq \epsilon^2, \sum_{i&gt;i_0}Z_i^2/(n\mu_i)\leq \epsilon^2) \cr
+\Pr(||f||<em>n\leq 2\epsilon^2|c) &amp;\geq \Pr(\sum</em>{i\leq i_0}Z_i^2/(n\mu_i)\leq \epsilon^2, \sum</em>{i&gt;i_0}Z_i^2/(n\mu_i)\leq \epsilon^2) \cr
 &amp;\geq \Pr(\sum_{i\leq i_0} Z_i^2 \leq (C_1^p c^{-2p/4} n^{(2\alpha+2r - 2pr)/4})\epsilon^2)\Pr(\sum_{i&gt;i_0}\frac{Z_i^2}{e^{2p/r}}\leq C_1^p c^{-2p/r}n\epsilon^2),
 \end{align*}
 $$
@@ -228,17 +234,17 @@ $$</dd>
 <dt>Lemma 2 (<em>discentering</em>)</dt>
 <dd>Let $f\in H^\beta(Q)$ for $\beta\leq \alpha +r/2$. For $\epsilon$ s.t. $\epsilon\to 0$ and $1/\epsilon = o(n^{\beta/r})$,
 $$
-\inf_{||h-f||_n\leq \epsilon} ||h||_{\mathbb{H}^c}^2\lesssim nc^{-(2\alpha+r)/r} \epsilon^{-\frac{2(\alpha-\beta) +r}{\beta}}
+\inf_{||h-f||<em>n\leq \epsilon} ||h||</em>{\mathbb{H}^c}^2\lesssim nc^{-(2\alpha+r)/r} \epsilon^{-\frac{2(\alpha-\beta) +r}{\beta}}
 $$</dd>
 <dt>Proof</dt>
 <dd>Use the series expansion of $f = \sum_i h_i \psi_i$. By the assumption (S) we have $\sum_i (1 + n^{2\beta/r}\lambda_i^\beta) h_i^2 \leq Q^2$. Now for $I$ to be determined later, consider $h = \sum_{i\leq I} h_i\psi_i$. By assumption (G), for $I$ large enough
 $$
-||h - f||_n^2 = \sum_{i&gt;I}h_i^2\leq \frac{Q^2}{1 + n^{2\beta/r}\lambda_I^\beta} \leq Q^2 C_1^{-\beta}I^{-2\beta/r}.
+||h - f||<em>n^2 = \sum</em>{i&gt;I}h_i^2\leq \frac{Q^2}{1 + n^{2\beta/r}\lambda_I^\beta} \leq Q^2 C_1^{-\beta}I^{-2\beta/r}.
 $$
-Putting $I\propto \epsilon^{-r/\beta}$ we obtain $||h-f||_n \leq \epsilon$. Then the RKHS-norm of $h$ satisfies
+Putting $I\propto \epsilon^{-r/\beta}$ we obtain $||h-f||<em>n \leq \epsilon$. Then the RKHS-norm of $h$ satisfies
 $$
 \begin{align*}
-||h||_{\mathbb{H}^c}^2 &amp;= n\sum_{i\leq I}\left((n/c)^{2/r} (\lambda_i + n^{-2}) \right)^{\alpha+r/2} h_i^2 \cr
+||h||</em>{\mathbb{H}^c}^2 &amp;= n\sum_{i\leq I}\left((n/c)^{2/r} (\lambda_i + n^{-2}) \right)^{\alpha+r/2} h_i^2 \cr
 &amp;\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\alpha-\beta)/r}\lambda_I^{p-\beta}
 \end{align*}
 $$
@@ -262,18 +268,18 @@ $$
 $$
 we have $-\log\Pr(||f- f^* ||_n&lt;\epsilon_n|c)\lesssim \epsilon_n^{-r\beta}$. By direct computation, we obtain
 $$
-\Pr(||f-f^*||_n&lt;\epsilon_n) \gtrsim e^{-K_1 \epsilon_n^{-r/\beta}}.
+\Pr(||f-f^*||<em>n&lt;\epsilon_n) \gtrsim e^{-K_1 \epsilon_n^{-r/\beta}}.
 $$
-Then we show the left two assertions. Define $B_n = M_n\mathbb{H}_{1,c_n} + \epsilon_n\mathbb{B}_1$, where $\mathbb{B}_1$ is the unit ball of $(\mathbb{R}^2,||\cdot||_n)$. For $\epsilon_n = n^{-\beta/(2\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have
+Then we show the left two assertions. Define $B_n = M_n\mathbb{H}</em>{1,c_n} + \epsilon_n\mathbb{B}_1$, where $\mathbb{B}_1$ is the unit ball of $(\mathbb{R}^2,||\cdot||_n)$. For $\epsilon_n = n^{-\beta/(2\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have
 $$
-\log N(2\epsilon_n, B_n, ||\cdot||_n) \leq \log N(\epsilon_n, M_n\mathbb{H}_{1,c_n}, ||\cdot||_n) \lesssim c_n (\frac{M_n}{\epsilon_n\sqrt{n}})^{r/p}.
+\log N(2\epsilon_n, B_n, ||\cdot||<em>n) \leq \log N(\epsilon_n, M_n\mathbb{H}</em>{1,c_n}, ||\cdot||_n) \lesssim c_n (\frac{M_n}{\epsilon_n\sqrt{n}})^{r/p}.
 $$
 Choosing $M_n = M\sqrt{n\epsilon_n^2}, c_n^{p/r} = N \sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}$, we obtain the third assertion.
 <p>It remains to show the second assertion.
 $$
 \Pr(f\notin B_n) \leq \int_0^{c_n} \Pr(f\notin B_n|c) e^{-c} dc + \int_{c_n}^\infty e^{-c} dc.
 $$
-For $c\leq c_n$, we have $\mathbb{H}_{1,c}\subset \mathbb{H}_{1,c_n}$. Hence, by the Borell&rsquo;s' inequality, we have for $c\leq c_n$ that
+For $c\leq c_n$, we have $\mathbb{H}<em>{1,c}\subset \mathbb{H}</em>{1,c_n}$. Hence, by the Borell&rsquo;s&rsquo; inequality, we have for $c\leq c_n$ that
 $$
 \begin{align*}
 \Pr(f\notin B_n|c) &amp;\leq \Pr(f\notin M_n \mathbb{H}_{1,c} +  \epsilon_n \mathbb{B}_1|c) \cr

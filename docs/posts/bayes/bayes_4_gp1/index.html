@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (1)" />
-<meta property="og:description" content="在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是 $$Y = \beta X &#43; \epsilon.$$
-我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成, $$Y_i = f(X_i) &#43; \epsilon_i,$$
-where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.
-1. Gaussian Process GP 的一个简单定义是通过其 finite-dimensional distributions (FDDs) 实现的。
- Definition (Gaussian process)   the map $t\mapsto W_t(\omega)$ is called the sample path of of $W$." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-21T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-07-21T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (1)">
+  <meta property="og:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is $$Y = \beta X &#43; \epsilon.$$">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-21T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-07-21T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (1)"/>
-<meta name="twitter:description" content="在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是 $$Y = \beta X &#43; \epsilon.$$
-我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成, $$Y_i = f(X_i) &#43; \epsilon_i,$$
-where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.
-1. Gaussian Process GP 的一个简单定义是通过其 finite-dimensional distributions (FDDs) 实现的。
- Definition (Gaussian process)   the map $t\mapsto W_t(\omega)$ is called the sample path of of $W$."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (1)">
+  <meta name="twitter:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is $$Y = \beta X &#43; \epsilon.$$">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -84,33 +84,34 @@ where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个
 	<p></p>
 	<article class="md">
 		<!-- raw HTML omitted -->
-<p>在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是
+<p>In the previous chapters, we introduced the <strong>Dirichlet Process (DP) prior</strong>, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the <strong>Gaussian Process (GP)</strong>, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is
 $$Y = \beta X  + \epsilon.$$</p>
-<p>我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成,
+<p>In this case, we are looking to estimate the parameter $\beta$. However, we are considering a more generalized model by replacing the linear function with an unknown function $f(X_{i})$, as:
 $$Y_i = f(X_i) + \epsilon_i,$$</p>
-<p>where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.</p>
+<p>where $f$ is an unknown function. The goal is to estimate the function $f$, which is an <strong>infinite-dimensional model</strong> because $f$ represents a function defined over the continuous input space. Gaussian process regression assign $f$ a prior distribution $\Pi$, and this prior is specifically a <strong>Gaussian Process</strong>.</p>
 <h2 id="1-gaussian-process">1. Gaussian Process</h2>
-<p>GP 的一个简单定义是通过其 finite-dimensional distributions (FDDs) 实现的。</p>
+<p><strong>Gaussian Process (GP)</strong> can be defined through its <strong>finite-dimensional distributions (FDDs)</strong>.</p>
 <dl>
 <dt>Definition (Gaussian process)</dt>
 <dd><img src="/img_bayes_GP/GP_1.PNG" alt="GP_def_1"></dd>
 </dl>
 <p>the map $t\mapsto W_t(\omega)$ is called the sample path of of $W$. Sample paths are functions from $T$ to $\mathbb{R}$, so the process can be viewed as a map $W:\Omega \to \mathbb{B}$, where $\mathbb{B}$ is a function space, e.g. the space of continuous functions on $T$.</p>
-<p>这个定义的问题是，FDDs 并不能完全决定sample paths的性质。一个解决办法是找到 a version $\tilde{W}$  of $W$ s.t. the sample paths $\tilde{W}$ possess the desired properties. For instance, if we need a space of continuous functions on $T$, we may apply the following theorem<br>
+<p>The problem with defining a Gaussian Process solely by its finite-dimensional distributions is that <strong>sample paths</strong> (i.e., the realizations of the process) may not exhibit the desired properties. For example, a Gaussian Process with a particular kernel might have <strong>sample paths</strong> that are not continuous, even though the FDDs at any finite set of points may still define a valid Gaussian distribution. To resolve this issue, we seek to find a version $\tilde{W}$  of the process $W$ s.t. the sample paths $\tilde{W}$ possess the desired properties. For instance, if we need a space of continuous functions on $T$, we may apply the following theorem<br>
 <img src="/img_bayes_GP/GP_2.PNG" alt="GP_continuous"></p>
-<p>GP 的另一个定义。Let $\mathbb{B}^*$ denote the dual space of a Banach space $\mathbb{B}$.</p>
+<p>A more abstract and general formulation of a Gaussian process is related to the dual space of a Banach space. Let  $\mathbb{B}$ be a Banach space. The dual space $\mathbb{B}^*$ is the space of continuous linear functionals on $\mathbb{B}$, i.e., the set of all linear maps from $\mathbb{B}$ to the scalar field.</p>
 <dl>
 <dt>Definition (Gaussian random element)</dt>
 <dd><img src="/img_bayes_GP/GP_3.PNG" alt="GP_def_2"></dd>
 </dl>
-<p>这两个定义有什么关系呢？由第二个定义我们总是能构成一个 Gaussian stochastic process by $(b^*(W):b^*\in T)$, for any subset $T\subset \mathbb{B}^*$. 另外，if the sample paths $t\mapsto W_t$ of the stochastic process $W = (W_t:t\in T)$ belong to a Banach process $\mathbb{B}$ of functions $z:T\to \mathbb{R}$, then under some conditions the process will be a Gaussian random element.</p>
+<p>In this framework, the Gaussian Process can be viewed as a random element in the dual space $\mathbb{B}^*$∗, where the process is defined in terms of the behavior of random variables indexed by elements of a Banach space.</p>
+<p>What is the relation between the above two definition of GP？With the second definition we can always construct a Gaussian stochastic process by $(b^{*}(W):b^{*}\in T)$, which are jointly normally distributed, for any subset $T\subset \mathbb{B}^*$. Additionally，if the sample paths $t\mapsto W_t$ of the stochastic process $W = (W_t:t\in T)$ belong to a Banach process $\mathbb{B}$ of functions $z:T\to \mathbb{R}$, then under some conditions the process will be a Gaussian random element. More specifically, the sample paths $t\mapsto W_t$ belonging to a Banach space means  that  the process must satisfy certain regularity conditions on the covariance structure and continuity of the sample paths.</p>
 <h2 id="2-reproducing-kernel-hilbert-space">2. Reproducing Kernel Hilbert Space</h2>
-<p>每个 GP都天然地自带一个 Hilbert space, determined by its covariance function. For a GP $W = (W_t: t\in T)$, let $\overline{lin}(W)$ be the closure of the set of all linear combinations $\sum_i \alpha_i W_{t_i}$ in the $L^2$-space of square-integrable variables. Then the space $\overline{lin}(W)$ is a Hilbert space, with inner product $&lt; f,g&gt; = E f\bar{g}$,called the first order chaos of $W$.</p>
+<p>Every Gaussian process is naturally associated with a Hilbert space, determined by its covariance function. For a GP $W = (W_t: t\in T)$, let $\overline{lin}(W)$ be the closure of the set of all linear combinations $\sum_i \alpha_i W_{t_i}$ in the $L^2$-space of square-integrable variables. Then the space $\overline{lin}(W)$ is a Hilbert space, with inner product $&lt; f,g&gt; = E f\bar{g}$, called the first order chaos of $W$.</p>
 <dl>
 <dt>Definition (RKHS, 1)</dt>
 <dd><img src="/img_bayes_GP/GP_4.PNG" alt="RKHS_1"></dd>
 </dl>
-<p>可以验证 $\mathbb{H}$ 的确是一个Hilbert space.</p>
+<p>It can be verified that $\mathbb{H}$ is a Hilbert space.</p>
 <dl>
 <dt>Lemma (Properties of RKHS)</dt>
 <dd><img src="/img_bayes_GP/GP_5.PNG" alt="RKHS_1_pty"></dd>
@@ -122,7 +123,7 @@ $$Y_i = f(X_i) + \epsilon_i,$$</p>
 <dt>Definition (RKHS, 2)</dt>
 <dd><img src="/img_bayes_GP/GP_6.PNG" alt="RKHS_2"></dd>
 </dl>
-<p>这两个定义之间的联系</p>
+<p>The relationship between the two definitions is</p>
 <p>$$r(s,t) = E W_s W_t = E[\pi_s(W) \pi_t(W)] = \langle S\pi_s, S\pi_t \rangle_{\mathbb H},$$
 where $\pi_t: b\mapsto b(t)$ are elements in $\mathbb B^*$.</p>
 <h2 id="3-small-ball-probability">3. Small Ball Probability</h2>
@@ -140,7 +141,7 @@ where $\pi_t: b\mapsto b(t)$ are elements in $\mathbb B^*$.</p>
 <dd><img src="/img_bayes_GP/GP_9.PNG" alt="small ball"></dd>
 </dl>
 <h2 id="4-posterior-contraction">4. Posterior Contraction</h2>
-<p>在讨论 posterior contraction of GP prior之前，我们需要先介绍一些infinite-dimensional Bayes 的一些理论，这将是很长的一部分内容，所以我将用专门的一章来介绍，之后，再回过头来讨论GP prior 的情况。</p>
+<p>Before discussing the posterior contraction of GP priors, we need to introduce some theoretical concepts from infinite-dimensional Bayes theory. This will be a lengthy section, so I will dedicate a separate chapter to it. After that, we will return to discuss the case of GP priors.</p>
 <h2 id="references">References</h2>
 <ul>
 <li>

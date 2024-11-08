@@ -4,27 +4,24 @@
     <title>Tags on My Math Notes</title>
     <link>https://wangchxx.github.io/tags/</link>
     <description>Recent content in Tags on My Math Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Wed, 21 Jul 2021 10:52:59 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 10:52:59 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>markdown</title>
+      <title>Markdown</title>
       <link>https://wangchxx.github.io/tags/markdown/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/tags/markdown/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>math</title>
+      <title>Math</title>
       <link>https://wangchxx.github.io/tags/math/</link>
       <pubDate>Thu, 01 Apr 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/tags/math/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -3,18 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Mathematical Analysis | 7 Completeness of the Real Numbers" />
-<meta property="og:description" content="1. Nested Intervals Theorem  Definition 1 (Nested intervals) A sequence of closed intervals ${[a_n,b_n]}$ is called a sequence of nested closed intervals if   $[a_{n&#43;1}, b_{n&#43;1}]\subset [a_n, b_n]$, $\lim_{n\to\infty}(b_n - a_n) = 0$.   Theorem 2 (Nested intervals theorem) Let ${[a_n,b_n]}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$. proof Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-07T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-04-07T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Mathematical Analysis | 7 Completeness of the Real Numbers">
+  <meta property="og:description" content="1. Nested Intervals Theorem Definition 1 (Nested intervals) A sequence of closed intervals ${[a_n,b_n]}$ is called a sequence of nested closed intervals if $[a_{n&#43;1}, b_{n&#43;1}]\subset [a_n, b_n]$, $\lim_{n\to\infty}(b_n - a_n) = 0$. Theorem 2 (Nested intervals theorem) Let ${[a_n,b_n]}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$. proof Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s.t. $\xi\geq a_n$ for all $n$. Similarly, the sequence ${b_n}$ also has a limit. Combing (ii) of the definition, we have $$ \lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n = \xi, $$ and $a_n\leq \xi\leq b_n$ for all $n$. The left work is to show the uniqueness. Suppose that there exists another $\xi’$ s.t. $a_n\leq \xi’\leq b_n$, we have $$ |\xi - \xi’|\leq b_n - a_n \to 0, $$ which means that $\xi = \xi’$. $\Box$">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-07T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-04-07T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mathematical Analysis | 7 Completeness of the Real Numbers"/>
-<meta name="twitter:description" content="1. Nested Intervals Theorem  Definition 1 (Nested intervals) A sequence of closed intervals ${[a_n,b_n]}$ is called a sequence of nested closed intervals if   $[a_{n&#43;1}, b_{n&#43;1}]\subset [a_n, b_n]$, $\lim_{n\to\infty}(b_n - a_n) = 0$.   Theorem 2 (Nested intervals theorem) Let ${[a_n,b_n]}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$. proof Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mathematical Analysis | 7 Completeness of the Real Numbers">
+  <meta name="twitter:description" content="1. Nested Intervals Theorem Definition 1 (Nested intervals) A sequence of closed intervals ${[a_n,b_n]}$ is called a sequence of nested closed intervals if $[a_{n&#43;1}, b_{n&#43;1}]\subset [a_n, b_n]$, $\lim_{n\to\infty}(b_n - a_n) = 0$. Theorem 2 (Nested intervals theorem) Let ${[a_n,b_n]}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$. proof Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s.t. $\xi\geq a_n$ for all $n$. Similarly, the sequence ${b_n}$ also has a limit. Combing (ii) of the definition, we have $$ \lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n = \xi, $$ and $a_n\leq \xi\leq b_n$ for all $n$. The left work is to show the uniqueness. Suppose that there exists another $\xi’$ s.t. $a_n\leq \xi’\leq b_n$, we have $$ |\xi - \xi’|\leq b_n - a_n \to 0, $$ which means that $\xi = \xi’$. $\Box$">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,32 +97,32 @@
 <dt>Theorem 2 (<strong>Nested intervals theorem</strong>)</dt>
 <dd>Let ${[a_n,b_n]}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$.</dd>
 <dt>proof</dt>
-<dd>Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s.t. $\xi\geq a_n$ for all $n$. Similarly, the sequence ${b_n}$ also has a limit. Combing (ii) of the definition, we have 
-$$ 
+<dd>Notice that ${a_n}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s.t. $\xi\geq a_n$ for all $n$. Similarly, the sequence ${b_n}$ also has a limit. Combing (ii) of the definition, we have
+$$
 \lim_{n\to\infty}a_n =   \lim_{n\to\infty}b_n = \xi,
 $$
-and $a_n\leq \xi\leq b_n$ for all $n$. The left work is to show the uniqueness. Suppose that there exists another $\xi'$ s.t. $a_n\leq \xi'\leq b_n$, we have 
-$$ 
-|\xi - \xi'|\leq b_n - a_n \to 0,
+and $a_n\leq \xi\leq b_n$ for all $n$. The left work is to show the uniqueness. Suppose that there exists another $\xi&rsquo;$ s.t. $a_n\leq \xi&rsquo;\leq b_n$, we have
 $$
-which means that $\xi = \xi'$.</dd>
+|\xi - \xi&rsquo;|\leq b_n - a_n \to 0,
+$$
+which means that $\xi = \xi&rsquo;$.</dd>
 </dl>
 <p>$\Box$</p>
 <h2 id="2-finite-open-covers">2. Finite Open Covers</h2>
 <dl>
 <dt>Definition 3 (<strong>Closure point</strong>)</dt>
-<dd>Let $S$ be a set of real numbers, $\xi$ be a fixed point, if for any neighbourhood of $x_0$, $U(x_0,\delta)$, we have 
-$$ 
+<dd>Let $S$ be a set of real numbers, $\xi$ be a fixed point, if for any neighbourhood of $x_0$, $U(x_0,\delta)$, we have
+$$
 |U(x_0,\delta)\cap S|  = \infty,
 $$
 we say that $\xi$ is a <code>closure point</code> of $S$.</dd>
 </dl>
 <p>The definition is equivalent to</p>
-<p>3' for any neighbourhood of $x_0$, $U(x_0,\delta)$, we have $U^o(x_0,\delta)\cap S \neq \emptyset$.</p>
-<p>3'' there exists a convergent series ${x_n}\subset S$ with distinct elements s.t. $\lim_{n\to\infty} x_n = \xi$.</p>
+<p>3&rsquo; for any neighbourhood of $x_0$, $U(x_0,\delta)$, we have $U^o(x_0,\delta)\cap S \neq \emptyset$.</p>
+<p>3&rsquo;&rsquo; there exists a convergent series ${x_n}\subset S$ with distinct elements s.t. $\lim_{n\to\infty} x_n = \xi$.</p>
 <dl>
 <dt>proof</dt>
-<dd>3 $\Rightarrow$ 3' is trivial. 3'' $\Rightarrow$ 3 is trivial. We only show 3' $\Rightarrow$ 3''. Let $\delta_1 = 1$, we can find $x_1\in U^o(\xi,\delta_1)\cap S$, then we let $\delta_2 = \min{1/2, |\xi - x_1|}$, we can find $\xi_2\in U^o(\xi,\delta_2)\cap S$ and $x_1\neq x_2$, $\ldots$, let $\delta_2 = \min{1/n, |\xi - x_{n-1}|}$, we can find $\xi_2\in U^o(\xi,\delta_2)\cap S$ and $x_n$ is different from $x_1,&hellip;,x_{n-1}$.</dd>
+<dd>3 $\Rightarrow$ 3&rsquo; is trivial. 3&rsquo;&rsquo; $\Rightarrow$ 3 is trivial. We only show 3&rsquo; $\Rightarrow$ 3&rsquo;&rsquo;. Let $\delta_1 = 1$, we can find $x_1\in U^o(\xi,\delta_1)\cap S$, then we let $\delta_2 = \min{1/2, |\xi - x_1|}$, we can find $\xi_2\in U^o(\xi,\delta_2)\cap S$ and $x_1\neq x_2$, $\ldots$, let $\delta_2 = \min{1/n, |\xi - x_{n-1}|}$, we can find $\xi_2\in U^o(\xi,\delta_2)\cap S$ and $x_n$ is different from $x_1,&hellip;,x_{n-1}$.</dd>
 </dl>
 <p>Continue this procedure, we obtain a sequence of distinct numbers ${x_n}$ with $|\xi - x_n|&lt;\delta_n\leq 1/n\to 0$.</p>
 <dl>

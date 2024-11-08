@@ -1,229 +1,153 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ml on My Math Notes</title>
+    <title>Ml on My Math Notes</title>
     <link>https://wangchxx.github.io/categories/ml/</link>
-    <description>Recent content in ml on My Math Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Ml on My Math Notes</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 09 Sep 2021 13:26:05 +0200</lastBuildDate><atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 23:01:33 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL | Multiplayer Monte Carlo Tree Search</title>
+      <link>https://wangchxx.github.io/posts/rl/rl_09_mcts/</link>
+      <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
+      <guid>https://wangchxx.github.io/posts/rl/rl_09_mcts/</guid>
+      <description>&lt;h2 id=&#34;1-multi-agent-systems&#34;&gt;1. Multi-Agent Systems&lt;/h2&gt;&#xA;&lt;p&gt;A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.&lt;/p&gt;&#xA;&lt;p&gt;MAS research spans a range of problems, such as&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;how to design MAS to incentivize certain behaviors in agents,&lt;/li&gt;&#xA;&lt;li&gt;how to design algorithms enabling agents to achieve specific goals in a MAS,&lt;/li&gt;&#xA;&lt;li&gt;how information is communicated and propagated among agents.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-monte-carlo-tree-search-mcts&#34;&gt;2. Monte Carlo Tree Search (MCTS)&lt;/h2&gt;&#xA;&lt;p&gt;The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>RL | Dynamics Approximation for Model-Based RL</title>
       <link>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</link>
       <pubDate>Thu, 09 Sep 2021 13:26:05 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</guid>
-      <description>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$.</description>
+      <description>&lt;p&gt;One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-dynamics-approximation&#34;&gt;1. Dynamics Approximation&lt;/h2&gt;&#xA;&lt;p&gt;Let $p(s&amp;rsquo;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}&lt;em&gt;{t+1}$. However, this function can be difficult to learn as $s_t$ and $s&lt;/em&gt;{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step&#xA;$$&#xA;f_\theta(s_t, a_t) = \hat{\Delta}&lt;em&gt;{t+1}:= \hat{s}&lt;/em&gt;{t+1} - s_t.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Policy Gradient Methods</title>
       <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
       <pubDate>Thu, 26 Aug 2021 03:20:07 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</guid>
-      <description>So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
-One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.</description>
+      <description>&lt;p&gt;So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.&lt;/p&gt;&#xA;&lt;p&gt;One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Value Function Approximation</title>
       <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
       <pubDate>Wed, 25 Aug 2021 22:17:58 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</guid>
-      <description>So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
-$$ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a). $$
-For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.</description>
+      <description>&lt;p&gt;So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g.&#xA;$$&#xA;J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2,&#xA;$$&#xA;we can approximate $v$ or $q$ by GD, i.e.&#xA;$$&#xA;w \leftarrow w - \frac{1}{2}\alpha \nabla_w J_w,&#xA;$$&#xA;where $\nabla_w J_w = 2 \mathbb{E}&lt;em&gt;{\pi} [(f(s,w) - v&lt;/em&gt;\pi(s)) \nabla_w f(s,w)]$. We assume that samples are generated by policy $\pi$, then we can estimate the gradient by sampling,&#xA;$$&#xA;\begin{equation}&#xA;\nabla_w J_w = 2(f(s,w) - v_\pi(s)) \nabla_w f(s,w).&#xA;\end{equation}&#xA;$$&#xA;This is known as SGD.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Model-Free: Temporal Difference Learning</title>
       <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
       <pubDate>Tue, 24 Aug 2021 18:28:15 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</guid>
-      <description>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
-1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs.</description>
+      <description>&lt;p&gt;Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-td-prediction&#34;&gt;1. TD Prediction&lt;/h2&gt;&#xA;&lt;p&gt;Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by&#xA;$$&#xA;V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)],&#xA;$$&#xA;where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by&#xA;$$&#xA;\begin{equation}&#xA;V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \big].&#xA;\end{equation}&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Model-Free: Monte Carlo Methods</title>
       <link>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</link>
       <pubDate>Tue, 24 Aug 2021 18:27:52 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</guid>
-      <description>We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
-In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
-1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$.</description>
+      <description>&lt;p&gt;We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: &lt;em&gt;Monte Carlo&lt;/em&gt; methods and &lt;em&gt;temporal-difference&lt;/em&gt; learning.&lt;/p&gt;&#xA;&lt;p&gt;In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-monte-carlo-prediction&#34;&gt;1. Monte Carlo Prediction&lt;/h2&gt;&#xA;&lt;p&gt;We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$&#xA;$$&#xA;S_0, A_0 , R_1, &amp;hellip;, S_{T-1}, A_{T-1}, R_T \sim \pi.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Dynamic Programming</title>
       <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
-      <description>There are two common tasks in an MDP
- prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP.  In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.</description>
+      <description>&lt;p&gt;There are two common tasks in an MDP&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$.&lt;/li&gt;&#xA;&lt;li&gt;control: finding optimal policy $\pi_&lt;em&gt;$ and corresponding optimal value function $v_&lt;/em&gt;$ given a MDP.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&amp;rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Markov Decision Processes</title>
       <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
-      <description>Notations   $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space.   1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.
-Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the *dynamics* of the MDP.</description>
+      <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\mathcal{S}$: state space.&lt;/li&gt;&#xA;&lt;li&gt;$\mathcal{A}$: action space.&lt;/li&gt;&#xA;&lt;li&gt;$\mathcal{R}$: reward space.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-agent-environment-interaction&#34;&gt;1. Agent-Environment Interaction&lt;/h2&gt;&#xA;&lt;p&gt;On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.&lt;/p&gt;&#xA;&lt;p&gt;Write&#xA;$$&#xA;p(s&amp;rsquo;,r|s,a) = \Pr(S_t = s&amp;rsquo;, R_t = r| S_{t-1} = s, A_{t-1} = a).&#xA;$$&#xA;The function $p$ defines the &lt;em&gt;dynamics&lt;/em&gt; of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RL | Multi-armed Bandits</title>
       <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
       <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</guid>
-      <description>Notations    $A_t$: the action selected at time $t$.
-  $R_t$: the reward received at time $t$.
-  $q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
-  $Q_t(a)$: the estimated value of action $a$ at time $t$.
-   1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected.</description>
+      <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$A_t$: the action selected at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$R_t$: the reward received at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$q_&lt;em&gt;(a)$: the expected reward given an action $a$, i.e. $q_&lt;/em&gt;(a) = \mathbb{E}[R_t|A_t = a]$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$Q_t(a)$: the estimated value of action $a$ at time $t$.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-a-k-armed-bandit-problem&#34;&gt;1. A k-armed Bandit Problem&lt;/h2&gt;&#xA;&lt;p&gt;Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Estimating a smooth function on a large graph (2)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>
       <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_graph_2/</guid>
-      <description>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
- Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360  1. Main results  Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&amp;hellip;,Y_n)$.</description>
+      <description>&lt;p&gt;This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1709.06360&#34;&gt;http://arxiv.org/abs/1709.06360&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-main-results&#34;&gt;1. Main results&lt;/h2&gt;&#xA;&lt;dl&gt;&#xA;&lt;dt&gt;Theorem 1 (&lt;em&gt;Regression&lt;/em&gt;)&lt;/dt&gt;&#xA;&lt;dd&gt;Under conditions (G), (L) and (S),&#xA;$$&#xA;\inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.&#xA;$$&#xA;where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&amp;hellip;,Y_n)$.&lt;/dd&gt;&#xA;&lt;/dl&gt;&#xA;&lt;p&gt;This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta+r)}$.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Estimating a smooth function on a large graph (1)</title>
       <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
       <pubDate>Fri, 20 Aug 2021 23:28:03 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_graph_1/</guid>
-      <description>This paper proposed an approach to estimating smooth functions on graphs using GP priors.
- Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515  1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph.</description>
+      <description>&lt;p&gt;This paper proposed an approach to estimating smooth functions on graphs using GP priors.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1511.02515&#34;&gt;http://arxiv.org/abs/1511.02515&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,&amp;hellip;,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by&#xA;$$&#xA;||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2.&#xA;$$&#xA;The corresponding inner product of two funtions $f,g$ is denoted by&#xA;$$&#xA;&amp;lt;f,g&amp;gt;&lt;em&gt;n = \frac{1}{n}\sum&lt;/em&gt;{i=1}^n f_i g_i.&#xA;$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Bayesian Classification of Multiclass Functional Data</title>
       <link>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</link>
       <pubDate>Sun, 08 Aug 2021 17:02:19 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</guid>
-      <description>Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
-Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
-1. Problem setup Consider a response $Y$ taking values $k = 1,&amp;hellip;,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by $$ P(Y= k|X) = H_k(\int \beta(t)X(t) dt), $$ where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.</description>
+      <description>&lt;p&gt;Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.&lt;/p&gt;&#xA;&lt;p&gt;Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. &lt;a href=&#34;http://arxiv.org/abs/1808.00662&#34;&gt;http://arxiv.org/abs/1808.00662&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;Consider a response $Y$ taking values $k = 1,&amp;hellip;,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by&#xA;$$&#xA;P(Y= k|X) = H_k(\int \beta(t)X(t) dt),&#xA;$$&#xA;where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</title>
       <link>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 18:24:27 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</guid>
-      <description>Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795  The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.
-1. Problem setup $$ p(x) = P(Y=1|x) = H(\eta(x)). $$ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form $$ \sigma(x,x&#39;) = \tau^{-1}\sigma_0(\lambda x, \lambda x&#39;), $$ where $\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\tau&amp;gt;0,\lambda&amp;gt;0$ play the roles of a scaling parameter and a bandwidth parameter, respectively.</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). &lt;a href=&#34;https://doi.org/10.1214/009053606000000795&#34;&gt;https://doi.org/10.1214/009053606000000795&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;p(x) = P(Y=1|x) = H(\eta(x)).&#xA;$$&#xA;A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&amp;rsquo;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form&#xA;$$&#xA;\sigma(x,x&amp;rsquo;) = \tau^{-1}\sigma_0(\lambda x, \lambda x&amp;rsquo;),&#xA;$$&#xA;where $\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\tau&amp;gt;0,\lambda&amp;gt;0$ play the roles of a scaling parameter and a bandwidth parameter, respectively. Let $\tau\sim \Pi_\tau, \lambda\sim \Pi_\lambda$, respectively.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Reading | Nonparametric binary regression using a Gaussian process prior</title>
       <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
-      <description>Let&amp;rsquo;s discuss this paper
- Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.  1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically.</description>
+      <description>&lt;p&gt;Let&amp;rsquo;s discuss this paper&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem Setup&lt;/h2&gt;&#xA;&lt;p&gt;Consider a binary classification probem given by&#xA;$$&#xA;p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).&#xA;$$&#xA;This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as&#xA;$$&#xA;p(x) = H(\eta(x)),&#xA;$$&#xA;where $H$ is commonly choosen as a cdf, called the &lt;em&gt;link function&lt;/em&gt;, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (3)</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
       <pubDate>Thu, 05 Aug 2021 00:01:41 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</guid>
-      <description>In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
-1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&amp;quot;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$.</description>
+      <description>&lt;p&gt;In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&amp;quot;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
-      <description>在 GP(1) 中我们介绍了GP的RKHS，以及一些性质，这一节主要内容是推导GP的posterior contraction rate.
-同时，在 Posterior Consistency and Contraction 中我们得到了一个最重要的结论
-To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.
-1. Posterior Contraction Theorem (GP contraction) :这三个结论分别对应了上面Theorem 5.19 的那三个条件，因此这个结论意味着 GP contracts at $w_0$ at rate $\epsilon_n$.
- Proof The assertion (7.7) is an immediate result of Lemma Small ball Then $Pr(||W-w_0||&amp;lt;2\epsilon_0) \geq e^{-\psi_{w_0}(\epsilon_n)}\geq e^{-n\epsilon_n^2}$.  Set $B_n = \epsilon_n\mathbb{B}_1 + M_n\mathbb{H}_1$, then by Borell&amp;rsquo;s inequality we have $$ \Pr(W\notin B_n) \leq 1 - \Phi(\alpha_n + M_n), $$ where $\alpha_n = \Phi^{-1}(e^{-\psi_0(\epsilon_n)})$.</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_4_gp1/&#34;&gt;GP(1)&lt;/a&gt; we introduced the RKHS of the GP and some of its properties. The main content of this section is to derive the &lt;strong&gt;posterior contraction rate&lt;/strong&gt; of the GP.&lt;/p&gt;&#xA;&lt;p&gt;At the same time, in &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_5_contraction/&#34;&gt;Posterior Consistency and Contraction&lt;/a&gt;, we derived the most important conclusion:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://wangchxx.github.io/img_bayes_GP/Contraction_2.PNG&#34; alt=&#34;contraction_thm&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-posterior-contraction&#34;&gt;1. Posterior Contraction&lt;/h2&gt;&#xA;&lt;p&gt;Theorem (GP contraction)&#xA;:&lt;img src=&#34;https://wangchxx.github.io/img_bayes_GP/GPrate_1.PNG&#34; alt=&#34;GP contraction&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (1)</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
-      <description>在前面章节中已经介绍过 Dirichlet process prior, 其主要用作 measure space 的先验。 这章要介绍的 Gaussian process (GP) 可用作 function space 的先验。举个例子，假如我们有样本 $(X_i,Y_i),i\leq n.$ 我们要研究 $X_i$ 和 $Y_i$ 之间的关系。 一个常见的模型是 $$Y = \beta X + \epsilon.$$
-我们要做的是估计参数 $\beta$. 这是一个有限维的模型，我们其实可以更广义地写成, $$Y_i = f(X_i) + \epsilon_i,$$
-where $f$ is function. 我们要做的就是估计这个函数 $f$, 这是一个无限维的模型。Gaussian process regression 是给与函数 $f$一个先验分布 $\Pi$, 而这个先验就是用的Gaussian process.
-1. Gaussian Process GP 的一个简单定义是通过其 finite-dimensional distributions (FDDs) 实现的。
- Definition (Gaussian process)   the map $t\mapsto W_t(\omega)$ is called the sample path of of $W$.</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;In the previous chapters, we introduced the &lt;strong&gt;Dirichlet Process (DP) prior&lt;/strong&gt;, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the &lt;strong&gt;Gaussian Process (GP)&lt;/strong&gt;, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is&#xA;$$Y = \beta X  + \epsilon.$$&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
       <pubDate>Tue, 20 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
-      <description>这一章在理论上讨论non-parametric Bayes 是否真的wrok. 换句话讲，就是posterior是否真的收敛到所谓的 &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction 是比 Consistency 更丰富的一种概念，它还涉及到收敛的速率。
-Dirichlet process priors and Gaussian process priors 都是常见的 non-parametric Bayes 方法，还有它们的五花八门的变种，如果 case by case 地讨论他们的收敛问题，就太过于麻烦，因此本章讨论一些general thoery， 对于具体地模型，只需要具体地运用这些理论即可。
-1. Consistency  Definition (Posterior consistency)  Theorem (Doob&amp;rsquo;s consistency)   Doob&amp;rsquo;s consistency 看起来非常漂亮，对于模型几乎没有任何假设，给定一个prior $\Pi$, its posterior is almost always consistent. 但问题在于我们不清楚这个让结论不成立的 $\Pi-$null set 在哪里。有可能这个 null set 非常大。
-所以我们应该对于 prior 给出一定的限制，确保我们的目标 $\theta$ 不在 null set 里。下面给出一种叫做 Kullback-Leibler property 的限制。
- Definition (KL property)   这个性质确保 prior assigns positive probability to any KL neighbourhood of the density $p_0:=p_{\theta_0}$ determined by parameter $\theta_0$.</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;This chapter discusses the theoretical question of whether non-parametric Bayes methods truly work. In other words, it addresses whether the posterior distribution really converges to the so-called &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction is a richer concept than consistency, as it also involves the rate of convergence.&lt;/p&gt;&#xA;&lt;p&gt;Dirichlet Process priors and Gaussian Process priors are common non-parametric Bayesian methods, along with their various variants. It would be too cumbersome to discuss the convergence issues of these methods on a case-by-case basis. Therefore, this chapter will focus on some general theory, which can then be applied to specific models as needed.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Dirichlet Process</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
       <pubDate>Mon, 19 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
-      <description>Dirichlet process Bayesian nonparametrics 中被广泛运用， 通常，它被当成一个默认的 prior on spaces of probability measures.
-0. Parametric VS Non-parametric Non-parametric 并不是指没有parameter, 而是指 the parameter space $\mathcal{\Theta}$ is infinite-dimensional. On the other hand， a statistical model is called parametric if its parameter space $\mathcal{\Theta}$ is finite-dimensional.
-1. Definitions 有了定义，但不代表这样一个东西真的就存在，所以还需要证明它的存在性。DP 可以看成是一个stochastic process, 式子(4.3) 可以是为其 finite-dimensional distributions, 根据 Kolmogorov&amp;rsquo;s extension theorem, 我们可以证明其存在性。
-如何理解 dirichlet process prior? 对于一个随机过程 $(X_t:t\in T)$, 我们有两种方式理解，
- For a fixed $t$, $X_t:\Omega\to\mathbb{R}$ is a random variable.</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The Dirichlet Process (DP) is widely used in &lt;strong&gt;Bayesian nonparametrics&lt;/strong&gt;, where it is often treated as a default prior on spaces of probability measures. As a &lt;strong&gt;prior&lt;/strong&gt; on probability measures, the DP reflects our prior belief about the potential distributions of data, with the assumption that the data might be drawn from an infinite mixture of possible underlying distributions. This is why the Dirichlet Process is often called a &lt;strong&gt;nonparametric prior&lt;/strong&gt;: it does not assume a fixed, finite number of parameters but rather allows the model to grow with the complexity of the data.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bayesian Statistics| Bernstein-von Mises Theorem</title>
       <link>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
       <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
-      
       <guid>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
-      <description>在 non-Bayesian 视角下，当我们要对某参数模型的参数进行估计时，我们常常会运用 central limit theorem (CLT), 并得到一个类似这样的结果，
-$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
-in distribution. 在 Bayesian 视角下我们类似的结论，堪称是 Bayesian CLT, 这就是本文要介绍的 Bernstein-von Mises Theorem （BvM).
-0. Notation  $I_\theta$: Fisher information,
-$\ell_\theta(x) = \log p_\theta(x)$,
-$\dot{\ell}_\theta(x) = \frac{d}{d \theta} \ell_\theta(x)$,
-$\ddot{\ell}_\theta(x) = \frac{d^2}{d\theta^2} \ell_\theta(x)$,
-$\Delta_{n,\theta} = 1/\sqrt{n} \sum_{i=1}^n \dot{\ell}_\theta(x_i)$,
-$I_{n,\theta} = -1/n \sum_{i=1}^n \ddot{\ell}_\theta(x_i)$,
-$||\cdot||_{TV}$: total variation,
- 1. Preliminaries   Bayes&#39; formula By Bayes&#39; formula, the posterior density of $\vartheta$ is given by $$ \begin{align*} \pi(\theta|X_1,&amp;hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}.</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

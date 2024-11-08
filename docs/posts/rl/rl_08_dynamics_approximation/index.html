@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="RL | Dynamics Approximation for Model-Based RL" />
-<meta property="og:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-09T13:26:05+02:00" />
-<meta property="article:modified_time" content="2021-09-09T13:26:05+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/" />
+  <meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="RL | Dynamics Approximation for Model-Based RL">
+  <meta property="og:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
+1. Dynamics Approximation Let $p(s’|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step $$ f_\theta(s_t, a_t) = \hat{\Delta}{t&#43;1}:= \hat{s}{t&#43;1} - s_t. $$">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-09-09T13:26:05+02:00">
+    <meta property="article:modified_time" content="2021-09-09T13:26:05+02:00">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_09_mcts/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RL | Dynamics Approximation for Model-Based RL"/>
-<meta name="twitter:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$."/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RL | Dynamics Approximation for Model-Based RL">
+  <meta name="twitter:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
+1. Dynamics Approximation Let $p(s’|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step $$ f_\theta(s_t, a_t) = \hat{\Delta}{t&#43;1}:= \hat{s}{t&#43;1} - s_t. $$">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -79,27 +87,27 @@
 	<article class="md">
 		<p>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.</p>
 <h2 id="1-dynamics-approximation">1. Dynamics Approximation</h2>
-<p>Let $p(s'|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t+1}$. However, this function can be difficult to learn as $s_t$ and $s_{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
+<p>Let $p(s&rsquo;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}<em>{t+1}$. However, this function can be difficult to learn as $s_t$ and $s</em>{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
 $$
-f_\theta(s_t, a_t) = \hat{\Delta}_{t+1}:= \hat{s}_{t+1} - s_t.
+f_\theta(s_t, a_t) = \hat{\Delta}<em>{t+1}:= \hat{s}</em>{t+1} - s_t.
 $$</p>
 <p>Thus, the predicted next state is $\hat{s}_{t+1} = s_t + f_\theta(s_t, a_t)$.</p>
 <p>Given a dataset $D$ of trajectories $\tau = (s_0,a_0, s1,&hellip;,s_{T-1})$, we can train $f_\theta$ by performing SGD on the following object:
 $$
-J(\theta) = \sum_{(s_t,a_t,s_{t+1})\in D} || (s_{t+1} - s_t) - f_\theta(s_t, a_t) ||_2^2.
+J(\theta) = \sum_{(s_t,a_t,s_{t+1})\in D} || (s_{t+1} - s_t) - f_\theta(s_t, a_t) ||<em>2^2.
 $$
-In practice, it&rsquo;s helpful to normalize the target $s_{t+1} - s_t$ as it increases model robustness.</p>
+In practice, it&rsquo;s helpful to normalize the target $s</em>{t+1} - s_t$ as it increases model robustness.</p>
 <p>Note that we can collect training data $D$ by initializing a starting state $s_0$ and executing actions from a random policy $\pi_0$ at each timestep. It implies that the model-based methods can learn from off-policy data.</p>
 <h2 id="2-model-based-control">2. Model-Based Control</h2>
 <p>In this section, we consider how to make decisions given the learned dynamics model. The goal at each time step is to take the action that maximizes the future return, given by
 $$
-Q_\theta(a_t,&hellip;) = \sum_{t' = t}^\infty \gamma^{t'- t} R(s_{t'}, a_{t'}),
+Q_\theta(a_t,&hellip;) = \sum_{t&rsquo; = t}^\infty \gamma^{t&rsquo;- t} R(s_{t&rsquo;}, a_{t&rsquo;}),
 $$
 where $R(s,a)$ is the rewrad obtained when executing action $a$ at state $s$ and $s_{t+1} = s_t + f_\theta(s_t,a_t)$.</p>
 <p>It is impossible to plan over an infinite sequence of actions, so we optimize the sequence of actions $\mathbf{A}_t = (a_t,&hellip;,a_{t+H-1})$ over a finite horizon $H$.</p>
 <p>$$
 \begin{equation}
-\mathbf{A}_t = \arg\max_{A_t'}\sum_{t'=t}^{t+H-1}\gamma^{t'- t} R(s_{t'}, a_{t'}), \quad s_{t+1} = s_t + f_\theta (s_t,a_t).
+\mathbf{A}_t = \arg\max_{A_t&rsquo;}\sum_{t&rsquo;=t}^{t+H-1}\gamma^{t&rsquo;- t} R(s_{t&rsquo;}, a_{t&rsquo;}), \quad s_{t+1} = s_t + f_\theta (s_t,a_t).
 \end{equation}
 $$</p>
 <p>Note that the learned dynamics model is imperfect, so it is desirable to plan $H$ steps since the accumulating errors make planing far into the future inaccurate. But this approach is also limited becaue it may not be sufficient for solving long-horizon tasks.</p>
@@ -116,11 +124,13 @@ $$</p>
 <p>So far we have obtained the model-based reinforcement learning algorithm.</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>Model-Based RL (version 0.5)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>Model-Based RL (version 0.5)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>Gather dataset $D$ from a random policy $\pi_0$</li>
@@ -136,11 +146,13 @@ $$
 where $p_\pi(s)$ is the distribution of states generated by policy $\pi$. One solution is on-policy data aggregation.</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>Model-Based RL with On-Policy Data (version 1.0)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>Model-Based RL with On-Policy Data (version 1.0)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>gather dataset $D$ from a random policy $\pi_0$</li>
@@ -165,11 +177,13 @@ f(s_t,a_t) = \frac{1}{N} \sum_{n=1}^N f_{\theta_n}(s_t, a_t).
 $$</p>
 <hr>
 <table>
-<thead>
-<tr>
-<th>Model-Based RL with Ensemble (version 2.0)</th>
-</tr>
-</thead>
+  <thead>
+      <tr>
+          <th>Model-Based RL with Ensemble (version 2.0)</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 <ul>
 <li>gather dataset $D$ from a random policy $\pi_0$</li>
