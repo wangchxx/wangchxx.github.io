@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Bayesian Statistics| Introduction" />
-<meta property="og:description" content="这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.
+  <meta property="og:url" content="http://localhost:1313/posts/bayes/bayes_0_intro/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="Bayesian Statistics| Introduction">
+  <meta property="og:description" content="这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.
 目标人群：
 对Bayes有初步了解的，有一定 statistics，machine learning 基础的，且对理论有兴趣的人。整体上是基于 measure-theoretical probability， 所以读者最好有一定 measure theory 基础，基本上，具有数学本科三年级基础就足够了。
 主要内容:
-  Parametric Bayes and posterior consistency.
-  Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.
-  General consistency theory for non-parametric Bayes.
-  Reproducing kernel Hilbert space (RKHS) theory.
-  大部分内容将参考 Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。
-风格： 框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_0_intro/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-16T10:52:59+02:00" />
-<meta property="article:modified_time" content="2021-07-16T10:52:59+02:00" />
-<meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_5_contraction/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/" /><meta property="og:see_also" content="https://wangchxx.github.io/posts/bayes/bayes_2_bvm/" />
+Parametric Bayes and posterior consistency.
+Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.
+General consistency theory for non-parametric Bayes.
+Reproducing kernel Hilbert space (RKHS) theory.
+大部分内容将参考 Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。
+风格： 框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。
+欢迎讨论。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-16T10:52:59+02:00">
+    <meta property="article:modified_time" content="2021-07-16T10:52:59+02:00">
+    <meta property="article:tag" content="Markdown">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_7_gp3/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_6_gp2/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_4_gp1/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_5_contraction/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_3_dirichlet/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_2_bvm/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bayes/bayes_1_priors/">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bayesian Statistics| Introduction"/>
-<meta name="twitter:description" content="这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bayesian Statistics| Introduction">
+  <meta name="twitter:description" content="这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.
 目标人群：
 对Bayes有初步了解的，有一定 statistics，machine learning 基础的，且对理论有兴趣的人。整体上是基于 measure-theoretical probability， 所以读者最好有一定 measure theory 基础，基本上，具有数学本科三年级基础就足够了。
 主要内容:
-  Parametric Bayes and posterior consistency.
-  Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.
-  General consistency theory for non-parametric Bayes.
-  Reproducing kernel Hilbert space (RKHS) theory.
-  大部分内容将参考 Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。
-风格： 框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。"/>
+Parametric Bayes and posterior consistency.
+Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.
+General consistency theory for non-parametric Bayes.
+Reproducing kernel Hilbert space (RKHS) theory.
+大部分内容将参考 Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。
+风格： 框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。
+欢迎讨论。">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -123,32 +135,22 @@
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

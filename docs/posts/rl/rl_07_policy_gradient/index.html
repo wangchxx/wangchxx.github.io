@@ -89,68 +89,71 @@ One advantage of parameterizing policies is that it can learn stochastic policie
 <p>One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.</p>
 <h2 id="1-the-policy-gradient-theorem">1. The Policy Gradient Theorem</h2>
 <p>First we consider how to measure the performance of the parameter $\theta$. In episodic case, we can assume a fixed start state $s_0$ w.l.o.g. and define the performance as
-$$
-\begin{align}
-J(\theta) = v_{\pi_\theta}(s_0),
-\end{align}
-$$
+</p>
+$$ 
+ \begin{align}
+ J(\theta) = v_{\pi_\theta}(s_0),
+ \end{align}
+$$<p>
 where $v_{\pi_\theta}(s_0)$ is the value function for policy $\pi_\theta$, the policy determined by $\theta$. In continuous case, where not start states or termination exit and no discounting factor for future rewards, we need to define performance in terms of the average rate of reward per time step:
-$$
-\begin{align}
-J(\theta) &amp;= \sum_s \mu_{\pi_\theta}(s) R_{\pi_\theta}(s) = \mathbb{E}<em>{\pi</em>\theta}[r],
-\end{align}
-$$
+</p>
+$$ 
+ \begin{align}
+    J(\theta) &= \sum_s \mu_{\pi_\theta}(s) R_{\pi_\theta}(s) = \mathbb{E}_{\pi_\theta}[r],
+ \end{align}
+$$<p>
 Where $R_{\pi}(s)$ is the expected reward at state $s$ following the policy $\pi$, i.e. $R_\pi(s) = \sum_a \pi(a|s) r(s,a)$ and $\mu_\pi$ is the stationary measure of Markov chain for policy $\pi$.</p>
 <dl>
 <dt><em>Theorem 7.1 (policy gradient theorem)</em></dt>
 <dd>For any differentiable policy $\pi_\theta$, for both episodic and continuous cases, the gradient of $J(\theta) $ w.r.t. $\theta$ is
-$$
+$$ 
 \begin{equation}
-\nabla_\theta J(\theta) = \mathbb{E}<em>{\pi</em>\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
-\end{equation}
+ \nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+ \end{equation}
 $$</dd>
 </dl>
 <p>Naturally, we can define the loss function as
+</p>
 $$
 L(\theta) = -J(\theta) = -\mathbb{E}_{\pi_\theta}[\log \pi_\theta(a|s) q_{\pi_\theta}(s,a)],
-$$
+$$<p>
 and improve the performance by SGD.</p>
 <dl>
 <dt><em>Proof</em></dt>
 <dd>For the epidotic case,
-$$
-\begin{align*}
-\nabla_\theta v_\pi(s) &amp;= \nabla_\theta \left[\sum_{a} \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right] \cr
-&amp;= \sum_{a} \left[ \nabla_\theta\pi_\theta(a|s) q_{\pi_\theta}(s,a) + \pi_\theta(a|s) \nabla_\theta q_{\pi_\theta}(s,a) \right] \cr
-&amp;= \sum_{x\in\mathcal{S}} \sum_n P^{\pi_\theta}<em>n(x|s) \sum_a \nabla</em>\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a)\cr
-&amp;= \sum_{x\in\mathcal{S}} \eta(x) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a),
-\end{align*}
+$$ 
+ \begin{align*}
+ \nabla_\theta v_\pi(s) &= \nabla_\theta \left[\sum_{a} \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right] \cr
+    &= \sum_{a} \left[ \nabla_\theta\pi_\theta(a|s) q_{\pi_\theta}(s,a) + \pi_\theta(a|s) \nabla_\theta q_{\pi_\theta}(s,a) \right] \cr
+    &= \sum_{x\in\mathcal{S}} \sum_n P^{\pi_\theta}_n(x|s) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a)\cr
+    &= \sum_{x\in\mathcal{S}} \eta(x) \sum_a \nabla_\theta \pi_\theta(a|x) q_{\pi_\theta}(x,a),
+ \end{align*}
 $$
 where $P^\pi_n$ is the n-step transition probability following $\pi$, and $\eta(s)$ is the time spent on state $s$. It follows that
-$$
-\begin{align*}
-\nabla_\theta J(\theta) &amp;= \nabla_\theta v_\pi(s_0) \cr
-&amp;=\sum_{s} \eta(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;= \sum_{s&rsquo;} \eta(s&rsquo;) \sum_{s} \frac{\eta(s)}{\sum \eta(s&rsquo;)} \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;= \sum_{s&rsquo;} \eta(s&rsquo;) \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;\propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a).
-\end{align*}
+$$ 
+ \begin{align*}
+ \nabla_\theta J(\theta) &= \nabla_\theta v_\pi(s_0) \cr
+    &=\sum_{s} \eta(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+    &= \sum_{s'} \eta(s') \sum_{s} \frac{\eta(s)}{\sum \eta(s')} \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+    &= \sum_{s'} \eta(s') \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+    &\propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a). 
+ \end{align*}
 $$
 For the continuous case, we also have $\nabla_\theta J(\theta) = \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a)$. Since $\nabla_\theta \pi_\theta = \pi_\theta \nabla_\theta  \log \pi_\theta$, we see that
-$$
-\begin{align}
-\sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) &amp;= \sum_s \mu_{\pi_\theta}(s) \sum_a  \pi_\theta(a|s) \nabla_\theta  \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
-&amp;=  \mathbb{E}<em>{\pi</em>\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
-\end{align}
+$$ 
+   \begin{align}
+   \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) q_{\pi_\theta}(s,a) &= \sum_s \mu_{\pi_\theta}(s) \sum_a  \pi_\theta(a|s) \nabla_\theta  \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \cr
+    &=  \mathbb{E}_{\pi_\theta} \left[ \nabla_\theta \log \pi_\theta(a|s) q_{\pi_\theta}(s,a) \right].
+   \end{align}
 $$</dd>
 </dl>
 <p>$\Box$</p>
 <h2 id="2-monte-carlo-policy-gradient">2. Monte Carlo Policy Gradient</h2>
 <p>Update $\theta$ by
-$$
-\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
-$$</p>
-<hr>
+</p>
+$$ 
+   \theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
+$$<hr>
 <table>
   <thead>
       <tr>
@@ -165,22 +168,23 @@ $$</p>
 <li>Repeat: for each episode from $\pi_\theta$,
 <ul>
 <li>Update $\theta$ by
-$$
-\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
-$$</li>
+$$ 
+    \theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t) G_t.
+    $$</li>
 </ul>
 </li>
 </ul>
 <hr>
 <p>However, Monte-Carlo policy gradient may of high variance and thus produce slow learning. One solution to this is to conclude a baseline $b(s)$ that does not depend on $a$. Then we have
-$$
-\nabla_\theta J(\theta) \propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) (q_{\pi_\theta}(s,a) - b(s)).
-$$
+</p>
+$$ 
+ \nabla_\theta J(\theta) \propto \sum_s \mu_{\pi_\theta}(s) \sum_a \nabla_\theta \pi_\theta(a|s) (q_{\pi_\theta}(s,a) - b(s)).
+$$<p>
 The equation remains valid since the gradient of a probability measure sums up to 0. The update rule now becomes
-$$
-\theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t)( G_t - b(S_t)).
-$$</p>
-<p>Moreover, the baseline function $b$ can be defined as a learnable function $b(s,w)$.</p>
+</p>
+$$ 
+    \theta \leftarrow \theta + \alpha \nabla_\theta \log \pi_\theta( A_t|S_t)( G_t - b(S_t)).
+$$<p>Moreover, the baseline function $b$ can be defined as a learnable function $b(s,w)$.</p>
 <hr>
 <table>
   <thead>
@@ -198,13 +202,13 @@ $$</p>
 <ul>
 <li>Compute $\delta = G_t - b(S_t,w)$</li>
 <li>Update $\theta$ by
-$$
-\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
-$$</li>
+$$ 
+    \theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
+    $$</li>
 <li>Update $w$ by
-$$
-w \leftarrow  w +  \alpha_w \nabla_w b(S_t, w) \delta.
-$$</li>
+$$ 
+   w \leftarrow  w +  \alpha_w \nabla_w b(S_t, w) \delta.
+  $$</li>
 </ul>
 </li>
 </ul>
@@ -236,17 +240,17 @@ $$</li>
 <li>Choose action $A_t \sim \pi_\theta(\cdot|S_t)$, and observe $S_{t+1}, R_{t+1}$.</li>
 <li>Compute $\delta = R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$.</li>
 <li>Update $\theta$ by
-$$
-\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
-$$</li>
+$$ 
+    \theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t|S_t) \delta.
+    $$</li>
 <li>Update $w$ by
-$$
-w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta.
-$$</li>
+$$ 
+   w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta.
+  $$</li>
 </ul>
 </li>
 </ul>
-<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}<em>{\pi</em>\theta}[ r]  + R_{t+2} - \mathbb{E}<em>{\pi</em>\theta}[ r] + \cdots.$</p>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
 <hr>
 <p>Note that one-step methods are fully online and incremental. But the approximation to policy gradient is biased now since $Q$ dependents on action $A_t$. A biased policy gradient may not find the right solution. The following theorem shows that the bias can be avoid if we choose value function approximation carefully.</p>
 <dl>
@@ -254,23 +258,23 @@ $$</li>
 <dd>If the value function approximation satisfies
 <ol>
 <li>Value function approximation is <em>compatible</em> to the policy, i.e.
-$$
-\nabla_w Q(s,a,w) = \nabla_\theta \log \pi_\theta(a|s).
-$$</li>
+$$ 
+   \nabla_w Q(s,a,w) = \nabla_\theta \log \pi_\theta(a|s).
+  $$</li>
 <li>Parameters $w$ of $Q$ minimize the MSE
 $$
-\epsilon = \mathbb{E}_{\pi_\theta} [ q_{\pi_\theta}(s,a) - Q(s,a,w)]^2.
-$$
+   \epsilon = \mathbb{E}_{\pi_\theta} [ q_{\pi_\theta}(s,a) - Q(s,a,w)]^2.
+  $$
 Then the policy gradient is exact,
-$$
-\nabla_\theta J(\theta) =   \mathbb{E}<em>{\pi</em>\theta} [\nabla_\theta \log \pi_\theta(a|a) Q(s,a,w) ]
-$$</li>
+$$ 
+   \nabla_\theta J(\theta) =   \mathbb{E}_{\pi_\theta} [\nabla_\theta \log \pi_\theta(a|a) Q(s,a,w) ]
+  $$</li>
 </ol>
 </dd>
 <dt><em>Proof</em></dt>
 <dd>$\nabla_w \epsilon = 0$, and it follows that
-$$
-\mathbb{E}_{\pi_\theta} [( q_{\pi_\theta}(s,a) - Q(s,a,w)) \nabla_w Q(s,a,w)] = 0.
+$$ 
+   \mathbb{E}_{\pi_\theta} [( q_{\pi_\theta}(s,a) - Q(s,a,w)) \nabla_w Q(s,a,w)] = 0.
 $$
 Then the condition (i) finishes the proof.</dd>
 </dl>
@@ -295,54 +299,44 @@ Then the condition (i) finishes the proof.</dd>
 <li>Update $E_w = \lambda_w E_{w}  + \nabla_w Q(S_t, A_t, w)$.</li>
 <li>Update $E_\theta = \lambda_\theta E_{\theta}  + \nabla_\theta \log \pi_\theta(A_t|S_t)$.</li>
 <li>Update $\theta$ by
-$$
-\theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t| S_t) \delta E_\theta.
-$$</li>
+$$ 
+    \theta \leftarrow \theta + \alpha_\theta \nabla_\theta \log \pi_\theta(A_t| S_t) \delta E_\theta.
+    $$</li>
 <li>Update $w$ by
-$$
-w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta E_w.
-$$</li>
+$$ 
+   w \leftarrow  w +  \alpha_w \nabla_w Q(S_t, A_t, w) \delta E_w.
+  $$</li>
 </ul>
 </li>
 </ul>
-<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}<em>{\pi</em>\theta}[ r]  + R_{t+2} - \mathbb{E}<em>{\pi</em>\theta}[ r] + \cdots.$</p>
+<p>For the continuous case We should compute $\delta = R_{t+1} - \bar{R} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\bar{R} \leftarrow \bar{R} + \alpha_R \delta$ since $q_{\pi_\theta}(s,a) = R_{t+1} - \mathbb{E}_{\pi_\theta}[ r]  + R_{t+2} - \mathbb{E}_{\pi_\theta}[ r] + \cdots.$</p>
 <hr>
 <h2 id="4-finite-difference--policy-gradient">4. Finite-Difference  Policy Gradient</h2>
 <p>In section 1, we derived the analytical policy gradient and both MC and AC methods introduced in section 2,3 were based on the analytical gradients. A simple way of estimating derivatives is the finite difference.</p>
-<p>$$
-\frac{\partial J(\theta)}{\partial \theta_k} \approx \frac{J(\theta + 1/2 e_k) - J(\theta - 1/2 e_k)}{\epsilon},
-$$
+$$ 
+ \frac{\partial J(\theta)}{\partial \theta_k} \approx \frac{J(\theta + 1/2 e_k) - J(\theta - 1/2 e_k)}{\epsilon},
+$$<p>
 where $e_k$ is unit vector with 1 in $k$-th element. Finite difference works even if $\pi_\theta$ is not differentiable.</p>
 
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

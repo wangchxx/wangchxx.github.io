@@ -8,7 +8,7 @@
   <meta property="og:title" content="RL | Model-Free: Monte Carlo Methods">
   <meta property="og:description" content="We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
 In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
-1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$ $$ S_0, A_0 , R_1, …, S_{T-1}, A_{T-1}, R_T \sim \pi. $$">
+1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -26,7 +26,7 @@ In this chapter we will consider the Monte Carlo methods for prediction and cont
   <meta name="twitter:title" content="RL | Model-Free: Monte Carlo Methods">
   <meta name="twitter:description" content="We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
 In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
-1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$ $$ S_0, A_0 , R_1, …, S_{T-1}, A_{T-1}, R_T \sim \pi. $$">
+1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -91,60 +91,65 @@ In this chapter we will consider the Monte Carlo methods for prediction and cont
 <p>In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.</p>
 <h2 id="1-monte-carlo-prediction">1. Monte Carlo Prediction</h2>
 <p>We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$
-$$
-S_0, A_0 , R_1, &hellip;, S_{T-1}, A_{T-1}, R_T \sim \pi.
-$$</p>
-<p>Recall that the $v_\pi(s)$ is the expected return, i.e. expected cumulative future discounted rewards, starting from state $s$,
-$$
-v_\pi(s)  = \mathbb{E}<em>{\pi} [R</em>{t+1} + \gamma R_{t+2} + \cdots| S_t = s].
-$$
+</p>
+$$ 
+ S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T \sim \pi.
+$$<p>Recall that the $v_\pi(s)$ is the expected return, i.e. expected cumulative future discounted rewards, starting from state $s$,
+</p>
+$$ 
+ v_\pi(s)  = \mathbb{E}_{\pi} [R_{t+1} + \gamma R_{t+2} + \cdots| S_t = s].
+$$<p>
 The idea of Monte Carlo methods is to estimate the expected return by the mean of empirical returns.</p>
 <dl>
 <dt><em>Definition 4.1 (visit to states)</em></dt>
 <dd>Each occurrence of state $s$ in an episode is called a visit to $s$.</dd>
 </dl>
 <h3 id="11-first-visit-mc-prediction">1.1 First-visit MC prediction</h3>
-<p>Initialize the total return $S(s) = 0$. For each episode under $\pi$: $S_0, A_0 , R_1, &hellip;, S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.</p>
-<p>For $t = T-1,&hellip;,0$:</p>
+<p>Initialize the total return $S(s) = 0$. For each episode under $\pi$: $S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.</p>
+<p>For $t = T-1,...,0$:</p>
 <ol>
 <li>update $G_t = \gamma G_{t+1} + R_{t+1}$.</li>
 <li>if $S_t = s$, update the total return $S(s)+= G_t$ and end the for loop.</li>
 </ol>
 <p>Do steps 1-2 for each episode and record the total number of the first visits to $s$, denoted $N(s)$. By LLN,
-$$
-\frac{S(s)}{N(s)} \to v_\pi(s),
-$$
+</p>
+$$ 
+ \frac{S(s)}{N(s)} \to v_\pi(s),
+$$<p>
 as $N(s) \to \infty$.</p>
 <h3 id="12-every-visit-mc-prediction">1.2 Every-visit MC prediction</h3>
-<p>Initialize the total return $S(s) = 0$. For each episode under $\pi$: $S_0, A_0 , R_1, &hellip;, S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.</p>
-<p>For $t = T-1,&hellip;,0$:</p>
+<p>Initialize the total return $S(s) = 0$. For each episode under $\pi$: $S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.</p>
+<p>For $t = T-1,...,0$:</p>
 <ol>
 <li>update $G_t = \gamma G_{t+1} + R_{t+1}$.</li>
 <li>if $S_t = s$, update the total return $S(s)+= G_t$ and reset the $G =0$.</li>
 </ol>
 <p>Do steps 1-2 for each episode and record the total number of visits to $s$, denoted $N(s)$. By LLN,
-$$
-\frac{S(s)}{N(s)} \to v_\pi(s),
-$$
+</p>
+$$ 
+ \frac{S(s)}{N(s)} \to v_\pi(s),
+$$<p>
 as $N(s) \to \infty$.</p>
 <p>Recall the incremental mean that
-$$
-\mu_n = \sum_{i=1}^n x_i = \mu_{n-1} + \frac{1}{n}(x_k - \mu_{k-1}).
-$$
+</p>
+$$ 
+ \mu_n = \sum_{i=1}^n x_i = \mu_{n-1} + \frac{1}{n}(x_k - \mu_{k-1}).
+$$<p>
 We can update $V(s):= \frac{S(s)}{N(s)}$ incrementally by
-$$
-V^{new}(s) = V^{old}(s) + \frac{1}{N(s)}(G_t - V^{old}(s)).
-$$
+</p>
+$$ 
+ V^{new}(s) = V^{old}(s) + \frac{1}{N(s)}(G_t - V^{old}(s)).
+$$<p>
 In non-stationary problems, we can replace the factor $\frac{1}{N(s)}$ by $\alpha \in(0,1)$.</p>
 <h2 id="2-monte-carlo-control">2. Monte Carlo Control</h2>
 <p>Recall that the policy improvement discussed in DP is given by
-$$
-\begin{align*}
-\pi&rsquo;(s) &amp;:= \arg\max_{a} q_\pi(s,a) \cr
-&amp;=\arg\max_a \sum_{s&rsquo;,r}p(s&rsquo;,r|s,a) [ r+ \gamma v_\pi(s&rsquo;)].
-\end{align*}
-$$</p>
-<p>For an unknown MDP, the transition probabilities $p$ are unknown, so that it is impossible to implement the policy improvement with value function $v_\pi$ alone. Instead, it is more useful to use the action-value function $q_\pi$.</p>
+</p>
+$$ 
+ \begin{align*}
+ \pi'(s) &:= \arg\max_{a} q_\pi(s,a) \cr
+    &=\arg\max_a \sum_{s',r}p(s',r|s,a) [ r+ \gamma v_\pi(s')].
+ \end{align*}
+$$<p>For an unknown MDP, the transition probabilities $p$ are unknown, so that it is impossible to implement the policy improvement with value function $v_\pi$ alone. Instead, it is more useful to use the action-value function $q_\pi$.</p>
 <p>The Monte Carlo methods for estimating $q_\pi$ are essentially the same as presented for $v_\pi$, except now we consider visits to the state-action pair $(s,a)$ rather than to a state $s$.</p>
 <!-- raw HTML omitted -->
 <hr>
@@ -159,10 +164,10 @@ $$</p>
 </table>
 <ul>
 <li>For each episode:</li>
-<li>Generate an episode following $\pi$: $S_0,A_0,R_1,&hellip;,R_T$.
+<li>Generate an episode following $\pi$: $S_0,A_0,R_1,...,R_T$.
 <ul>
 <li>Initialize $G = 0$.</li>
-<li>Loop for each step $t = T - 1 ,&hellip;,0$:
+<li>Loop for each step $t = T - 1 ,...,0$:
 <ul>
 <li>update $G_t = \gamma G_{t+1} + R_{t+1}$.</li>
 <li>if $S_t = s, A_t = a$, update the total return $S(s,a)+= G_t$ and end the loop.</li>
@@ -173,32 +178,34 @@ $$</p>
 </ul>
 <p>$q_\pi(s,a)$ is estimated by the empirical mean $Q(s,a) = \frac{S(s,a)}{N(s,a)}$.</p>
 <hr>
-<p>Then we can estimate the optimal policy $\pi_<em>$ by the policy iteration
-$$
-\pi_0 \xrightarrow{E} q_{\pi_0} \xrightarrow{I} \pi_1  \xrightarrow{E} q_{\pi_1} \to \cdots \pi_</em> \xrightarrow{E} q_<em>,
-$$
+<p>Then we can estimate the optimal policy $\pi_*$ by the policy iteration
+</p>
+$$ 
+ \pi_0 \xrightarrow{E} q_{\pi_0} \xrightarrow{I} \pi_1  \xrightarrow{E} q_{\pi_1} \to \cdots \pi_* \xrightarrow{E} q_*, 
+$$<p>
 where $\xrightarrow{E}$ denotes a policy evaluation done by Monte Carlo methods and $\xrightarrow{I}$ denotes the policy improvement. The policy improvement
-$$
-\pi&rsquo;(s) = \arg\max_{a} q_\pi(s,a)
-$$
-is greedy, which can prevent further exploration of nongreedy actions, so that we cannot obtain the optimal policy $\pi_</em>$. One solution is to use the $\epsilon$-greedy policy improvement,
-$$
-\pi(a|s) =
-\begin{cases}
-\frac{\epsilon}{|\mathcal{S}|} + 1 - \epsilon, &amp; a = \arg\max_{a&rsquo;} Q(s,a&rsquo;) \cr
-\frac{\epsilon}{|\mathcal{S}|} ,&amp; otherwise.
-\end{cases}
-$$</p>
-<dl>
+</p>
+$$ 
+ \pi'(s) = \arg\max_{a} q_\pi(s,a)
+$$<p>
+is greedy, which can prevent further exploration of nongreedy actions, so that we cannot obtain the optimal policy $\pi_*$. One solution is to use the $\epsilon$-greedy policy improvement,
+</p>
+$$ 
+ \pi(a|s) = 
+ \begin{cases}
+ \frac{\epsilon}{|\mathcal{S}|} + 1 - \epsilon, & a = \arg\max_{a'} Q(s,a') \cr
+ \frac{\epsilon}{|\mathcal{S}|} ,& otherwise.
+ \end{cases}
+$$<dl>
 <dt><em>Theorem 4.3($\epsilon$-greedy policy improvement)</em></dt>
-<dd>For any $\epsilon-$greedy policy $\pi$, the $\epsilon-$greedy policy $\pi&rsquo;$ w.r.t. $q_\pi$ is an improvement, i.e. $v_{\pi&rsquo;}(s) \geq v_\pi(s)$ for all $s\in\mathcal{S}$.</dd>
+<dd>For any $\epsilon-$greedy policy $\pi$, the $\epsilon-$greedy policy $\pi'$ w.r.t. $q_\pi$ is an improvement, i.e. $v_{\pi'}(s) \geq v_\pi(s)$ for all $s\in\mathcal{S}$.</dd>
 <dt><em>Proof</em></dt>
-<dd>$$
+<dd>$$ 
 \begin{align*}
-q_\pi(s,\pi&rsquo;(s)) &amp;=  \sum_a \pi&rsquo;(a|s) q_\pi(s,a) \cr
-&amp;= \frac{\epsilon}{|\mathcal{S}|} \sum_{a} q_\pi(s,a) + (1-\epsilon) \max_a q_\pi(s,a) \cr
-&amp;\geq \frac{\epsilon}{|\mathcal{S}|} \sum_{a} q_\pi(s,a) + (1-\epsilon) \sum_{a} \frac{\pi(a|s) - \epsilon/|\mathcal{S}|}{1-\epsilon} \cr
-&amp;= \sum_a \pi(a|s)q_\pi(s,a) = v_\pi(s).
+ q_\pi(s,\pi'(s)) &=  \sum_a \pi'(a|s) q_\pi(s,a) \cr
+ &= \frac{\epsilon}{|\mathcal{S}|} \sum_{a} q_\pi(s,a) + (1-\epsilon) \max_a q_\pi(s,a) \cr
+ &\geq \frac{\epsilon}{|\mathcal{S}|} \sum_{a} q_\pi(s,a) + (1-\epsilon) \sum_{a} \frac{\pi(a|s) - \epsilon/|\mathcal{S}|}{1-\epsilon} \cr
+ &= \sum_a \pi(a|s)q_\pi(s,a) = v_\pi(s).
 \end{align*}
 $$
 Then the desired result follows from the policy improvement theorem.</dd>
@@ -210,14 +217,14 @@ Then the desired result follows from the policy improvement theorem.</dd>
 <dd>A learning is called  greedy in the limit with infinite exploration (GLIE) if it satisfies the following two properties:
 <ol>
 <li>all state-action pairs are explored infinitely many times,
-$$
-\lim_{n\to\infty} N_n(s,a) = \infty.<br>
-$$</li>
+$$ 
+     \lim_{n\to\infty} N_n(s,a) = \infty.  
+    $$</li>
 <li>the learning policy converges to a greedy policy w.r.t. the learned $Q_n$.
-$$
-\lim_{n\to\infty}  \pi_n(a|s) = 1_{a= a_<em>},
-$$
-where $a_</em> = \arg\max_{a&rsquo;} Q_n(s,a&rsquo;)$.</li>
+$$ 
+     \lim_{n\to\infty}  \pi_n(a|s) = 1_{a= a_*},
+    $$
+where $a_* = \arg\max_{a'} Q_n(s,a')$.</li>
 </ol>
 </dd>
 </dl>
@@ -242,9 +249,9 @@ where $a_</em> = \arg\max_{a&rsquo;} Q_n(s,a&rsquo;)$.</li>
 <li>
 <p>For each episode:</p>
 <ul>
-<li>Generate an episode following $\pi$: $S_0,A_0,R_1,&hellip;,R_T$.</li>
+<li>Generate an episode following $\pi$: $S_0,A_0,R_1,...,R_T$.</li>
 <li>Initialize $G = 0$.</li>
-<li>Loop for each step $t = T - 1 ,&hellip;,0$:
+<li>Loop for each step $t = T - 1 ,...,0$:
 <ul>
 <li>update $G_t = \gamma G_{t+1} + R_{t+1}$.</li>
 <li>if $S_t = s, A_t = a$:
@@ -270,39 +277,45 @@ $$Q(s,a)\leftarrow Q(s,a) + \frac{1}{N(s,a)}(G_t - Q(s,a)).$$</li>
 </ul>
 <p>We begin with considering the prediction problem, where both target policy $\pi$ and behavior policy $\mu$ are given, and we wish to estimate $v_\pi$ or $q_\pi$.</p>
 <p>The importance sampling method allows us to estimate the expectation under a measure $P$ by sampling from another measure $Q$,
-$$
-\begin{align*}
-\mathbb{E}_P [f(X)] &amp;= \mathbb{E}_Q \left[ \frac{P(X)}{Q(X)} f(X) \right],
-\end{align*}
-$$
+</p>
+$$ 
+ \begin{align*}
+ \mathbb{E}_P [f(X)] &= \mathbb{E}_Q \left[ \frac{P(X)}{Q(X)} f(X) \right],
+ \end{align*}
+$$<p>
 where $L(P,Q):=\frac{P(X)}{Q(X)}$ is called the <em>importance sampling ratio</em>.</p>
-<p>Given a starting state $S_t$, the probability of the subsequent state-action trajectory, $A_t, S_{t+1}, A_{t+1},&hellip;,S_T$, following the policy $\pi$ is
-$$
-\Pr(A_t, S_{t+1},&hellip;,S_T| S_t, A_{t:T-1}\sim \pi) = \prod_{k=t}^{T-1} \pi(A_k|S_k) p(S_{s+1}| S_k, A_k),
-$$
+<p>Given a starting state $S_t$, the probability of the subsequent state-action trajectory, $A_t, S_{t+1}, A_{t+1},...,S_T$, following the policy $\pi$ is
+</p>
+$$ 
+ \Pr(A_t, S_{t+1},...,S_T| S_t, A_{t:T-1}\sim \pi) = \prod_{k=t}^{T-1} \pi(A_k|S_k) p(S_{s+1}| S_k, A_k),
+$$<p>
 where $p$ the state-transition probability function. Thus we can easily obtain that the importance sampling ratio of policy $\pi$ and policy $\mu$ is given by
-$$
-L_t(\pi, \mu) = \prod_{k=t}^{T-1} \frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.
-$$
+</p>
+$$ 
+ L_t(\pi, \mu) = \prod_{k=t}^{T-1} \frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.
+$$<p>
 Then by the importance sampling, we have
-$$
-v_\pi(s) = \mathbb{E}<em>\pi[G_t|S_t = s] = \mathbb{E}</em>\mu[L_t(\pi, \mu)G_t|S_t = s].
-$$</p>
-<p>If we estimate $v_\pi(s)$ by the ordinary average
-$$
-V(s) = \frac{\sum L_t(\pi,\mu) G_t}{N(s)},
-$$
+</p>
+$$ 
+ v_\pi(s) = \mathbb{E}_\pi[G_t|S_t = s] = \mathbb{E}_\mu[L_t(\pi, \mu)G_t|S_t = s].
+$$<p>If we estimate $v_\pi(s)$ by the ordinary average
+</p>
+$$ 
+ V(s) = \frac{\sum L_t(\pi,\mu) G_t}{N(s)},
+$$<p>
 the estimator typically have high variance. An alternative is weighted importance sampling, which uses a weighted average, given by
-$$
-V(s) = \frac{\sum L_t(\pi,\mu) G_t}{\sum L_t(\pi,\mu)}.
-$$
+</p>
+$$ 
+ V(s) = \frac{\sum L_t(\pi,\mu) G_t}{\sum L_t(\pi,\mu)}.
+$$<p>
 This estimator has lower variance, but higher bias. Written in the form of incremental implementation, we can update $V(s)$ by
-$$
-\begin{align*}
-V(s) \leftarrow V(s) + \frac{1}{N(s)}(L_{t}(\pi,\mu)G_t - V(s)), &amp;\quad \text{ordinary} \cr
-V(s) \leftarrow V(s) + \frac{W}{C(s)}(G_t - V(s)), &amp;\quad \text{weighted}
-\end{align*}
-$$
+</p>
+$$ 
+ \begin{align*}
+ V(s) \leftarrow V(s) + \frac{1}{N(s)}(L_{t}(\pi,\mu)G_t - V(s)), &\quad \text{ordinary} \cr
+ V(s) \leftarrow V(s) + \frac{W}{C(s)}(G_t - V(s)), &\quad \text{weighted}
+ \end{align*}
+$$<p>
 where $C(s) \leftarrow C(s) + W$ is the cumulative sum of the weights $W$, e.g. $L_t(\pi,\mu)$. Similarly, we can use this method to estimate the action-value function $q_\pi$.</p>
 <p>Now we consider estimating the optimal policy $\pi_*$ by off-policy Monte Carlo.</p>
 <hr>
@@ -328,9 +341,9 @@ where $C(s) \leftarrow C(s) + W$ is the cumulative sum of the weights $W$, e.g. 
 <li>
 <p>For each episode:</p>
 <ul>
-<li>Generate an episode following the behavior policy $\mu$: $S_0,A_0,R_1,&hellip;,R_T$.</li>
+<li>Generate an episode following the behavior policy $\mu$: $S_0,A_0,R_1,...,R_T$.</li>
 <li>Initialize $G = 0, W = 1$.</li>
-<li>Loop for each step $t = T - 1 ,&hellip;,0$:
+<li>Loop for each step $t = T - 1 ,...,0$:
 <ul>
 <li>
 <p>update $G_t = \gamma G_{t+1} + R_{t+1}$.</p>
@@ -360,32 +373,22 @@ $$Q(s,a)\leftarrow Q(s,a) + \frac{W}{C(s,a)}(G_t - Q(s,a)).$$</li>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

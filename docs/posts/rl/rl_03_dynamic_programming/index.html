@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="RL | Dynamic Programming">
   <meta property="og:description" content="There are two common tasks in an MDP
-prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_$ and corresponding optimal value function $v_$ given a MDP. In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment’s dynamics are completely known) and because of their great computational expense, but they are important theoretically.">
+prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP. In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment’s dynamics are completely known) and because of their great computational expense, but they are important theoretically.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,7 +24,7 @@ prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="RL | Dynamic Programming">
   <meta name="twitter:description" content="There are two common tasks in an MDP
-prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_$ and corresponding optimal value function $v_$ given a MDP. In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment’s dynamics are completely known) and because of their great computational expense, but they are important theoretically.">
+prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP. In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment’s dynamics are completely known) and because of their great computational expense, but they are important theoretically.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,164 +88,164 @@ prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\
 		<p>There are two common tasks in an MDP</p>
 <ol>
 <li>prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$.</li>
-<li>control: finding optimal policy $\pi_<em>$ and corresponding optimal value function $v_</em>$ given a MDP.</li>
+<li>control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP.</li>
 </ol>
 <p>In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment&rsquo;s dynamics are completely known) and because of their great computational expense, but they are important theoretically.</p>
 <h2 id="1-policy-evaluation">1. Policy Evaluation</h2>
 <p>Recall the Bellman equation for value functions that, for any $s\in\mathcal{S}$,
-$$
-\begin{equation}
-v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a) (r + \gamma v_\pi(s&rsquo;)).
-\end{equation}
-$$
+</p>
+$$ 
+ \begin{equation}
+ v_\pi(s) = \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) (r + \gamma v_\pi(s')).
+ \end{equation}
+$$<p>
 Define</p>
 <ul>
 <li>$R_\pi(s) = \sum_a \pi(a|s) r(s,a)$.</li>
-<li>$P_\pi(s&rsquo;|s) = \sum_{a} \pi(a|s) p(s&rsquo;|s,a)$.</li>
+<li>$P_\pi(s'|s) = \sum_{a} \pi(a|s) p(s'|s,a)$.</li>
 </ul>
 <p>Then we can represent (1) in the matrix form:
-$$
-v_\pi = R_\pi + \gamma P_\pi v_\pi.
-$$</p>
-<p>If the environment&rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations with direct solution
-$$
-v_\pi = (I - \gamma P_\pi)^{-1}R_\pi.
-$$</p>
-<p>Alternatively, it can be solved by iterative methods.</p>
+</p>
+$$ 
+ v_\pi = R_\pi + \gamma P_\pi v_\pi.
+$$<p>If the environment&rsquo;s dynamics are completely known, then (1) is a system of $|\mathcal{S}|$ linear equations with direct solution
+</p>
+$$ 
+ v_\pi = (I - \gamma P_\pi)^{-1}R_\pi.
+$$<p>Alternatively, it can be solved by iterative methods.</p>
 <p>Given an initial approximation $v_0$, by the Bellman equation (1), the successive approximation can be obtained by
-$$
-v_{k+1}(s):=   \sum_{a} \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a) (r + \gamma v_k(s&rsquo;)).
-$$
-If the $v_\pi$ exits ($\gamma&lt;1$), the sequence $v_k$ would converge to $v_\pi$ as $k\to\infty$.</p>
-<p>Moreover, in view of the special form of Bellman optimality equation for $v_<em>$,<br>
-$$
-v_</em>(s) = \max_a \sum_{s&rsquo;}\sum_r p(s&rsquo;,r|s,a)[r+ \gamma v_<em>(s&rsquo;)] = ,
-$$
-that it does not involve the factor $\pi_</em>(a|s)$. It implies that we can estimate $v_<em>$ even though we do not know what the optimal policy is. In particular, we can  estimate $v_</em>$ by solving
-$$
-v_<em>(s) = \max_a \left(r(s,a) + \gamma \sum_{s&rsquo;}p(s&rsquo;|s,a) v_</em>(s&rsquo;) \right)
-$$
+</p>
+$$ 
+ v_{k+1}(s):=   \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) (r + \gamma v_k(s')).
+$$<p>
+If the $v_\pi$ exits ($\gamma<1$), the sequence $v_k$ would converge to $v_\pi$ as $k\to\infty$.</p>
+<p>Moreover, in view of the special form of Bellman optimality equation for $v_*$,<br>
+</p>
+$$ 
+ v_*(s) = \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')] = ,
+$$<p>
+that it does not involve the factor $\pi_*(a|s)$. It implies that we can estimate $v_*$ even though we do not know what the optimal policy is. In particular, we can  estimate $v_*$ by solving
+</p>
+$$ 
+   v_*(s) = \max_a \left(r(s,a) + \gamma \sum_{s'}p(s'|s,a) v_*(s') \right)
+$$<p>
 for using the iterative relationship
-$$
-v_{k+1}(s) = \max_{a} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)(r +\gamma v_k(s&rsquo;)).
-$$</p>
-<h2 id="2-policy-iteration">2. Policy Iteration</h2>
+</p>
+$$ 
+ v_{k+1}(s) = \max_{a} \sum_{s',r} p(s',r|s,a)(r +\gamma v_k(s')).
+$$<h2 id="2-policy-iteration">2. Policy Iteration</h2>
 <p>For simplicity, we take the deterministic policy $\pi$ as an example. Suppose we have solved the value function $v_\pi$ for an arbitrary deterministic policy $\pi$, we want to improve it.</p>
 <dl>
 <dt><em>Theorem 3.1 (policy improvement theorem)</em></dt>
-<dd>Let $\pi,\pi&rsquo;$ be any pair of deterministic policies s.t., for all $s\in\mathcal{S}$,
+<dd>Let $\pi,\pi'$ be any pair of deterministic policies s.t., for all $s\in\mathcal{S}$,
+$$ 
+ q_\pi(s, \pi'(s)) \geq v_\pi(s),
 $$
-q_\pi(s, \pi&rsquo;(s)) \geq v_\pi(s),
-$$
-then $v_{\pi&rsquo;}(s) \geq v_\pi(s)$ for all $s\in\mathcal{S}$.</dd>
+then $v_{\pi'}(s) \geq v_\pi(s)$ for all $s\in\mathcal{S}$.</dd>
 <dt><em>Proof</em></dt>
 <dd>By the Bellman equation for $q_\pi$, we have
-$$
-q_\pi(s,a) = \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r + \gamma v_\pi(s&rsquo;)].
+$$ 
+ q_\pi(s,a) = \sum_{s',r} p(s',r|s,a)[r + \gamma v_\pi(s')].
 $$
 Then by the given condition, we have
-$$
-\begin{align*}
-v_\pi(s) &amp;\leq q_\pi(s,\pi&rsquo;(s)) \cr
-&amp;= \mathbb{E}[R_{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s, A_t = \pi&rsquo;(s)] \cr
-&amp;= \mathbb{E}<em>{\pi&rsquo;}[R</em>{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s]\cr
-&amp;\leq \mathbb{E}<em>{\pi&rsquo;}[R</em>{t+1}+ \gamma q_{\pi}(S_{t+1}, \pi&rsquo;(S_{t+1}))| S_t = s]\cr
-&amp;= \mathbb{E}<em>{\pi&rsquo;}[R</em>{t+1}+ \gamma \mathbb{E}[R_{t+2} + \gamma v_\pi(S_{t+2})|S_{t+1}, A_{t+1} = \pi&rsquo;(S_{t+1})]| S_t = s]\cr
-&amp;= \mathbb{E}<em>{\pi&rsquo;}[R</em>{t+1}+ \gamma R_{t+2} + \gamma^2 v_\pi(S_{t+2})| S_t = s] \cr
-&amp;\vdots \cr
-&amp;\leq \mathbb{E}<em>{\pi&rsquo;}[R</em>{t+1}+ \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots| S_t = s] = v_{\pi&rsquo;}(s).
-\end{align*}
+$$ 
+ \begin{align*}
+ v_\pi(s) &\leq q_\pi(s,\pi'(s)) \cr
+    &= \mathbb{E}[R_{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s, A_t = \pi'(s)] \cr
+    &= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma v_\pi(S_{t+1})| S_t = s]\cr
+    &\leq \mathbb{E}_{\pi'}[R_{t+1}+ \gamma q_{\pi}(S_{t+1}, \pi'(S_{t+1}))| S_t = s]\cr
+    &= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma \mathbb{E}[R_{t+2} + \gamma v_\pi(S_{t+2})|S_{t+1}, A_{t+1} = \pi'(S_{t+1})]| S_t = s]\cr
+    &= \mathbb{E}_{\pi'}[R_{t+1}+ \gamma R_{t+2} + \gamma^2 v_\pi(S_{t+2})| S_t = s] \cr
+    &\vdots \cr
+    &\leq \mathbb{E}_{\pi'}[R_{t+1}+ \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots| S_t = s] = v_{\pi'}(s).
+ \end{align*}
 $$</dd>
 </dl>
 <p>$\Box$</p>
-<p>This theorem implies that we can obtain an improved policy $\pi&rsquo;$ by
-$$
-\begin{align*}
-\pi&rsquo;(s) &amp;:= \arg\max_{a} q_\pi(s,a) \cr
-&amp;=\arg\max_a \sum_{s&rsquo;,r}p(s&rsquo;,r|s,a) [ r+ \gamma v_\pi(s&rsquo;)].
-\end{align*}
-$$</p>
-<p>Suppose that we have got the new policy $\pi&rsquo;$ s.t. $v_\pi = v_{\pi&rsquo;}$, then it follows that
-$$
-v_{\pi&rsquo;}(s)  = \max_a  \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a) [r + \gamma v_{\pi&rsquo;}(s&rsquo;)].
-$$
-This is the same as the Bellman equation for $v_{*}$, and hence $\pi&rsquo;$ must be the optimal policy. So far we have shown how to get an optimal deterministic policy. In the general case, a stochastic policy $\pi$ can be improved by the same way.</p>
+<p>This theorem implies that we can obtain an improved policy $\pi'$ by
+</p>
+$$ 
+ \begin{align*}
+ \pi'(s) &:= \arg\max_{a} q_\pi(s,a) \cr
+    &=\arg\max_a \sum_{s',r}p(s',r|s,a) [ r+ \gamma v_\pi(s')].
+ \end{align*}
+$$<p>Suppose that we have got the new policy $\pi'$ s.t. $v_\pi = v_{\pi'}$, then it follows that
+</p>
+$$ 
+ v_{\pi'}(s)  = \max_a  \sum_{s',r} p(s',r|s,a) [r + \gamma v_{\pi'}(s')].
+$$<p>
+This is the same as the Bellman equation for $v_{*}$, and hence $\pi'$ must be the optimal policy. So far we have shown how to get an optimal deterministic policy. In the general case, a stochastic policy $\pi$ can be improved by the same way.</p>
 <p>So far we have studied how to improve a policy $\pi$ using its value function $v_\pi$. We can thus improve it iteratively: given an initial policy $\pi_0$,
-$$
-\pi_0 \xrightarrow{E} v_{\pi_0} \xrightarrow{I} \pi_1  \xrightarrow{E} v_{\pi_1} \to \cdots \pi_* \xrightarrow{E} v_*,
-$$
+</p>
+$$ 
+ \pi_0 \xrightarrow{E} v_{\pi_0} \xrightarrow{I} \pi_1  \xrightarrow{E} v_{\pi_1} \to \cdots \pi_* \xrightarrow{E} v_*, 
+$$<p>
 where $\xrightarrow{E}$ denotes a policy evaluation and $\xrightarrow{I}$ denotes a policy improvement. This way of finding an optimal policy is called <em>policy iteration</em>.</p>
 <h2 id="3-value-iteration">3. Value Iteration</h2>
 <p>One drawback of policy iteration is that each step involves policy evaluation, which may itself be an iterative computation. One may consider truncating the policy evaluation in some ways without losing convergence.</p>
-<p>The idea of the <em>value iteration</em> algorithm is to estimate the optimal value function $v_<em>$ first, and then do the policy improvement. In other words,
-$$
-v_0 \to v_1 \to \cdots \to v_</em>   \xrightarrow{I} \pi_{*},
-$$
+<p>The idea of the <em>value iteration</em> algorithm is to estimate the optimal value function $v_*$ first, and then do the policy improvement. In other words,
+</p>
+$$ 
+ v_0 \to v_1 \to \cdots \to v_*   \xrightarrow{I} \pi_{*},
+$$<p>
 where the policy evaluation steps are given by
-$$
-v_{k+1}(s) = \max_{a} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)(r +\gamma v_k(s&rsquo;)).
-$$</p>
-<p>Note that the value iteration requires the maximum to be taken over all actions.</p>
+</p>
+$$ 
+ v_{k+1}(s) = \max_{a} \sum_{s',r} p(s',r|s,a)(r +\gamma v_k(s')).
+$$<p>Note that the value iteration requires the maximum to be taken over all actions.</p>
 <h2 id="4-convergence-of-policy-evaluation">4. Convergence of Policy Evaluation</h2>
 <p>In the policy evaluation step, we use the iterative relationship
-$$
-v_{k+1}(s):=   \sum_{a} \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a) (r + \gamma v_k(s&rsquo;)).
-$$</p>
-<p>But how do we know the policy evaluation converges to $v_\pi$?  First we define the Bellman expectation backup operator $T_\pi$ by
-$$
-T_\pi(v) = R_\pi + \gamma P_\pi v.
-$$
+</p>
+$$ 
+ v_{k+1}(s):=   \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) (r + \gamma v_k(s')).
+$$<p>But how do we know the policy evaluation converges to $v_\pi$?  First we define the Bellman expectation backup operator $T_\pi$ by
+</p>
+$$ 
+ T_\pi(v) = R_\pi + \gamma P_\pi v.
+$$<p>
 We say that the operator $T_\pi$ is a $\gamma$-contraction, i.e. it makes value function closer by at least $\gamma$,
-$$
+</p>
+$$ 
 \begin{align*}
-||T_\pi(u) - T_\pi(v)||<em>\infty &amp;= || \gamma P</em>\pi(u -v)||<em>\infty  \cr
-&amp;\leq \gamma ||u - v||</em>\infty.
+ ||T_\pi(u) - T_\pi(v)||_\infty &= || \gamma P_\pi(u -v)||_\infty  \cr
+   &\leq \gamma ||u - v||_\infty.
 \end{align*}
-$$</p>
-<dl>
+$$<dl>
 <dt><em>Theorem 3.2 (contraction mapping theorem)</em></dt>
 <dd>For any metric space $\mathcal{V}$ that is complete under an operator $T(v)$, if $T$ is a $\gamma$-contraction, then $T$ converges to a unique fixed point in $\mathcal{V}$ at a linear rate of $\gamma$.</dd>
 </dl>
 <p>By the contraction mapping theorem, the Bellman expectation operator $T_\pi$ has a unique fixed point. Furthermore, by the bellman equation, $v_\pi$ is a fixed of $T_\pi$. Hence the iterative policy evaluation converges to $v_\pi$ and then policy iteration converges to $v_*$.</p>
 <p>For the value iteration, we use the iterative relationship
-$$
-v_{k+1}(s) = \max_{a} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)(r +\gamma v_k(s&rsquo;)).
-$$
-We can define the <em>Bellman optimality backup operator</em> $T_<em>$ by
-$$
-T_</em>(v) = \max_a( r(\cdot, a) +  \gamma P_{<em>,a} v),
-$$
-which is also a $\gamma$-contraction. It follows that the value iteration converges to the unique fix point $v_</em>$.</p>
+</p>
+$$ 
+ v_{k+1}(s) = \max_{a} \sum_{s',r} p(s',r|s,a)(r +\gamma v_k(s')).
+$$<p>
+We can define the <em>Bellman optimality backup operator</em> $T_*$ by
+</p>
+$$ 
+ T_*(v) = \max_a( r(\cdot, a) +  \gamma P_{*,a} v),
+$$<p>
+which is also a $\gamma$-contraction. It follows that the value iteration converges to the unique fix point $v_*$.</p>
 
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

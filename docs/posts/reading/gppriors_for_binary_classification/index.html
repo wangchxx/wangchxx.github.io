@@ -89,22 +89,25 @@ Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression
 </ul>
 <h2 id="1-problem-setup">1. Problem Setup</h2>
 <p>Consider a binary classification probem given by
-$$
-p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
-$$
+</p>
+$$ 
+ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
+$$<p>
 This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as
-$$
-p(x) = H(\eta(x)),
-$$
+</p>
+$$ 
+ p(x) = H(\eta(x)),
+$$<p>
 where $H$ is commonly choosen as a cdf, called the <em>link function</em>, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.</p>
 <p>There are two functional hyper-parameters in the GP prior. The mean function $\mu(x)$ and the covariance kernel $r(x,y)$. The most important parameter is the covariance kernel that controls the local smoothness of the sample paths of $\eta(x)$ and thus determines the extent of strength borrowed from neighbors in obtaining the posterior process.</p>
 <h2 id="2-mcmc-algorithm-for-posterior">2. MCMC algorithm for posterior</h2>
 <p>The posterior of $\eta$ is not analytically tractable, and thus an MCMC procedure will be used to compute the posterior.</p>
 <h3 id="21-probit-link">2.1 Probit link</h3>
-<p>Consider $H = \Phi$. Suppoe that $\eta\sim GP(\mu,\Sigma)$. Let $Z = \eta(x)|\eta$ be latent variables, then $Z \sim N(\eta(x), I)$. Assume that the observations $Y_i&rsquo;s$ are functions of these latent variables defined as $Y_i = I(Z_i\geq 0)$. Then
+<p>Consider $H = \Phi$. Suppoe that $\eta\sim GP(\mu,\Sigma)$. Let $Z = \eta(x)|\eta$ be latent variables, then $Z \sim N(\eta(x), I)$. Assume that the observations $Y_i's$ are functions of these latent variables defined as $Y_i = I(Z_i\geq 0)$. Then
+</p>
 $$
-Y_i|\eta \sim Bernoulli(H(\eta(x_i))).
-$$
+ Y_i|\eta \sim Bernoulli(H(\eta(x_i))).
+$$<p>
 The procedure can be summarized as:</p>
 <ol>
 <li>$\eta\sim GP(\mu,\Sigma)$.</li>
@@ -112,58 +115,61 @@ The procedure can be summarized as:</p>
 <li>$Y_i|Z_i \sim Bernoulli(H(Z_i))$.</li>
 </ol>
 <p>The posterior of $\eta|Z$ could be computed analytically by the conjugacy in the Gaussian observation and the GP prior.</p>
-<p>$$
-\eta|Z,Y = \eta|Z \sim N(\mu^*, \Sigma^*)
-$$</p>
-<p>where $\Sigma^* = (I + \Sigma^{-1})^{-1}, \mu^* = \Sigma^* (Z + \Sigma^{-1}\mu) = \Sigma^* (Z - \mu) + \mu$. Since $Z$ is unobservable, we shall sampe from the joint posterior distribution of $(Z,\eta)$ via a Gibbs sampler. The value of $Y_i$ indicates the sign of $Z_i$, and thus
 $$
-Z_i|\eta, Y \sim
-\begin{cases}
-N(\eta(x_i), 1) | Z_i\geq 0,  &amp; \; Y_i = 1, \cr
-N(\eta(x_i), 1) | Z_i&lt; 0,  &amp;\; Y_i = -1.
-\end{cases}
-$$
+ \eta|Z,Y = \eta|Z \sim N(\mu^*, \Sigma^*)
+$$<p>where $\Sigma^* = (I + \Sigma^{-1})^{-1}, \mu^* = \Sigma^* (Z + \Sigma^{-1}\mu) = \Sigma^* (Z - \mu) + \mu$. Since $Z$ is unobservable, we shall sampe from the joint posterior distribution of $(Z,\eta)$ via a Gibbs sampler. The value of $Y_i$ indicates the sign of $Z_i$, and thus
+</p>
+$$ 
+ Z_i|\eta, Y \sim 
+ \begin{cases}
+ N(\eta(x_i), 1) | Z_i\geq 0,  & \; Y_i = 1, \cr 
+ N(\eta(x_i), 1) | Z_i< 0,  &\; Y_i = -1.
+ \end{cases} 
+$$<p>
 Since $\Sigma$ can be near-singular if points $x_i$ are close to each other, the computation of $\Sigma^{-1}$ should be avioded. A spectral decomposition of the form $\Sigma = P \Lambda P^T$ will be helpful. Then
-$$
-\Sigma^* = P(\Lambda + I)^{-1}\Lambda P^T.
-$$</p>
-<p><img src="/img_reading/GP_2c_mcmc.png" alt="Simulation Result"></p>
+</p>
+$$ 
+ \Sigma^* = P(\Lambda + I)^{-1}\Lambda P^T.
+$$<p><img src="/img_reading/GP_2c_mcmc.png" alt="Simulation Result"></p>
 <h3 id="22-arbitrary-unimodal-symmetric-link">2.2 Arbitrary unimodal symmetric link</h3>
 <p>Let the link funciton $H$ be the cdf having a smooth unimodal symmetric density on the real line. Then  $H$ may be represented as the scale mixture of $\Phi$, and hence
-$$
-H(t) = \int_0^\infty \Phi(t\sqrt{v}) d G(v),
-$$
+</p>
+$$ 
+ H(t) = \int_0^\infty \Phi(t\sqrt{v}) d G(v),
+$$<p>
 for some known $G$. Introduce two sets of unobservable latent variables $Z,T$ and model it hierarchically by
+</p>
 $$
-\begin{align*}
-\eta &amp;\sim GP(\mu,\Sigma) \cr
-V_i|\eta &amp;\sim \text{ i.i.d. } G, \cr
-Z_i|\eta,V &amp;\sim \text{ independent } N(\eta_i, V_i^{-1}) \cr
-Y_i|Z_i &amp;= I(Z_i\geq 0).
-\end{align*}
-$$
-Then, given $\eta$, the $Y_i&rsquo;s$ are independent Bernoulli random variables with success probability $H(\eta_i)$. Let $D_V$ be the diagonal matrix with $j$-th element equals to $v_j$, and then by the Gaussian conjugacy,
-$$
-\Sigma_V^* = (D_V + \Sigma^{-1})^{-1} ,\quad \mu_V^* = \Sigma_V^*  (D_V Z + \Sigma^{-1}\mu) = \Sigma_V^* D_V (Z - \mu) + \mu.
-$$</p>
-<p>Suppose $G$ has a Labesgue density $g$. Then
-$$
-\begin{align}
-\eta|Z,V,Y = \eta|Z,V &amp;\sim N(\mu_V^*,\Sigma_V^*),  \cr
-V_i|Z,\eta, Y = V_i|\eta,Z &amp;\propto \phi((Z_i - \eta_i)\sqrt{v_i}) g(v_i), \cr
-Z_i|V,\eta, V,Y = Z_i| Y,V &amp;\sim
-\begin{cases}
-N(\eta(x_i), V_i^{-1}) | Z_i\geq 0,  &amp; \; Y_i = 1, \cr
-N(\eta(x_i), V_i^{-1}) | Z_i&lt;0,  &amp;\; Y_i = -1.
-\end{cases}
-\end{align}
-$$</p>
-<h2 id="3-hierarchical-models">3. Hierarchical models</h2>
+ \begin{align*}
+ \eta &\sim GP(\mu,\Sigma) \cr
+ V_i|\eta &\sim \text{ i.i.d. } G, \cr
+ Z_i|\eta,V &\sim \text{ independent } N(\eta_i, V_i^{-1}) \cr
+ Y_i|Z_i &= I(Z_i\geq 0).
+ \end{align*}
+$$<p>
+Then, given $\eta$, the $Y_i's$ are independent Bernoulli random variables with success probability $H(\eta_i)$. Let $D_V$ be the diagonal matrix with $j$-th element equals to $v_j$, and then by the Gaussian conjugacy,
+</p>
+$$ 
+   \Sigma_V^* = (D_V + \Sigma^{-1})^{-1} ,\quad \mu_V^* = \Sigma_V^*  (D_V Z + \Sigma^{-1}\mu) = \Sigma_V^* D_V (Z - \mu) + \mu.
+$$<p>Suppose $G$ has a Labesgue density $g$. Then
+</p>
+$$ 
+ \begin{align}
+ \eta|Z,V,Y = \eta|Z,V &\sim N(\mu_V^*,\Sigma_V^*),  \cr
+ V_i|Z,\eta, Y = V_i|\eta,Z &\propto \phi((Z_i - \eta_i)\sqrt{v_i}) g(v_i), \cr
+ Z_i|V,\eta, V,Y = Z_i| Y,V &\sim 
+ \begin{cases}
+ N(\eta(x_i), V_i^{-1}) | Z_i\geq 0,  & \; Y_i = 1, \cr 
+ N(\eta(x_i), V_i^{-1}) | Z_i<0,  &\; Y_i = -1.
+ \end{cases} 
+ \end{align}
+$$<h2 id="3-hierarchical-models">3. Hierarchical models</h2>
 <p>The choice of the hyper-parameters $\mu,\Sigma$ are critical in the prior elicitation. One may put priors on these hyper-parameters. For instance, we can consider a parametric form for $\Sigma$ by
-$$
-\Sigma_\tau = \Sigma/\tau,<br>
-$$
-for some known $\Sigma$ and unknown hyper-parameter $\tau&gt;0$. Note that $\tau$ determines the smoothness of data. A gamma distribution is an appropriate prior for $\tau$, thus we consider the following hierarchical model</p>
+</p>
+$$ 
+ \Sigma_\tau = \Sigma/\tau,  
+$$<p>
+for some known $\Sigma$ and unknown hyper-parameter $\tau>0$. Note that $\tau$ determines the smoothness of data. A gamma distribution is an appropriate prior for $\tau$, thus we consider the following hierarchical model</p>
 <ol>
 <li>$\tau \sim Gamma(a,b)$.</li>
 <li>$\eta|\tau \sim N(\mu,\Sigma_\tau)$.</li>
@@ -177,32 +183,22 @@ for some known $\Sigma$ and unknown hyper-parameter $\tau&gt;0$. Note that $\tau
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

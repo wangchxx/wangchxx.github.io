@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Reading | Estimating a smooth function on a large graph (2)">
   <meta property="og:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
-Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,…,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@ Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function e
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (2)">
   <meta name="twitter:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
-Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,…,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -91,78 +91,86 @@ Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function e
 <dl>
 <dt>Theorem 1 (<em>Regression</em>)</dt>
 <dd>Under conditions (G), (L) and (S),
+$$ 
+ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.
 $$
-\inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.
-$$
-where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,&hellip;,Y_n)$.</dd>
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.</dd>
 </dl>
 <p>This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta+r)}$.</p>
 <dl>
 <dt>Theorem 2 (<em>Classification</em>)</dt>
-<dd>Under conditions (G), (L) and (S), suppose that the Laplacian eigenfunctions are uniformly bounded by a constant $C$, independent of $n$. Let $\Psi:\mathbb{R}\to (0,1)$ be a differentiable link function with bounded derivative. Then for $\beta\geq r/2$ and $Q&gt;0$
-$$
-\inf_{\hat{\rho}} \sup_{\rho_f: f\in H^\beta(Q)}\mathbb{E}_{f} || \hat{\rho} - \rho_f||_n^2 \asymp n^{-2\beta/(2\beta+r)},
+<dd>Under conditions (G), (L) and (S), suppose that the Laplacian eigenfunctions are uniformly bounded by a constant $C$, independent of $n$. Let $\Psi:\mathbb{R}\to (0,1)$ be a differentiable link function with bounded derivative. Then for $\beta\geq r/2$ and $Q>0$
+$$ 
+ \inf_{\hat{\rho}} \sup_{\rho_f: f\in H^\beta(Q)}\mathbb{E}_{f} || \hat{\rho} - \rho_f||_n^2 \asymp n^{-2\beta/(2\beta+r)},
 $$
 where the infimum is taken over all estimators $\hat{\rho} = \hat{\rho}(Y^{(n)})$.</dd>
 </dl>
 <p>Compared to the regression case, there is an extra requirement $\beta\geq r/2$.</p>
 <h2 id="2-preliminaries">2. Preliminaries</h2>
 <p>In the regression case, we assume that<br>
-$$
-Y_i = f_i + \sigma\xi_i,
-$$
+</p>
+$$ 
+   Y_i = f_i + \sigma\xi_i,
+$$<p>
 where $\xi_i$ are independent standard Gaussians. Let $\psi_i$ be the orthonormal (normalized) eigenfunctions of the Laplacian matrix s.t.
+</p>
 $$
-\psi_i^T \psi_i = n.
+ \psi_i^T \psi_i = n.
+$$<p>
+Write $Y = (Y_1,...,Y_n)$, and  $\xi = (\xi_1,...,\xi_n)$. Denote
+</p>
 $$
-Write $Y = (Y_1,&hellip;,Y_n)$, and  $\xi = (\xi_1,&hellip;,\xi_n)$. Denote
-$$
-\epsilon_i = &lt; \xi, \psi_i &gt;_n,
-$$
+ \epsilon_i = \langle \xi, \psi_i \rangle_n,
+$$<p>
 and observe that the $h_i$ are centered Gaussian with
-$$
-\mathbb{E} \epsilon_i \epsilon_j = \frac{1}{n} \delta_{ij}.
-$$
-The inner product $Z_i := &lt;Y,\psi_i&gt;<em>n$ satisfy
-$$
-Z_i  = &lt;Y,\psi_i&gt;<em>n = h_i + \delta \epsilon_i,
-$$
-where $h_i$ are coefficients in the series representation of the target function $f^* = \sum</em>{i=1}^n h_i \psi_i$. Additionally, consider the decomposition of an estimator $\hat{f} = \sum</em>{i=1}^n \hat{h}_i \psi_i$. Then
-$$
-||\hat{f} - f^*||<em>n^2 = \sum</em>{i=1}^n(h_i - \hat{h}_i)^2.
-$$</p>
-<p>Hence the original problem is converted into the problem of recovering coefficients $h_i$, given the observations
-$$
-\begin{equation}
-Z_i = h_i + \sigma \epsilon_i = h_i + e \xi_i,
-\end{equation}
-$$
+</p>
+$$ 
+ \mathbb{E} \epsilon_i \epsilon_j = \frac{1}{n} \delta_{ij}.
+$$<p>
+The inner product $Z_i := <Y,\psi_i>_n$ satisfy
+</p>
+$$ 
+ Z_i  = \langle Y,\psi_i\rangle_n = h_i + \delta \epsilon_i,
+$$<p>
+where $h_i$ are coefficients in the series representation of the target function $f^* = \sum_{i=1}^n h_i \psi_i$. Additionally, consider the decomposition of an estimator $\hat{f} = \sum_{i=1}^n \hat{h}_i \psi_i$. Then
+</p>
+$$ 
+ ||\hat{f} - f^*||_n^2 = \sum_{i=1}^n(h_i - \hat{h}_i)^2.
+$$<p>Hence the original problem is converted into the problem of recovering coefficients $h_i$, given the observations
+</p>
+$$ 
+ \begin{equation}
+ Z_i = h_i + \sigma \epsilon_i = h_i + e \xi_i,
+ \end{equation}
+$$<p>
 where $e = \sigma/\sqrt{n}$ and $\xi_i$ are independent standard Gaussians. The Sobolev-type ball $H^\beta(Q)$ can be represented in terms of coefficients $h_i$, which is given by
-$$
-B_n(Q) = \{ h\in\mathbb{R}^n: \sum_{i=1}^n a_i^2 h_i^2 \leq Q^2  \},
-$$
+</p>
+$$ 
+ B_n(Q) = \{ h\in\mathbb{R}^n: \sum_{i=1}^n a_i^2 h_i^2 \leq Q^2  \},
+$$<p>
 where $a_i^2 = 1 + \lambda_i^{\beta} n^{2\beta/r}$.</p>
-<p>We introduce Pinsker&rsquo;s estimator and recall the linear minimax lemma showing that Pinsker&rsquo;s estimator is optimal in the class of linear estimators. The risk of a linear estimator $\hat{f}(l) = (l_1 Z_1,&hellip;,l_n Z_n)$ with $l = (l_1,&hellip;,l_n)\in\mathbb{R}^n$ is given by
+<p>We introduce Pinsker&rsquo;s estimator and recall the linear minimax lemma showing that Pinsker&rsquo;s estimator is optimal in the class of linear estimators. The risk of a linear estimator $\hat{f}(l) = (l_1 Z_1,...,l_n Z_n)$ with $l = (l_1,...,l_n)\in\mathbb{R}^n$ is given by
+</p>
 $$
-R(l,f) = \mathbb{E}_f \sum_{i=1}^n(\hat{h}<em>i - h_i)^2 = \sum</em>{i=1}^n( (1-l_i)^2 h_i^2 + e^2 l_i^2).
-$$
-The Pinsker estimator for $B_n(Q)$ is $\hat{f}(l&rsquo;)$ for $l&rsquo; = (1+ x a_j)<em>+$, where $x$ is the unique solution of the followsing equation
-$$
-\begin{equation}
-\frac{e^2}{x} \sum</em>{i=1}^n a_j(1 - x a_j)_+ = Q^2.
-\end{equation}
-$$</p>
-<dl>
+ R(l,f) = \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2 = \sum_{i=1}^n( (1-l_i)^2 h_i^2 + e^2 l_i^2).
+$$<p>
+The Pinsker estimator for $B_n(Q)$ is $\hat{f}(l')$ for $l' = (1+ x a_j)_+$, where $x$ is the unique solution of the followsing equation
+</p>
+$$ 
+ \begin{equation}
+ \frac{e^2}{x} \sum_{i=1}^n a_j(1 - x a_j)_+ = Q^2.
+ \end{equation}
+$$<dl>
 <dt>Lemma 1 (<em>Linear minimax lemma</em>)</dt>
-<dd>Suppose that the general ellipsoid $B_n(Q)$ has positive coefficients $a_i$. Suppose there exists a unique solution $x$ of the equation (2) and suppose that the associated coefficients $l_i&rsquo;$ satisfy
-$$
-\begin{equation}
-S = e^2 \sum_{i=1}^n l_i&rsquo;&lt;\infty.
-\end{equation}
+<dd>Suppose that the general ellipsoid $B_n(Q)$ has positive coefficients $a_i$. Suppose there exists a unique solution $x$ of the equation (2) and suppose that the associated coefficients $l_i'$ satisfy
+$$ 
+ \begin{equation}
+ S = e^2 \sum_{i=1}^n l_i'<\infty.
+ \end{equation}
 $$
 Then the linear minimax risk satisfies
-$$
-\inf_{l\in\mathbb{R}^n}\sup_{f\in B_n(Q)} R(l,f)  = \sup_{f\in B_n(Q)} R(l&rsquo;,f) = S.
+$$ 
+ \inf_{l\in\mathbb{R}^n}\sup_{f\in B_n(Q)} R(l,f)  = \sup_{f\in B_n(Q)} R(l',f) = S.
 $$</dd>
 </dl>
 <p>It shows that the Pinsker estimator is the linear minimax estimator.</p>
@@ -171,147 +179,147 @@ $$</dd>
 <dd>With $B_n(Q)$ and $a_i^2 = 1 + \lambda_i^\beta n^{2\beta/r}$, we have
 <ol>
 <li>The unique solution of the equation (2) satisfies
-$$
-x\asymp n^{-\beta/(2\beta + r)}.
-$$</li>
-<li>The associated Pinsker&rsquo;s coefficients $l&rsquo;_i$ satisfy
-$$
-S\asymp n^{-2\beta/(2\beta + r)}.
-$$</li>
+$$ 
+     x\asymp n^{-\beta/(2\beta + r)}.
+    $$</li>
+<li>The associated Pinsker&rsquo;s coefficients $l'_i$ satisfy
+$$ 
+     S\asymp n^{-2\beta/(2\beta + r)}.
+    $$</li>
 <li>For $e = \sigma/\sqrt{n}$ define $v_i = \frac{e^2 (1+x a_j)_+}{x a_j}$. Then
-$$
-\max_{i\leq n} v_i^2 a_j^2 = O(n^{-r/(2\beta +r)}).
-$$</li>
+$$ 
+     \max_{i\leq n} v_i^2 a_j^2 = O(n^{-r/(2\beta +r)}).
+    $$</li>
 </ol>
 </dd>
 </dl>
 <h2 id="3-proofs-of-main-results">3. Proofs of main results</h2>
 <dl>
 <dt>Proof of Theorem 1</dt>
-<dd>First, we show the upper bound of the risk. Consider the Pinsker estimator $\hat{f} = (l_1&rsquo; Z_1,&hellip;,l_n&rsquo; Z_n)$ with
-$$
-l_i&rsquo; = (1 - xa_j)_+.
+<dd>First, we show the upper bound of the risk. Consider the Pinsker estimator $\hat{f} = (l_1' Z_1,...,l_n' Z_n)$ with
+$$ 
+ l_i' = (1 - xa_j)_+.
 $$
 By Lemma 1 and (ii) of Lemma 2, we conclude that
-$$
-\sup_{f\in B_n(Q)} \mathbb{E}<em>f\sum</em>{i}(\hat{h}<em>i - h_i)^2 \asymp n^{-2\beta/(2\beta +r)}.
+$$ 
+ \sup_{f\in B_n(Q)} \mathbb{E}_f\sum_{i}(\hat{h}_i - h_i)^2 \asymp n^{-2\beta/(2\beta +r)}.
 $$
 Then we show the lower bound of the risk. Define $N$ by
-$$
-N  = \max\{m: e^2 \sum</em>{i=1}^n a_i(a_m - a_j)&lt; Q^2 \}.
+$$ 
+ N  = \max\{m: e^2 \sum_{i=1}^n a_i(a_m - a_j)< Q^2 \}.
 $$
 Define
-$$
-B_n(Q,N) = \{h^{(N)} = (h_1,&hellip;,h_N, 0 ,&hellip;,0): \sum_{i=1}^N a_i^2 h_i^2 \leq Q^2   \}.
+$$ 
+ B_n(Q,N) = \{h^{(N)} = (h_1,...,h_N, 0 ,...,0): \sum_{i=1}^N a_i^2 h_i^2 \leq Q^2   \}.
 $$
 Denote the minimax risk by $R_n$, i.e.
-$$
-R_n =   \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}<em>f \sum</em>{i=1}^n(\hat{h}<em>i - h_i)^2,
+$$ 
+ R_n =   \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2,
 $$
 then we have $B_n(Q,N)\subset B_n(Q)$ and hence
-$$
-R_n \geq \inf</em>{\hat{f}^{(N)} \in B_n(Q,N)} \sup_{f^{(N)}\in B_n(Q,N)} \mathbb{E}<em>f \sum</em>{i=1}^n(\hat{h}<em>i - h_i)^2.
+$$ 
+ R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sup_{f^{(N)}\in B_n(Q,N)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2.
 $$
 Then we can bound the minimax risk from below by the Bayes risk
-$$
-\begin{equation}
-R_n \geq \inf</em>{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{B_n(Q,N)} \mathbb{E}<em>f (\hat{h}<em>i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \geq I^* - r^<em>,
-\end{equation}
+$$ 
+ \begin{equation}
+ R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \geq I^* - r^*,
+ \end{equation}
 $$
 where
-$$
-\begin{align</em>}
-I^* &amp;= \inf</em>{\hat{f}^{(N)} \in B_n(Q,N)} \sum</em>{i=1}^N \int_{\mathbb{R}^N} \mathbb{E}<em>f (\hat{h}<em>i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \cr
-r^* &amp;= \sup</em>{\hat{f}^{(N)} \in B_n(Q,N)} \sum</em>{i=1}^N \int_{\mathbb{R}^N \setminus B_n(Q,N)} \mathbb{E}_f (\hat{h}<em>i - h_i)^2 \mu(f^{(N)}) d f^{(N)}.
-\end{align*}
+$$ 
+\begin{align*}
+ I^* &= \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \cr
+ r^* &= \sup_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N \setminus B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)}.
+ \end{align*}
 $$
 From the proof of Pinsker&rsquo;s theorem, we get that
-$$
-I^* \gtrsim S, \quad r^* \lesssim \exp(-K(\max</em>{i\leq n} v_j^2 a_j^2)^{-1}).
+$$ 
+ I^* \gtrsim S, \quad r^* \lesssim \exp(-K(\max_{i\leq n} v_j^2 a_j^2)^{-1}).
 $$
 By Lemma 2, we conclude that $R_n\gtrsim n^{-2\beta/(2\beta+r)}$.</dd>
 </dl>
 <p>$\Box$</p>
 <dl>
 <dt>Proof of Theorem 2</dt>
-<dd>Consider the estimator $\hat{\rho} = \Psi(\sum_{i=1}^n \hat{h}<em>i \psi_i)$. The upper bound can be easily proved by the properties of the link function $\Psi$,
-$$
-\sup</em>{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}<em>\rho||\hat{\rho} - \rho||<em>n^2 \lesssim  \sup</em>{f\in B_n(Q)} \mathbb{E}<em>f \sum</em>{i=1}^n (\hat{h}<em>i - h_i)^2 \lesssim n^{-2\beta/(2\beta + r)}.
+<dd>Consider the estimator $\hat{\rho} = \Psi(\sum_{i=1}^n \hat{h}_i \psi_i)$. The upper bound can be easily proved by the properties of the link function $\Psi$,
+$$ 
+ \sup_{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}_\rho||\hat{\rho} - \rho||_n^2 \lesssim  \sup_{f\in B_n(Q)} \mathbb{E}_f \sum_{i=1}^n (\hat{h}_i - h_i)^2 \lesssim n^{-2\beta/(2\beta + r)}.
 $$
 To show the lower bound of the risk, we use the Markov&rsquo;s inequality to obtain
+$$ 
+ \inf \sup \mathbb{E}_\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||_n^2 \gtrsim \inf \sup \Pr(||\hat{\rho} -\rho||_n^2 \geq n^{-2\beta/(2\beta+r)}).
 $$
-\inf \sup \mathbb{E}</em>\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||<em>n^2 \gtrsim \inf \sup \Pr(||\hat{\rho} -\rho||<em>n^2 \geq n^{-2\beta/(2\beta+r)}).
-$$
-Conside probability measures $P_1,&hellip;,P_M$ corresponding to the soft label function $\rho_1,&hellip;,\rho_M$. For a test  $\phi:\mathbb{R}^n\to\{1,&hellip;,M\}$ define the average probability of error by
-$$
-\bar{\rho}<em>M(\phi) = \frac{1}{M} \sum</em>{i=1}^M P_i(\phi = i).
+Conside probability measures $P_1,...,P_M$ corresponding to the soft label function $\rho_1,...,\rho_M$. For a test  $\phi:\mathbb{R}^n\to\{1,...,M\}$ define the average probability of error by
+$$ 
+ \bar{\rho}_M(\phi) = \frac{1}{M} \sum_{i=1}^M P_i(\phi = i).
 $$
 Additionally, let
-$$
-\bar{\rho}<em>M = \inf</em>\phi \bar{\rho}<em>M(\phi).
+$$ 
+ \bar{\rho}_M = \inf_\phi \bar{\rho}_M(\phi).
 $$
 If we have
-$$
+$$ 
 \begin{equation}
-||\rho_i - \rho_j||<em>n^2 \gtrsim n^{-2\beta/(2\beta+r)} ,\quad i\neq j,\quad  i,j\leq M,
+ ||\rho_i - \rho_j||_n^2 \gtrsim n^{-2\beta/(2\beta+r)} ,\quad i\neq j,\quad  i,j\leq M,
 \end{equation}
 $$
 then
+$$ 
+ \inf_{\hat{\rho}} \max_{\rho \in \{\rho_1,...,\rho_M\}} \Pr_\rho(||\hat{\rho} - \rho||_n^2 \geq C c^{-2\beta/(2\beta+r)}) \gtrsim \bar{\rho}_M.
 $$
-\inf</em>{\hat{\rho}} \max</em>{\rho \in \{\rho_1,&hellip;,\rho_M\}} \Pr</em>\rho(||\hat{\rho} - \rho||<em>n^2 \geq C c^{-2\beta/(2\beta+r)}) \gtrsim \bar{\rho}<em>M.
-$$
-In view of the fact that if $P_1,&hellip;,P_M$ satisfy
-$$
-\begin{equation}
-\frac{1}{M} \sum</em>{i=2}^M KL(P_j||P_1) \leq \alpha \log M,
-\end{equation}
+In view of the fact that if $P_1,...,P_M$ satisfy
+$$ 
+ \begin{equation}
+ \frac{1}{M} \sum_{i=2}^M KL(P_j||P_1) \leq \alpha \log M,
+ \end{equation}
 $$
 for some $\alpha\in(0,1)$, then
-$$
-\bar{\rho}<em>M \geq \frac{\log M - \log 2}{\log (M-1)} - \alpha.
+$$ 
+ \bar{\rho}_M \geq \frac{\log M - \log 2}{\log (M-1)} - \alpha.
 $$
 It follows that
-$$
-\sup</em>{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}</em>\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||<em>n^2 \gtrsim \frac{\log M - \log 2}{\log (M-1)} - \alpha \to 0,
+$$ 
+ \sup_{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}_\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||_n^2 \gtrsim \frac{\log M - \log 2}{\log (M-1)} - \alpha \to 0,
 $$
 as $M\to\infty$. This is the desired result.
-Now we construct the required measures $P_1,&hellip;,P_M$ satisfying (5)-(6). Let $N = n^{r/(2\beta +r)}$. For $\delta&gt;0$ and $\theta = (\theta_1,&hellip;,\theta_N)\in \{\pm 1\}^N$ define
+Now we construct the required measures $P_1,...,P_M$ satisfying (5)-(6). Let $N = n^{r/(2\beta +r)}$. For $\delta>0$ and $\theta = (\theta_1,...,\theta_N)\in \{\pm 1\}^N$ define
+$$ 
+ f_\theta = \delta N^{-(2\beta + r)/(2r)} \sum_{i=1}^N \theta_i \psi_i. 
 $$
-f</em>\theta = \delta N^{-(2\beta + r)/(2r)} \sum</em>{i=1}^N \theta_i \psi_i.
+We try to select M vectors of coefficients $\theta$ s.t. the measures corresponding to $\rho_i = \Psi(f_{\theta,i})$ satisfy (6). Notice that $f_\theta \in H^\beta(Q)$, and by the assumption (G), we have
+$$ 
+ \langle f_\theta, (I + (n^{2/r} L)^\beta) f_\theta\rangle_n = \delta^2 N^{-(2\beta + r)/r} \sum_{i=1}^N (1 + \lambda_i^{\beta} n^{2\beta/r} )   \leq K_1 \delta^2
 $$
-We try to select M vectors of coefficients $\theta$ s.t. the measures corresponding to $\rho_i = \Psi(f</em>{\theta,i})$ satisfy (6). Notice that $f_\theta \in H^\beta(Q)$, and by the assumption (G), we have
-$$
-&lt;f_\theta, (I + (n^{2/r} L)^\beta) f_\theta&gt;<em>n = \delta^2 N^{-(2\beta + r)/r} \sum</em>{i=1}^N (1 + \lambda_i^{\beta} n^{2\beta/r} )   \leq K_1 \delta^2
-$$
-for some constant $K_1&gt;0$. Then we pick a subset $\{ \theta^{(2)},&hellip;,\theta^{(M)} \}$ of $\{\pm 1\}^N$ s.t.
-$$
-d_h(\theta^{(i)}, \theta^{(j)}) \gtrsim N,
+for some constant $K_1>0$. Then we pick a subset $\{ \theta^{(2)},...,\theta^{(M)} \}$ of $\{\pm 1\}^N$ s.t.
+$$ 
+ d_h(\theta^{(i)}, \theta^{(j)}) \gtrsim N,
 $$
 where $d_h$ is the Hamming distance, i.e.
-$$
-d_h(\theta, \theta&rsquo;) = \sum_{i=1}^N 1_{\theta_i = \theta&rsquo;<em>i}.
+$$ 
+ d_h(\theta, \theta') = \sum_{i=1}^N 1_{\theta_i = \theta'_i}.
 $$
 It can be shown that such subset exists, and the size $M$ satisfies
+$$ 
+ M \geq b^N, \quad b\in(1,2).
 $$
-M \geq b^N, \quad b\in(1,2).
+Set $\theta^{(1)} = (0,...,0)\in\mathbb{R}^N$. We define the measures $P_0,...,P_M$ by $P_i = P_{\rho_i}$, where $\rho_i = \Psi(f_{\theta,i})$.
+Since $KL(P_{\Psi(v)}||P_{\Psi(w)}) \leq cn||v - w||_n^2$, we obtain that
+$$ 
+ KL(P_i||P_1) \leq K_2 n || f_{\theta^{(i)}} - 0||_n^2 \leq 4K_2 n \delta^2 N^{-2\beta/r},
 $$
-Set $\theta^{(1)} = (0,&hellip;,0)\in\mathbb{R}^N$. We define the measures $P_0,&hellip;,P_M$ by $P_i = P</em>{\rho_i}$, where $\rho_i = \Psi(f_{\theta,i})$.
-Since $KL(P_{\Psi(v)}||P_{\Psi(w)}) \leq cn||v - w||<em>n^2$, we obtain that
-$$
-KL(P_i||P_1) \leq K_2 n || f</em>{\theta^{(i)}} - 0||<em>n^2 \leq 4K_2 n \delta^2 N^{-2\beta/r},
-$$
-according to the fact that $||f</em>\theta  - f_{\theta&rsquo;}||<em>n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta&rsquo;)$. It gives the condition (6).
+according to the fact that $||f_\theta  - f_{\theta'}||_n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta')$. It gives the condition (6).
 Finally, we show the condition (5). By the assumption of the theorem we have for any $j\leq M$
-$$
-\max</em>{i\leq n} |f_{\theta^{(j)},i}| \lesssim N^{(r-2\beta)/2r}.
+$$ 
+ \max_{i\leq n} |f_{\theta^{(j)},i}| \lesssim N^{(r-2\beta)/2r}.
 $$
 For $\beta\geq r/2$ the norm is then bounded by some constant. Hence, there esists $K_3$ s.t. for every $i\leq n$ and every $j\leq M$
-$$
-|f_{\theta^{(j)},i}| \leq K_3.
+$$ 
+ |f_{\theta^{(j)},i}| \leq K_3.
 $$
 Since $|\Psi(x) - \Psi(y)| \geq K_4|x- y|$ for any $x,y \in[-K_3,K_3]$, for any $i,j\leq M, i\neq j$
-$$
-||\rho_i - \rho_j||<em>n^2 \gtrsim ||f</em>{\theta^{(i)}}  - f_{\theta^{(j)}}||<em>n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta&rsquo;) \gtrsim N^{</em>-2\beta/r}.
+$$ 
+   ||\rho_i - \rho_j||_n^2 \gtrsim ||f_{\theta^{(i)}}  - f_{\theta^{(j)}}||_n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta') \gtrsim N^{_-2\beta/r}.
 $$
 This completes the proof since $N = n^{r/(2\beta +r)}$.</dd>
 </dl>
@@ -319,32 +327,22 @@ This completes the proof since $N = n^{r/(2\beta +r)}$.</dd>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

@@ -6,8 +6,7 @@
   <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_4/">
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Mathematical Analysis | 4 The Continuity of Functions">
-  <meta property="og:description" content="1. Definitions Definition 1 (Continuity at $x_0$) Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be continuous at $x_0$. That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$, $$ \lim_{x\to x_0} = f(\lim{x\to x_0} x). $$
-We introduce a new terminology “increment”, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 &#43; \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to $$ \lim_{\Delta x\to 0} \Delta y = 0. $$">
+  <meta property="og:description" content="1. Definitions Definition 1 (Continuity at $x_0$) Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be continuous at $x_0$. That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$, $$ \lim_{x\to x_0} = f(\lim{x\to x_0} x).$$We introduce a new terminology “increment”, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 &#43; \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -25,8 +24,7 @@ We introduce a new terminology “increment”, which is defined by $\Delta x = 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Mathematical Analysis | 4 The Continuity of Functions">
-  <meta name="twitter:description" content="1. Definitions Definition 1 (Continuity at $x_0$) Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be continuous at $x_0$. That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$, $$ \lim_{x\to x_0} = f(\lim{x\to x_0} x). $$
-We introduce a new terminology “increment”, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 &#43; \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to $$ \lim_{\Delta x\to 0} \Delta y = 0. $$">
+  <meta name="twitter:description" content="1. Definitions Definition 1 (Continuity at $x_0$) Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be continuous at $x_0$. That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$, $$ \lim_{x\to x_0} = f(\lim{x\to x_0} x).$$We introduce a new terminology “increment”, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 &#43; \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -93,14 +91,14 @@ We introduce a new terminology “increment”, which is defined by $\Delta x = 
 <dd>Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be <em>continuous at $x_0$</em>.</dd>
 </dl>
 <p>That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$,
-$$
-\lim_{x\to x_0} = f(\lim{x\to x_0} x).
-$$</p>
-<p>We introduce a new terminology &ldquo;increment&rdquo;, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 + \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to
-$$
-\lim_{\Delta x\to 0} \Delta y = 0.
-$$</p>
-<dl>
+</p>
+$$ 
+ \lim_{x\to x_0} = f(\lim{x\to x_0} x).
+$$<p>We introduce a new terminology &ldquo;increment&rdquo;, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 + \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to
+</p>
+$$ 
+ \lim_{\Delta x\to 0} \Delta y = 0.
+$$<dl>
 <dt>Definition 2 (<strong>Discontinuity at $x_0$</strong>)</dt>
 <dd>Given a function $f$ defined on $U^o(x_0,\delta)$. If $f$ is not defined at $x_0$ or $f$ is well defined at $x_0$ but not continuous at $x_0$, $f$ is said to be <em>discontinuous at $x_0$</em> and $x_0$ is called a discontinuity of $f$.</dd>
 </dl>
@@ -130,7 +128,7 @@ $$</p>
 <p>locally bounded. If $f$ is continuous at $x_0$, then $f$ is bouned in some neighbourhood $U(x_0,\delta)$.</p>
 </li>
 <li>
-<p>locally signed. If $f$ is continuous at $x_0$, and $f(x_0)&gt;0$, then for any $0&lt;c&lt;f(x_0)$, there exists a neighbourhood $U(x_0,\delta)$ s.t. for all $x\in U(x_0,\delta)$, $f(x)&gt;r$.</p>
+<p>locally signed. If $f$ is continuous at $x_0$, and $f(x_0)>0$, then for any $0<c<f(x_0)$, there exists a neighbourhood $U(x_0,\delta)$ s.t. for all $x\in U(x_0,\delta)$, $f(x)>r$.</p>
 </li>
 <li>
 <p>closed on plus and multiplication.</p>
@@ -157,14 +155,14 @@ $$</p>
 <h2 id="3-uniformly-continuous">3. Uniformly Continuous</h2>
 <dl>
 <dt>Definition 6 (<strong>Uniformly continuous</strong>)</dt>
-<dd>Given a function $f$ defined on an interval $I$, $f$ is said to be <em>uniformly continuous</em> on $I$ if for any $\epsilon&gt;0$, there exists $\delta$ s.t. for all $|x_1 - x_2|&lt;\delta$ we have $|f(x_1) - f(x_2)|&lt;\epsilon$.</dd>
+<dd>Given a function $f$ defined on an interval $I$, $f$ is said to be <em>uniformly continuous</em> on $I$ if for any $\epsilon>0$, there exists $\delta$ s.t. for all $|x_1 - x_2|<\delta$ we have $|f(x_1) - f(x_2)|<\epsilon$.</dd>
 </dl>
 <p>Uniform continuity is stronger than the ordinary continuity.</p>
 <dl>
 <dt>Theorem 7 (<strong>Uniformly continuous</strong>)</dt>
 <dd>If $f$ is continuous on $[a,b]$, then $f$ is uniformly continuous on $[a,b]$</dd>
 <dt>proof</dt>
-<dd>By contradiction. If not, there exists $\epsilon_0$ s.t. for any $\delta&gt;0$ we can find sequences ${x_n},{y_n}$ with $\lim_{n\to\infty}(x_n - y_n) = 0$ but $|f(x_n) - f(y_n)|\geq \epsilon_0$. By the boundedness, we can find subsequences  ${x_{nk}},{y_{nk}}$ convergent to $x_0$.</dd>
+<dd>By contradiction. If not, there exists $\epsilon_0$ s.t. for any $\delta>0$ we can find sequences $\{x_n\},\{y_n\}$ with $\lim_{n\to\infty}(x_n - y_n) = 0$ but $|f(x_n) - f(y_n)|\geq \epsilon_0$. By the boundedness, we can find subsequences  $\{x_{nk}\},\{y_{nk}\}$ convergent to $x_0$.</dd>
 </dl>
 <p>Now we obtain a contradiction, $\epsilon_0\leq |f(x_{nk}) - f(y_{nk})|\to 0$.</p>
 <p>$\Box$</p>
@@ -172,32 +170,22 @@ $$</p>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

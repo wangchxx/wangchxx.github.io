@@ -8,7 +8,7 @@
   <meta property="og:title" content="Reading | Bayesian Classification of Multiclass Functional Data">
   <meta property="og:description" content="Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
 Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
-1. Problem setup Consider a response $Y$ taking values $k = 1,…,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by $$ P(Y= k|X) = H_k(\int \beta(t)X(t) dt), $$ where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.">
+1. Problem setup Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,7 +24,7 @@ Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functiona
   <meta name="twitter:title" content="Reading | Bayesian Classification of Multiclass Functional Data">
   <meta name="twitter:description" content="Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
 Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
-1. Problem setup Consider a response $Y$ taking values $k = 1,…,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by $$ P(Y= k|X) = H_k(\int \beta(t)X(t) dt), $$ where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.">
+1. Problem setup Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,100 +88,106 @@ Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functiona
 		<p>Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.</p>
 <p>Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. <a href="http://arxiv.org/abs/1808.00662">http://arxiv.org/abs/1808.00662</a></p>
 <h2 id="1-problem-setup">1. Problem setup</h2>
-<p>Consider a response $Y$ taking values $k = 1,&hellip;,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
-$$
-P(Y= k|X) = H_k(\int \beta(t)X(t) dt),
-$$
+<p>Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
+</p>
+$$ 
+ P(Y= k|X) = H_k(\int \beta(t)X(t) dt),
+$$<p>
 where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.</p>
 <h2 id="2-model">2. Model</h2>
-<p>Let $X_i(t)$, $i=1,&hellip;,n$, be the observed functional data associated with a categotical variable $Y_i$. The probability of choosing category $k = 1,&hellip;,K-1$ is given by
-$$
-\begin{equation}
-P(Y_i = k|X_i) = \frac{\exp(\int \beta_k(t) X_i(t) dt)}{1 + \sum_{l=1}^{K-1} \exp(\int \beta_l(t)X_i(t) dt)},
-\end{equation}
-$$
+<p>Let $X_i(t)$, $i=1,...,n$, be the observed functional data associated with a categotical variable $Y_i$. The probability of choosing category $k = 1,...,K-1$ is given by
+</p>
+$$ 
+ \begin{equation}
+    P(Y_i = k|X_i) = \frac{\exp(\int \beta_k(t) X_i(t) dt)}{1 + \sum_{l=1}^{K-1} \exp(\int \beta_l(t)X_i(t) dt)},
+ \end{equation}
+$$<p>
 and the probability of choosing category $K$ is given by
-$$
+</p>
+$$ 
 \begin{equation}
 P(Y_i = K|X_i) = \frac{1}{1 + \sum_{l=1}^{K-1} \exp(\int \beta_l(t)X_i(t) dt)}.
 \end{equation}
-$$</p>
-<p>The functional coefficient $\beta(t)$ is given a prior which is a finite linear combination of a certain basis functions:
-$$
-\beta(t) = \sum_{j=1}^J \theta_j \psi_j(t),
-$$
+$$<p>The functional coefficient $\beta(t)$ is given a prior which is a finite linear combination of a certain basis functions:
+</p>
+$$ 
+ \beta(t) = \sum_{j=1}^J \theta_j \psi_j(t),
+$$<p>
 where $(\psi_j)$ is a basis. A prior is put on the unknown coefficinets $(\theta_j)$. The number of basis function $J$ is also unknown and is given a hyperprior.</p>
-<p>Let $\beta_k(t)= \sum_{j=1}^J \theta_{k,j}\psi_j(t)$ and $Z_{ij} = \int \psi_j(t)X_i(t) dt$. Then the classification probabilty can be written as, for $k = 1,&hellip;,K_1$
-$$
+<p>Let $\beta_k(t)= \sum_{j=1}^J \theta_{k,j}\psi_j(t)$ and $Z_{ij} = \int \psi_j(t)X_i(t) dt$. Then the classification probabilty can be written as, for $k = 1,...,K_1$
+</p>
+$$ 
 \begin{align*}
-P(Y_i = k|X_i) &amp;= \frac{\exp(\sum_{j=1}^J \theta_{k,j}Z_{ij})}{1 + \sum_{l=1}^{K-1}\exp(\sum_{j=1}^J \theta_{l,j}Z_{ij})} \cr
-&amp;= \frac{\exp(Z_i^T \theta_k)}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
-\end{align*}
-$$
+ P(Y_i = k|X_i) &= \frac{\exp(\sum_{j=1}^J \theta_{k,j}Z_{ij})}{1 + \sum_{l=1}^{K-1}\exp(\sum_{j=1}^J \theta_{l,j}Z_{ij})} \cr 
+   &= \frac{\exp(Z_i^T \theta_k)}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
+\end{align*} 
+$$<p>
 and
-$$
-P(Y_i = K|X_i) = \frac{1}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
-$$
-where $\theta_k = (\theta_{k,q},&hellip;,\theta_{k,J})^T, Z_i = (Z_{i,1},&hellip;,Z_{i,J})^T$.</p>
-<p>For each $\theta_k, k=1,&hellip;,K$, we assign a Gaussian prior $N_J(\mu_k,\Sigma_k)$.</p>
+</p>
+$$ 
+   P(Y_i = K|X_i) = \frac{1}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
+$$<p>
+where $\theta_k = (\theta_{k,q},...,\theta_{k,J})^T, Z_i = (Z_{i,1},...,Z_{i,J})^T$.</p>
+<p>For each $\theta_k, k=1,...,K$, we assign a Gaussian prior $N_J(\mu_k,\Sigma_k)$.</p>
 <h2 id="3-mcmc">3. MCMC</h2>
 <p>Metropolis-Hastings algorithm to sample $\theta_k$.</p>
 <ol>
-<li>Sample $\theta_k&rsquo;$ from the proposal distribution $q(\theta_k&rsquo;,\theta_k|Y,\theta_{-1})$.</li>
-<li>Accept $\theta_k&rsquo;$ w.p. $\alpha(\theta_k,\theta_k&rsquo;|Y,\theta_{-k})$ given by
-$$
+<li>Sample $\theta_k'$ from the proposal distribution $q(\theta_k',\theta_k|Y,\theta_{-1})$.</li>
+<li>Accept $\theta_k'$ w.p. $\alpha(\theta_k,\theta_k'|Y,\theta_{-k})$ given by
+$$ 
 \begin{align*}
-&amp;\frac{\pi(\theta_k&rsquo;|Y,\theta_{-k})q(\theta_k&rsquo;,\theta_k|Y,\theta_{-k})}{\pi(\theta_k|Y,\theta_{-k})q(\theta_k,\theta_k&rsquo;|Y,\theta_{-k})}\wedge 1  \cr
-=&amp; \frac{\pi(\theta_k&rsquo;,\theta_{-k}) f(Y|\theta_k&rsquo;,\theta_{-k})q(\theta_k&rsquo;,\theta_k|Y,\theta_{-k})}{\pi(\theta_k,\theta_{-k}) f(Y|\theta_k,\theta_{-k})q(\theta_k,\theta_k&rsquo;|Y,\theta_{-k})}\wedge 1
+ &\frac{\pi(\theta_k'|Y,\theta_{-k})q(\theta_k',\theta_k|Y,\theta_{-k})}{\pi(\theta_k|Y,\theta_{-k})q(\theta_k,\theta_k'|Y,\theta_{-k})}\wedge 1  \cr
+=& \frac{\pi(\theta_k',\theta_{-k}) f(Y|\theta_k',\theta_{-k})q(\theta_k',\theta_k|Y,\theta_{-k})}{\pi(\theta_k,\theta_{-k}) f(Y|\theta_k,\theta_{-k})q(\theta_k,\theta_k'|Y,\theta_{-k})}\wedge 1
 \end{align*}
 $$</li>
 </ol>
 <p>Moreover, we can put a prior on $J$, for example, geometric or Possion distribution.</p>
 <h2 id="4-posterior-contraction-rate">4. Posterior contraction rate</h2>
-<p>Write $\pi = (\pi_1,&hellip;,\pi_K)$, where $\pi_k = P(Y=k|X)$, and let $\pi_{0k}$ be the true probability of the k-th category conditioned on $X$. Assume that the joint distribution of $(X,Y)$ follows $\nu\times G$, where $\nu$ is the counting measure on $\{1,&hellip;,K\}$.</p>
+<p>Write $\pi = (\pi_1,...,\pi_K)$, where $\pi_k = P(Y=k|X)$, and let $\pi_{0k}$ be the true probability of the k-th category conditioned on $X$. Assume that the joint distribution of $(X,Y)$ follows $\nu\times G$, where $\nu$ is the counting measure on $\{1,...,K\}$.</p>
 <p>Define</p>
 <ol>
 <li>norm $||f||_{p,G} = (\int |f|^p d G)^{1/p}$.</li>
 <li>$KL(p||q)$ the KL-divergence, $H^2(p,q)$ the squared Helinger distance, and
-$$
-V(p||q) = \int p \log^2 p/q d\mu.
+$$ 
+ V(p||q) = \int p \log^2 p/q d\mu.
 $$</li>
 </ol>
 <p>Then we have
-$$
-\begin{align*}
-KL(p_0||p) &amp;= \int\int p_0(x,y) \log \frac{p_0(x,y)}{p(x,y)} d\nu(y) dx \cr
-&amp;= \int\int \pi_0(y|x) \log \frac{\pi_0(y|x)}{\pi(y|x)} d\nu(y) d G(x) \cr
-&amp;= \mathbb{E}<em>X\left[\sum</em>{k=1}^K \pi_{0,k}(X) \log \frac{\pi_{0k}(X)}{\pi_k(X)}\right] \cr
-&amp;= KL(\pi_0||\pi)
-\end{align*}
-$$
+</p>
+$$ 
+ \begin{align*}
+ KL(p_0||p) &= \int\int p_0(x,y) \log \frac{p_0(x,y)}{p(x,y)} d\nu(y) dx \cr
+ &= \int\int \pi_0(y|x) \log \frac{\pi_0(y|x)}{\pi(y|x)} d\nu(y) d G(x) \cr
+ &= \mathbb{E}_X\left[\sum_{k=1}^K \pi_{0,k}(X) \log \frac{\pi_{0k}(X)}{\pi_k(X)}\right] \cr
+ &= KL(\pi_0||\pi)
+ \end{align*}
+$$<p>
 Similarly, $V(p_0||p) = V(\pi_0||\pi)$ and $H^2(p_0,p) = H^2(\pi_0,\pi)$. We define a metric $d$ by
-$$
-d(\pi,\pi_0) = \sqrt{\sum_{k=1}^K \mathbb{E}<em>X |\pi_k(X) - \pi</em>{0k}(X)|^2}.
-$$</p>
-<p>Then we have the following theorem</p>
+</p>
+$$ 
+ d(\pi,\pi_0) = \sqrt{\sum_{k=1}^K \mathbb{E}_X |\pi_k(X) - \pi_{0k}(X)|^2}.
+$$<p>Then we have the following theorem</p>
 <dl>
 <dt>Theorem 1</dt>
-<dd>Assume that $\pi_0$ is bounded, $X$ is bounded. Let $\epsilon_n \geq \epsilon_n&rsquo;$ be two sequences of positive numbers satisfying $\epsilon_n\to 0, n\epsilon_n&rsquo;\to\infty$. Let $\Theta_n$ be a subset of the parameter space s.t.
-$$
-\begin{align}
-\log N(\epsilon_n,\Theta_n , H) &amp;\lesssim  n\epsilon_n^2 \cr
-\Pi(\Theta\setminus \Theta_n) &amp;\leq \exp(-a_1 n \epsilon_n&rsquo;^2) \cr
-\Pi(\pi: \sum_{k=1}^K ||\pi_k - \pi_{0k}||_{\infty}^2 &lt;\epsilon_n&rsquo;^2) &amp;\geq \exp(-a_2n\epsilon_n'2).
-\end{align}
+<dd>Assume that $\pi_0$ is bounded, $X$ is bounded. Let $\epsilon_n \geq \epsilon_n'$ be two sequences of positive numbers satisfying $\epsilon_n\to 0, n\epsilon_n'\to\infty$. Let $\Theta_n$ be a subset of the parameter space s.t.
+$$ 
+ \begin{align}
+ \log N(\epsilon_n,\Theta_n , H) &\lesssim  n\epsilon_n^2 \cr
+ \Pi(\Theta\setminus \Theta_n) &\leq \exp(-a_1 n \epsilon_n'^2) \cr
+ \Pi(\pi: \sum_{k=1}^K ||\pi_k - \pi_{0k}||_{\infty}^2 <\epsilon_n'^2) &\geq \exp(-a_2n\epsilon_n'2).
+ \end{align}
 $$
 Then for every $M_n\to\infty$, we have $\Pi(d(\pi,\pi_0)\geq M_n \epsilon_n| X^{(n)}, Y^{(n)}) \to 0 $ in probability.</dd>
 <dt>Proof</dt>
 <dd>$H^2 \geq \mathbb{E}_X \sum_{k=1}^K |\pi_k(X) - \pi_{0k}(X)|^2$ and by Taylor&rsquo;s expansion,
-$$
-K_2 \leq \sum_{k=1}^K ||\pi_k - \pi_{0k}||_\infty^2.
+$$ 
+ K_2 \leq \sum_{k=1}^K ||\pi_k - \pi_{0k}||_\infty^2.
 $$
 Then the result follows from the general posterior contraction theorem.</dd>
 <dt>Assumption</dt>
 <dd><ul>
 <li>(A1) $\Pi(J= j) \leq \exp(-c_2 j \log^{t_2} j)$.</li>
-<li>(A2) Given $J$, $\Pi(||\theta- \theta_0||&lt; \epsilon) \geq \exp(-c_3 J\log (1/\epsilon))$ for every $||\theta_0||\leq M_1$. Also assume that $\Pi(\theta\notin [-M_2, M_2]^J) \leq J\exp(-CM^{t_3})$.</li>
+<li>(A2) Given $J$, $\Pi(||\theta- \theta_0||< \epsilon) \geq \exp(-c_3 J\log (1/\epsilon))$ for every $||\theta_0||\leq M_1$. Also assume that $\Pi(\theta\notin [-M_2, M_2]^J) \leq J\exp(-CM^{t_3})$.</li>
 </ul>
 </dd>
 <dt>Theorem 2</dt>
@@ -191,24 +197,24 @@ $$
 ||\beta_0 - \theta_0^T \psi||_\infty \lesssim J^{-\alpha},
 $$
 and
-$$
-||\theta_1^T\phi - \theta_2^T \psi||_\infty \lesssim J^{K_0} ||\theta_1 - \theta_2||_2.
+$$ 
+   ||\theta_1^T\phi - \theta_2^T \psi||_\infty \lesssim J^{K_0} ||\theta_1 - \theta_2||_2.
 $$
 The the posterior contracts at $\pi_0$ at rate $\epsilon_n \asymp n^{-\alpha/(2\alpha+1)} (\log n)^{\alpha/(2\alpha+1) + (1-t_2)/2}$ relative to $d(\pi,\pi_0)$.</dd>
 <dt>Proof</dt>
 <dd>Becaue $||X||_1$ is bounded, there is some $M$ s.t. $||X||_1 \leq M$. By the logistic model
 $$
-|\pi_k - \pi_{0 k}|   \lesssim ||\beta_k - \beta_{0k}||_\infty.
+ |\pi_k - \pi_{0 k}|   \lesssim ||\beta_k - \beta_{0k}||_\infty.
 $$
 The $L^\infty$ distance is bounded by
-$$
-||\beta_k - \beta_{0k}||_\infty \leq ||\theta_k^T \psi - \theta_{0k}\psi||<em>\infty + ||\theta</em>{0k}^T\psi - \beta_{0k}||<em>\infty.
+$$ 
+   ||\beta_k - \beta_{0k}||_\infty \leq ||\theta_k^T \psi - \theta_{0k}\psi||_\infty + ||\theta_{0k}^T\psi - \beta_{0k}||_\infty.
 $$
 Then we have
-$$
-\begin{equation}
-\Pi(\sum_k^K||\pi_k - \pi</em>{0k}||_\infty^2 \leq \epsilon_n&rsquo;^2) \gtrsim \exp(-J_n \log (2\sqrt{K} J_n^{K_0} /\epsilon_n&rsquo;))
-\end{equation}
+$$ 
+ \begin{equation}
+ \Pi(\sum_k^K||\pi_k - \pi_{0k}||_\infty^2 \leq \epsilon_n'^2) \gtrsim \exp(-J_n \log (2\sqrt{K} J_n^{K_0} /\epsilon_n'))
+ \end{equation}
 $$
 Choose appropriate $J_n$ to satisfy the conditions of Theorem 1, and therefore obtain the result.</dd>
 </dl>
@@ -216,32 +222,22 @@ Choose appropriate $J_n$ to satisfy the conditions of Theorem 1, and therefore o
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

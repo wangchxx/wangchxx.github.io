@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="RL | Dynamics Approximation for Model-Based RL">
   <meta property="og:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s’|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step $$ f_\theta(s_t, a_t) = \hat{\Delta}{t&#43;1}:= \hat{s}{t&#43;1} - s_t. $$">
+1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s_{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="RL | Dynamics Approximation for Model-Based RL">
   <meta name="twitter:description" content="One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
-1. Dynamics Approximation Let $p(s’|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step $$ f_\theta(s_t, a_t) = \hat{\Delta}{t&#43;1}:= \hat{s}{t&#43;1} - s_t. $$">
+1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s_{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -87,30 +87,31 @@
 	<article class="md">
 		<p>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.</p>
 <h2 id="1-dynamics-approximation">1. Dynamics Approximation</h2>
-<p>Let $p(s&rsquo;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}<em>{t+1}$. However, this function can be difficult to learn as $s_t$ and $s</em>{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
+<p>Let $p(s'|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t+1}$. However, this function can be difficult to learn as $s_t$ and $s_{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
+</p>
 $$
-f_\theta(s_t, a_t) = \hat{\Delta}<em>{t+1}:= \hat{s}</em>{t+1} - s_t.
-$$</p>
-<p>Thus, the predicted next state is $\hat{s}_{t+1} = s_t + f_\theta(s_t, a_t)$.</p>
-<p>Given a dataset $D$ of trajectories $\tau = (s_0,a_0, s1,&hellip;,s_{T-1})$, we can train $f_\theta$ by performing SGD on the following object:
-$$
-J(\theta) = \sum_{(s_t,a_t,s_{t+1})\in D} || (s_{t+1} - s_t) - f_\theta(s_t, a_t) ||<em>2^2.
-$$
-In practice, it&rsquo;s helpful to normalize the target $s</em>{t+1} - s_t$ as it increases model robustness.</p>
+f_\theta(s_t, a_t) = \hat{\Delta}_{t+1}:= \hat{s}_{t+1} - s_t.
+$$<p>Thus, the predicted next state is $\hat{s}_{t+1} = s_t + f_\theta(s_t, a_t)$.</p>
+<p>Given a dataset $D$ of trajectories $\tau = (s_0,a_0, s1,...,s_{T-1})$, we can train $f_\theta$ by performing SGD on the following object:
+</p>
+$$ 
+ J(\theta) = \sum_{(s_t,a_t,s_{t+1})\in D} || (s_{t+1} - s_t) - f_\theta(s_t, a_t) ||_2^2.
+$$<p>
+In practice, it&rsquo;s helpful to normalize the target $s_{t+1} - s_t$ as it increases model robustness.</p>
 <p>Note that we can collect training data $D$ by initializing a starting state $s_0$ and executing actions from a random policy $\pi_0$ at each timestep. It implies that the model-based methods can learn from off-policy data.</p>
 <h2 id="2-model-based-control">2. Model-Based Control</h2>
 <p>In this section, we consider how to make decisions given the learned dynamics model. The goal at each time step is to take the action that maximizes the future return, given by
-$$
-Q_\theta(a_t,&hellip;) = \sum_{t&rsquo; = t}^\infty \gamma^{t&rsquo;- t} R(s_{t&rsquo;}, a_{t&rsquo;}),
-$$
+</p>
+$$ 
+Q_\theta(a_t,...) = \sum_{t' = t}^\infty \gamma^{t'- t} R(s_{t'}, a_{t'}),
+$$<p>
 where $R(s,a)$ is the rewrad obtained when executing action $a$ at state $s$ and $s_{t+1} = s_t + f_\theta(s_t,a_t)$.</p>
-<p>It is impossible to plan over an infinite sequence of actions, so we optimize the sequence of actions $\mathbf{A}_t = (a_t,&hellip;,a_{t+H-1})$ over a finite horizon $H$.</p>
-<p>$$
+<p>It is impossible to plan over an infinite sequence of actions, so we optimize the sequence of actions $\mathbf{A}_t = (a_t,...,a_{t+H-1})$ over a finite horizon $H$.</p>
+$$
 \begin{equation}
-\mathbf{A}_t = \arg\max_{A_t&rsquo;}\sum_{t&rsquo;=t}^{t+H-1}\gamma^{t&rsquo;- t} R(s_{t&rsquo;}, a_{t&rsquo;}), \quad s_{t+1} = s_t + f_\theta (s_t,a_t).
+ \mathbf{A}_t = \arg\max_{A_t'}\sum_{t'=t}^{t+H-1}\gamma^{t'- t} R(s_{t'}, a_{t'}), \quad s_{t+1} = s_t + f_\theta (s_t,a_t).
 \end{equation}
-$$</p>
-<p>Note that the learned dynamics model is imperfect, so it is desirable to plan $H$ steps since the accumulating errors make planing far into the future inaccurate. But this approach is also limited becaue it may not be sufficient for solving long-horizon tasks.</p>
+$$<p>Note that the learned dynamics model is imperfect, so it is desirable to plan $H$ steps since the accumulating errors make planing far into the future inaccurate. But this approach is also limited becaue it may not be sufficient for solving long-horizon tasks.</p>
 <p>Solving the Equation (1) is diffifult due to the dynamics and reward functions being nonlinear. The simplest technique to solve this problem is <code>random shooting method</code></p>
 <hr>
 <p>Random Shooting.</p>
@@ -140,9 +141,10 @@ $$</p>
 <hr>
 <h2 id="3-improving-model-based-rl">3. Improving Model-Based RL</h2>
 <p>Although model-based RL is in theory off-policy, in practice it will perform poorly because of the distribution dismatch problem:
-$$
-p_{\pi_f}(s_t) \neq p_{\pi_0}(s_t),
-$$
+</p>
+$$ 
+   p_{\pi_f}(s_t) \neq p_{\pi_0}(s_t),
+$$<p>
 where $p_\pi(s)$ is the distribution of states generated by policy $\pi$. One solution is on-policy data aggregation.</p>
 <hr>
 <table>
@@ -172,10 +174,10 @@ where $p_\pi(s)$ is the distribution of states generated by policy $\pi$. One so
 </ul>
 <hr>
 <p>Our policy depends on the model $f_\theta$, but we are not certain about the model. One solution is to model the uncertainty, e.g. apply a prior to $\theta$. An alternative idea is model ensembles: rather than training one model $f_\theta$, we train $N$ independent models $\{f_{\theta_i}\}$ and average their predictions to get the final predictions
-$$
-f(s_t,a_t) = \frac{1}{N} \sum_{n=1}^N f_{\theta_n}(s_t, a_t).
-$$</p>
-<hr>
+</p>
+$$ 
+ f(s_t,a_t) = \frac{1}{N} \sum_{n=1}^N f_{\theta_n}(s_t, a_t). 
+$$<hr>
 <table>
   <thead>
       <tr>
@@ -190,7 +192,7 @@ $$</p>
 <li>initialize models $\{f_{\theta_n}\}$ randomly.</li>
 <li><code>for</code> each iter <code>do</code>
 <ul>
-<li>train each model $f_{\theta_n}$ using $D$ by performing SGD, $n = 1,&hellip;,N$.</li>
+<li>train each model $f_{\theta_n}$ using $D$ by performing SGD, $n = 1,...,N$.</li>
 <li><code>for</code> each timestep $t = 1:T$ <code>do</code>
 <ul>
 <li>plan through the averaged model $f(s,a)$ to obtain the optimal action sequence $\mathbf{A_t}$.</li>
@@ -206,32 +208,22 @@ $$</p>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

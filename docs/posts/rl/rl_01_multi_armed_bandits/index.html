@@ -8,7 +8,7 @@
   <meta property="og:title" content="RL | Multi-armed Bandits">
   <meta property="og:description" content="Notations $A_t$: the action selected at time $t$.
 $R_t$: the reward received at time $t$.
-$q_(a)$: the expected reward given an action $a$, i.e. $q_(a) = \mathbb{E}[R_t|A_t = a]$.
+$q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
 $Q_t(a)$: the estimated value of action $a$ at time $t$.
 1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.">
   <meta property="og:locale" content="en_us">
@@ -29,7 +29,7 @@ $Q_t(a)$: the estimated value of action $a$ at time $t$.
   <meta name="twitter:title" content="RL | Multi-armed Bandits">
   <meta name="twitter:description" content="Notations $A_t$: the action selected at time $t$.
 $R_t$: the reward received at time $t$.
-$q_(a)$: the expected reward given an action $a$, i.e. $q_(a) = \mathbb{E}[R_t|A_t = a]$.
+$q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
 $Q_t(a)$: the estimated value of action $a$ at time $t$.
 1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.">
 
@@ -102,7 +102,7 @@ $Q_t(a)$: the estimated value of action $a$ at time $t$.
 <p>$R_t$: the reward received at time $t$.</p>
 </li>
 <li>
-<p>$q_<em>(a)$: the expected reward given an action $a$, i.e. $q_</em>(a) = \mathbb{E}[R_t|A_t = a]$.</p>
+<p>$q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.</p>
 </li>
 <li>
 <p>$Q_t(a)$: the estimated value of action $a$ at time $t$.</p>
@@ -111,114 +111,115 @@ $Q_t(a)$: the estimated value of action $a$ at time $t$.
 <hr>
 <h2 id="1-a-k-armed-bandit-problem">1. A k-armed Bandit Problem</h2>
 <p>Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.</p>
-<p>However, the value $q_<em>(a)$ is usually unknown, we need to estimate it by $Q_t(a)$, and we would like $Q_t(a)$ to be close to $q_</em>(a)$.</p>
+<p>However, the value $q_*(a)$ is usually unknown, we need to estimate it by $Q_t(a)$, and we would like $Q_t(a)$ to be close to $q_*(a)$.</p>
 <h3 id="11-action-value-methods">1.1 Action-value methods</h3>
 <p>One natural way to estimate this is by averaging the rewards received
-$$
-Q_t(a) = \frac{\sum_{i=1}^{t-1} R_i 1_{A_i = a}}{\sum_{i=1}^{t-1} 1_{A_i = a}}
-$$</p>
-<p>Then the simplest action selection rule is $A_t = \arg\max_{a} Q_t(a)$, which is also known as <em>greedy</em> method. Greedy action selection always exploits current knowledge, and never tries inferior actions. An alternative method is called <em>$\epsilon$-greedy</em> that select random actions with some probability.</p>
+</p>
+$$ 
+ Q_t(a) = \frac{\sum_{i=1}^{t-1} R_i 1_{A_i = a}}{\sum_{i=1}^{t-1} 1_{A_i = a}}
+$$<p>Then the simplest action selection rule is $A_t = \arg\max_{a} Q_t(a)$, which is also known as <em>greedy</em> method. Greedy action selection always exploits current knowledge, and never tries inferior actions. An alternative method is called <em>$\epsilon$-greedy</em> that select random actions with some probability.</p>
 <h3 id="12-incremental-methods">1.2 Incremental methods</h3>
 <p>The action-value methods save all action rewards. A more efficient way is
-$$
-\begin{align*}
-Q_{n+1} &amp;= \frac{1}{n}\sum_{i=1}^n R_i \cr
-&amp;= \frac{1}{n}(R_n + \sum_{i=1}^{n-1} R_i) \cr
-&amp;= \frac{1}{n}(R_n + (n-1)Q_{n}) \cr
-&amp;= Q_{n} + \frac{1}{n}(R_n - Q_n)
-\end{align*}
-$$
+</p>
+$$ 
+ \begin{align*}
+ Q_{n+1} &= \frac{1}{n}\sum_{i=1}^n R_i \cr
+    &= \frac{1}{n}(R_n + \sum_{i=1}^{n-1} R_i) \cr
+    &= \frac{1}{n}(R_n + (n-1)Q_{n}) \cr
+    &= Q_{n} + \frac{1}{n}(R_n - Q_n)
+ \end{align*}
+$$<p>
 where the notation for action $a$ is omitted for simplicity.</p>
 <p>In some cases, the reward probabilities are nonstationary, i.e. the reward probabilities change over time. In such cases, we give more weight to recent rewards. We introduce a discounting factor $\alpha\in(0,1)$. We can update the values by
-$$
-Q_{n+1} = Q_n + \alpha (R_n - Q_n),
-$$
+</p>
+$$ 
+ Q_{n+1} = Q_n + \alpha (R_n - Q_n),
+$$<p>
 which results in a weighted average of past rwards,
-$$
-\begin{align*}
-Q_{n+1} &amp;=  Q_n + \alpha (R_n - Q_n) \cr
-&amp;= (1-\alpha)^n Q_1  + \alpha \sum_{i=1}^n (1-\alpha)^{n-i} R_i.
-\end{align*}
-$$</p>
-<h2 id="2-ucb-action-selection">2. UCB Action Selection</h2>
+</p>
+$$ 
+ \begin{align*}
+ Q_{n+1} &=  Q_n + \alpha (R_n - Q_n) \cr
+    &= (1-\alpha)^n Q_1  + \alpha \sum_{i=1}^n (1-\alpha)^{n-i} R_i.
+ \end{align*}
+$$<h2 id="2-ucb-action-selection">2. UCB Action Selection</h2>
 <p>The $\epsilon$-greedy method try non-greedy actions with equal probability. It would be better to select among the non-greedy actions according to their likelihood of being optimal. The UCB method selects action by
-$$
-A_t  = \arg\max_a \bigg[Q_t(a) + c \sqrt{\frac{\log t}{N_t(a)}}\bigg],
-$$
+</p>
+$$ 
+ A_t  = \arg\max_a \bigg[Q_t(a) + c \sqrt{\frac{\log t}{N_t(a)}}\bigg], 
+$$<p>
 where $N_t(a)$ is the number of times that action $a$ has been selected until time $t$.</p>
 <h2 id="3-gradient-algorithms">3. Gradient Algorithms</h2>
 <p>So far we have considered methods that estimate action values and use them to select actions. Now we introduce a method that learns the preference for each action $a$, denoted by $H_t(a)$. Then we select actions by
-$$
-\Pr(A_t = a) = \frac{\exp(H_t(a))}{\sum_{b=1}^k \exp(H_t(b))}  := \pi_t(a).
-$$
+</p>
+$$ 
+ \Pr(A_t = a) = \frac{\exp(H_t(a))}{\sum_{b=1}^k \exp(H_t(b))}  := \pi_t(a).
+$$<p>
 We would like to generate a policy $\pi$ with high performance, measured in terms of expected reward, so  we can update $H_t(a)$ by the gradient ascent method,
-$$
+</p>
+$$ 
 \begin{equation}
-H_{t+1}(a) = H_t(a) + \alpha \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)},
-\end{equation}
-$$
+ H_{t+1}(a) = H_t(a) + \alpha \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)}, 
+ \end{equation}
+$$<p>
 where
-$$
-\mathbb{E}[R_t] = \sum_{x} \pi_t(x) q_<em>(x).
-$$
-Of course, it is not possible to implement the algorithm exactly since $q_</em>(x)$ are unknown. Take a closer look at the gradient
-$$
-\begin{align*}
-\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} &amp;= \frac{\partial }{\partial H_t(a)} \left[  \sum_{x} \pi_t(x) q_<em>(x) \right] \cr
-&amp;= \sum_x q_</em>(x) \frac{\partial }{\partial H_t(a)} \pi_t(x) \cr
-&amp;= \sum_x (q_<em>(x) - B_t)\frac{\partial }{\partial H_t(a)} \pi_t(x),
-\end{align</em>}
-$$
+</p>
+$$ 
+   \mathbb{E}[R_t] = \sum_{x} \pi_t(x) q_*(x).
+$$<p>
+Of course, it is not possible to implement the algorithm exactly since $q_*(x)$ are unknown. Take a closer look at the gradient
+</p>
+$$ 
+ \begin{align*}
+ \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} &= \frac{\partial }{\partial H_t(a)} \left[  \sum_{x} \pi_t(x) q_*(x) \right] \cr
+    &= \sum_x q_*(x) \frac{\partial }{\partial H_t(a)} \pi_t(x) \cr
+    &= \sum_x (q_*(x) - B_t)\frac{\partial }{\partial H_t(a)} \pi_t(x),
+ \end{align*}
+$$<p>
 where $B_t$, called the <em>baseline</em>, does not depend on $x$. The last equality holds because the gradient sums to zero over all actions, i.e. $\sum_x \frac{\partial }{\partial H_t(a)} \pi_t(x) = 0$. Next, we rewrite it in the expectation form
-$$
-\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \sum_x \pi_t(x)(q_<em>(x) - B_t)\frac{\partial \pi_t(x)}{\partial H_t(a)} /\pi_t(x).
-$$
+</p>
+$$ 
+   \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \sum_x \pi_t(x)(q_*(x) - B_t)\frac{\partial \pi_t(x)}{\partial H_t(a)} /\pi_t(x).
+$$<p>
 It can be represented as
-$$
-\mathbb{E}\left[ (q_</em>(A_t) - B_t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right]  \approx \mathbb{E}\left[ (R_t - \bar{R}<em>t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right],
-$$
-where $\bar{R}<em>t$ is the average of all rewards up to but not including time $t$. Note that the $\pi_t$ is in the form of soft-max function, so the partial derivative $\frac{\partial \pi_t(x)}{\partial H_t(a)}$ can be easily computed
-$$
-\frac{\partial \pi_t(x)}{\partial H_t(a)}  = \pi_t(x) (1</em>{a=x} - \pi_t(a)).
-$$
+</p>
+$$ 
+ \mathbb{E}\left[ (q_*(A_t) - B_t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right]  \approx \mathbb{E}\left[ (R_t - \bar{R}_t) \frac{\partial \pi_t(A_t)}{\partial H_t(a)} /\pi_t(A_t) \right],
+$$<p>
+where $\bar{R}_t$ is the average of all rewards up to but not including time $t$. Note that the $\pi_t$ is in the form of soft-max function, so the partial derivative $\frac{\partial \pi_t(x)}{\partial H_t(a)}$ can be easily computed
+</p>
+$$ 
+ \frac{\partial \pi_t(x)}{\partial H_t(a)}  = \pi_t(x) (1_{a=x} - \pi_t(a)).
+$$<p>
 Combining all above, we have
-$$
-\frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \mathbb{E}\left[ (R_t - \bar{R}<em>t)  (1</em>{a=A_t} - \pi_t(a)) \right].
-$$
+</p>
+$$ 
+   \frac{\partial \mathbb{E}[R_t]}{\partial H_t(a)} = \mathbb{E}\left[ (R_t - \bar{R}_t)  (1_{a=A_t} - \pi_t(a)) \right].
+$$<p>
 Using a sample of the expectation to estimate the expectation yields
+</p>
+$$ 
+ H_{t+1}(a) = H_t(a) + \alpha  (R_t - \bar{R}_t)(1_{a=A_t} - \pi_t(a)).
 $$
-H</em>{t+1}(a) = H_t(a) + \alpha  (R_t - \bar{R}<em>t)(1</em>{a=A_t} - \pi_t(a)).
-$$</p>
-
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

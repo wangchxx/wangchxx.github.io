@@ -85,33 +85,32 @@
 		<h2 id="1-inner-product-spaces">1. Inner Product spaces</h2>
 <dl>
 <dt>Definition 1 (<strong>Inner product</strong>)</dt>
-<dd>Let $X$ be a vector space. An inner product on $X$ is a function $&lt;\cdot,\cdot&gt;:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,
+<dd>Let $X$ be a vector space. An inner product on $X$ is a function $<\cdot,\cdot>:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,
 <ol>
-<li>$&lt; x,x &gt;\geq 0$,</li>
-<li>$&lt; x,x &gt; = 0 \Leftrightarrow x = 0$ ,</li>
-<li>$&lt; \alpha x + \beta y ,z&gt; = \alpha &lt; x,z &gt; + \beta &lt; y,z &gt;$,</li>
-<li>$ &lt; x,y &gt; = \overline{&lt; y,x &gt;}$.</li>
+<li>$< x,x >\geq 0$,</li>
+<li>$< x,x > = 0 \Leftrightarrow x = 0$ ,</li>
+<li>$< \alpha x + \beta y ,z> = \alpha < x,z > + \beta < y,z >$,</li>
+<li>$ < x,y > = \overline{< y,x >}$.</li>
 </ol>
-<p>A vector space $X$ with an inner product $&lt; &gt;$ is called an <code>inner product space</code>.</p>
+<p>A vector space $X$ with an inner product $< >$ is called an <code>inner product space</code>.</p>
 </dd>
 </dl>
-<p>With an inner product, we can define a norm by $|| x|| = \sqrt{&lt; x, x&gt;}$, and hence we can define a metric $d$.</p>
+<p>With an inner product, we can define a norm by $|| x|| = \sqrt{< x, x>}$, and hence we can define a metric $d$.</p>
 <dl>
 <dt>Lemma 2 (<strong>Continuity of inner product</strong>)</dt>
-<dd>let $X$ be an inner product space, and suppose that ${x_n}, {y_n}$ are convergent sequences $X$ with $x_n \to x, y_n\to y$. Then
-$$
-&lt; x_n, y_n &gt; \to &lt; x, y&gt;.
+<dd>let $X$ be an inner product space, and suppose that $\{x_n\}, \{y_n\}$ are convergent sequences $X$ with $x_n \to x, y_n\to y$. Then
+$$ 
+ < x_n, y_n > \to < x, y>.
 $$</dd>
 <dt>proof</dt>
 <dd></dd>
 </dl>
-<p>$$
+$$
 \begin{align*}
-| &lt; x_n , y_n&gt; - &lt; x , y&gt; | &amp;\leq | &lt; x_n , y_n&gt; - &lt; x_n , y&gt; | + | &lt; x_n , y&gt; - &lt; x , y&gt; | \cr
-&amp;\leq ||x_n|| ||y_n - y|| + ||y|| ||x_n - x||\to 0
+    | < x_n , y_n> - < x , y> | &\leq | < x_n , y_n> - < x_n , y> | + | < x_n , y> - < x , y> | \cr
+    &\leq ||x_n|| ||y_n - y|| + ||y|| ||x_n - x||\to 0 
 \end{align*}
-$$</p>
-<h2 id="2-hilbert-spaces">2. Hilbert Spaces</h2>
+$$<h2 id="2-hilbert-spaces">2. Hilbert Spaces</h2>
 <dl>
 <dt>Definition 3 (Hilbert space)</dt>
 <dd>An inner product space is called a <code>Hilbert space</code> if it is complete w.r.t. the metric associated with the norm induced by the inner product.</dd>
@@ -124,8 +123,8 @@ $$</p>
 <dl>
 <dt>Lemma 5</dt>
 <dd>Let $Y$ be a linear subspace of an inner product space $X$. Then
-$$
-x\in Y^\perp \Leftrightarrow || x-y|| \geq ||x||,;\forall y\in Y.
+$$ 
+ x\in Y^\perp \Leftrightarrow || x-y|| \geq ||x||,\;\forall y\in Y.
 $$</dd>
 <dt>proof</dt>
 <dd>($\Rightarrow$) $|| x - y||^2 = ||X||^2 + ||y||^2$ if $x\perp y$.
@@ -136,81 +135,71 @@ $$</dd>
 <dl>
 <dt>Theorem 6 (Projection theorem)</dt>
 <dd>Let $A$ be a closed linear subspace of a $\mathcal{H}$. Then for any $x\in \mathcal{H}$, there exists a unique $x_0 \in A$ s.t.
-$$
-||x-x_a|| = \inf_{y\in A} || x- y||,
+$$ 
+ ||x-x_a|| = \inf_{y\in A} || x- y||,
 $$
 and $x - x_a \in A^\perp$.</dd>
 <dt>proof</dt>
 <dd>Suppose  $\gamma = \inf_{y\in A} || x- y||$. We first prove the existence of $x_0$. For each $n$, there exists $x_n\in A$ s.t.
+$$ 
+ ||x - x_n||^2 < \gamma^2+ 1/n.
 $$
-||x - x_n||^2 &lt; \gamma^2+ 1/n.
-$$
-Applying the parallelogram rule to $x-x_n, x - x_m$, we can show that ${x_n}$ is Cauchy. So $x_n \to x_0 , x_0 \in A$. Then we obtain the equality by the continuity of inner product.
-<p>Uniqueness. Suppose that $x&rsquo;\in A$ makes the equality. Then $(x_0, x&rsquo;)/2 \in A$ by linearity, and $||x - (x_0, x&rsquo;)/2 \in A||\geq \gamma$. Applying the parallelogram rule to $x - x&rsquo;, x-x_0$, we obtain that $||x_0 - x&rsquo;||^2 = 0$.</p>
+Applying the parallelogram rule to $x-x_n, x - x_m$, we can show that $\{x_n\}$ is Cauchy. So $x_n \to x_0 , x_0 \in A$. Then we obtain the equality by the continuity of inner product.
+<p>Uniqueness. Suppose that $x'\in A$ makes the equality. Then $(x_0, x')/2 \in A$ by linearity, and $||x - (x_0, x')/2 \in A||\geq \gamma$. Applying the parallelogram rule to $x - x', x-x_0$, we obtain that $||x_0 - x'||^2 = 0$.</p>
 <p>Finally, $x-x_0\in A^\perp$ follows from Lemma 2.5.</p>
 </dd>
 </dl>
 <p>$\Box$</p>
-<p>Let ${e_n}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\in X$,
-$$
-x = \sum_{n=1}^\infty &lt; x, e_n&gt; e_n.
-$$</p>
-<dl>
+<p>Let $\{e_n\}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\in X$,
+</p>
+$$ 
+ x = \sum_{n=1}^\infty < x, e_n> e_n.
+$$<dl>
 <dt>proof</dt>
-<dd>By Bessel&rsquo;s inequality, we obtain that $ \sum_{n=1}^\infty |&lt; x, e_n&gt;|^2&lt;\infty$. Also we can show that $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$ is Cauchy and converges to $x$.</dd>
+<dd>By Bessel&rsquo;s inequality, we obtain that $ \sum_{n=1}^\infty |< x, e_n>|^2<\infty$. Also we can show that $y_k = \sum_{n=1}^k < x, e_n> e_n$ is Cauchy and converges to $x$.</dd>
 </dl>
 <p>$\Box$</p>
 <dl>
 <dt>Lemma 7 (<strong>Bessel&rsquo;s inequality</strong>)</dt>
-<dd>Let $X$ be an inner product space and let ${e_n}$ a orthonormal system in $X$. Then for any $x\in X$ the series $\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2$ converges and
-$$
-\sum_{n=1}^\infty |&lt; x, e_n&gt;|^2 \leq ||x ||^2.
+<dd>Let $X$ be an inner product space and let $\{e_n\}$ a orthonormal system in $X$. Then for any $x\in X$ the series $\sum_{n=1}^\infty |< x, e_n>|^2$ converges and
+$$ 
+   \sum_{n=1}^\infty |< x, e_n>|^2 \leq ||x ||^2.
 $$</dd>
 <dt>proof</dt>
-<dd>Let $y_k = \sum_{n=1}^k &lt; x, e_n&gt; e_n$. Then
-$$
-||x - y_k||^2 = ||x||^2 - ||y_k||^2.
+<dd>Let $y_k = \sum_{n=1}^k < x, e_n> e_n$. Then
+$$ 
+ ||x - y_k||^2 = ||x||^2 - ||y_k||^2.
 $$
 It shows that $||y_k||^2 \leq ||x||^2$ for all $k\in\N$. In addition $||y_k||^2$ is increasing and bounded, so it is convergent.</dd>
 </dl>
 <p>$\Box$</p>
 <dl>
 <dt>Definition (<strong>Separability</strong>)</dt>
-<dd>A Hilbert space $\mathcal{H}$ is called <code>seperable</code> if there is an at most countable orthonormal system ${e_n}$ s.t.
-$$
-\mathcal{H} = \overline{sp}({e_n}) .
+<dd>A Hilbert space $\mathcal{H}$ is called <code>seperable</code> if there is an at most countable orthonormal system $\{e_n\}$ s.t.
+$$ 
+ \mathcal{H} = \overline{sp}(\{e_n\}) .
 $$</dd>
 </dl>
 
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="RL | Markov Decision Processes">
   <meta property="og:description" content="Notations $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space. 1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
-Write $$ p(s’,r|s,a) = \Pr(S_t = s’, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -25,7 +25,7 @@ Write $$ p(s’,r|s,a) = \Pr(S_t = s’, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="RL | Markov Decision Processes">
   <meta name="twitter:description" content="Notations $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space. 1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
-Write $$ p(s’,r|s,a) = \Pr(S_t = s’, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -97,122 +97,113 @@ Write $$ p(s’,r|s,a) = \Pr(S_t = s’, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ 
 <h2 id="1-agent-environment-interaction">1. Agent-Environment Interaction</h2>
 <p>On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.</p>
 <p>Write
-$$
-p(s&rsquo;,r|s,a) = \Pr(S_t = s&rsquo;, R_t = r| S_{t-1} = s, A_{t-1} = a).
-$$
+</p>
+$$ 
+ p(s',r|s,a) = \Pr(S_t = s', R_t = r| S_{t-1} = s, A_{t-1} = a).
+$$<p>
 The function $p$ defines the <em>dynamics</em> of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as</p>
 <ol>
 <li>state-transition probabilities.
-$$
-p(s&rsquo;|s,a) = \sum_{r\in\mathcal{R}} p(s&rsquo;,r|s,a).
+$$ 
+ p(s'|s,a) = \sum_{r\in\mathcal{R}} p(s',r|s,a).
 $$</li>
 <li>expected rewards given $(s,a)$.
-$$
-r(s,a) = \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a] = \sum_{r} r \sum_{s&rsquo;} p(s&rsquo;,r|s,a).
+$$ 
+ r(s,a) = \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a] = \sum_{r} r \sum_{s'} p(s',r|s,a).
 $$</li>
-<li>expected rewards given $(s,a,s&rsquo;)$.
-$$
-r(s,a,s&rsquo;) =   \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a, S_t = s&rsquo;] = \sum_{r} r \frac{p(s&rsquo;,r|s,a)}{p(s&rsquo;|s,a)}.
+<li>expected rewards given $(s,a,s')$.
+$$ 
+ r(s,a,s') =   \mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a, S_t = s'] = \sum_{r} r \frac{p(s',r|s,a)}{p(s'|s,a)}.
 $$</li>
 </ol>
 <p>The objective is to maximize the expected <em>return</em>, denoted $G_t$, that measures the cumulative reward in the long run. The simplest definition is given by
-$$
-G_t = R_{t+1} + R_{t+2} + \cdots
-$$</p>
-<p>Given a discount factor $\gamma\in[0,1]$, we can define the <em>discounted return</em> by
-$$
-G_t =   R_{t+1} + \gamma R_{t+2} + \cdots  = \sum_{k=1}^\infty \gamma^k R_{t+k+1} = R_{t+1} + \gamma G_{t+1}.
-$$</p>
-<h2 id="2-policies-and-value-functions">2. Policies and Value Functions</h2>
+</p>
+$$ 
+ G_t = R_{t+1} + R_{t+2} + \cdots
+$$<p>Given a discount factor $\gamma\in[0,1]$, we can define the <em>discounted return</em> by
+</p>
+$$ 
+ G_t =   R_{t+1} + \gamma R_{t+2} + \cdots  = \sum_{k=1}^\infty \gamma^k R_{t+k+1} = R_{t+1} + \gamma G_{t+1}.
+$$<h2 id="2-policies-and-value-functions">2. Policies and Value Functions</h2>
 <dl>
 <dt><em>Definition 2.1 (policy)</em></dt>
 <dd>A policy is a mapping $\pi:\mathcal{S}\to \mu(\mathcal{A})$ where $\mu$ is a probability measure. We use the notion $\pi(a|s)$ to denote the probability that $A_t  =a $ given the state $S_t = s$.</dd>
 <dt><em>Definition 2.2 (value function)</em></dt>
 <dd>The value function of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expected return when starting in state $s$ and following the policy $\pi$. For MDPs, we can define $v_\pi(s)$ by
-$$
-v_\pi(s) = \mathbb{E}<em>{\pi}[G_t|S_t = s] = \mathbb{E}</em>\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s \right].
+$$ 
+ v_\pi(s) = \mathbb{E}_{\pi}[G_t|S_t = s] = \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s \right].
 $$</dd>
 <dt><em>Definition 2.3 (action-value function)</em></dt>
 <dd>The action-value function of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, is defined as the expected return starting from state $s$, taking the action $a$ and following the policy $\pi$, i.e.
-$$
+$$ 
 \begin{align*}
-q_\pi(s,a) &amp;=    \mathbb{E}<em>{\pi}[G_t|S_t = s, A_t = a] \cr
-&amp;= \mathbb{E}</em>\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s, A_t = a \right] \cr
-&amp;= r(s,a) + \gamma \sum_{s&rsquo;} p(s&rsquo;|s,a) \sum_{a&rsquo;} \pi(a&rsquo;|s&rsquo;) q_\pi(s&rsquo;,a&rsquo;).
+ q_\pi(s,a) &=    \mathbb{E}_{\pi}[G_t|S_t = s, A_t = a] \cr 
+   &= \mathbb{E}_\pi \left[ \sum_{k=0}^\infty \gamma^k R_{t+k+1}| S_t = s, A_t = a \right] \cr
+   &= r(s,a) + \gamma \sum_{s'} p(s'|s,a) \sum_{a'} \pi(a'|s') q_\pi(s',a').
 \end{align*}
 $$</dd>
 </dl>
 <p>A fundamental property of value functions is that they satisfy recursive relationships
-$$
-\begin{align}
-v_\pi(s) &amp;= \mathbb{E}<em>{\pi}[R</em>{t+1} + \gamma G_{t+1}|S_t = s] \cr
-&amp;= \sum_a \pi(a|s) \sum_{s&rsquo;}\sum_{r} p(s&rsquo;,r|s,a) \left( r + \gamma \mathbb{E}<em>\pi[G</em>{t+1}|S_{t+1} = s&rsquo;]  \right) \cr
-&amp;= \sum_a \pi(a|s) \left( r(s,a) + \gamma \sum_{s&rsquo;} p(s&rsquo;|s,a) v_\pi(s&rsquo;) \right).
-\end{align}
-$$</p>
-<p>Equation (3) is the <em>Bellman equation for $v_\pi$</em>. It expresses a relationship between the value of a state and the values of its successor states.</p>
+</p>
+$$ 
+ \begin{align}
+ v_\pi(s) &= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1}|S_t = s] \cr
+    &= \sum_a \pi(a|s) \sum_{s'}\sum_{r} p(s',r|s,a) \left( r + \gamma \mathbb{E}_\pi[G_{t+1}|S_{t+1} = s']  \right) \cr
+    &= \sum_a \pi(a|s) \left( r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_\pi(s') \right).
+ \end{align}
+$$<p>Equation (3) is the <em>Bellman equation for $v_\pi$</em>. It expresses a relationship between the value of a state and the values of its successor states.</p>
 <h2 id="3-optimal-policies-and-optimal-value-functions">3. Optimal Policies and Optimal Value Functions</h2>
-<p>We would like to find a policy that achieves highest expected return. We say a policy $\pi$ is better than policy $\pi&rsquo;$ if $v_\pi(s) \geq v_{\pi&rsquo;}(s)$ for all $s\in\mathcal{S}$. There is always at least one optimal policy, denoted $\pi_*$. Then we can define</p>
+<p>We would like to find a policy that achieves highest expected return. We say a policy $\pi$ is better than policy $\pi'$ if $v_\pi(s) \geq v_{\pi'}(s)$ for all $s\in\mathcal{S}$. There is always at least one optimal policy, denoted $\pi_*$. Then we can define</p>
 <ul>
 <li>optimal value function.
-$$
-v_*(s):= \max_{\pi}v_\pi(s).
+$$ 
+ v_*(s):= \max_{\pi}v_\pi(s).
 $$</li>
 <li>optimal action-value function.
-$$
-q_*(s,a) = \max_\pi q_\pi(s,a).
+$$ 
+ q_*(s,a) = \max_\pi q_\pi(s,a).
 $$</li>
 </ul>
 <p>If there are more than one optimal policies, they share the same value functions and action-value functions.</p>
-<p>The Bellman equation (2) for the optimal value function $v_<em>$ can be written in a specific form.
+<p>The Bellman equation (2) for the optimal value function $v_*$ can be written in a specific form.
+</p>
+$$ 
+ \begin{align}
+ v_*(s) &= \max_{a} q_{\pi_*}(s,a) \cr
+    &= \max_a \mathbb{E}_{\pi_*}[R_{t+1}+ \gamma G_{t+1}|S_t = s, A_t = a] \cr
+    &= \max_a \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
+    &= \max_a \sum_{s'}\sum_r p(s',r|s,a)[r+ \gamma v_*(s')] \cr
+    &= \max_a r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_*(s')
+ \end{align}
+$$<p>The Bellman equation for optimal action-value function $q_*$ is
+</p>
+$$ 
+ \begin{align}
+ q_*(s,a) &= \mathbb{E}[R_{t+1}+ \gamma v_*(S_{t+1})|S_t = s, A_t = a] \cr
+    &= \mathbb{E}[R_{t+1}+ \gamma \max_{a'} q_*(S_{t+1},a')|S_t = s, A_t = a] \cr
+    &=\sum_{s'}\sum_{r} p(s',r|s,a) [r + \gamma \max_{a'} q_*(s',a')] \cr
+    &= r(s,a) + \gamma \sum_{s'} p(s'|s,a) v_*(s').
+ \end{align}
 $$
-\begin{align}
-v_</em>(s) &amp;= \max_{a} q_{\pi_<em>}(s,a) \cr
-&amp;= \max_a \mathbb{E}<em>{\pi</em></em>}[R_{t+1}+ \gamma G_{t+1}|S_t = s, A_t = a] \cr
-&amp;= \max_a \mathbb{E}[R_{t+1}+ \gamma v_<em>(S_{t+1})|S_t = s, A_t = a] \cr
-&amp;= \max_a \sum_{s&rsquo;}\sum_r p(s&rsquo;,r|s,a)[r+ \gamma v_</em>(s&rsquo;)] \cr
-&amp;= \max_a r(s,a) + \gamma \sum_{s&rsquo;} p(s&rsquo;|s,a) v_*(s&rsquo;)
-\end{align}
-$$</p>
-<p>The Bellman equation for optimal action-value function $q_<em>$ is
-$$
-\begin{align}
-q_</em>(s,a) &amp;= \mathbb{E}[R_{t+1}+ \gamma v_<em>(S_{t+1})|S_t = s, A_t = a] \cr
-&amp;= \mathbb{E}[R_{t+1}+ \gamma \max_{a&rsquo;} q_</em>(S_{t+1},a&rsquo;)|S_t = s, A_t = a] \cr
-&amp;=\sum_{s&rsquo;}\sum_{r} p(s&rsquo;,r|s,a) [r + \gamma \max_{a&rsquo;} q_<em>(s&rsquo;,a&rsquo;)] \cr
-&amp;= r(s,a) + \gamma \sum_{s&rsquo;} p(s&rsquo;|s,a) v_</em>(s&rsquo;).
-\end{align}
-$$</p>
-
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

@@ -6,8 +6,8 @@
   <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/">
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Mathematical Analysis | 2 Limit of Sequences">
-  <meta property="og:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
-Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
+  <meta property="og:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.
+Definition 1 (Convergence) We say a sequence $\\{a_n\\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon.$$ And the point $a$ is called the limit of the sequence $\{a_n\}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -25,8 +25,8 @@ Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if f
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Mathematical Analysis | 2 Limit of Sequences">
-  <meta name="twitter:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.
-Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon. $$ And the point $a$ is called the limit of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
+  <meta name="twitter:description" content="1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.
+Definition 1 (Convergence) We say a sequence $\\{a_n\\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon.$$ And the point $a$ is called the limit of the sequence $\{a_n\}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,82 +88,72 @@ Definition 1 (Convergence) We say a sequence $\{a_n\}$ is convergent to $a$ if f
 	<p></p>
 	<article class="md">
 		<h2 id="1-limit-of-sequences">1. Limit of Sequences</h2>
-<p>Given a function $f:\mathbb{N}_{+}\to \mathbb{R}$, we call $f( \mathbb{N}_{+})$ as a <em>sequence</em>, enumerated as $a_1,a_2,\ldots$, denoted by ${a_n}$.</p>
+<p>Given a function $f:\mathbb{N}_{+}\to \mathbb{R}$, we call $f( \mathbb{N}_{+})$ as a <em>sequence</em>, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.</p>
 <dl>
 <dt>Definition 1 (Convergence)</dt>
-<dd>We say a sequence $\{a_n\}$ is <em>convergent</em> to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$,
+<dd>We say a sequence $\\{a_n\\}$ is <em>convergent</em> to $a$ if for any $\epsilon>0$, there exits a constant $N$ s.t. for any $n\geq N$,
+$$ 
+ |a_n - a|<\epsilon.
 $$
-|a_n - a|&lt;\epsilon.
-$$
-And the point $a$ is called the <em>limit</em> of the sequence ${a_n}$, denoted by $\lim_{n\to\infty}a_n = a$.</dd>
+And the point $a$ is called the <em>limit</em> of the sequence $\{a_n\}$, denoted by $\lim_{n\to\infty}a_n = a$.</dd>
 </dl>
 <p>An equivalent definition of the convergence of a sequence is given by,</p>
 <dl>
 <dt>Definition 2 (Convergence 2)</dt>
-<dd>The sequence $\{a_n\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there are at most finite elements $a_n$ outside the neighbourhood $U(a,\epsilon)$.</dd>
+<dd>The sequence $\\{a_n\\}$ is convergent to $a$ if for any $\epsilon>0$, there are at most finite elements $a_n$ outside the neighbourhood $U(a,\epsilon)$.</dd>
 </dl>
-<p>A sequence ${a_n}$ is called <code>infinitesimal</code> if $\lim_{n\to\infty}a_n = 0$.</p>
+<p>A sequence $\{a_n\}$ is called <code>infinitesimal</code> if $\lim_{n\to\infty}a_n = 0$.</p>
 <dl>
 <dt>Proposition 3 (Properties)</dt>
 <dd></dd>
 </dl>
 <ol>
 <li>the limit of a sequence is unique.</li>
-<li>${a_n}$ is bounded if $\lim_{n\to\infty}a_n = a$.</li>
-<li>if $\lim_{n\to\infty}a_n = a&gt;0$, then for any $b\in(0,a)$ there exists a constant $N$ s.t. for every $n\geq N$
-$$
-a_n &gt;b.<br>
+<li>$\{a_n\}$ is bounded if $\lim_{n\to\infty}a_n = a$.</li>
+<li>if $\lim_{n\to\infty}a_n = a>0$, then for any $b\in(0,a)$ there exists a constant $N$ s.t. for every $n\geq N$
+$$ 
+ a_n >b.  
 $$</li>
-<li>Given two convergent sequences ${a_n}$ and ${b_n}$. If there exist $N$ s.t for any $n\geq N$, $a_n\leq b_n$, then $\lim_{n\to\infty}a_n\leq \lim_{n\to\infty}b_n$.</li>
-<li>Given sequences ${a_n}$,${b_n}$ and ${c_n}$, if $\lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n =a$ and there exists $N$ s.t for any $n\geq N$
+<li>Given two convergent sequences $\{a_n\}$ and $\{b_n\}$. If there exist $N$ s.t for any $n\geq N$, $a_n\leq b_n$, then $\lim_{n\to\infty}a_n\leq \lim_{n\to\infty}b_n$.</li>
+<li>Given sequences $\{a_n\}$,$\{b_n\}$ and $\{c_n\}$, if $\lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n =a$ and there exists $N$ s.t for any $n\geq N$
 $a_n \leq c_n\leq b_n,$ then $\lim_{n\to\infty}ac_n = a$.</li>
 </ol>
 <dl>
 <dt>Theorem 4 (Convergence)</dt>
-<dd>A sequence ${a_n}$ is convergent iff every subsequence of ${a_n}$ is convergent.</dd>
+<dd>A sequence $\{a_n\}$ is convergent iff every subsequence of $\{a_n\}$ is convergent.</dd>
 </dl>
 <h2 id="2-existence-of-the-limit-of-sequence">2. Existence of the limit of sequence</h2>
 <dl>
 <dt>Theorem 5 (<strong>Monotone convergence theorem</strong>)</dt>
-<dd>If ${a_n}$ is monotonic and bounded sequence of real numbers, then ${a_n}$ is convergent.</dd>
+<dd>If $\{a_n\}$ is monotonic and bounded sequence of real numbers, then $\{a_n\}$ is convergent.</dd>
 <dt>Theorem 6 (Dense)</dt>
-<dd>If ${a_n}$ is bounded, then ${a_n}$ possesses a convergent subsequence.</dd>
+<dd>If $\{a_n\}$ is bounded, then $\{a_n\}$ possesses a convergent subsequence.</dd>
 <dt>Theorem 7 (<strong>Cauchy criterion</strong>)</dt>
-<dd>A sequence ${a_n}$ of real numbers is convergent iff it is a Cauchy sequence, i.e. for any $\epsilon&gt;0$ there exists $N$ s.t. for any $n,m\geq N$
-$$
-|a_n - a_m|&lt;\epsilon.
+<dd>A sequence $\{a_n\}$ of real numbers is convergent iff it is a Cauchy sequence, i.e. for any $\epsilon>0$ there exists $N$ s.t. for any $n,m\geq N$
+$$ 
+ |a_n - a_m|<\epsilon.
 $$</dd>
 </dl>
 
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

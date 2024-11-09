@@ -6,7 +6,7 @@
   <meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_4_gp1/">
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (1)">
-  <meta property="og:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is $$Y = \beta X &#43; \epsilon.$$">
+  <meta property="og:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (1)">
-  <meta name="twitter:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is $$Y = \beta X &#43; \epsilon.$$">
+  <meta name="twitter:description" content="In the previous chapters, we introduced the Dirichlet Process (DP) prior, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the Gaussian Process (GP), which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$. A common model for such a relationship is">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -85,10 +85,10 @@
 	<article class="md">
 		<!-- raw HTML omitted -->
 <p>In the previous chapters, we introduced the <strong>Dirichlet Process (DP) prior</strong>, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the <strong>Gaussian Process (GP)</strong>, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is
-$$Y = \beta X  + \epsilon.$$</p>
-<p>In this case, we are looking to estimate the parameter $\beta$. However, we are considering a more generalized model by replacing the linear function with an unknown function $f(X_{i})$, as:
-$$Y_i = f(X_i) + \epsilon_i,$$</p>
-<p>where $f$ is an unknown function. The goal is to estimate the function $f$, which is an <strong>infinite-dimensional model</strong> because $f$ represents a function defined over the continuous input space. Gaussian process regression assign $f$ a prior distribution $\Pi$, and this prior is specifically a <strong>Gaussian Process</strong>.</p>
+</p>
+$$Y = \beta X  + \epsilon.$$<p>In this case, we are looking to estimate the parameter $\beta$. However, we are considering a more generalized model by replacing the linear function with an unknown function $f(X_{i})$, as:
+</p>
+$$Y_i = f(X_i) + \epsilon_i,$$<p>where $f$ is an unknown function. The goal is to estimate the function $f$, which is an <strong>infinite-dimensional model</strong> because $f$ represents a function defined over the continuous input space. Gaussian process regression assign $f$ a prior distribution $\Pi$, and this prior is specifically a <strong>Gaussian Process</strong>.</p>
 <h2 id="1-gaussian-process">1. Gaussian Process</h2>
 <p><strong>Gaussian Process (GP)</strong> can be defined through its <strong>finite-dimensional distributions (FDDs)</strong>.</p>
 <dl>
@@ -104,9 +104,9 @@ $$Y_i = f(X_i) + \epsilon_i,$$</p>
 <dd><img src="/img_bayes_GP/GP_3.PNG" alt="GP_def_2"></dd>
 </dl>
 <p>In this framework, the Gaussian Process can be viewed as a random element in the dual space $\mathbb{B}^*$∗, where the process is defined in terms of the behavior of random variables indexed by elements of a Banach space.</p>
-<p>What is the relation between the above two definition of GP？With the second definition we can always construct a Gaussian stochastic process by $(b^{*}(W):b^{*}\in T)$, which are jointly normally distributed, for any subset $T\subset \mathbb{B}^*$. Additionally，if the sample paths $t\mapsto W_t$ of the stochastic process $W = (W_t:t\in T)$ belong to a Banach process $\mathbb{B}$ of functions $z:T\to \mathbb{R}$, then under some conditions the process will be a Gaussian random element. More specifically, the sample paths $t\mapsto W_t$ belonging to a Banach space means  that  the process must satisfy certain regularity conditions on the covariance structure and continuity of the sample paths.</p>
+<p>What is the relation between the above two definition of GP？With the second definition we can always construct a Gaussian stochastic process by $(b^{\*}(W):b^{\*}\in T)$, which are jointly normally distributed, for any subset $T\subset \mathbb{B}^*$. Additionally，if the sample paths $t\mapsto W_t$ of the stochastic process $W = (W_t:t\in T)$ belong to a Banach process $\mathbb{B}$ of functions $z:T\to \mathbb{R}$, then under some conditions the process will be a Gaussian random element. More specifically, the sample paths $t\mapsto W_t$ belonging to a Banach space means  that  the process must satisfy certain regularity conditions on the covariance structure and continuity of the sample paths.</p>
 <h2 id="2-reproducing-kernel-hilbert-space">2. Reproducing Kernel Hilbert Space</h2>
-<p>Every Gaussian process is naturally associated with a Hilbert space, determined by its covariance function. For a GP $W = (W_t: t\in T)$, let $\overline{lin}(W)$ be the closure of the set of all linear combinations $\sum_i \alpha_i W_{t_i}$ in the $L^2$-space of square-integrable variables. Then the space $\overline{lin}(W)$ is a Hilbert space, with inner product $&lt; f,g&gt; = E f\bar{g}$, called the first order chaos of $W$.</p>
+<p>Every Gaussian process is naturally associated with a Hilbert space, determined by its covariance function. For a GP $W = (W_t: t\in T)$, let $\overline{lin}(W)$ be the closure of the set of all linear combinations $\sum_i \alpha_i W_{t_i}$ in the $L^2$-space of square-integrable variables. Then the space $\overline{lin}(W)$ is a Hilbert space, with inner product $< f,g> = E f\bar{g}$, called the first order chaos of $W$.</p>
 <dl>
 <dt>Definition (RKHS, 1)</dt>
 <dd><img src="/img_bayes_GP/GP_4.PNG" alt="RKHS_1"></dd>
@@ -117,14 +117,13 @@ $$Y_i = f(X_i) + \epsilon_i,$$</p>
 <dd><img src="/img_bayes_GP/GP_5.PNG" alt="RKHS_1_pty"></dd>
 </dl>
 <p>A Gaussian random element in a separable Banach space also comes with a RKHS. First we define the map $S:\mathbb{B}^*\to \mathbb{B}$ by</p>
-<p>$$Sb^* = E[b^*(W)W],$$</p>
-<p>where the right side is the Pettis integral.</p>
+$$Sb^* = E[b^*(W)W],$$<p>where the right side is the Pettis integral.</p>
 <dl>
 <dt>Definition (RKHS, 2)</dt>
 <dd><img src="/img_bayes_GP/GP_6.PNG" alt="RKHS_2"></dd>
 </dl>
 <p>The relationship between the two definitions is</p>
-<p>$$r(s,t) = E W_s W_t = E[\pi_s(W) \pi_t(W)] = \langle S\pi_s, S\pi_t \rangle_{\mathbb H},$$
+$$r(s,t) = E W_s W_t = E[\pi_s(W) \pi_t(W)] = \langle S\pi_s, S\pi_t \rangle_{\mathbb H},$$<p>
 where $\pi_t: b\mapsto b(t)$ are elements in $\mathbb B^*$.</p>
 <h2 id="3-small-ball-probability">3. Small Ball Probability</h2>
 <p>As a Bayesian, we are always interested in the posterior consistency. Here we give some lemmas which are useful to study the posterior consistency of Gaussian process priors.</p>
@@ -155,32 +154,22 @@ where $\pi_t: b\mapsto b(t)$ are elements in $\mathbb B^*$.</p>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

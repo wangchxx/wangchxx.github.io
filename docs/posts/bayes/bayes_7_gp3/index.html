@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (3)">
   <meta property="og:description" content="In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
-1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
+1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (3)">
   <meta name="twitter:description" content="In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
-1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
+1. Introduction Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -86,8 +86,8 @@
 	<article class="md">
 		<p>In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.</p>
 <h2 id="1-introduction">1. Introduction</h2>
-<p>Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&quot;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.</p>
-<p>In general the smoothness parameter is unknown. If we choose a parameter $\beta&rsquo;&gt;\beta$, then we lose in terms of the consistency rate. On the other hand, if we choose a family of functions with smoothness level $\beta&rsquo;&lt;\beta$, then the model is misspecified. In this case, consistency cannot be guaranteed. Therefore, we intend to find an estimator that achieves the optimal minimax rate without knowing $\beta$, which is called <em>adaption</em>.</p>
+<p>Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\"o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.</p>
+<p>In general the smoothness parameter is unknown. If we choose a parameter $\beta'>\beta$, then we lose in terms of the consistency rate. On the other hand, if we choose a family of functions with smoothness level $\beta'<\beta$, then the model is misspecified. In this case, consistency cannot be guaranteed. Therefore, we intend to find an estimator that achieves the optimal minimax rate without knowing $\beta$, which is called <em>adaption</em>.</p>
 <h2 id="2-rkhs-of-bm-and-smoothness">2. RKHS of BM and Smoothness</h2>
 <p>Let us review the contraction rate of GP priors</p>
 <!-- raw HTML omitted -->
@@ -98,35 +98,36 @@ It implies that the optimal consistency rate for GP priors cannot be better than
 <dt>Lemma (RKSH of BM)</dt>
 <dd>The RKSH of BM is the family of fuctions in $B^1[0,1]$  vanishing at zero, where $B^k[0,1]$ is the Sobolev space of all functions $f\in L^2[0,1]$ that are $k-1$ times differentiable with $f^{(k-1)}$ absolutely continuous with $f^{(k)}\in L^2[0,1]$, equipped with the inner product
 $$
-&lt;f,g&gt;_{\mathbb{H}} = \int_0^1 f&rsquo; g&rsquo; d\mu.
+ \langle f,g\rangle_{\mathbb{H}} = \int_0^1 f' g' d\mu.
 $$
 proof</dd>
 <dd>The covariance kernel of BM is $r(s,t) = s\wedge t$. The RKHS is the closed linear span of functions $t\mapsto s\wedge t$ as $s$ runs through $[0,1]$, unnder the inner product given by
-$$
-&lt;s_1\wedge \cdot, s_2\wedge\cdot&gt;_{\mathbb{H}} = s_1\wedge s_2 = \int (s_1\wedge t)&rsquo; (s_2\wedge t)&rsquo; dt.
+$$ 
+ \langle s_1\wedge \cdot, s_2\wedge\cdot\rangle_{\mathbb{H}} = s_1\wedge s_2 = \int (s_1\wedge t)' (s_2\wedge t)' dt.
 $$
 Thus the RKHS contains every function that vanishes at 0, continuous, and piecewise linear on any partition of $[0,1]$. The derivatives of these functions are piecewise constant, and the set of piecewise constant function is dense in $L^2[0,1]$.</dd>
 </dl>
 <p>$\Box$</p>
 <p>Without proof, we state that, if $w_0\in C^\beta[0,1]$ for some $\beta\in(0,1]$, the contraction rate of BM prior is
+</p>
 $$
-n^{-\frac{\beta\wedge 1/2}{2}}.
-$$
+ n^{-\frac{\beta\wedge 1/2}{2}}.
+$$<p>
 The optimal minimax rate can only be obtained for functions $p_0\in C^{1/2}[0,1]$. For any $\beta\neq 1/2$, the contraction rate is at most $n^{-1/4}$, which is caused by the rough paths of BM. But the BM is a good building block for smoother function spaces.</p>
 <ul>
 <li>Integrated BM. The $k$-fold integration of BM $I_{0+}^k B = I_{0+} I_{0+}^{k-1}B$, where $(I_{0+} f)(t) = \int_0^t f(s) ds $. The RKHS of $I_{0+}^k B$ is $B^{k+1}[0,1]$, with inner product
-$$
-&lt;f,g&gt;_{\mathbb{H}} = \int_0^1 f^{(k+1)} (s) g^{(k+1)} (s) ds.
+$$ 
+ \langle f,g\rangle_{\mathbb{H}} = \int_0^1 f^{(k+1)} (s) g^{(k+1)} (s) ds.
 $$</li>
 </ul>
 <p>The k-fold integrated BM priors achieve contraction rates $n^{-\frac{\beta\wedge k + 1/2}{2k+2}}$, where the optimal rate is obtained at $\beta = k + 1/2$ only. For $\beta\geq k+1/2$, the performance does not improve for increasing $\beta$.</p>
 <h2 id="3-adaptive-gp-priors">3. Adaptive GP Priors</h2>
-<p>The GP priors discussed so far possess itself a certain regularity, and are optimal iff this matches the regularity of the target function. To obtain a prior that is adaptive for unknown $\beta&gt;0$, there are two popular methods:</p>
+<p>The GP priors discussed so far possess itself a certain regularity, and are optimal iff this matches the regularity of the target function. To obtain a prior that is adaptive for unknown $\beta>0$, there are two popular methods:</p>
 <ol>
 <li>Hierachical prior, impose a prior on the smoothness prameter $\beta$, which is also known as <em>mixtures of GP</em>.</li>
 <li>Rescaling, $W^a = (W_{ct}:t \in [0,1])$.</li>
 </ol>
-<p>Here, we shall discuss rescaling only. The rescaling has the purpose of changing the appearance of the sample paths, making our prior reflect the true function better. Scaling factor $c&gt;1$ shrinks the sample paths $t\mapsto W_t$ on a long interval $W_{[0,ct]}$ to the interval $[0,1]$, which roughens the sample paths by incorporating the randomness of a longer period. Conversely, factor $c&lt;1$ stretchs the sample paths to a shorter interval $[0,ct]$, which smooths the sample paths.</p>
+<p>Here, we shall discuss rescaling only. The rescaling has the purpose of changing the appearance of the sample paths, making our prior reflect the true function better. Scaling factor $c>1$ shrinks the sample paths $t\mapsto W_t$ on a long interval $W_{[0,ct]}$ to the interval $[0,1]$, which roughens the sample paths by incorporating the randomness of a longer period. Conversely, factor $c<1$ stretchs the sample paths to a shorter interval $[0,ct]$, which smooths the sample paths.</p>
 <dl>
 <dt>Def (Self-similar)</dt>
 <dd>A SP $W$ is called <em>self-similar</em> of order $\alpha$ if $(W_{ct}: t\in[0,1])$ and $(c^\alpha W_t: t\in [0,1])$ are equal in distribution.</dd>
@@ -134,13 +135,15 @@ $$</li>
 <dd>The RKHS $\mathbb{H}^c$ of the rescaled process $W^c$ corresponding to a self-similar process $W$ of order $\alpha$ is a RKHS of $W$, equipped with the norm $||h||_{\mathbb{H}^c} = c^{-\alpha}||h||_{\mathbb{H}}$ instead.</dd>
 </dl>
 <p>Without proof we state that the optimal contraction rate of rescaled GP corresponding to a self-similar process $W$ of order $\alpha$ is
-$$
-n^{-\frac{2+r}{(4+ 4r + rs)}}, \quad \text{ by setting } c_n = n^{\frac{s-r}{4\alpha + 4r\alpha + rs\alpha}},
-$$
-where $r,s&gt;0$ are some constants s.t.
-$$
-\psi_0(\epsilon) \asymp \epsilon^{-r} ,\quad \inf \{ ||h||_{\mathbb{H}}: ||h-w_0||\leq \epsilon \} \asymp \epsilon^{-s}.
-$$
+</p>
+$$ 
+ n^{-\frac{2+r}{(4+ 4r + rs)}}, \quad \text{ by setting } c_n = n^{\frac{s-r}{4\alpha + 4r\alpha + rs\alpha}},
+$$<p>
+where $r,s>0$ are some constants s.t.
+</p>
+$$ 
+ \psi_0(\epsilon) \asymp \epsilon^{-r} ,\quad \inf \{ ||h||_{\mathbb{H}}: ||h-w_0||\leq \epsilon \} \asymp \epsilon^{-s}.
+$$<p>
 Note that the optimal contraction rate does not depends on the parameter $\alpha$. BM is self-similar of order $1/2$, and thus the k-fold integrated BM is self-similar of order $1/2 + k$. If $w_0 \in C^\beta [0,1]$ with $\beta\leq k+1$. The rescaled k-fold integraed BM priors yield the minimax rate $n^{-\beta/(2\beta + 1)}$ by setting appropriate scaling factor $c_n$.</p>
 <h2 id="references">References</h2>
 <ul>
@@ -164,32 +167,22 @@ Note that the optimal contraction rate does not depends on the parameter $\alpha
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

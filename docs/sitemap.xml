@@ -3,15 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wangchxx.github.io/categories/</loc>
-    <lastmod>2021-09-20T23:01:33+02:00</lastmod>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>https://wangchxx.github.io/categories/ml/</loc>
-    <lastmod>2021-09-20T23:01:33+02:00</lastmod>
+    <loc>https://wangchxx.github.io/series/deep-learning/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/series/diffusion-models/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/categories/dl/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/</loc>
-    <lastmod>2021-09-20T23:01:33+02:00</lastmod>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/series/</loc>
+    <lastmod>2024-10-24T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</loc>
+    <lastmod>2024-10-23T10:52:59+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/tags/markdown/</loc>
+    <lastmod>2024-10-23T10:52:59+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/tags/</loc>
+    <lastmod>2024-10-23T10:52:59+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</loc>
+    <lastmod>2024-10-22T00:01:41+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/diffusion_1_ddmp/</loc>
+    <lastmod>2024-10-21T04:34:23+08:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/categories/ml/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/series/reinforcement-learning/</loc>
@@ -21,9 +51,6 @@
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/rl/rl_09_mcts/</loc>
-    <lastmod>2021-09-20T23:01:33+02:00</lastmod>
-  </url><url>
-    <loc>https://wangchxx.github.io/series/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</loc>
@@ -81,12 +108,6 @@
     <lastmod>2021-07-22T10:52:59+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</loc>
-    <lastmod>2021-07-21T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>https://wangchxx.github.io/tags/markdown/</loc>
-    <lastmod>2021-07-21T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>https://wangchxx.github.io/tags/</loc>
     <lastmod>2021-07-21T10:52:59+02:00</lastmod>
   </url><url>
     <loc>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</loc>

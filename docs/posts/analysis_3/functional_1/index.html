@@ -95,20 +95,20 @@
 <p>A vector $X$ equipped with a norm is called a <code>normed vector space</code> or just a <code>normed space</code>. In particular, a <code>unit vector</code> in $X$ is a vector $x$ s.t. $||x||=1$.</p>
 </dd>
 <dt>Example 2 (<strong>Norms on $\mathbb{F}^n$</strong>)</dt>
-<dd>Let $x=(x_1,&hellip;,x_n)$, $||x || = \left(\sum_{i=1}^n |x_i|^2\right)^{1/2}$ is a norm.</dd>
+<dd>Let $x=(x_1,...,x_n)$, $||x || = \left(\sum_{i=1}^n |x_i|^2\right)^{1/2}$ is a norm.</dd>
 <dt>Example 3 (<strong>Norms on $C(M)$</strong>)</dt>
 <dd>Let $M$ be a compact metric space and let $C(M)$ be the vector space of functions defined on $M$. Then the function $||\cdot||:C(M)\to\R$ given by
-$$
-||f|| = \sup_{x\in M} |f(x)|
+$$ 
+ ||f|| = \sup_{x\in M} |f(x)|
 $$
 is a norm on $C(M)$.</dd>
 <dt>Example 4 (<strong>Norms on $L^p$</strong>)</dt>
 <dd>Let $(X,\Sigma,\mu)$ be a measure space.
 <ol>
-<li>If $1\leq p &lt;\infty$, then $||f||_p = \left(\int |f|^p ;d\mu\right)^{1/p}$ is a norm on $L^p(X)$.</li>
+<li>If $1\leq p <\infty$, then $||f||_p = \left(\int |f|^p \;d\mu\right)^{1/p}$ is a norm on $L^p(X)$.</li>
 <li>If $p=\infty$, then $||f||_\infty = \mathrm{ess}\sup |f|$ is a norm on $L^\infty(X)$, where the <code>essential supremum</code> $\mathrm{ess}\sup$ of a measurable function $f$ is defined by
-$$
-\mathrm{ess}\sup f = \inf {b: f(x)\leq b ; a.e.}  .
+$$ 
+ \mathrm{ess}\sup f = \inf \{b: f(x)\leq b \; a.e.\}  .
 $$</li>
 </ol>
 </dd>
@@ -118,41 +118,42 @@ $$</li>
 <p>Notice that there can be many different norms on each finite-dimensional space.</p>
 <dl>
 <dt>Definition 6 (Equivalence)</dt>
-<dd>Let $X$ be a vector space and let $||\cdot||_1$ and $||\cdot||_2$ be two norms on $X$. We say the norm $||\cdot||_2$ is <code>equivalent</code> to the norm $||\cdot||_1$ if there exists $M,m&gt;0$ s.t. for all $x\in X$
-$$
+<dd>Let $X$ be a vector space and let $||\cdot||_1$ and $||\cdot||_2$ be two norms on $X$. We say the norm $||\cdot||_2$ is <code>equivalent</code> to the norm $||\cdot||_1$ if there exists $M,m>0$ s.t. for all $x\in X$
+$$ 
 m||x||_1 \leq ||x||_2 \leq M||x||_1.
 $$</dd>
 <dt>Theorem 7</dt>
-<dd>Let $X$ be finite-dimensional vector space with norm $||\cdot||$ and let ${e_1,&hellip;,e_n}$ be a basis for $X$. We define another norm $||\cdot||_1$ on $X$ by
+<dd>Let $X$ be finite-dimensional vector space with norm $||\cdot||$ and let $\{e_1,...,e_n\}$ be a basis for $X$. We define another norm $||\cdot||_1$ on $X$ by
 $$
 \begin{equation}
-|| \sum_{j=1}^n \lambda_j e_j||_1 =   \left(\sum_{i=1}^n |\lambda_i|^2\right)^{1/2}.
+ \lVert \sum_{j=1}^n \lambda_j e_j \rVert_1 =   \left(\sum_{i=1}^n |\lambda_i|^2\right)^{1/2}.
 \end{equation}
 $$
 Then norms $||\cdot||$ and $||\cdot||_1$ are equivalent.</dd>
 <dt>proof</dt>
 <dd>Let $M = \left(\sum_{i=1}^n ||e_i||^2\right)^{1/2}$. Then we have
 $$
-\begin{align*}
-|| \sum_{i=1}^n \lambda_i e_i|| &amp;\leq  \sum_{i=1}^n ||\lambda_i e_i|| \cr
-&amp;=\sum_{i=1}^n |\lambda_i | ||e_i|| \cr
-&amp;\leq \left(\sum_{i=1}^n |\lambda_i|^2\right)^{1/2} \left(\sum_{i=1}^n ||e_i||^2\right)^{1/2} \cr
-&amp;= M|| \sum_{j=1}^n \lambda_j e_j||_1
-\end{align*}
+ \begin{align*}
+    || \sum_{i=1}^n \lambda_i e_i|| &\leq  \sum_{i=1}^n ||\lambda_i e_i|| \cr
+        &=\sum_{i=1}^n |\lambda_i | ||e_i|| \cr
+        &\leq \left(\sum_{i=1}^n |\lambda_i|^2\right)^{1/2} \left(\sum_{i=1}^n ||e_i||^2\right)^{1/2} \cr
+        &= M|| \sum_{j=1}^n \lambda_j e_j||_1
+ \end{align*}
 $$
 Next, we define a function $f$ by
-$$
-f(\lambda_1,&hellip;,\lambda_n) =   || \sum_{i=1}^n \lambda_i e_i||.
+$$ 
+ f(\lambda_1,...,\lambda_n) =   || \sum_{i=1}^n \lambda_i e_i||.
 $$
 The function $f$ is continuous w.r.t. the standard metric. Now we define $S$ be the unit circle, i.e.
+$$ 
+ S = \{(\lambda_1,...,\lambda_n): \sum_{i=1}^n |\lambda_i|^2 = 1\}.
 $$
-S = {(\lambda_1,&hellip;,\lambda_n): \sum_{i=1}^n |\lambda_i|^2 = 1}.
+Since $S$ is compact, there exists $(u_1,...,u_n)\in S $s.t. $f(u_1,...,u_n)\leq f(\lambda_1,...,\lambda_n)$ for all $(\lambda_1,...,\lambda_n)\in S$. Let $m = f(u_1,...,u_n)$. Notice that $m>0$.
+<p>By the definition of $||\cdot||_1$, if $||x||_1=1$ then $||x||\geq m$. Therefore $y\in X\setminus\{0\}$, we have $|| \frac{y}{||y||_1}||\geq m$ since $|| \frac{y}{||y||_1}||_1 = 1$. It follows that
+</p>
 $$
-Since $S$ is compact, there exists $(u_1,&hellip;,u_n)\in S $s.t. $f(u_1,&hellip;,u_n)\leq f(\lambda_1,&hellip;,\lambda_n)$ for all $(\lambda_1,&hellip;,\lambda_n)\in S$. Let $m = f(u_1,&hellip;,u_n)$. Notice that $m&gt;0$.
-<p>By the definition of $||\cdot||_1$, if $||x||_1=1$ then $||x||\geq m$. Therefore $y\in X\setminus{0}$, we have $|| \frac{y}{||y||_1}||\geq m$ since $|| \frac{y}{||y||_1}||_1 = 1$. It follows that
-$$
-||y||\geq m ||y||_1.
-$$
+     ||y||\geq m ||y||_1.
+    $$<p>
 For $y=0$, it still holds.</p>
 </dd>
 </dl>
@@ -166,13 +167,13 @@ For $y=0$, it still holds.</p>
 <p>$\Box$</p>
 <dl>
 <dt>Lemma 9 (<strong>Complete metric space &amp; finite-dimensional</strong>)</dt>
-<dd>Let $X$ be finite-dimensional vector space with norm $||\cdot||_1$ that is defined as (1) and let ${e_1,&hellip;,e_n}$ be a basis for $X$. Then $X$ is a complete metric space.</dd>
+<dd>Let $X$ be finite-dimensional vector space with norm $||\cdot||_1$ that is defined as (1) and let $\{e_1,...,e_n\}$ be a basis for $X$. Then $X$ is a complete metric space.</dd>
 <dt>proof</dt>
-<dd>Let ${x_m}$ be a Cauchy sequence. It implies when $k,m\geq N$,
+<dd>Let $\{x_m\}$ be a Cauchy sequence. It implies when $k,m\geq N$,
+$$ 
+ \sum_{j=1}^n |\lambda_{j,k} - \lambda_{j,m}|^2 = ||x_k - x_m ||_1^2 <\epsilon.
 $$
-\sum_{j=1}^n |\lambda_{j,k} - \lambda_{j,m}|^2 = ||x_k - x_m ||<em>1^2 &lt;\epsilon.
-$$
-Hence ${\lambda</em>{j,m}}$ is a Cauchy sequence for $j\leq n$. And since $\mathbb{F}$ is complete, there exists $\lambda_j\in\mathbb{F}$ s.t. $\lambda_{j,m}\to \lambda$. Define $x = \sum_{j=1}^n \lambda_je_j$, we have $||x_m - x ||_1^2\to 0$.</dd>
+Hence $\{\lambda_{j,m}\}$ is a Cauchy sequence for $j\leq n$. And since $\mathbb{F}$ is complete, there exists $\lambda_j\in\mathbb{F}$ s.t. $\lambda_{j,m}\to \lambda$. Define $x = \sum_{j=1}^n \lambda_je_j$, we have $||x_m - x ||_1^2\to 0$.</dd>
 </dl>
 <p>$\Box$</p>
 <p>This lemma means that for any norm on a finite-dimensional space $X$, $X$ is a complete metric space.</p>
@@ -189,9 +190,9 @@ Hence ${\lambda</em>{j,m}}$ is a Cauchy sequence for $j\leq n$. And since $\math
 <dt>Lemma 11</dt>
 <dd>If $X$ is a normed vector space and $S$ is a linear subspace of $X$ then $\bar{S}$ is also a linear subspace of $X$.</dd>
 <dt>proof</dt>
-<dd>Let $x,y \in\bar{S}$, so we can find sequences ${x_n},{y_n}$ in $S$ s.t.
-$$
-x_n\to x, y_n\to y.
+<dd>Let $x,y \in\bar{S}$, so we can find sequences $\{x_n\},\{y_n\}$ in $S$ s.t.
+$$ 
+ x_n\to x, y_n\to y.
 $$
 Then $x+y\in\bar{S}$ and $\alpha x \in\bar{S}$.</dd>
 </dl>
@@ -200,36 +201,36 @@ Then $x+y\in\bar{S}$ and $\alpha x \in\bar{S}$.</dd>
 <dl>
 <dt>Theorem 12 (<strong>Riesz&rsquo;s</strong>) <!-- raw HTML omitted --></dt>
 <dd>Let $X$ is a normed vector space, $Y$ is closed linear subspace of $X$ s.t. $Y\neq X$, and $\alpha\in(0,1)$. Then there exists $x_\alpha\in X$ s.t.
-$$
-||x_\alpha|| = 1, \quad ||x_\alpha - y||&gt;\alpha, ;\forall y\in Y.
+$$ 
+ ||x_\alpha|| = 1, \quad ||x_\alpha - y||>\alpha, \;\forall y\in Y.
 $$</dd>
 <dt>proof</dt>
 <dd>Let $x\in X\setminus Y$. Also, since $Y$ is closed,
+$$ 
+ d = \inf\{||x-z||: z\in Y\}  >0.
 $$
-d = \inf{||x-z||: z\in Y}  &gt;0.
+Thus there exists $z\in Y$ s.t. $||x-z||< d \alpha^{-1}$. Let $x_\alpha = \frac{x-z}{||x-z||}$. Then for any $y\in Y$
 $$
-Thus there exists $z\in Y$ s.t. $||x-z||&lt; d \alpha^{-1}$. Let $x_\alpha = \frac{x-z}{||x-z||}$. Then for any $y\in Y$
-$$
-\begin{align*}
-||x_\alpha - y|| &amp;= \frac{1}{||x-z||} || x - (z - ||x-z||y)||\cr
-&amp;&gt;\alpha d^{-1} d.
-\end{align*}
+ \begin{align*}
+ ||x_\alpha - y|| &= \frac{1}{||x-z||} || x - (z - ||x-z||y)||\cr
+    &>\alpha d^{-1} d.
+ \end{align*}
 $$</dd>
 </dl>
 <p>$\Box$</p>
 <dl>
 <dt>Theorem 13 (<strong>Compactness &amp; infinite-dimensional</strong>)</dt>
-<dd>Let $X$ be an infinite-dimensional normed vector space, then neither $D ={x\in X: ||x||\leq 1}$ nor $K ={x\in X: ||x||= 1}$ is compact.</dd>
+<dd>Let $X$ be an infinite-dimensional normed vector space, then neither $D =\{x\in X: ||x||\leq 1\}$ nor $K =\{x\in X: ||x||= 1\}$ is compact.</dd>
 <dt>proof</dt>
 <dd>Let $x_1\in K$, then $sp(x_1)$ is closed. By Riesz&rsquo;s, there exists $x_2\in K$ s.t.
-$$
-|| x_2 - a x_1|| \geq 3/4, ;\forall a\in\mathbb{F}.
+$$ 
+ || x_2 - a x_1|| \geq 3/4, \;\forall a\in\mathbb{F}.
 $$
 Go on with $sp(x_1,x_2)$, we have $x_3\in K$ s.t.
+$$ 
+ || x_3 - a x_1 - b x_2||\geq 3/4,\; \forall a,b\in\mathbb{F}.
 $$
-|| x_3 - a x_1 - b x_2||\geq 3/4,; \forall a,b\in\mathbb{F}.
-$$
-Continuing this way, we obtain a sequence ${x_n}$ in $K$ s.t. $||x_n - x_m||\geq 3/4$ when $n\neq m$. This cannot have a convergent subsequence.</dd>
+Continuing this way, we obtain a sequence $\{x_n\}$ in $K$ s.t. $||x_n - x_m||\geq 3/4$ when $n\neq m$. This cannot have a convergent subsequence.</dd>
 </dl>
 <p>$\Box$</p>
 <p>Recall that in a finite-dimensional normed space, any closed bounded set is compact, but this is not true for infinite-dimensional spaces.</p>
@@ -260,32 +261,22 @@ $\Box$</li>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

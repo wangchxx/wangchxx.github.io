@@ -7,8 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Bayesian Statistics| Bernstein-von Mises Theorem">
   <meta property="og:description" content="From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.
-$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
-From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
+$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -25,8 +24,7 @@ From a Bayesian perspective, a similar conclusion can be drawn, often referred t
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Bayesian Statistics| Bernstein-von Mises Theorem">
   <meta name="twitter:description" content="From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.
-$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$
-From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
+$$ \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma) $$From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -89,10 +87,9 @@ From a Bayesian perspective, a similar conclusion can be drawn, often referred t
 	<article class="md">
 		<!-- raw HTML omitted -->
 <p>From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.</p>
-<p>$$
+$$
 \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)
-$$</p>
-<p>From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.</p>
+$$<p>From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.</p>
 <h2 id="0-notation">0. Notation</h2>
 <hr>
 <p>$I_\theta$: Fisher information,</p>
@@ -108,18 +105,18 @@ $$</p>
 <li>
 <p>Bayes&rsquo; formula
 By Bayes&rsquo; formula, the posterior density of  $\vartheta$ is given by
+</p>
 $$
-\begin{align*}
-\pi(\theta|X_1,&hellip;,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta  )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}.
-\end{align*}
-$$</p>
-</li>
+    \begin{align*}
+        \pi(\theta|X_1,...,X_n) = \frac{\prod_{i=1}^n p_\theta(X_i) \pi(\theta  )}{\int \prod_{i=1}^n p_\theta(X_i) \pi(\theta)d\theta}.
+    \end{align*}
+    $$</li>
 <li>
 <p>Taylor expansion
+</p>
 $$
-\log \frac{p_{\theta+h}}{p_\theta} (x) = h^T \dot{\ell}<em>\theta(x) + \frac{1}{2} h^T \ddot{\ell}</em>\theta(x) h + o_p(||h||^2).
-$$</p>
-</li>
+  \log \frac{p_{\theta+h}}{p_\theta} (x) = h^T \dot{\ell}_\theta(x) + \frac{1}{2} h^T \ddot{\ell}_\theta(x) h + o_p(||h||^2).
+  $$</li>
 </ol>
 <h2 id="2-bvm">2. BvM</h2>
 <dl>
@@ -127,7 +124,7 @@ $$</p>
 <dd>Under some conditions,
 $$
 \begin{equation}
-\Vert \Pi(\sqrt{n}(\vartheta - \theta_0)\in \cdot| X_1,&hellip;,X_n) - N_d(I_{\theta_0}^{-1}\Delta_{n,\theta_0}, I_{\theta_0}^{-1}) \Vert <em>{TV}\to 0 ; \text{ in } P</em>{\theta_0}^n.
+        \Vert \Pi(\sqrt{n}(\vartheta - \theta_0)\in \cdot| X_1,...,X_n) - N_d(I_{\theta_0}^{-1}\Delta_{n,\theta_0}, I_{\theta_0}^{-1}) \Vert _{TV}\to 0 \; \text{ in } P_{\theta_0}^n.
 \end{equation}
 $$
 Here the sequence of  variables  $\Delta_{n,\theta_0}$ converges under  $ \theta_0 $ in distribution to  $N_d(0, I_{\theta_0})$.</dd>
@@ -157,32 +154,22 @@ $\Box$</p>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

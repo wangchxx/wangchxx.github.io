@@ -14,7 +14,7 @@
       <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
       <pubDate>Thu, 05 Aug 2021 00:01:41 +0200</pubDate>
       <guid>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</guid>
-      <description>&lt;p&gt;In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{&amp;quot;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
@@ -28,7 +28,7 @@
       <link>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
       <guid>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;In the previous chapters, we introduced the &lt;strong&gt;Dirichlet Process (DP) prior&lt;/strong&gt;, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the &lt;strong&gt;Gaussian Process (GP)&lt;/strong&gt;, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is&#xA;$$Y = \beta X  + \epsilon.$$&lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;In the previous chapters, we introduced the &lt;strong&gt;Dirichlet Process (DP) prior&lt;/strong&gt;, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the &lt;strong&gt;Gaussian Process (GP)&lt;/strong&gt;, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
@@ -49,7 +49,7 @@
       <link>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
       <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
       <guid>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.&lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.&lt;/p&gt;&#xA;$$&#xA;\sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)&#xA;$$&lt;p&gt;From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

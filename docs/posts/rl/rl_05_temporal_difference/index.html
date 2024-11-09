@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="RL | Model-Free: Temporal Difference Learning">
   <meta property="og:description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment’s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
-1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by $$ \begin{equation} V(S_t) \leftarrow V(S_t) &#43; \alpha \big[ R_{t&#43;1} &#43; \gamma V(S_{t&#43;1}) - V(S_t) \big]. \end{equation} $$">
+1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="RL | Model-Free: Temporal Difference Learning">
   <meta name="twitter:description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment’s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
-1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by $$ \begin{equation} V(S_t) \leftarrow V(S_t) &#43; \alpha \big[ R_{t&#43;1} &#43; \gamma V(S_{t&#43;1}) - V(S_t) \big]. \end{equation} $$">
+1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,87 +88,91 @@
 		<p>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).</p>
 <h2 id="1-td-prediction">1. TD Prediction</h2>
 <p>Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by
-$$
-V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)],
-$$
+</p>
+$$ 
+ V(S_t) \leftarrow V(S_t) + \alpha [ G_t - V(S_t)],
+$$<p>
 where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by
-$$
+</p>
+$$ 
 \begin{equation}
-V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \big].
+   V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \big].
 \end{equation}
-$$</p>
-<p>It implies that TD can update $V$ immediately on transition to $S_{t+1}$ and receiving $R_{t+1}$. This TD method is called TD(0), or <em>one-step TD</em>, because it is a special case of the $TD(\lambda)$, $n$-step TD.</p>
+$$<p>It implies that TD can update $V$ immediately on transition to $S_{t+1}$ and receiving $R_{t+1}$. This TD method is called TD(0), or <em>one-step TD</em>, because it is a special case of the $TD(\lambda)$, $n$-step TD.</p>
 <p>Because TD(0) update $V(S_t)$ using an existing estimate $V(S_{t+1})$, we say that is is a bootstrapping method, like DP. We know that
-$$
-\begin{align}
-v_\pi(s) &amp;= \mathbb{E}<em>\pi [G_t|S_t = s] \cr
-&amp;= \mathbb{E}</em>\pi [R_{t+1} + \gamma v_\pi(S_{t+1})|S_t = s].
-\end{align}
-$$
+</p>
+$$ 
+ \begin{align}
+ v_\pi(s) &= \mathbb{E}_\pi [G_t|S_t = s] \cr 
+    &= \mathbb{E}_\pi [R_{t+1} + \gamma v_\pi(S_{t+1})|S_t = s].
+ \end{align}
+$$<p>
 MC methods use an estimate of (2) as a target, whereas DP methods use an estimate of (3) as a target. The MC methods estimate the expectation in (2) by sampling and TD methods estimate $v_\pi$ using existing estimate $V(S_{t+1})$. The TD methods combine the sampling of MC with the bootstrapping of DP.</p>
 <h2 id="2-tdlambda-and-n-step-td">2. TD($\lambda$) and $n$-step TD</h2>
 <ul>
-<li>$n$-step returns: $G_t^{(n)} := R_{t+1} + \cdots + \gamma^{n-1}R_{t+n} + \gamma^n  V(S_{t+n})$ for $n=1,2,&hellip;,\infty$.</li>
+<li>$n$-step returns: $G_t^{(n)} := R_{t+1} + \cdots + \gamma^{n-1}R_{t+n} + \gamma^n  V(S_{t+n})$ for $n=1,2,...,\infty$.</li>
 </ul>
 <p>Then the $n$-step TD learning is
-$$
-V(S_t) \leftarrow V(S_t) + \alpha [ G_t^{(n)} - V(S_t)].
-$$</p>
-<ul>
+</p>
+$$ 
+ V(S_t) \leftarrow V(S_t) + \alpha [ G_t^{(n)} - V(S_t)].
+$$<ul>
 <li>$\lambda$-returns: $G_t^\lambda:= (1-\lambda) \sum_{n=1}^\infty \lambda^{n-1}G_t^{(n)}$.</li>
 </ul>
 <p>Then the $TD(\lambda)$ learning is
-$$
-V(S_t) \leftarrow V(S_t) + \alpha [ G_t^{\lambda} - V(S_t)].
-$$</p>
-<p>Like MC, the $\lambda$-returns can only be computed from complete episodes.</p>
+</p>
+$$ 
+ V(S_t) \leftarrow V(S_t) + \alpha [ G_t^{\lambda} - V(S_t)].
+$$<p>Like MC, the $\lambda$-returns can only be computed from complete episodes.</p>
 <dl>
 <dt><em>Definition 5.1 (TD error)</em></dt>
 <dd>The TD error is defined as $\delta_t:= R_{t+1} + \gamma V(S_{t+1}) - V(S_t)$.</dd>
 <dt><em>Definition 5.2 (Eligibility trace)</em></dt>
 <dd>The Eligibility trace is defined as
-$$
-\begin{align*}
-E_0(s) &amp;= 0 \cr
-E_t(s) &amp;= \gamma \lambda E_{t-1}(s) + 1_{S_t = s}.
-\end{align*}
+$$ 
+ \begin{align*}
+ E_0(s) &= 0 \cr
+ E_t(s) &= \gamma \lambda E_{t-1}(s) + 1_{S_t = s}.
+ \end{align*}
 $$</dd>
 </dl>
 <p>If we view   $TD(\lambda)$ backward, keeping $E_t(s)$ for every $s$ and $\delta_t$ when updating $V(s)$, the $TD(\lambda)$ can be  written as an online learning algorithm
-$$
-V(s) \leftarrow V(s) + \alpha \delta_t E_t(s).
-$$</p>
-<p>Note that if the array $V$ does not change during the episode (episodic offline), then the MC error can be written as a sum of TD errors:
-$$
+</p>
+$$ 
+ V(s) \leftarrow V(s) + \alpha \delta_t E_t(s).
+$$<p>Note that if the array $V$ does not change during the episode (episodic offline), then the MC error can be written as a sum of TD errors:
+</p>
+$$ 
 \begin{align}
-G_t - V(S_t) &amp;= \delta_t + \gamma \delta_{t+1} + \cdots + \gamma_{T-t-1}\delta_{T-1} + \gamma^{T-t}(G_T - V(S_T))  \cr
-&amp;= \delta_t + \gamma \delta_{t+1} + \cdots + \gamma_{T-t-1}\delta_{T-1} + \gamma^{T-t}(0 - 0)  \cr
-&amp;= \sum_{k=t}^{T-1} \gamma^{k-t} \delta_k.
+ G_t - V(S_t) &= \delta_t + \gamma \delta_{t+1} + \cdots + \gamma_{T-t-1}\delta_{T-1} + \gamma^{T-t}(G_T - V(S_T))  \cr
+    &= \delta_t + \gamma \delta_{t+1} + \cdots + \gamma_{T-t-1}\delta_{T-1} + \gamma^{T-t}(0 - 0)  \cr
+    &= \sum_{k=t}^{T-1} \gamma^{k-t} \delta_k.
 \end{align}
-$$</p>
-<dl>
+$$<dl>
 <dt><em>Theorem 5.3</em></dt>
 <dd>The sum of offline updates is identical for forward-view and backward-view $TD(\lambda)$, i.e.
-$$
-\sum_{t=1}^T \alpha \delta_t E_t(s) = \sum_{t=1}^T \alpha(G_t^\lambda - V(S_t)) 1_{S_t = s}.
+$$ 
+ \sum_{t=1}^T \alpha \delta_t E_t(s) = \sum_{t=1}^T \alpha(G_t^\lambda - V(S_t)) 1_{S_t = s}.
 $$</dd>
 </dl>
 <p>Consider an episode where state $s$ is visited once at time-step $k$. The eligibility trace of TD(1) is
-$$
-E_t(s) = \gamma^{t-k} 1_{t\geq k}.
-$$</p>
-<p>By the Theorem 5.3, we see that
-$$
-\sum_{t=1}^{T-1} \alpha \delta_t E_t(s) = \alpha  \sum_{k=t}^{T-1} \gamma^{k-t} \delta_k = \alpha ( G_t - V(S_t)),
-$$
+</p>
+$$ 
+ E_t(s) = \gamma^{t-k} 1_{t\geq k}.
+$$<p>By the Theorem 5.3, we see that
+</p>
+$$ 
+ \sum_{t=1}^{T-1} \alpha \delta_t E_t(s) = \alpha  \sum_{k=t}^{T-1} \gamma^{k-t} \delta_k = \alpha ( G_t - V(S_t)),
+$$<p>
 which is exactly the total update for MC. It implies that TD(1) is roughly equivalent to every-visit MC.</p>
 <h2 id="3-on-policy-td-control-sarsa">3. On-policy TD Control :SARSA</h2>
 <p>We now turn to the use of TD prediction methods for the control problem. The first step is to learn an action-value function $q_\pi$. In the first section, we considered transitions from state to state and learned the value function $v_\pi$. The idea of estimating $q_\pi$ is essentially identical to estimating $v_\pi$. Apply TD(0) to updating $Q(S_t, A_t)$ by
-$$
-\begin{equation}
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].
-\end{equation}
-$$
+</p>
+$$ 
+ \begin{equation}
+ Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].
+ \end{equation}
+$$<p>
 This rules uses the tuple $(S_t, A_t, R_{t+1}, S_{t+1}, A_{t+1})$, that makes up a transition from one state-action pair to the next, $(S_t, A_t)\to R_{t+1} \to (S_{t+1}, A_{t+1})$. This tuple gives rise to the name <em>SARSA</em> for the algorithm.</p>
 <hr>
 <table>
@@ -192,14 +196,14 @@ This rules uses the tuple $(S_t, A_t, R_{t+1}, S_{t+1}, A_{t+1})$, that makes up
 <ul>
 <li>Initialize $S_0$</li>
 <li>Choose $A_0$ using the policy $\pi$.</li>
-<li>Loop for each step $t = 0,&hellip;,T-1$:
+<li>Loop for each step $t = 0,...,T-1$:
 <ul>
 <li>take action $A_t$, observe $R_{t+1}, S_{t+1}$.</li>
 <li>choose action $A_{t+1}$ using policy derived from $Q$ (e.g., $\epsilon$-greedy).</li>
 <li>incremental update $Q$ by
-$$
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].
-$$</li>
+$$ 
+     Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) -  Q(S_t, A_t)].
+    $$</li>
 </ul>
 </li>
 </ul>
@@ -212,43 +216,44 @@ $$</li>
 <ol>
 <li>GLIE sequence of policies $\pi_t(a|s)$.</li>
 <li>Robbins-Monro sequence of $\alpha_t$,
-$$
-\sum_{t=1}^\infty \alpha_t = \infty, \quad   \sum_{t=1}^\infty \alpha_t^2&lt;\infty.
-$$</li>
+$$ 
+     \sum_{t=1}^\infty \alpha_t = \infty, \quad   \sum_{t=1}^\infty \alpha_t^2<\infty.
+    $$</li>
 </ol>
 </dd>
 </dl>
 <p>We can also apply the TD($\lambda$) idea or $n$-step TD learning to estimating $q_*$.</p>
 <ul>
-<li>$n$-step SARSA: $q_t^{(n)} := R_{t+1} + \cdots + \gamma^{n-1}R_{t+n} + \gamma^n  Q(S_{t+n}, A_{t+n})$ for $n=1,2,&hellip;,\infty$.</li>
+<li>$n$-step SARSA: $q_t^{(n)} := R_{t+1} + \cdots + \gamma^{n-1}R_{t+n} + \gamma^n  Q(S_{t+n}, A_{t+n})$ for $n=1,2,...,\infty$.</li>
 </ul>
 <p>Then the $n$-step SARSA updates
-$$
-Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [ q_t^{(n)} - Q(S_t, A_t)].
-$$</p>
-<ul>
+</p>
+$$ 
+ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [ q_t^{(n)} - Q(S_t, A_t)].
+$$<ul>
 <li>$q^\lambda$-return: $q_t^\lambda:= (1-\lambda) \sum_{n=1}^\infty \lambda^{n-1}q_t^{(n)}$.</li>
 </ul>
 <p>Then the forward SARSA($\lambda$) updates
-$$
-Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [ q_t^{\lambda} - Q(S_t, A_t)].
-$$</p>
-<p>Note that $q_t^\lambda$ is unknown until the terminal state. Just like TD($\lambda$), we use eligibility traces in an online algorithm. We need the eligibility trace for each state-action pair,
-$$
-\begin{align*}
-E_0(s,a) &amp;= 0 \cr
-E_t(s,a) &amp;= \gamma \lambda E_{t-1}(s,a) + 1_{(S_t = s, A_t = a)}.
-\end{align*}
-$$</p>
-<p>And the TD error $\delta_t$ now becomes
-$$
-\delta_t =   R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t),
-$$
+</p>
+$$ 
+ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [ q_t^{\lambda} - Q(S_t, A_t)].
+$$<p>Note that $q_t^\lambda$ is unknown until the terminal state. Just like TD($\lambda$), we use eligibility traces in an online algorithm. We need the eligibility trace for each state-action pair,
+</p>
+$$ 
+ \begin{align*}
+ E_0(s,a) &= 0 \cr
+ E_t(s,a) &= \gamma \lambda E_{t-1}(s,a) + 1_{(S_t = s, A_t = a)}.
+ \end{align*}
+$$<p>And the TD error $\delta_t$ now becomes
+</p>
+$$ 
+ \delta_t =   R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t),
+$$<p>
 and hence we update $Q(s,a)$ by
-$$
-Q(s,a) \leftarrow Q(s,a) + \alpha \delta_t E_t(s,a).
-$$</p>
-<hr>
+</p>
+$$ 
+ Q(s,a) \leftarrow Q(s,a) + \alpha \delta_t E_t(s,a).
+$$<hr>
 <table>
   <thead>
       <tr>
@@ -271,18 +276,18 @@ $$</p>
 <li>Initialize $E(s,a) = 0$ for all $a,s$.</li>
 <li>Initialize $S_0$</li>
 <li>Choose $A_0$ using the policy $\pi$.</li>
-<li>Loop for each step $t = 0,&hellip;,T-1$:
+<li>Loop for each step $t = 0,...,T-1$:
 <ul>
 <li>take action $A_t$, observe $R_{t+1}, S_{t+1}$.</li>
 <li>choose action $A_{t+1}$ using policy derived from $Q$ (e.g., $\epsilon$-greedy).</li>
 <li>compute $\delta_t = R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$, update $E(S_t, A_t) += 1 $.</li>
 <li>incremental update $Q, E$ for all $s,a$ by
-$$
-\begin{align*}
-Q(s,a) &amp;\leftarrow Q(s,a) + \alpha \delta_t E(s,a), \cr
-E(s,a) &amp;\leftarrow \gamma \lambda E(s,a).
-\end{align*}
-$$</li>
+$$ 
+    \begin{align*}
+     Q(s,a) &\leftarrow Q(s,a) + \alpha \delta_t E(s,a), \cr
+     E(s,a) &\leftarrow \gamma \lambda E(s,a).
+    \end{align*}
+    $$</li>
 </ul>
 </li>
 </ul>
@@ -290,10 +295,11 @@ $$</li>
 </ul>
 <hr>
 <h2 id="4-off-policy-td-control-q-learning">4. Off-policy TD Control: Q-learning</h2>
-<p>We now apply TD methods to off-policy control. Given the a policy $\pi$ and a behavior policy $\mu$, when choosing next action $A_{t+1}$ conditioned on state $S_{t+1}$ using the policy $\mu$, we also consider alternative successor action $A&rsquo;$ using the target policy $\pi$. Then we can update $Q$ by
-$$
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A&rsquo;) -  Q(S_t, A_t)],
-$$
+<p>We now apply TD methods to off-policy control. Given the a policy $\pi$ and a behavior policy $\mu$, when choosing next action $A_{t+1}$ conditioned on state $S_{t+1}$ using the policy $\mu$, we also consider alternative successor action $A'$ using the target policy $\pi$. Then we can update $Q$ by
+</p>
+$$ 
+   Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A') -  Q(S_t, A_t)],
+$$<p>
 where reward $R_{t+1}$ is a result of action $A_{t+1}$.</p>
 <p>Now we allow both behavior and target policies to improve:</p>
 <ul>
@@ -301,19 +307,19 @@ where reward $R_{t+1}$ is a result of action $A_{t+1}$.</p>
 <li>the behavior policy $\mu$ is e.g. $\epsilon$-greedy w.r.t. $Q(s,a)$.</li>
 </ul>
 <p>The Q-learning target then simplifies:
-$$
-\begin{align*}
-R_{t+1} + \gamma Q(S_{t+1}, A&rsquo;) &amp;= R_{t+1} + \gamma Q(S_{t+1}, \arg\max_{a&rsquo;} Q(S_{t+1}, a&rsquo;)) \cr
-&amp;= R_{t+1} + \max_{a&rsquo;}\gamma Q(S_{t+1}, a&rsquo;).
-\end{align*}
-$$</p>
-<p>Hence Q-learning becomes
-$$
-\begin{equation}
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \max_{a&rsquo;}\gamma Q(S_{t+1}, a&rsquo;) -  Q(S_t, A_t)]
-\end{equation}
-$$</p>
-<dl>
+</p>
+$$ 
+ \begin{align*}
+ R_{t+1} + \gamma Q(S_{t+1}, A') &= R_{t+1} + \gamma Q(S_{t+1}, \arg\max_{a'} Q(S_{t+1}, a')) \cr
+    &= R_{t+1} + \max_{a'}\gamma Q(S_{t+1}, a').
+ \end{align*}
+$$<p>Hence Q-learning becomes
+</p>
+$$ 
+ \begin{equation}
+ Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \max_{a'}\gamma Q(S_{t+1}, a') -  Q(S_t, A_t)]
+ \end{equation}
+$$<dl>
 <dt><em>Theorem 5.5</em></dt>
 <dd>Q-learning control converges to the optimal action-value function $q_*$.</dd>
 </dl>
@@ -344,51 +350,41 @@ $$</p>
 <p>Choose $A_0$ using the policy $\mu$ (derived from $Q$).</p>
 </li>
 <li>
-<p>Loop for each step $t = 0,&hellip;,T-1$:</p>
+<p>Loop for each step $t = 0,...,T-1$:</p>
 <ul>
 <li>take action $A_t$, observe $R_{t+1}, S_{t+1}$.</li>
 <li>choose action $A_{t+1}$ using policy $\mu$ derived from $Q$ (e.g., $\epsilon$-greedy).</li>
 <li>incremental update $Q$  by
-$$
-Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \max_{a&rsquo;}\gamma Q(S_{t+1}, a&rsquo;) -  Q(S_t, A_t)].
-$$</li>
+$$ 
+      Q(S_t, A_t) \leftarrow  Q(S_t, A_t) + \alpha [R_{t+1} + \max_{a'}\gamma Q(S_{t+1}, a') -  Q(S_t, A_t)].
+    $$</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>$Q(s,a)\to q_<em>(s,a)$ by theorem 5.5, then we obtain $\pi_</em>$ from $q_*$.</p>
+<p>$Q(s,a)\to q_*(s,a)$ by theorem 5.5, then we obtain $\pi_*$ from $q_*$.</p>
 <hr>
 
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

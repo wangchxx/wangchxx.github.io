@@ -7,7 +7,7 @@
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Reading | Estimating a smooth function on a large graph (1)">
   <meta property="og:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
-Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,…,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ &lt;f,g&gt;n = \frac{1}{n}\sum{i=1}^n f_i g_i. $$">
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@ Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a l
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (1)">
   <meta name="twitter:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
-Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,…,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ &lt;f,g&gt;n = \frac{1}{n}\sum{i=1}^n f_i g_i. $$">
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,205 +88,213 @@ Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a l
 <li>Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. <a href="http://arxiv.org/abs/1511.02515">http://arxiv.org/abs/1511.02515</a></li>
 </ul>
 <h2 id="1-problem-setup">1. Problem setup</h2>
-<p>Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,&hellip;,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+<p>Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+</p>
 $$
-||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2.
-$$
+ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2.
+$$<p>
 The corresponding inner product of two funtions $f,g$ is denoted by
+</p>
 $$
-&lt;f,g&gt;<em>n = \frac{1}{n}\sum</em>{i=1}^n f_i g_i.
-$$</p>
-<h4 id="assumptions">Assumptions</h4>
+ \langle f,g \rangle_n = \frac{1}{n}\sum_{i=1}^n f_i g_i.
+$$<h4 id="assumptions">Assumptions</h4>
 <ol>
 <li>
-<p>(G). Let $\lambda_i$ be the (ordered) eigenvalues of the Laplacian matrix. For some $r\geq 1$, there exist $i_0\in\mathbb{N}, \kappa\in(0,1]$ and $C_1,C_2&gt;0$ s.t. for all $n$ large enough,
+<p>(G). Let $\lambda_i$ be the (ordered) eigenvalues of the Laplacian matrix. For some $r\geq 1$, there exist $i_0\in\mathbb{N}, \kappa\in(0,1]$ and $C_1,C_2>0$ s.t. for all $n$ large enough,
+</p>
 $$
 \begin{equation}
 C_1(\frac{i}{n})^{2/r} \leq \lambda_i \leq C_2(\frac{i}{n})^{2/r}
 \end{equation}
-$$
-for all $i\in\{i_0,&hellip;,\kappa n\}$</p>
+$$<p>
+for all $i\in\{i_0,...,\kappa n\}$</p>
 </li>
 <li>
 <p>(L). The graph $G$ is connected, simple, undirected.</p>
 </li>
 <li>
-<p>(S). We assume $f$ belongs to a Sobolev-type ball of the form
-$$
-H^\beta(Q) = \{f: &lt;f, (I + (n^{2/r} L)^\beta) f&gt;_n \leq Q^2\}
-$$
-for some $\beta,Q&gt;0$. The parameter $\beta$ determines the smoothness of the function.</p>
+<p>(S). We assume $f$ belongs to a Sobolev-type ball of the form</p>
 </li>
 </ol>
+$$ 
+ H^\beta(Q) = \{f: \langle f, (I + (n^{2/r} L)^\beta) f\rangle_n \leq Q^2\}
+$$<p>
+for some $\beta,Q>0$. The parameter $\beta$ determines the smoothness of the function.</p>
 <h2 id="2-main-results">2. Main results</h2>
-<p>In the regression case we assume that we have observations $Y = (Y_1,&hellip;,Y_n)$ at the vertices of the graph satisfying
-$$
-Y_i = f_i^* + \sigma \xi_i,
-$$
+<p>In the regression case we assume that we have observations $Y = (Y_1,...,Y_n)$ at the vertices of the graph satisfying
+</p>
+$$ 
+ Y_i = f_i^* + \sigma \xi_i, 
+$$<p>
 where $\xi_i$ are independent standard Gaussian. By Theorem 1, we have
+</p>
+$$ 
+ \begin{equation}
+ \Pi(||f - f^*||_n \geq M \epsilon_n| Y^{(n)}) \to 0
+ \end{equation}
+$$<p>
+in $P_{f^*}$-probability at the rate $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$.</p>
+<p>In the binary classification case, we assume that $Y_1,...,Y_n$ are 0-1 valued variables satisfying
+</p>
 $$
-\begin{equation}
-\Pi(||f - f^<em>||<em>n \geq M \epsilon_n| Y^{(n)}) \to 0
-\end{equation}
-$$
-in $P</em>{f^</em>}$-probability at the rate $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$.</p>
-<p>In the binary classification case, we assume that $Y_1,&hellip;,Y_n$ are 0-1 valued variables satisfying
-$$
-p^*_i = \Pr(Y_i = 1).
-$$
+   p^*_i = \Pr(Y_i = 1).
+$$<p>
 We introduce a link function $\Psi:\mathbb{R}\to (0,1)$ and set $p = \Psi(f)$. We assume that the link function is differentiable with bounded derivative $\phi$. Then the Theorem also leads to posterior contraction rates $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$ by the following fact
+</p>
 $$
 || p_v - p_w||_r \lesssim ||v - w||_{r,G}.
-$$</p>
-<dl>
+$$<dl>
 <dt>Theorem 1 (<em>Power of the Laplacian</em>)</dt>
-<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^<em>\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $0&lt; \beta\leq \alpha+r/2$. Let the random function $f$ on the graph be defined by
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha>0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $0< \beta\leq \alpha+r/2$. Let the random function $f$ on the graph be defined by
 $$
-\begin{align}
-c &amp;\sim \exp(1) \cr
-f|c &amp;\sim N(0, \Sigma_{c}),
-\end{align}
+ \begin{align}
+ c &\sim \exp(1) \cr
+ f|c &\sim N(0, \Sigma_{c}),
+ \end{align}
 $$
-where $\Sigma_c^{-1} = (\frac{n}{c})^{2/r}(L + n^{-2} I)^{\alpha+r/2}$. Then there exists constants $K_1&gt;0,K_2&gt;1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
+where $\Sigma_c^{-1} = (\frac{n}{c})^{2/r}(L + n^{-2} I)^{\alpha+r/2}$. Then there exists constants $K_1>0,K_2>1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
 $$
-\begin{align}
-\Pr(||f - f^</em>||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
-\Pr(f\notin B_n) &amp;\lesssim \exp(-K_2 n \epsilon_n^2), \cr
-\log N(\epsilon_n , B_n , ||\cdot||_n) &amp;\lesssim n\epsilon_n^2,
-\end{align}
+ \begin{align}
+ \Pr(||f - f^*||<\epsilon_n) &\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+ \Pr(f\notin B_n) &\lesssim \exp(-K_2 n \epsilon_n^2), \cr
+ \log N(\epsilon_n , B_n , ||\cdot||_n) &\lesssim n\epsilon_n^2,
+ \end{align}
 $$
 where $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$.</dd>
 </dl>
 <p>This theorem obtains the rate $n^{-\beta/(2\beta+r)}$ for all $\beta$ up to $\alpha+r/2$.</p>
 <dl>
 <dt>Theorem 2 (<em>Exponential of the Laplacian</em>)</dt>
-<dd>Under the assumptions (G), (L) and (S). Let $\alpha&gt;0$ be fixed and assume that $f^<em>\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $\beta&gt;0$. Let the random function $f$ on the graph be defined by
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha>0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $\beta>0$. Let the random function $f$ on the graph be defined by
+$$ 
+ \begin{align}
+ c &\sim \exp(1) \cr
+ f|c &\sim N(0, \Sigma_{c}),
+ \end{align}
 $$
-\begin{align}
-c &amp;\sim \exp(1) \cr
-f|c &amp;\sim N(0, \Sigma_{c}),
-\end{align}
-$$
-where $\Sigma_c = n \exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1&gt;0,K_2&gt;1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
-$$
-\begin{align}
-\Pr(||f - f^</em>||&lt;\epsilon_n) &amp;\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
-\Pr(f\notin B_n) &amp;\lesssim \exp(-K_2 n \epsilon_n^2), \cr
-\log N(\tilde{\epsilon}_n , B_n , ||\cdot||_n) &amp;\lesssim n\tilde{\epsilon}_n^2,
-\end{align}
+where $\Sigma_c = n \exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1>0,K_2>1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
+$$ 
+ \begin{align}
+ \Pr(||f - f^*||<\epsilon_n) &\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+ \Pr(f\notin B_n) &\lesssim \exp(-K_2 n \epsilon_n^2), \cr
+ \log N(\tilde{\epsilon}_n , B_n , ||\cdot||_n) &\lesssim n\tilde{\epsilon}_n^2,
+ \end{align}
 $$
 where $\epsilon_n\asymp (n/\log^{1+r/2}n)^{-\beta/(2\beta+r)}$ and $\tilde{\epsilon}_n \asymp \epsilon_n\log^{1/2+r/4}n$.</dd>
 </dl>
 <h2 id="3-proofs-of-main-results">3. Proofs of main results</h2>
 <p>Given $c$, the random vector $f$ is an element in the GP process $GP(0,\Sigma_c)$. The corresponding RKHS $\mathbb{H}^c$ is the entire space $\mathbb{R}^n$, and the corresponding RKHS-norm is given by
-$$
-||h||_{\mathbb{H}^c}^2 = h^T\Sigma_c^{-1}h.
-$$</p>
-<p>Let $\psi_i$ be the engenfunctions of $L$, normalized w.r.t. the norm $||\cdot||_n$. In particular, the eigenfunctions $\psi_i$ are normalized s.t.<br>
-$$
-\psi_i^T \psi_i = n.
-$$</p>
-<p>They are also eigenfunctions of $\Sigma_c^{-1}$. We denote the corresponding engenvalues by $\mu_i$. The Gaussian $N(0,\Sigma_c)$ admits the series representation
-$$
-\sum_i Z_i \psi_i/\sqrt{n\mu_i},
-$$
+</p>
+$$ 
+ ||h||_{\mathbb{H}^c}^2 = h^T\Sigma_c^{-1}h.
+$$<p>Let $\psi_i$ be the engenfunctions of $L$, normalized w.r.t. the norm $||\cdot||_n$. In particular, the eigenfunctions $\psi_i$ are normalized s.t.<br>
+</p>
+$$ 
+  \psi_i^T \psi_i = n.
+$$<p>They are also eigenfunctions of $\Sigma_c^{-1}$. We denote the corresponding engenvalues by $\mu_i$. The Gaussian $N(0,\Sigma_c)$ admits the series representation
+</p>
+$$ 
+ \sum_i Z_i \psi_i/\sqrt{n\mu_i},
+$$<p>
 where $Z_i$ are standard Gaussian. In particular the functions $\psi_i/\sqrt{n\mu_i}$ form an orthonormal basis of the RKHS $\mathbb{H}^c$. Hence, the ordinary $||\cdot||_n$-norm and the RKHS-norm of a function $h$ with expansion $h = \sum_i h_i \psi_i$ are given by
+</p>
 $$
-\begin{equation}
-||h||_n^2 = \sum_i h_i^2,\quad ||h||_{\mathbb{H}^c}^2 = n\sum_i \mu_i h_i^2.
-\end{equation}
-$$</p>
-<h3 id="proof-of-theorem-1">Proof of Theorem 1</h3>
+ \begin{equation}
+ ||h||_n^2 = \sum_i h_i^2,\quad ||h||_{\mathbb{H}^c}^2 = n\sum_i \mu_i h_i^2. 
+ \end{equation}
+$$<h3 id="proof-of-theorem-1">Proof of Theorem 1</h3>
 <dl>
 <dt>Lemma 1 (<em>small ball</em>)</dt>
 <dd>For $c^{-p/r}\epsilon\sqrt{n}$ small enough,
-$$
--\log \Pr(||f||_n \leq \epsilon|c) \lesssim (\frac{c^{(\alpha+4/2)/r}}{\epsilon\sqrt{n}})^{r/\alpha}.
+$$ 
+ -\log \Pr(||f||_n \leq \epsilon|c) \lesssim (\frac{c^{(\alpha+4/2)/r}}{\epsilon\sqrt{n}})^{r/\alpha}.
 $$</dd>
 <dt>Proof</dt>
 <dd>By the series representation of $f$, we have
-$$
-\Pr(||f||<em>n\leq \epsilon|c) = \Pr(\sum_i Z_i^2/(n\mu_i)\leq \epsilon^2).
+$$ 
+ \Pr(||f||_n\leq \epsilon|c) = \Pr(\sum_i Z_i^2/(n\mu_i)\leq \epsilon^2).
 $$
 The assumption (G) allows us to bound $\mu_i$ from below, then it follows that
-$$
-\begin{align*}
-\Pr(||f||<em>n\leq 2\epsilon^2|c) &amp;\geq \Pr(\sum</em>{i\leq i_0}Z_i^2/(n\mu_i)\leq \epsilon^2, \sum</em>{i&gt;i_0}Z_i^2/(n\mu_i)\leq \epsilon^2) \cr
-&amp;\geq \Pr(\sum_{i\leq i_0} Z_i^2 \leq (C_1^p c^{-2p/4} n^{(2\alpha+2r - 2pr)/4})\epsilon^2)\Pr(\sum_{i&gt;i_0}\frac{Z_i^2}{e^{2p/r}}\leq C_1^p c^{-2p/r}n\epsilon^2),
-\end{align*}
+$$ 
+ \begin{align*}
+ \Pr(||f||_n\leq 2\epsilon^2|c) &\geq \Pr(\sum_{i\leq i_0}Z_i^2/(n\mu_i)\leq \epsilon^2, \sum_{i>i_0}Z_i^2/(n\mu_i)\leq \epsilon^2) \cr
+    &\geq \Pr(\sum_{i\leq i_0} Z_i^2 \leq (C_1^p c^{-2p/4} n^{(2\alpha+2r - 2pr)/4})\epsilon^2)\Pr(\sum_{i>i_0}\frac{Z_i^2}{e^{2p/r}}\leq C_1^p c^{-2p/r}n\epsilon^2),
+ \end{align*}
 $$
 where we write $p+r/2$. The second factor can be bounded from below by
-$$
-\exp(-const(c^{p/r}\epsilon\sqrt{n})^{-r/\alpha}),
+$$ 
+ \exp(-const(c^{p/r}\epsilon\sqrt{n})^{-r/\alpha}),
 $$
 provided $c^{p/r}\epsilon\sqrt{n}$ is small. By the triangle inequality and independence, the first factor is bounded from below by
-$$
-\left(\Pr(|Z_1|\leq i_0^{1/2} C_1^{p/2} c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)\right)^{i_0}.
+$$ 
+ \left(\Pr(|Z_1|\leq i_0^{1/2} C_1^{p/2} c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)\right)^{i_0}.
 $$
 Since $r\geq 1$, we have $c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon = O(c^{-p/r} \epsilon\sqrt{n})$. Hence, for $c^{-p/r}\epsilon\sqrt{n}$ small, the probability is bounded from below by
-$$
-const\times(c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)^{i_0}
+$$ 
+ const\times(c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)^{i_0}
 $$
 Combining the bounds for the two factors, we have
-$$
--\log \Pr(||f||_n^2 \leq 2\epsilon^2|c) \lesssim (\frac{c^{p/r}}{\epsilon\sqrt{n}})^{r/\alpha} + \log (\frac{c^{p/r}}{n^{(\alpha+r-pr)/r}\epsilon})
+$$ 
+ -\log \Pr(||f||_n^2 \leq 2\epsilon^2|c) \lesssim (\frac{c^{p/r}}{\epsilon\sqrt{n}})^{r/\alpha} + \log (\frac{c^{p/r}}{n^{(\alpha+r-pr)/r}\epsilon})
 $$</dd>
 <dt>Lemma 2 (<em>discentering</em>)</dt>
 <dd>Let $f\in H^\beta(Q)$ for $\beta\leq \alpha +r/2$. For $\epsilon$ s.t. $\epsilon\to 0$ and $1/\epsilon = o(n^{\beta/r})$,
-$$
-\inf_{||h-f||<em>n\leq \epsilon} ||h||</em>{\mathbb{H}^c}^2\lesssim nc^{-(2\alpha+r)/r} \epsilon^{-\frac{2(\alpha-\beta) +r}{\beta}}
+$$ 
+ \inf_{||h-f||_n\leq \epsilon} ||h||_{\mathbb{H}^c}^2\lesssim nc^{-(2\alpha+r)/r} \epsilon^{-\frac{2(\alpha-\beta) +r}{\beta}}
 $$</dd>
 <dt>Proof</dt>
 <dd>Use the series expansion of $f = \sum_i h_i \psi_i$. By the assumption (S) we have $\sum_i (1 + n^{2\beta/r}\lambda_i^\beta) h_i^2 \leq Q^2$. Now for $I$ to be determined later, consider $h = \sum_{i\leq I} h_i\psi_i$. By assumption (G), for $I$ large enough
 $$
-||h - f||<em>n^2 = \sum</em>{i&gt;I}h_i^2\leq \frac{Q^2}{1 + n^{2\beta/r}\lambda_I^\beta} \leq Q^2 C_1^{-\beta}I^{-2\beta/r}.
+ ||h - f||_n^2 = \sum_{i>I}h_i^2\leq \frac{Q^2}{1 + n^{2\beta/r}\lambda_I^\beta} \leq Q^2 C_1^{-\beta}I^{-2\beta/r}.
 $$
-Putting $I\propto \epsilon^{-r/\beta}$ we obtain $||h-f||<em>n \leq \epsilon$. Then the RKHS-norm of $h$ satisfies
-$$
+Putting $I\propto \epsilon^{-r/\beta}$ we obtain $||h-f||_n \leq \epsilon$. Then the RKHS-norm of $h$ satisfies
+$$ 
 \begin{align*}
-||h||</em>{\mathbb{H}^c}^2 &amp;= n\sum_{i\leq I}\left((n/c)^{2/r} (\lambda_i + n^{-2}) \right)^{\alpha+r/2} h_i^2 \cr
-&amp;\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\alpha-\beta)/r}\lambda_I^{p-\beta}
+ ||h||_{\mathbb{H}^c}^2 &= n\sum_{i\leq I}\left((n/c)^{2/r} (\lambda_i + n^{-2}) \right)^{\alpha+r/2} h_i^2 \cr
+    &\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\alpha-\beta)/r}\lambda_I^{p-\beta}
 \end{align*}
 $$
 Then by the assumption (G), we obtain the disired result.</dd>
 <dt>Lemma 3 (<em>entropy</em>)</dt>
-<dd>$$
-\log N(\epsilon, \mathbb{H}_{1,c}, ||\cdot||_n) \lesssim c (\frac{1}{\epsilon\sqrt{n}})^{r/(\alpha+r/2)}.
+<dd>$$ 
+ \log N(\epsilon, \mathbb{H}_{1,c}, ||\cdot||_n) \lesssim c (\frac{1}{\epsilon\sqrt{n}})^{r/(\alpha+r/2)}.
 $$</dd>
 <dt>Proof of Theorem 1</dt>
 <dd>Given $c$, the eigenvalues of $\Sigma_c^{-1}$ are given by
 $$
-\mu_i = \left( (\frac{n}{c})^{2/r} (\lambda_i + \frac{1}{n^2})\right)^{\alpha+r/2}.
+ \mu_i = \left( (\frac{n}{c})^{2/r} (\lambda_i + \frac{1}{n^2})\right)^{\alpha+r/2}.
 $$
 For the first assertion. By the fact that
-$$
-\phi_w(\epsilon) \leq -\log \Pr(||W-w||&lt; \epsilon) \leq \phi_w(\epsilon/2)
+$$ 
+ \phi_w(\epsilon) \leq -\log \Pr(||W-w||< \epsilon) \leq \phi_w(\epsilon/2)
 $$
 and the Lemma 1 and Lemma 2, for $\epsilon = \epsilon_n = n^{-\beta/(r+2\beta)}$ and $c = c_n$ s.t.
+$$ 
+ \sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}\leq c_n^{(\alpha+r/2)/r}\leq   2\sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta},
 $$
-\sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}\leq c_n^{(\alpha+r/2)/r}\leq   2\sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta},
+we have $-\log\Pr(||f- f^* ||_n<\epsilon_n|c)\lesssim \epsilon_n^{-r\beta}$. By direct computation, we obtain
+$$ 
+ \Pr(||f-f^*||_n<\epsilon_n) \gtrsim e^{-K_1 \epsilon_n^{-r/\beta}}.
 $$
-we have $-\log\Pr(||f- f^* ||_n&lt;\epsilon_n|c)\lesssim \epsilon_n^{-r\beta}$. By direct computation, we obtain
-$$
-\Pr(||f-f^*||<em>n&lt;\epsilon_n) \gtrsim e^{-K_1 \epsilon_n^{-r/\beta}}.
-$$
-Then we show the left two assertions. Define $B_n = M_n\mathbb{H}</em>{1,c_n} + \epsilon_n\mathbb{B}_1$, where $\mathbb{B}_1$ is the unit ball of $(\mathbb{R}^2,||\cdot||_n)$. For $\epsilon_n = n^{-\beta/(2\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have
-$$
-\log N(2\epsilon_n, B_n, ||\cdot||<em>n) \leq \log N(\epsilon_n, M_n\mathbb{H}</em>{1,c_n}, ||\cdot||_n) \lesssim c_n (\frac{M_n}{\epsilon_n\sqrt{n}})^{r/p}.
+Then we show the left two assertions. Define $B_n = M_n\mathbb{H}_{1,c_n} + \epsilon_n\mathbb{B}_1$, where $\mathbb{B}_1$ is the unit ball of $(\mathbb{R}^2,||\cdot||_n)$. For $\epsilon_n = n^{-\beta/(2\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have
+$$ 
+ \log N(2\epsilon_n, B_n, ||\cdot||_n) \leq \log N(\epsilon_n, M_n\mathbb{H}_{1,c_n}, ||\cdot||_n) \lesssim c_n (\frac{M_n}{\epsilon_n\sqrt{n}})^{r/p}.
 $$
 Choosing $M_n = M\sqrt{n\epsilon_n^2}, c_n^{p/r} = N \sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}$, we obtain the third assertion.
 <p>It remains to show the second assertion.
-$$
-\Pr(f\notin B_n) \leq \int_0^{c_n} \Pr(f\notin B_n|c) e^{-c} dc + \int_{c_n}^\infty e^{-c} dc.
-$$
-For $c\leq c_n$, we have $\mathbb{H}<em>{1,c}\subset \mathbb{H}</em>{1,c_n}$. Hence, by the Borell&rsquo;s&rsquo; inequality, we have for $c\leq c_n$ that
-$$
-\begin{align*}
-\Pr(f\notin B_n|c) &amp;\leq \Pr(f\notin M_n \mathbb{H}_{1,c} +  \epsilon_n \mathbb{B}_1|c) \cr
-&amp;\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c) + M_n)) \cr
-&amp;\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c_n) + M_n))
-\end{align*}
-$$
+</p>
+$$ 
+     \Pr(f\notin B_n) \leq \int_0^{c_n} \Pr(f\notin B_n|c) e^{-c} dc + \int_{c_n}^\infty e^{-c} dc.
+    $$<p>
+For $c\leq c_n$, we have $\mathbb{H}_{1,c}\subset \mathbb{H}_{1,c_n}$. Hence, by the Borell&rsquo;s&rsquo; inequality, we have for $c\leq c_n$ that
+</p>
+$$ 
+     \begin{align*}
+     \Pr(f\notin B_n|c) &\leq \Pr(f\notin M_n \mathbb{H}_{1,c} +  \epsilon_n \mathbb{B}_1|c) \cr
+        &\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c) + M_n)) \cr
+        &\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c_n) + M_n))
+     \end{align*}
+    $$<p>
 By Lemma 1 with $c_n^{p/r} = N\sqrt{n}\epsilon_n^{(\beta-\alpha)-\beta}$, the small ball probability in this expression is bounded from below by $\exp(-K \epsilon_n^{-r/\beta})$. Then with appropriate choice $M_n$, we obtain the desired result.</p>
 </dd>
 </dl>
@@ -294,32 +302,22 @@ By Lemma 1 with $c_n^{p/r} = N\sqrt{n}\epsilon_n^{(\beta-\alpha)-\beta}$, the sm
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

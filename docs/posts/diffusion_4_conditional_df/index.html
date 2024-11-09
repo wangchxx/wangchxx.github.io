@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url" content="https://wangchxx.github.io/posts/diffusion_4_conditional_df/">
+  <meta property="og:site_name" content="My Math Notes">
+  <meta property="og:title" content="DL | Diffusion Models 4 - Conditional Diffusion Models">
+  <meta property="og:description" content="Conditional diffusion models Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$: $$ d X_{t} = fdt &#43; gdW_{t}, \quad X_{0} \sim q_{0} = p_{data}(\cdot|Y). $$ The reverse-time SDE generates $\bar{X}_{0}\sim p_{0}(\cdot|Y)=p_{data}(\cdot|Y)$: $$ d\bar{X}_{t} = (f-g^2 \nabla_{x}\log p_{t}(\bar{X}_{t}|Y))dt &#43; gd\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}(\cdot|Y)\approx \mathcal{N}(0, \sigma^2_{T} I). $$ So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But how to do it?
+Classifier guidance By Bayes’ rule">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-24T00:01:41+02:00">
+    <meta property="article:modified_time" content="2024-10-24T00:01:41+02:00">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/diffusion_1_ddmp/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/">
+      <meta property="og:see_also" content="https://wangchxx.github.io/posts/diffusion_1_ddmp/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DL | Diffusion Models 4 - Conditional Diffusion Models">
+  <meta name="twitter:description" content="Conditional diffusion models Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$: $$ d X_{t} = fdt &#43; gdW_{t}, \quad X_{0} \sim q_{0} = p_{data}(\cdot|Y). $$ The reverse-time SDE generates $\bar{X}_{0}\sim p_{0}(\cdot|Y)=p_{data}(\cdot|Y)$: $$ d\bar{X}_{t} = (f-g^2 \nabla_{x}\log p_{t}(\bar{X}_{t}|Y))dt &#43; gd\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}(\cdot|Y)\approx \mathcal{N}(0, \sigma^2_{T} I). $$ So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But how to do it?
+Classifier guidance By Bayes’ rule">
+
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    My Math Notes - DL | Diffusion Models 4 - Conditional Diffusion Models
+    
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/md.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="/js/main.js"></script>
+</head>
+<script>
+  try {
+    if (!('theme' in localStorage)) {
+      localStorage.theme = window.matchMedia('(prefer-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.querySelector('html').classList.add(localStorage.theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+<body>
+  <header>
+  <h1 class="row gap-1">
+    <div id="theme-switcher" class="btn lg-1"></div>
+    My Math Notes
+  </h1>
+  <nav class="row gap-1">
+  
+    <a href="/">Home</a>
+  
+    <a href="/categories">Categories</a>
+  
+    <a href="/series">Series</a>
+  
+    <a href="/about">About</a>
+  
+  </nav>
+  <hr>
+</header>
+  
+  
+<main>
+	<h1>DL | Diffusion Models 4 - Conditional Diffusion Models</h1>
+	<div class="sm-1 mtb-1">
+		Posted at &mdash; Oct 24, 2024
+		
+	</div>
+	<p></p>
+	<article class="md">
+		<h1 id="conditional-diffusion-models">Conditional diffusion models</h1>
+<p>Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$:
+</p>
+$$
+d X_{t} = fdt + gdW_{t}, \quad X_{0} \sim q_{0} = p_{data}(\cdot|Y).
+$$<p>
+The reverse-time SDE generates $\bar{X}_{0}\sim p_{0}(\cdot|Y)=p_{data}(\cdot|Y)$:
+</p>
+$$
+d\bar{X}_{t} = (f-g^2 \nabla_{x}\log p_{t}(\bar{X}_{t}|Y))dt + gd\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}(\cdot|Y)\approx \mathcal{N}(0, \sigma^2_{T} I).
+$$<p>
+So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But how to do it?</p>
+<h2 id="classifier-guidance">Classifier guidance</h2>
+<p>By Bayes&rsquo; rule
+</p>
+$$
+p_{t}(X_{t}|Y)\propto p_{t}(X_{t}) p(Y|X_{t}); \quad \nabla_{x}\log p_{t}(X_{t}|Y) = \nabla_{x} \log p_{t}(X_{t}) + \nabla_{x}\log p_{t}(Y|X_{t}). 
+$$<p>Thus we can generate conditional data given $Y$ in 3 steps:</p>
+<ol>
+<li>Train a regular score function $s_{\theta}(X_{t}, t)\approx \nabla_{x}\log p_{t}(X_{t})$ by disregarding the label $Y$.</li>
+<li>Train a time-dependent classifier $p_{\phi}(Y|X_{t})\approx p_{t}(Y|X_{t})$ that predicts the label $Y$ given corrupted data $X_{t}$.</li>
+<li>Use the $\color{red}s_{\theta}$ and $\color{blue}p_{\phi}$ to approximate the reverse-time conditional SDE
+$$
+d\bar{X}_{t} = (f - g^2({\color{red}s_{\theta}(X_{t},t)} +{\color{blue} \nabla_{x}p_{\phi}(Y|X_{t})})) dt + g d\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}.
+$$
+To control the strength of the classifier guidance, we can add a weight $w$ to the SDE, and experimentally, it helps to scale the classifier gradients by $w>1$.
+$$
+d\bar{X}_{t} = (f - g^2({\color{red}s_{\theta}(X_{t},t)} + w{\color{blue} \nabla_{x}p_{\phi}(Y|X_{t})})) dt + g d\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}.
+$$</li>
+</ol>
+<p><img src="classifier_guidance_algorithm.png" alt="">
+<a href="http://arxiv.org/abs/2105.05233">(Dhariwal and Nichol, 2021)</a></p>
+<h2 id="classifier-free-guidance">Classifier-free guidance</h2>
+<p>The problem with classifier guidance is that we must train a separate classifier. Classifier-free guidance relies on
+</p>
+$$
+p(y|x)\propto \frac{p(x|y)}{p(x)}
+$$<p>
+to get
+</p>
+$$
+\begin{aligned}
+d\bar{X}_{t} &= (f - g^2( \nabla_{x}\log p_{t}(X_{t}) + w\nabla_{x}\log p_{t}(Y|X_{t}) )) dt + g d\bar{W}_{t} \\ 
+    &= \left(f - g^2\left( \nabla_{x}\log p_{t}(X_{t}) + w(\nabla_{x}\log p_{t}(X_{t}|Y) - \nabla_{x}\log p_{t}(X_{t}) ) \right) \right) dt + g d\bar{W}_{t} \\ 
+    &= \left(f - g^2\left( (1-w) \nabla_{x}\log p_{t}(X_{t}) + w\nabla_{x}\log p_{t}(X_{t}|Y)  \right) \right)  dt + g d\bar{W}_{t} \quad \bar{X}_{T}\sim p_{T}.\\ 
+\end{aligned} 
+$$<p>
+Instead of a separate classifier, we train one score network to represent both the unconditional score score $\nabla_{x}\log p_{t}(X_{t}) = s_{\theta}(\bar{X}_{t},t,\emptyset)$ and conditional score $\nabla_{x}\log p_{t}(X_{t}|Y) = s_{\theta}(\bar{X}_{t},t,Y)$.</p>
+<h2 id="inpainting">Inpainting</h2>
+<p>Let $X_{0}\in \mathbb{R}^{C\times W\times H}$ be the true image and $\Omega:\mathbb{R}^{C\times W\times H} \mapsto \mathbb{R}^K, K\leq CWH$, which subsamples pixel/channel. Our observed data is $Y = \Omega(X_{0})$. In image inpainting, we reconstruct $Y^C$  based on $\Omega(X_{0})$. Let $X_{t}^\Omega = \Omega(X_{t})$ and $X_{t}^C = \Omega^C(X_{t})$. Assume $f$ and $g$ are defined elementwise.
+</p>
+$$
+dX_{t} = f(X_{t}, t)dt + g(t)dW_{t}, \quad X_{0}\sim p_{0}
+$$<p>
+can be decomposed into
+</p>
+$$
+(dX_{t})_{i} = f_{i}((X_{t})_{i}, t) dt + g_{i}(t)(dW_{t})_{i}, \quad \forall i.
+$$<p>
+Then the forwrad-time corruption is independent across pixels and channels.
+</p>
+$$
+d X_{t}^C = f^C(X_{t}^C, t) dt + g^C(t) dW_{t}^C, \quad X_{0}^C = \Omega^C(X_{0}),
+$$<p>
+where $f^C(\cdot) = \Omega^C(f(\cdot))$, $g^C(\cdot) = \Omega^C(g(\cdot))$ and $W_{t}^C = \Omega^C(W_{t})$.</p>
+<p>However, the reverse-time generation is not independent across pixels and channels, because the score function $\nabla_{x}\log p_{t}(X_{t})$ does not split elementwise. So we cannot apply the sampling process of diffusion process directly to unobserved data $X_{T}^C \to X_{0}^C$.</p>
+<p>We have
+</p>
+$$
+\begin{aligned}
+p_{t}(X_{t}^C|X_{0}^\Omega) &= \int p_{t}(X_{t}^C| X_{t}^\Omega, X_{0}^\Omega) p_{t}(X_{t}^\Omega|X_{0}^\Omega) dX_{t}^\Omega \\
+    &= \mathbb{E}_{X_{t}^\Omega \sim p_{t}(X_{t}^\Omega|X_{0}^\Omega)} [p_{t}(X_{t}^C|X_{t}^\Omega, X_{0}^\Omega)] \\ 
+    &\approx \mathbb{E}_{X_{t}^\Omega \sim p_{t}(X_{t}^\Omega|X_{0}^\Omega)} [p_{t}(X_{t}^C|X_{t}^\Omega)] \\ 
+    &\approx p_{t}(X_{t}^C| \hat{X}_{t}^\Omega),
+\end{aligned}
+$$<p>
+where $\hat{X}_{t}^\Omega$ is a forward noise sample given $X_{0}^\Omega$.</p>
+<ul>
+<li>The first approximation is based on argument that $X_{0}^\Omega$ does not additional provide much information about $X_{t}^C$ given $X_{t}^\Omega$. For small $t$, $X_{t}^\Omega \approx X_{0}^\Omega$ so the approximation holds. For large $t$, $X_{0}^\Omega$ becomes further away from $X_{t}^C$ in the Markov process, and thus have smaller impact on $X_{t}^C$.</li>
+<li>The second approximation is a single-sample estimate of the expected value.</li>
+</ul>
+<p>Finally, we perform the SDE sampling via
+</p>
+$$
+\begin{aligned}
+\nabla_{x^C} \log p_{t}(X_{t}^C|X_{0}^\Omega) &\approx \nabla_{x^C}\log p_{t}(X_{t}^C|\hat{X}_{t}^\Omega) \\
+    &= \nabla_{x^C}\log p_{t}([X_{t}^C;\hat{X}_{t}^\Omega]) \\
+    &\approx \Omega^C(s_{\theta}([X_{t}^C;\hat{X}_{t}^\Omega], t))
+\end{aligned}
+$$<h2 id="dall-e-2">DALL-E 2</h2>
+<p><img src="dalle2_graph.png" alt=""><a href="http://arxiv.org/abs/2204.06125">DALL-E 2</a></p>
+<p>The DALL-E 2 model consists of 4 neural networks:</p>
+<ul>
+<li>Image encoder $f_{\theta}$: the image encoder of a CLIP model, $Z_{img} = f_{\theta}(X)$.</li>
+<li>Text encoder $g_{\phi}$: the text encoder of a CLIP model, $Z_{text} = g_{\phi}(C)$.</li>
+<li>Image decoder $h_{\psi}$: generate samples from image embedding and text embedding (optional), $X = h_{\psi}(Z_{img}, Z_{text})$. It can be a diffusion model or any image decoder.</li>
+<li>Prior $p_{\omega}$: generate image embeddings given text embeddings, $Z_{img} = p_{\omega}(Z_{text})$. It can be a diffusion model or a autoregressive model.</li>
+</ul>
+<h2 id="latent-diffusion-model-ldm">Latent diffusion model (LDM)</h2>
+<p><img src="ldm_graph.png" alt="">
+<a href="https://arxiv.org/abs/2112.10752v2">(Rombach et al., 2021)</a></p>
+<p>Standard diffusion model directly operates on image, which is very high-dimensional. LDM loosely decomposes the perceptual compression and semantic compression with generative modeling learning by first trimming off pixel-level redundancy with autoencoder and then generating semantic concepts with diffusion process on learned latent.</p>
+<ul>
+<li>Encoder $q_{\phi}(Z_{0}|X)$ compress image $X$ to latent expression $Z_{0}$.</li>
+<li>Decoder $p_{\psi}(X|Z_{0})$generates images from latent expression $Z_{0}$.</li>
+<li>Diffusion model that corrupts $Z_{0}\to Z_{T}$ and sample $Z_{T}\to Z_{0}$ with prior $p_{\theta}(Z_{T}) = \mathcal{N}(0, I)$.</li>
+</ul>
+<p>The VLB can be decomposed into three terms
+</p>
+$$
+\begin{aligned}
+\text{VLB}_{\phi,\psi, \theta}(X) &= \mathbb{E}_{Z_{0}\sim q_{\phi}(\cdot|X)} [-\log p_{\psi}(X|Z_{0})] + D_{KL}(q_{\phi}(\cdot|X)\|p_{\theta}(\cdot)) \\ 
+    &= \mathbb{E}_{Z_{0}\sim q_{\phi}(\cdot|X)} [-\log p_{\psi}(X|Z_{0})]  + \mathbb{E}_{Z_{0}\sim q_{\phi}(\cdot|X)} [\log q_{\phi}(Z_{0}|X)] + \mathbb{E}_{Z_{0}\sim q_{\phi}(\cdot|X)} [-\log p_{\theta}(Z_{0})]  
+\end{aligned}
+$$<p>
+The first term is the reconstruction term, the second one is the negative encoder entropy and the third one is cross-entropy. Under the standard VAE setup, $q_{\phi}(\cdot|X)$ and $p_{\psi}(\cdot|Z_{0})$ are Gaussian. So sampling $Z_{0}\sim q_{\phi}(\cdot|X)$ and forming the first two with the reparameterization trick and backprop is straightforward.</p>
+<p>For the third one, we can deal with the cross-entropy via score matching.
+</p>
+$$
+\text{CE}(q_{\phi}(\cdot|X)\|p_{\theta}(\cdot)) = \mathbb{E}_{t\sim U[0,1]}\left[ \frac{w(t)}{2} \mathbb{E}_{Z_{0}\sim q_{\phi}, \epsilon\sim\mathcal{N}(0,I), Z_{t} = \mu_{t}(Z_{0}) + \sigma_{t}\epsilon } \right][\|\epsilon - \epsilon_{\theta}(Z_{t}, t)\|^2] + \frac{dZ}{2}\log (2\pi e \sigma_{0}),
+$$<p>
+where $\mu_{t}(Z_{0})$ is the mean of $Z_{t}$ conditioned on $Z_{0}$ under the SDE $dZ_{t} = f(t)Z_{t}dt + g(t)dW_{t}$.</p>
+<h3 id="application-unconditional-image-generation">Application: unconditional image generation</h3>
+<p>Training:</p>
+<ul>
+<li>Encoder $\mathcal{E}$: compress the original image $x$ to the latent features $z$.</li>
+<li>Prior $p_{\theta}$: can generate latent features $z$, e.g. diffusion model or transformer.</li>
+<li>Decoder $\mathcal{D}$: generate images $\hat{x}$ from latent features $z$.</li>
+</ul>
+<p>Sampling:</p>
+<ul>
+<li>Sampling latent features $z$ from the prior model $p_{\theta}$.</li>
+<li>Generating samples through decoder $\mathcal{D}$.</li>
+</ul>
+<h3 id="application-conditional-image-generation">Application: conditional image generation</h3>
+<p>Let the prior model $p_{\theta}$ can take the conditional input $c$ by adding $z+c$ or concate $[z;c]$.</p>
+<h3 id="application-super-resolution">Application: super resolution</h3>
+<p>Let $x_{\text{high}}$ be the high-resolution image, and $x_{\text{low}}$ be the low-resolution image. To generate high-resolution images given low-resolution ones, we let the prior model $p_{\theta}$ takes the low-resolution latent features $z_{\text{low}}$ and images $z_{\text{low}}$ as  the input and generate $z_{\text{high}}$. Then we can generate high-resolution images though the decoder given $z_{\text{high}}$.</p>
+<p>Training:</p>
+<ul>
+<li>Encoder: generate $z_{\text{high}}$ from $x_{\text{high}}$. Then degrade $x_{\text{high}}$ to $x_{\text{low}}$, and get $z_{\text{low}}$.</li>
+<li>Prior: let the prior model to learn $z_{\text{high}}$ given $z_{\text{low}}$ and $x_{\text{low}}$.</li>
+<li>Decoder: generate $x_{\text{high}}$ with $z_{\text{high}}$.</li>
+</ul>
+
+	</article>
+</main>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+	
+
+	
+
+	
+
+
+
+  <footer class="row row-mob al-c-mob col-rev-mob sm-2-mob  jc-bt mtb-2">
+  <p>
+    © Copyright notice |
+    <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a> theme on
+    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>
+  </p>
+  <p class="row gap-0_5">
+    
+      <a class="icon" href="https://github.com/wangchxx" title="github">
+      
+        <svg fill="#63636f" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      
+      </a>
+    
+  </p>
+</footer>
+</body>
+</html>

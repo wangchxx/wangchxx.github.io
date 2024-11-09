@@ -95,7 +95,7 @@ Definition 2 (Supremum and infimum) Let $\eta$ be an upper bound of $S$. If for 
 <p>We say that $S$ is bounded if its upper bounds and lower bounds exist.</p>
 <dl>
 <dt>Definition 2 (Supremum and infimum)</dt>
-<dd>Let $\eta$ be an upper bound of $S$. If for any $\alpha&lt;\eta$ there exists $x_0\in S$ s.t. $x_0&gt;\alpha$, then $\eta$ is called the <em>supremum</em> of $S$, denoted by $\eta = \sup S$. Similarly, $\eta$ is the <em>infimum</em> of $S$, denoted by $\eta = \inf S$, if for any $\alpha&gt;\eta$, there exits $x_0\in S$ s.t. $x_0&lt;\alpha$.</dd>
+<dd>Let $\eta$ be an upper bound of $S$. If for any $\alpha<\eta$ there exists $x_0\in S$ s.t. $x_0>\alpha$, then $\eta$ is called the <em>supremum</em> of $S$, denoted by $\eta = \sup S$. Similarly, $\eta$ is the <em>infimum</em> of $S$, denoted by $\eta = \inf S$, if for any $\alpha>\eta$, there exits $x_0\in S$ s.t. $x_0<\alpha$.</dd>
 <dt>Theorem 3 (Existence)</dt>
 <dd>If $S$ has an upper bound, then $\sup S$ exists. If $S$ has an lower bound, then $\inf S$ exists.</dd>
 <dt>Corollary 4</dt>
@@ -106,11 +106,11 @@ The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the in
 <h2 id="2-functions">2. Functions</h2>
 <dl>
 <dt>Definition 5 (Functions)</dt>
-<dd>A mapping $f: D\to M$ is a <em>function</em> if for every $x\in D$, there exists a unique $y\in M$ s.t. $f(x) = y$. $D$ is called the <em>domain</em> of $f$, $M$ is called the <em>codomain</em> of $f$, and $f(D):={f(x): x\in D}$ is the <em>range</em> of $f$.</dd>
+<dd>A mapping $f: D\to M$ is a <em>function</em> if for every $x\in D$, there exists a unique $y\in M$ s.t. $f(x) = y$. $D$ is called the <em>domain</em> of $f$, $M$ is called the <em>codomain</em> of $f$, and $f(D):=\{f(x): x\in D\}$ is the <em>range</em> of $f$.</dd>
 <dt>Definition 6 (Inverse functions)</dt>
 <dd>Given a function $f: D\to M$, if for any $y\in f(D)$ there is a unique $x\in D$ s.t. $f(x) = y$, then we can define a function
-$$
-f^{-1}: f(D)\to D,
+$$ 
+ f^{-1}: f(D)\to D,
 $$
 which is called the <em>inverse function</em> of $f$.</dd>
 </dl>
@@ -131,7 +131,7 @@ which is called the <em>inverse function</em> of $f$.</dd>
 <dt>Definition 8 (Bounded functions)</dt>
 <dd>A function $f: D\to M$ is <em>bounded</em> if there exists a constant $M$ s.t. $f(x)\leq M$ for every $x\in D$.</dd>
 <dt>Definition 9 (Monotonicity)</dt>
-<dd>$f$ is an <em>increasing function</em> if $f(x_1)\leq f(x_2)$ for every $x_1&lt; x_2$, and is <em>strictly increasing</em> if $f(x_1)&lt;f(x_2)$.</dd>
+<dd>$f$ is an <em>increasing function</em> if $f(x_1)\leq f(x_2)$ for every $x_1< x_2$, and is <em>strictly increasing</em> if $f(x_1)<f(x_2)$.</dd>
 <dt>Theorem 10</dt>
 <dd>If $f:D\to M$ is a strictly increasing function, then $f^{-1}$ exists. Moreover, $f^{-1}$ is also strictly increasing on $f(D)$.</dd>
 </dl>
@@ -139,32 +139,22 @@ which is called the <em>inverse function</em> of $f$.</dd>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

@@ -6,7 +6,7 @@
   <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Mathematical Analysis | 13 Fourier Series">
-  <meta property="og:description" content="1. Fourier Series Definition 1 (Trigonometric polynomial) A Trigonometric polynomial is a finite sum of the form $$ f(x) = a_0 &#43; \sum_{n=1}^N (a_n \cos nx &#43; b_n \sin nx), $$ where $a_i,b_i$ are complex numbers. It can be written in the form $$ \begin{equation} f(x) = \sum_{n=-N}^N c_n e^{inx}, \end{equation} $$ which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that $$ \frac{1}{2\pi}\int_{-\pi}^\pi e^{inx} dx = 1_{n=0}, $$ so we have $$ \begin{equation} c_m = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{-imx} dx \end{equation} $$ for $|m|\leq N$.">
+  <meta property="og:description" content="1. Fourier Series Definition 1 (Trigonometric polynomial) A Trigonometric polynomial is a finite sum of the form $$ f(x) = a_0 &#43; \sum_{n=1}^N (a_n \cos nx &#43; b_n \sin nx),$$ where $a_i,b_i$ are complex numbers. It can be written in the form $$ \begin{equation}f(x) = \sum_{n=-N}^N c_n e^{inx},\end{equation}$$ which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,7 +23,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Mathematical Analysis | 13 Fourier Series">
-  <meta name="twitter:description" content="1. Fourier Series Definition 1 (Trigonometric polynomial) A Trigonometric polynomial is a finite sum of the form $$ f(x) = a_0 &#43; \sum_{n=1}^N (a_n \cos nx &#43; b_n \sin nx), $$ where $a_i,b_i$ are complex numbers. It can be written in the form $$ \begin{equation} f(x) = \sum_{n=-N}^N c_n e^{inx}, \end{equation} $$ which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that $$ \frac{1}{2\pi}\int_{-\pi}^\pi e^{inx} dx = 1_{n=0}, $$ so we have $$ \begin{equation} c_m = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{-imx} dx \end{equation} $$ for $|m|\leq N$.">
+  <meta name="twitter:description" content="1. Fourier Series Definition 1 (Trigonometric polynomial) A Trigonometric polynomial is a finite sum of the form $$ f(x) = a_0 &#43; \sum_{n=1}^N (a_n \cos nx &#43; b_n \sin nx),$$ where $a_i,b_i$ are complex numbers. It can be written in the form $$ \begin{equation}f(x) = \sum_{n=-N}^N c_n e^{inx},\end{equation}$$ which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -88,34 +88,37 @@
 <dl>
 <dt>Definition 1 (<strong>Trigonometric polynomial</strong>)</dt>
 <dd>A <code>Trigonometric polynomial</code> is a finite sum of the form
-$$
-f(x) = a_0 + \sum_{n=1}^N (a_n \cos nx  + b_n \sin nx),
+$$ 
+ f(x) = a_0 + \sum_{n=1}^N (a_n \cos nx  + b_n \sin nx),
 $$
 where $a_i,b_i$ are complex numbers.</dd>
 </dl>
 <p>It can be written in the form
-$$
+</p>
+$$ 
 \begin{equation}
 f(x) = \sum_{n=-N}^N c_n e^{inx},
 \end{equation}
-$$
+$$<p>
 which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that
-$$
-\frac{1}{2\pi}\int_{-\pi}^\pi e^{inx} dx =  1_{n=0},
-$$
+</p>
+$$ 
+ \frac{1}{2\pi}\int_{-\pi}^\pi e^{inx} dx =  1_{n=0},
+$$<p>
 so we have
-$$
+</p>
+$$ 
 \begin{equation}
 c_m =   \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{-imx} dx
 \end{equation}
-$$
+$$<p>
 for $|m|\leq N$.</p>
 <dl>
 <dt>Definition 2 (<strong>Fourier series</strong>)</dt>
 <dd>In agreement with (1), we define a <code>trigonometric series</code> to be a series of the form
-$$
+$$ 
 \begin{equation}
-\sum_{n=-\infty}^\infty c_n e^{inx}.
+   \sum_{n=-\infty}^\infty c_n e^{inx}.
 \end{equation}
 $$</dd>
 </dl>
@@ -123,164 +126,164 @@ $$</dd>
 <p>A natural question is whether the Fourier series of $f$ converges to $f$.</p>
 <dl>
 <dt>Definition 3 (<strong>Orthogonal system of functions</strong>)</dt>
-<dd>Let ${\phi_n}$ be a sequence of complex functions on $[a,b]$, s.t.
+<dd>Let $\{\phi_n\}$ be a sequence of complex functions on $[a,b]$, s.t.
+$$ 
+ \int_a^b \phi_n(x) \bar{\phi}_m(x) dx = 0,\; (n\neq m) .
 $$
-\int_a^b \phi_n(x) \bar{\phi}_m(x) dx = 0,; (n\neq m) .
+Then $\{\phi_n\}$ is said to be an <code>orthogonal system of functions</code> on $[a,b]$. In particular, if
+$$ 
+   \int_a^b |\phi_n(x)|^2  dx = 1
 $$
-Then ${\phi_n}$ is said to be an <code>orthogonal system of functions</code> on $[a,b]$. In particular, if
-$$
-\int_a^b |\phi_n(x)|^2  dx = 1
-$$
-for all $n$, then  ${\phi_n}$ is said to be <code>orthonormal</code>.</dd>
+for all $n$, then  $\{\phi_n\}$ is said to be <code>orthonormal</code>.</dd>
 </dl>
-<p>Let $\{\phi_n\}$ be orthonormal on $[a,b]$. If $c_n = \int_a^b f(x) \bar{\phi}_n(x) dx$ for all $n$, we call $c_n$ the n-th Fourier coefficient of
-$f$ relative to $\{\phi_n\}$. Write $f(x) \sim \sum_{n=1}^\infty c_n \phi_n(x)$ and call this series the Fourier series of $f$ relative to $\{\phi_n\}$.</p>
+<p>Let $\\{\phi_n\\}$ be orthonormal on $[a,b]$. If $c_n = \int_a^b f(x) \bar{\phi}_n(x) dx$ for all $n$, we call $c_n$ the n-th Fourier coefficient of
+$f$ relative to $\\{\phi_n\\}$. Write $f(x) \sim \sum_{n=1}^\infty c_n \phi_n(x)$ and call this series the Fourier series of $f$ relative to $\\{\phi_n\\}$.</p>
 <dl>
 <dt>Theorem 4</dt>
-<dd>Let ${\phi_n}$ be orthonormal on $[a,b]$. Let
-$$
-s_n(x) = \sum_{m=1}^n c_m \phi_m(x)
+<dd>Let $\{\phi_n\}$ be orthonormal on $[a,b]$. Let
+$$ 
+ s_n(x) = \sum_{m=1}^n c_m \phi_m(x)
 $$
 be the n-th partial sum of the Fourier series of $f$, and define
-$$
-t_n (x) = \sum_{m=1}^n \gamma_m \phi_m(x) .
+$$ 
+    t_n (x) = \sum_{m=1}^n \gamma_m \phi_m(x) .
 $$
 Then
+$$ 
+ \int_a^b |f - s_n|^2 dx \leq   \int_a^b |f - t_n|^2 dx,
 $$
-\int_a^b |f - s_n|^2 dx \leq   \int_a^b |f - t_n|^2 dx,
-$$
-and the equality holds iff $c_m = \gamma_m$, $m=1,&hellip;,n$.</dd>
+and the equality holds iff $c_m = \gamma_m$, $m=1,...,n$.</dd>
 <dt>proof</dt>
 <dd>Omit scripts $a,b,n$, we write $\int,\sum$. Then
-$$
-\int f \bar{t}_n = \int f \sum \bar{\gamma}_m \bar{\phi}_m = \sum \bar{\gamma}_m c_m
+$$ 
+ \int f \bar{t}_n = \int f \sum \bar{\gamma}_m \bar{\phi}_m = \sum \bar{\gamma}_m c_m
 $$
 by the definition of $c_m$. And
+$$ 
+ \int |t_n|^2 = \sum |\gamma_m|^2
 $$
-\int |t_n|^2 = \sum |\gamma_m|^2
-$$
-since ${\phi_n}$ is orthonormal, and so</dd>
+since $\{\phi_n\}$ is orthonormal, and so</dd>
 </dl>
-<p>$$
-\begin{align*}
-\int |f-t_n|^2 &amp;= \int |f|^2 - \int f \bar{t}_n - \int \bar{f}t_n + \int |t_n|^2 \cr
-&amp;= \int |f|^2 - \sum \bar{\gamma}_m c_m - \sum {\gamma}_m  \bar{c}_m + \sum |\gamma_m|^2 \cr
-&amp;=\int |f|^2 + \sum |\gamma_m - c_m|^2 - \sum |c_m|^2.
-\end{align*}
 $$
+\begin{align*}
+   \int |f-t_n|^2 &= \int |f|^2 - \int f \bar{t}_n - \int \bar{f}t_n + \int |t_n|^2 \cr
+        &= \int |f|^2 - \sum \bar{\gamma}_m c_m - \sum {\gamma}_m  \bar{c}_m + \sum |\gamma_m|^2 \cr
+        &=\int |f|^2 + \sum |\gamma_m - c_m|^2 - \sum |c_m|^2.
+\end{align*}
+$$<p>
 which is minimized by $\gamma_m = c_m$.</p>
 <p>$\Box$</p>
 <p>This theorem says that among all functions $t_n$, $s_n$ gives the best mean-square approximation to $f$.</p>
 <dl>
 <dt>Theorem 5</dt>
-<dd>Let ${\phi_n}$ be orthonormal on $[a,b]$. If $f(x)\sim \sum_{n=1}^\infty c_n \phi_n(x)$, then
-$$
-\sum_{n=1}^\infty |c_n|^2 \leq \int_a^b |f(x)|^2 dx.
+<dd>Let $\{\phi_n\}$ be orthonormal on $[a,b]$. If $f(x)\sim \sum_{n=1}^\infty c_n \phi_n(x)$, then
+$$ 
+   \sum_{n=1}^\infty |c_n|^2 \leq \int_a^b |f(x)|^2 dx.
 $$
 In particular, $\lim_{n\to\infty} c_n = 0$.</dd>
 <dt>proof</dt>
 <dd>Given $n$, we have
-$$
-\int |s_n|^2 =    \sum_{m=1}^n |c_m|^2 \leq \int |f|^2.
+$$ 
+ \int |s_n|^2 =    \sum_{m=1}^n |c_m|^2 \leq \int |f|^2.
 $$
 We draw the conclusion by letting $n\to\infty$.
 $\Box$</dd>
 </dl>
 <h2 id="2-convergence">2. Convergence</h2>
 <p>From now on we shall deal only with the trigonometric system. We shall consider functions $f$ that have period $2\pi$ and that are Riemann-integrable on $[-\pi,\pi]$. We define the N-th partial sum of the Fourier series of $f$ by
-$$
-S_N(x) = S_N(f;x) = \sum_{n=-N}^N c_n e^{inx}.
-$$</p>
-<dl>
+</p>
+$$ 
+ S_N(x) = S_N(f;x) = \sum_{n=-N}^N c_n e^{inx}.
+$$<dl>
 <dt>Definition 6 (<strong>Dirichlet kernel</strong>)</dt>
 <dd>The <code>Dirichlet kernel</code> is defined by
-$$
+$$ 
 \begin{equation}
-D_N(x) :=   \sum_{n=-N}^N  e^{inx} = \frac{\sin(N+1/2)x}{\sin(x/2)}.
+ D_N(x) :=   \sum_{n=-N}^N  e^{inx} = \frac{\sin(N+1/2)x}{\sin(x/2)}.
 \end{equation}
 $$
 The second equality follows from the fact
-$$
-(e^{ix} - 1) D_N(x) = e^{i(N+1)x} - e^{-iNx},
+$$ 
+   (e^{ix} - 1) D_N(x) = e^{i(N+1)x} - e^{-iNx},
 $$
 and multiply $e^{-ix/2}$ on both sides.</dd>
 </dl>
 <p>Now we can rewrite $S_N(f;x)$ as
-$$
-\begin{align*}
-S_N(f;x) &amp;= \sum_{n=-N}^N \frac{1}{2\pi} \int f(t)e^{-int} dt; e^{inx} \cr
-&amp;= \frac{1}{2\pi}  \int f(t) \sum_{n=-N}^N   e^{in(x-t)} dt \cr
-&amp;= \frac{1}{2\pi}  \int f(t) D_N(x-t) dt \cr
-&amp;= \frac{1}{2\pi}  \int f(x-t) D_N(t) dt.
-\end{align*}
-$$</p>
-<dl>
+</p>
+$$ 
+ \begin{align*}
+    S_N(f;x) &= \sum_{n=-N}^N \frac{1}{2\pi} \int f(t)e^{-int} dt\; e^{inx} \cr
+        &= \frac{1}{2\pi}  \int f(t) \sum_{n=-N}^N   e^{in(x-t)} dt \cr
+        &= \frac{1}{2\pi}  \int f(t) D_N(x-t) dt \cr
+        &= \frac{1}{2\pi}  \int f(x-t) D_N(t) dt.
+ \end{align*} 
+$$<dl>
 <dt>Theorem 7 (<strong>Convergence</strong>)</dt>
-<dd>If, for some $x$, there are constants $\delta&gt;0$ and $M&lt;\infty$ s.t.
+<dd>If, for some $x$, there are constants $\delta>0$ and $M<\infty$ s.t.
+$$ 
+ |f(x+t) - f(x)|\leq M|t|
 $$
-|f(x+t) - f(x)|\leq M|t|
-$$
-for all $|t|&lt;\delta$, then
-$$
-S_N(f;x)\to f(x) \text{ as } N\to\infty.
+for all $|t|<\delta$, then
+$$ 
+ S_N(f;x)\to f(x) \text{ as } N\to\infty.
 $$</dd>
 <dt>proof</dt>
 <dd>Define
+$$ 
+ g(t) = \frac{f(x-t) - f(x)}{\sin(t/2)}
 $$
-g(t) = \frac{f(x-t) - f(x)}{\sin(t/2)}
-$$
-for $0&lt;|t|\leq \pi$, and let $g(0) = 0$. We have</dd>
+for $0<|t|\leq \pi$, and let $g(0) = 0$. We have</dd>
 </dl>
-<p>$$
-\begin{align*}
-S_N(f;x) - f(x) &amp;= \frac{1}{2\pi}  \int (f(x-t) - f(x)) D_N(t) ;dt \cr
-&amp;=\frac{1}{2\pi}  \int g(t) \sin(N+1/2)t ;dt \cr
-&amp;=\frac{1}{2\pi}  \int g(t) \cos(t/2)\sin(Nt) ;dt + \frac{1}{2\pi}  \int g(t) \sin(t/2)\cos(Nt) ;dt
-\end{align*}
-$$
+$$ 
+ \begin{align*}
+    S_N(f;x) - f(x) &= \frac{1}{2\pi}  \int (f(x-t) - f(x)) D_N(t) \;dt \cr
+        &=\frac{1}{2\pi}  \int g(t) \sin(N+1/2)t \;dt \cr
+        &=\frac{1}{2\pi}  \int g(t) \cos(t/2)\sin(Nt) \;dt + \frac{1}{2\pi}  \int g(t) \sin(t/2)\cos(Nt) \;dt
+ \end{align*}
+$$<p>
 By assumption, $g(t) \cos(t/2),g(t) \sin(t/2)$ are bounded. By Theorem 13.5, the last two integrals tend to 0 as $N\to\infty$.
 $\Box$</p>
 <dl>
 <dt>Theorem 8</dt>
-<dd>If $f$ is continuous (with period $2\pi$), then given $\epsilon&gt;0$ there exists a trigonometric polynomial $P$ s.t.
-$$
-|P(x) - f(x)|&lt; \epsilon,;\forall x.
+<dd>If $f$ is continuous (with period $2\pi$), then given $\epsilon>0$ there exists a trigonometric polynomial $P$ s.t.
+$$ 
+ |P(x) - f(x)|< \epsilon,\;\forall x.
 $$</dd>
 <dt>proof</dt>
 <dd>$f$ can be regarded as a function on the unit circle $T$, by means of mapping $x\mapsto e^{ix}$. Notice that the trigonometric polynomials form a self-adjoint algebra $\mathcal{A}$, which seperates points on $T$, and vanishes at no point of $T$. For $T$ a unit circle. Since $T$ is compact, we have that $\mathcal{A}$ is dense in $C(T)$.</dd>
 <dt>Theorem 9 (<strong>Parseval&rsquo;s theorem</strong>)</dt>
 <dd>Suppose $f$ and $g$ are Riemann-integrable functions with period $2\pi$, and
-$$
-f(x)\sim \sum_{-\infty}^\infty c_n e^{inx},\quad g(x)  \sim \sum_{-\infty}^\infty \gamma_n e^{inx}.
+$$ 
+ f(x)\sim \sum_{-\infty}^\infty c_n e^{inx},\quad g(x)  \sim \sum_{-\infty}^\infty \gamma_n e^{inx}.
 $$
 Then
-$$
-\begin{align}
-\lim_{N\to\infty} \frac{1}{2}\int_{-\pi}^\pi |f(x) - S_N(f;x)|^2 dx &amp;= 0 ,\cr
-\frac{1}{2}\int_{-\pi}^\pi f(x)\bar{g}(x) dx &amp;= \sum_{-\infty}^\infty c_n \bar{\gamma}<em>n, \cr
-\frac{1}{2}\int</em>{-\pi}^\pi |f(x)|^2 dx &amp;= \sum_{-\infty}^\infty |c_n|^2.\cr
-\end{align}
+$$ 
+ \begin{align}
+ \lim_{N\to\infty} \frac{1}{2}\int_{-\pi}^\pi |f(x) - S_N(f;x)|^2 dx &= 0 ,\cr
+ \frac{1}{2}\int_{-\pi}^\pi f(x)\bar{g}(x) dx &= \sum_{-\infty}^\infty c_n \bar{\gamma}_n, \cr
+ \frac{1}{2}\int_{-\pi}^\pi |f(x)|^2 dx &= \sum_{-\infty}^\infty |c_n|^2.\cr
+ \end{align}
 $$</dd>
 <dt>proof</dt>
 <dd>Define the norm
 $$
-||h||_2 = \left( \frac{1}{2\pi}\int_{-\pi}^\pi |h(x)|^2 dx \right)^{1/2}.
+ ||h||_2 = \left( \frac{1}{2\pi}\int_{-\pi}^\pi |h(x)|^2 dx \right)^{1/2}.
 $$
 We can choose a continuous $2\pi$-periodic function $h$ s.t.
 $$
-|| f-h||_2 &lt; \epsilon.
+ || f-h||_2 < \epsilon.
 $$
-By Theorem 13.8, there is a trigonometric polynomial $P$ s.t. $|P(x) - h(x)|&lt;\epsilon$ for all $x$. Hence $||P - h ||_2&lt;\epsilon$. Suppose that $P$ has degree $N_0$, Theorem 13.4 shows that
+By Theorem 13.8, there is a trigonometric polynomial $P$ s.t. $|P(x) - h(x)|<\epsilon$ for all $x$. Hence $||P - h ||_2<\epsilon$. Suppose that $P$ has degree $N_0$, Theorem 13.4 shows that
 $$
-||h - S_N(h) ||_2\leq ||h - P ||  &lt;\epsilon
+ ||h - S_N(h) ||_2\leq ||h - P ||  <\epsilon
 $$
 for all $N\geq N_0$. With $h-f$ in place of $f$,
-$$
-||s_N(h) - s_N(f) ||_2 = || s_N(h-f)||_2\leq || h-f||_2&lt;\epsilon.
+$$ 
+ ||s_N(h) - s_N(f) ||_2 = || s_N(h-f)||_2\leq || h-f||_2<\epsilon.
 $$
 By the triangle inequality,
-$$
-||f-s_N(f) ||_2&lt; 3\epsilon,; (N\geq N_0).
+$$ 
+ ||f-s_N(f) ||_2< 3\epsilon,\; (N\geq N_0).
 $$</dd>
 </dl>
 <h2 id="complements">Complements</h2>
@@ -298,32 +301,22 @@ $$</dd>
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

@@ -6,7 +6,7 @@
   <meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_10/">
   <meta property="og:site_name" content="My Math Notes">
   <meta property="og:title" content="Mathematical Analysis | 10 Numerical Series">
-  <meta property="og:description" content="1. Convergence Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon $$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
+  <meta property="og:description" content="1. Convergence Definition 1 (Series) Given a sequence $\{a_n\}$, we define a sequence $\{s_n\}$ by $$ s_n = \sum_{i=1}^n a_i.$$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence $\{s_n\}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If $\{s_n\}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon$$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,7 +23,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Mathematical Analysis | 10 Numerical Series">
-  <meta name="twitter:description" content="1. Convergence Definition 1 (Series) Given a sequence ${a_n}$, we define a sequence ${s_n}$ by $$ s_n = \sum_{i=1}^n a_i. $$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon $$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
+  <meta name="twitter:description" content="1. Convergence Definition 1 (Series) Given a sequence $\{a_n\}$, we define a sequence $\{s_n\}$ by $$ s_n = \sum_{i=1}^n a_i.$$ We call $\sum_{i=1}^\infty a_i$ an infinite series or just a series. The numbers $s_n$ are called the partial sums of the series. Definition 2 (Convergence of series) If the sequence $\{s_n\}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If $\{s_n\}$ diverges, the series is said to be diverge. Theorem 3 (Cauchy criterion) $\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t. $$ |\sum_{k=n}^m a_k|&lt; \epsilon$$ if $m\geq n\geq N$. In other words, if $\sum a_n$ converges, then $\lim_{n\to\infty} a_n = 0$.">
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -87,17 +87,17 @@
 		<h2 id="1-convergence">1. Convergence</h2>
 <dl>
 <dt>Definition 1 (Series)</dt>
-<dd>Given a sequence ${a_n}$, we define a sequence ${s_n}$ by
-$$
-s_n = \sum_{i=1}^n a_i.
+<dd>Given a sequence $\{a_n\}$, we define a sequence $\{s_n\}$ by
+$$ 
+ s_n = \sum_{i=1}^n a_i.
 $$
 We call $\sum_{i=1}^\infty a_i$ an <code>infinite series</code> or just a <code>series</code>. The numbers $s_n$ are called the <code>partial sums</code> of the series.</dd>
 <dt>Definition 2 (Convergence of series)</dt>
-<dd>If the sequence ${s_n}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If ${s_n}$ diverges, the series is said to be diverge.</dd>
+<dd>If the sequence $\{s_n\}$ converges to $s$, we say that the series converges, and write $\sum_{n=1}^\infty a_n = s$. If $\{s_n\}$ diverges, the series is said to be diverge.</dd>
 <dt>Theorem 3 (Cauchy criterion)</dt>
-<dd>$\sum a_n$ converges iff for any $\epsilon&gt;0$, there exists an integer $N$ s.t.
-$$
-|\sum_{k=n}^m a_k|&lt; \epsilon
+<dd>$\sum a_n$ converges iff for any $\epsilon>0$, there exists an integer $N$ s.t.
+$$ 
+ |\sum_{k=n}^m a_k|< \epsilon
 $$
 if $m\geq n\geq N$.</dd>
 </dl>
@@ -112,13 +112,13 @@ if $m\geq n\geq N$.</dd>
 </ol>
 </dd>
 <dt>proof</dt>
-<dd>Given $\epsilon&gt;0$, there exists $N$ s.t. $m\geq n\geq N$ implies
-$$
-\sum_{k=n}^m c_k &lt;\epsilon,
+<dd>Given $\epsilon>0$, there exists $N$ s.t. $m\geq n\geq N$ implies
+$$ 
+ \sum_{k=n}^m c_k <\epsilon,
 $$
 by Cauchy criterion. Hence
-$$
-|\sum_{k=n}^m a_k|\leq \sum_{k=n}^m |a_k|\leq \sum_{k=n}^m c_k &lt;\epsilon.
+$$ 
+ |\sum_{k=n}^m a_k|\leq \sum_{k=n}^m |a_k|\leq \sum_{k=n}^m c_k <\epsilon.
 $$</dd>
 </dl>
 <p>$\Box$</p>
@@ -128,32 +128,32 @@ $$</dd>
 <dd>Given $\sum a_n$, put $\alpha = \lim\sup_{n\to\infty} \sqrt[n]{|a_n|}$. Then</dd>
 </dl>
 <ol>
-<li>if $\alpha&lt;1$, $\sum a_n$ converges;</li>
-<li>if $\alpha&gt;1$, $\sum a_n$ diverges;</li>
+<li>if $\alpha<1$, $\sum a_n$ converges;</li>
+<li>if $\alpha>1$, $\sum a_n$ diverges;</li>
 <li>if $\alpha =1$, the test gives no information.</li>
 </ol>
 <dl>
 <dt>proof</dt>
-<dd>If $\alpha&lt;1$, we can choose $\alpha&lt;\beta&lt;1$, and an integer $N$ s.t.
+<dd>If $\alpha<1$, we can choose $\alpha<\beta<1$, and an integer $N$ s.t.
+$$ 
+ \sqrt[n]{|a_n|}<\beta
 $$
-\sqrt[n]{|a_n|}&lt;\beta
-$$
-for $n\geq N$. It follows that $|a_n|^n&lt;\beta^n$. Since $\sum \beta^n$ converges, by <code>Theorem 5 (i)</code>, $\sum a_n$ converges.
-If $\alpha &gt;1$, then there is a sequence ${n_k}$ s.t. $\sqrt[n_k]{|a_{n_K}|}\to \alpha$. Hence $a_n \to 0$  does not hold.
+for $n\geq N$. It follows that $|a_n|^n<\beta^n$. Since $\sum \beta^n$ converges, by <code>Theorem 5 (i)</code>, $\sum a_n$ converges.
+If $\alpha >1$, then there is a sequence $\{n_k\}$ s.t. $\sqrt[n_k]{|a_{n_K}|}\to \alpha$. Hence $a_n \to 0$  does not hold.
 $\Box$</dd>
 <dt>Theorem 7 (Ratio test)</dt>
 <dd>The series $\sum a_n$,
 <ol>
-<li>converges if $\lim\sup_{n\to\infty}|a_{n+1}/a_n|&lt;1$,</li>
+<li>converges if $\lim\sup_{n\to\infty}|a_{n+1}/a_n|<1$,</li>
 <li>diverges if  $|a_{n+1}/a_n|\geq 1$ for all $n\geq N$.</li>
 </ol>
 </dd>
 <dt>proof</dt>
-<dd>Under condition (a), we can find $\beta&lt;1$ and integer $N$ s.t.
+<dd>Under condition (a), we can find $\beta<1$ and integer $N$ s.t.
+$$ 
+ \left| \frac{a_{n+1}}{a_n} \right|<\beta
 $$
-\left| \frac{a_{n+1}}{a_n} \right|&lt;\beta
-$$
-for $n\geq N$. It follows that $|a_n|&lt; |a_N|\beta^{n-N}$. Then (a) follows from the fact that $\sum \beta^n$ converges.
+for $n\geq N$. It follows that $|a_n|< |a_N|\beta^{n-N}$. Then (a) follows from the fact that $\sum \beta^n$ converges.
 If $|a_{n+1}|\geq |a_n|$ for $n\geq N$, it is easily seen that $a_n\to 0$ does not hold.</dd>
 </dl>
 <p>$\Box$</p>
@@ -171,32 +171,22 @@ If $|a_{n+1}|\geq |a_n|$ for $n\geq N$, it is easily seen that $a_n\to 0$ does n
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

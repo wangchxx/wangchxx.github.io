@@ -102,14 +102,14 @@
 <p>This means that we can simulate a Dirichlet Process (DP) using the <strong>base measure</strong> $\alpha$ and the <strong>scaling parameter</strong> $M$.</p>
 <dl>
 <dt>sketch of proof</dt>
-<dd>step 1: show that $P = \sum_j W_j \delta_{\theta_j}$ is  a random measure. 略
+<dd>step 1: show that $P = \sum_j W_j \delta_{\theta_j}$ is  a random measure.
 step 2: show that $P \sim DP(M\bar{\alpha})$.
-<p>For $j\geq 2$, define $W_{j-1}&rsquo; = W_j/(1-Y_1), \theta&rsquo;<em>j = \theta</em>{j+1}$, then</p>
-<p>$$
-P= Y_1 \delta_{\theta_1} + (1-Y_1)\sum_{j\geq 1} W_j&rsquo;\delta_{\theta&rsquo;_j}.
-$$</p>
-<p>Notice that the random measure $P&rsquo;:= \sum_{j\geq 1} W_j&rsquo;\delta_{\theta&rsquo;<em>j}$ has the same structure as $P$, and hence has the same distribution. Thus we have the equation
-$$P = Y\delta</em>{\theta} + (1-Y) P.$$
+<p>For $j\geq 2$, define $W_{j-1}' = W_j/(1-Y_1), \theta'_j = \theta_{j+1}$, then</p>
+$$
+  P= Y_1 \delta_{\theta_1} + (1-Y_1)\sum_{j\geq 1} W_j'\delta_{\theta'_j}.
+  $$<p>Notice that the random measure $P':= \sum_{j\geq 1} W_j'\delta_{\theta'_j}$ has the same structure as $P$, and hence has the same distribution. Thus we have the equation
+</p>
+$$P = Y\delta_{\theta} + (1-Y) P.$$<p>
 The remaining task is to solve this equation, and it can be proven that $P\sim DP(M\bar{\alpha}）$ is the unique solution.
 $\Box$</p>
 </dd>
@@ -144,32 +144,22 @@ where $MN$ indicates the multinomial distribution. And the Multinomial-Dirichlet
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	

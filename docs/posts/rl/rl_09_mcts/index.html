@@ -136,19 +136,20 @@ how to design MAS to incentivize certain behaviors in agents, how to design algo
 <h2 id="3-upper-confidence-bounds-applied-to-trees-uct">3. Upper Confidence bounds applied to Trees (UCT)</h2>
 <p>In selection, the choice of actions depends on the value the actions at the root node. The value of a state-action node is computed based on the average of the sum of rewards along the edges originating at the node and the values at the corresponding successor nodes. To find an action whose value is within the $\epsilon$-vicinity of that of the best, the depth of the tree needed is proportional to $1/(1-\gamma) \log \frac{1}{\epsilon(1-\gamma)}$, hence the width is proportional to $\frac{K}{\epsilon (1-\gamma)}$.</p>
 <p>In the selection step of MCTS, UCT treats it as a multi-armed bandits problem, selecting the action that maximizes
-$$
-Q_{d,t}(s,a) + \sqrt{\frac{2\ln N_{d,t}(s)}{N_{d,t}(s,a)}},
-$$
+</p>
+$$ 
+ Q_{d,t}(s,a) + \sqrt{\frac{2\ln N_{d,t}(s)}{N_{d,t}(s,a)}},
+$$<p>
 where $N_{d,t}(\cdot)$ is the number times state has been visited up to time t at depth $d$.</p>
 <h2 id="4-context-generalization">4. Context Generalization</h2>
 <p>The count $N_{d,t}(s,a)$ is hard to update, because it depends on the trajectories of states and actions. To speed up training, we need to reduce the trajectory space. This technique is called <code>abstraction</code>. This can be done by reducing dimensionality.</p>
 <p>Another idea is to define the pseudo-counts $\hat{N}$.</p>
 <ul>
 <li>Fitting generative models. fit a density model $p_\theta(s)$ s.t. $p_\theta(s)$ is high even $s$ has never been seen if $s$ is similar to previously seen states.
+$$ 
+ p_\theta(s) = \frac{\hat{N}(s)}{\hat{n}}, \quad p_{\theta'}(s) = \frac{\hat{N}(s) + 1}{\hat{n}+1}.
 $$
-p_\theta(s) = \frac{\hat{N}(s)}{\hat{n}}, \quad p_{\theta&rsquo;}(s) = \frac{\hat{N}(s) + 1}{\hat{n}+1}.
-$$
-It leads to $\hat{N}(s) = \hat{n}p_\theta(s), \hat{n} = \frac{1-p_{\theta&rsquo;}(s)}{p_{\theta&rsquo;}(s) - p_\theta(s)} p_\theta(s)$. The model $p_\theta$ can be a deep neural network (learning hashing)</li>
+It leads to $\hat{N}(s) = \hat{n}p_\theta(s), \hat{n} = \frac{1-p_{\theta'}(s)}{p_{\theta'}(s) - p_\theta(s)} p_\theta(s)$. The model $p_\theta$ can be a deep neural network (learning hashing)</li>
 </ul>
 <h2 id="5-rapid-action-value-estimation-rave">5. Rapid Action Value Estimation (RAVE)</h2>
 <h2 id="5-best-reply-search-brs">5. Best-Reply-Search (BRS)</h2>
@@ -180,32 +181,22 @@ It leads to $\hat{N}(s) = \hat{n}p_\theta(s), \hat{n} = \frac{1-p_{\theta&rsquo;
 	</article>
 </main>
 	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
-      
-      
       delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
       ],
-      
-      throwOnError: false
+      throwOnError : false
     });
   });
 </script>
+
 	
 
 	
