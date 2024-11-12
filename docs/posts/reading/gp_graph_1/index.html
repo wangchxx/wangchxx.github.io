@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Reading | Estimating a smooth function on a large graph (1) | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
@@ -15,16 +15,16 @@ Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a l
 Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
 ">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/reading/gp_graph_1/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading/gp_graph_1/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -80,7 +80,84 @@ Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D
 
 
 
+<meta property="og:title" content="Reading | Estimating a smooth function on a large graph (1)">
+<meta property="og:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
 
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515
+
+1. Problem setup
+Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_1/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-20T23:28:03+02:00">
+<meta property="article:modified_time" content="2021-08-20T23:28:03+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (1)">
+<meta name="twitter:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515
+
+1. Problem setup
+Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Estimating a smooth function on a large graph (1)",
+      "item": "https://wangchxx.github.io/posts/reading/gp_graph_1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Estimating a smooth function on a large graph (1)",
+  "name": "Reading | Estimating a smooth function on a large graph (1)",
+  "description": "This paper proposed an approach to estimating smooth functions on graphs using GP priors.\nKirichenko, A., \u0026amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\\to \\mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\\cdot||_n$ defined by ",
+  "keywords": [
+    
+  ],
+  "articleBody": "This paper proposed an approach to estimating smooth functions on graphs using GP priors.\nKirichenko, A., \u0026 van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\\to \\mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ \\langle f,g \\rangle_n = \\frac{1}{n}\\sum_{i=1}^n f_i g_i. $$Assumptions (G). Let $\\lambda_i$ be the (ordered) eigenvalues of the Laplacian matrix. For some $r\\geq 1$, there exist $i_0\\in\\mathbb{N}, \\kappa\\in(0,1]$ and $C_1,C_2\u003e0$ s.t. for all $n$ large enough, $$ \\begin{equation} C_1(\\frac{i}{n})^{2/r} \\leq \\lambda_i \\leq C_2(\\frac{i}{n})^{2/r} \\end{equation} $$ for all $i\\in\\{i_0,...,\\kappa n\\}$\n(L). The graph $G$ is connected, simple, undirected.\n(S). We assume $f$ belongs to a Sobolev-type ball of the form\n$$ H^\\beta(Q) = \\{f: \\langle f, (I + (n^{2/r} L)^\\beta) f\\rangle_n \\leq Q^2\\} $$ for some $\\beta,Q\u003e0$. The parameter $\\beta$ determines the smoothness of the function.\n2. Main results In the regression case we assume that we have observations $Y = (Y_1,...,Y_n)$ at the vertices of the graph satisfying $$ Y_i = f_i^* + \\sigma \\xi_i, $$ where $\\xi_i$ are independent standard Gaussian. By Theorem 1, we have $$ \\begin{equation} \\Pi(||f - f^*||_n \\geq M \\epsilon_n| Y^{(n)}) \\to 0 \\end{equation} $$ in $P_{f^*}$-probability at the rate $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$ for $\\beta\\leq \\alpha+r/2$.\nIn the binary classification case, we assume that $Y_1,...,Y_n$ are 0-1 valued variables satisfying $$ p^*_i = \\Pr(Y_i = 1). $$ We introduce a link function $\\Psi:\\mathbb{R}\\to (0,1)$ and set $p = \\Psi(f)$. We assume that the link function is differentiable with bounded derivative $\\phi$. Then the Theorem also leads to posterior contraction rates $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$ for $\\beta\\leq \\alpha+r/2$ by the following fact $$ || p_v - p_w||_r \\lesssim ||v - w||_{r,G}. $$ Theorem 1 (Power of the Laplacian) Under the assumptions (G), (L) and (S). Let $\\alpha\u003e0$ be fixed and assume that $f^*\\in H^\\beta(Q)$ be the “true” function and $0\u003c \\beta\\leq \\alpha+r/2$. Let the random function $f$ on the graph be defined by $$ \\begin{align} c \u0026\\sim \\exp(1) \\cr f|c \u0026\\sim N(0, \\Sigma_{c}), \\end{align} $$ where $\\Sigma_c^{-1} = (\\frac{n}{c})^{2/r}(L + n^{-2} I)^{\\alpha+r/2}$. Then there exists constants $K_1\u003e0,K_2\u003e1$ and Borel measurable subsets $B_n\\subset \\mathbb{R}^n$ s.t. $$ \\begin{align} \\Pr(||f - f^*||\u003c\\epsilon_n) \u0026\\gtrsim \\exp(-K_1 n\\epsilon_n^2), \\cr \\Pr(f\\notin B_n) \u0026\\lesssim \\exp(-K_2 n \\epsilon_n^2), \\cr \\log N(\\epsilon_n , B_n , ||\\cdot||_n) \u0026\\lesssim n\\epsilon_n^2, \\end{align} $$ where $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$. This theorem obtains the rate $n^{-\\beta/(2\\beta+r)}$ for all $\\beta$ up to $\\alpha+r/2$.\nTheorem 2 (Exponential of the Laplacian) Under the assumptions (G), (L) and (S). Let $\\alpha\u003e0$ be fixed and assume that $f^*\\in H^\\beta(Q)$ be the “true” function and $\\beta\u003e0$. Let the random function $f$ on the graph be defined by $$ \\begin{align} c \u0026\\sim \\exp(1) \\cr f|c \u0026\\sim N(0, \\Sigma_{c}), \\end{align} $$ where $\\Sigma_c = n \\exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1\u003e0,K_2\u003e1$ and Borel measurable subsets $B_n\\subset \\mathbb{R}^n$ s.t. $$ \\begin{align} \\Pr(||f - f^*||\u003c\\epsilon_n) \u0026\\gtrsim \\exp(-K_1 n\\epsilon_n^2), \\cr \\Pr(f\\notin B_n) \u0026\\lesssim \\exp(-K_2 n \\epsilon_n^2), \\cr \\log N(\\tilde{\\epsilon}_n , B_n , ||\\cdot||_n) \u0026\\lesssim n\\tilde{\\epsilon}_n^2, \\end{align} $$ where $\\epsilon_n\\asymp (n/\\log^{1+r/2}n)^{-\\beta/(2\\beta+r)}$ and $\\tilde{\\epsilon}_n \\asymp \\epsilon_n\\log^{1/2+r/4}n$. 3. Proofs of main results Given $c$, the random vector $f$ is an element in the GP process $GP(0,\\Sigma_c)$. The corresponding RKHS $\\mathbb{H}^c$ is the entire space $\\mathbb{R}^n$, and the corresponding RKHS-norm is given by $$ ||h||_{\\mathbb{H}^c}^2 = h^T\\Sigma_c^{-1}h. $$Let $\\psi_i$ be the engenfunctions of $L$, normalized w.r.t. the norm $||\\cdot||_n$. In particular, the eigenfunctions $\\psi_i$ are normalized s.t.\n$$ \\psi_i^T \\psi_i = n. $$They are also eigenfunctions of $\\Sigma_c^{-1}$. We denote the corresponding engenvalues by $\\mu_i$. The Gaussian $N(0,\\Sigma_c)$ admits the series representation $$ \\sum_i Z_i \\psi_i/\\sqrt{n\\mu_i}, $$ where $Z_i$ are standard Gaussian. In particular the functions $\\psi_i/\\sqrt{n\\mu_i}$ form an orthonormal basis of the RKHS $\\mathbb{H}^c$. Hence, the ordinary $||\\cdot||_n$-norm and the RKHS-norm of a function $h$ with expansion $h = \\sum_i h_i \\psi_i$ are given by $$ \\begin{equation} ||h||_n^2 = \\sum_i h_i^2,\\quad ||h||_{\\mathbb{H}^c}^2 = n\\sum_i \\mu_i h_i^2. \\end{equation} $$Proof of Theorem 1 Lemma 1 (small ball) For $c^{-p/r}\\epsilon\\sqrt{n}$ small enough, $$ -\\log \\Pr(||f||_n \\leq \\epsilon|c) \\lesssim (\\frac{c^{(\\alpha+4/2)/r}}{\\epsilon\\sqrt{n}})^{r/\\alpha}. $$ Proof By the series representation of $f$, we have $$ \\Pr(||f||_n\\leq \\epsilon|c) = \\Pr(\\sum_i Z_i^2/(n\\mu_i)\\leq \\epsilon^2). $$ The assumption (G) allows us to bound $\\mu_i$ from below, then it follows that $$ \\begin{align*} \\Pr(||f||_n\\leq 2\\epsilon^2|c) \u0026\\geq \\Pr(\\sum_{i\\leq i_0}Z_i^2/(n\\mu_i)\\leq \\epsilon^2, \\sum_{i\u003ei_0}Z_i^2/(n\\mu_i)\\leq \\epsilon^2) \\cr \u0026\\geq \\Pr(\\sum_{i\\leq i_0} Z_i^2 \\leq (C_1^p c^{-2p/4} n^{(2\\alpha+2r - 2pr)/4})\\epsilon^2)\\Pr(\\sum_{i\u003ei_0}\\frac{Z_i^2}{e^{2p/r}}\\leq C_1^p c^{-2p/r}n\\epsilon^2), \\end{align*} $$ where we write $p+r/2$. The second factor can be bounded from below by $$ \\exp(-const(c^{p/r}\\epsilon\\sqrt{n})^{-r/\\alpha}), $$ provided $c^{p/r}\\epsilon\\sqrt{n}$ is small. By the triangle inequality and independence, the first factor is bounded from below by $$ \\left(\\Pr(|Z_1|\\leq i_0^{1/2} C_1^{p/2} c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon)\\right)^{i_0}. $$ Since $r\\geq 1$, we have $c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon = O(c^{-p/r} \\epsilon\\sqrt{n})$. Hence, for $c^{-p/r}\\epsilon\\sqrt{n}$ small, the probability is bounded from below by $$ const\\times(c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon)^{i_0} $$ Combining the bounds for the two factors, we have $$ -\\log \\Pr(||f||_n^2 \\leq 2\\epsilon^2|c) \\lesssim (\\frac{c^{p/r}}{\\epsilon\\sqrt{n}})^{r/\\alpha} + \\log (\\frac{c^{p/r}}{n^{(\\alpha+r-pr)/r}\\epsilon}) $$ Lemma 2 (discentering) Let $f\\in H^\\beta(Q)$ for $\\beta\\leq \\alpha +r/2$. For $\\epsilon$ s.t. $\\epsilon\\to 0$ and $1/\\epsilon = o(n^{\\beta/r})$, $$ \\inf_{||h-f||_n\\leq \\epsilon} ||h||_{\\mathbb{H}^c}^2\\lesssim nc^{-(2\\alpha+r)/r} \\epsilon^{-\\frac{2(\\alpha-\\beta) +r}{\\beta}} $$ Proof Use the series expansion of $f = \\sum_i h_i \\psi_i$. By the assumption (S) we have $\\sum_i (1 + n^{2\\beta/r}\\lambda_i^\\beta) h_i^2 \\leq Q^2$. Now for $I$ to be determined later, consider $h = \\sum_{i\\leq I} h_i\\psi_i$. By assumption (G), for $I$ large enough $$ ||h - f||_n^2 = \\sum_{i\u003eI}h_i^2\\leq \\frac{Q^2}{1 + n^{2\\beta/r}\\lambda_I^\\beta} \\leq Q^2 C_1^{-\\beta}I^{-2\\beta/r}. $$ Putting $I\\propto \\epsilon^{-r/\\beta}$ we obtain $||h-f||_n \\leq \\epsilon$. Then the RKHS-norm of $h$ satisfies $$ \\begin{align*} ||h||_{\\mathbb{H}^c}^2 \u0026= n\\sum_{i\\leq I}\\left((n/c)^{2/r} (\\lambda_i + n^{-2}) \\right)^{\\alpha+r/2} h_i^2 \\cr \u0026\\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\\alpha-\\beta)/r}\\lambda_I^{p-\\beta} \\end{align*} $$ Then by the assumption (G), we obtain the disired result. Lemma 3 (entropy) $$ \\log N(\\epsilon, \\mathbb{H}_{1,c}, ||\\cdot||_n) \\lesssim c (\\frac{1}{\\epsilon\\sqrt{n}})^{r/(\\alpha+r/2)}. $$ Proof of Theorem 1 Given $c$, the eigenvalues of $\\Sigma_c^{-1}$ are given by $$ \\mu_i = \\left( (\\frac{n}{c})^{2/r} (\\lambda_i + \\frac{1}{n^2})\\right)^{\\alpha+r/2}. $$ For the first assertion. By the fact that $$ \\phi_w(\\epsilon) \\leq -\\log \\Pr(||W-w||\u003c \\epsilon) \\leq \\phi_w(\\epsilon/2) $$ and the Lemma 1 and Lemma 2, for $\\epsilon = \\epsilon_n = n^{-\\beta/(r+2\\beta)}$ and $c = c_n$ s.t. $$ \\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}\\leq c_n^{(\\alpha+r/2)/r}\\leq 2\\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}, $$ we have $-\\log\\Pr(||f- f^* ||_n\u003c\\epsilon_n|c)\\lesssim \\epsilon_n^{-r\\beta}$. By direct computation, we obtain $$ \\Pr(||f-f^*||_n\u003c\\epsilon_n) \\gtrsim e^{-K_1 \\epsilon_n^{-r/\\beta}}. $$ Then we show the left two assertions. Define $B_n = M_n\\mathbb{H}_{1,c_n} + \\epsilon_n\\mathbb{B}_1$, where $\\mathbb{B}_1$ is the unit ball of $(\\mathbb{R}^2,||\\cdot||_n)$. For $\\epsilon_n = n^{-\\beta/(2\\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have $$ \\log N(2\\epsilon_n, B_n, ||\\cdot||_n) \\leq \\log N(\\epsilon_n, M_n\\mathbb{H}_{1,c_n}, ||\\cdot||_n) \\lesssim c_n (\\frac{M_n}{\\epsilon_n\\sqrt{n}})^{r/p}. $$ Choosing $M_n = M\\sqrt{n\\epsilon_n^2}, c_n^{p/r} = N \\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}$, we obtain the third assertion. It remains to show the second assertion. $$ \\Pr(f\\notin B_n) \\leq \\int_0^{c_n} \\Pr(f\\notin B_n|c) e^{-c} dc + \\int_{c_n}^\\infty e^{-c} dc. $$ For $c\\leq c_n$, we have $\\mathbb{H}_{1,c}\\subset \\mathbb{H}_{1,c_n}$. Hence, by the Borell’s’ inequality, we have for $c\\leq c_n$ that $$ \\begin{align*} \\Pr(f\\notin B_n|c) \u0026\\leq \\Pr(f\\notin M_n \\mathbb{H}_{1,c} + \\epsilon_n \\mathbb{B}_1|c) \\cr \u0026\\leq 1 - \\Phi(\\Phi^{-1}(\\Pr(||f||_n \\leq \\epsilon_n|c) + M_n)) \\cr \u0026\\leq 1 - \\Phi(\\Phi^{-1}(\\Pr(||f||_n \\leq \\epsilon_n|c_n) + M_n)) \\end{align*} $$ By Lemma 1 with $c_n^{p/r} = N\\sqrt{n}\\epsilon_n^{(\\beta-\\alpha)-\\beta}$, the small ball probability in this expression is bounded from below by $\\exp(-K \\epsilon_n^{-r/\\beta})$. Then with appropriate choice $M_n$, we obtain the desired result.\n",
+  "wordCount" : "1257",
+  "inLanguage": "en",
+  "datePublished": "2021-08-20T23:28:03+02:00",
+  "dateModified": "2021-08-20T23:28:03+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gp_graph_1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -98,7 +175,7 @@ Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -124,27 +201,27 @@ Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -415,12 +492,12 @@ By Lemma 1 with $c_n^{p/r} = N\sqrt{n}\epsilon_n^{(\beta-\alpha)-\beta}$, the sm
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/reading/gp_graph_2/">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gp_graph_2/">
     <span class="title">« Prev</span>
     <br>
     <span>Reading | Estimating a smooth function on a large graph (2)</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/reading/gp_multiclass_classification/">
+  <a class="next" href="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
     <span class="title">Next »</span>
     <br>
     <span>Reading | Bayesian Classification of Multiclass Functional Data</span>
@@ -432,7 +509,7 @@ By Lemma 1 with $c_n^{p/r} = N\sqrt{n}\epsilon_n^{(\beta-\alpha)-\beta}$, the sm
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

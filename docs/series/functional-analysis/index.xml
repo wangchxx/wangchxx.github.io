@@ -2,34 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Functional Analysis on My Notes</title>
-    <link>http://localhost:1313/series/functional-analysis/</link>
+    <link>https://wangchxx.github.io/series/functional-analysis/</link>
     <description>Recent content in Functional Analysis on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Apr 2021 10:52:59 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/functional-analysis/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Functional Analysis | 5 Linear Operators on Hilbert Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_5/</link>
-      <pubDate>Sun, 25 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_5/</guid>
-      <description>&lt;p&gt;There is an additional structure on $B(X,Y)$ if $X,Y$ are Hilbert spaces, which enables us to obtain a simpler characterization of invertibility. This is the &lt;span style = &#34;color:orange&#34;&gt;&lt;em&gt;adjoint&lt;/em&gt;&lt;/span&gt; of an operator.&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;Definition and properties of adjoints.&lt;/li&gt;
-&lt;li&gt;Adjoints and invertibility.&lt;/li&gt;
-&lt;li&gt;Three important operators (normal, self-adjoint and unitary operators) that are related to the adjoint, and their properties.&lt;/li&gt;
-&lt;li&gt;Spectrum of operators.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;1-adjoint&#34;&gt;1. Adjoint&lt;/h2&gt;
-&lt;p&gt;In this section we define the adjoint and show its existence and uniqueness.&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Sat, 24 Apr 2021 10:52:59 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/series/functional-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Functional Analysis | 4 Duality and Hahn-Banach Theorem</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_4/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_4/</link>
       <pubDate>Sat, 24 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_4/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_4/</guid>
       <description>&lt;h2 id=&#34;1-dual-spaces&#34;&gt;1. Dual Spaces&lt;/h2&gt;
 &lt;p&gt;In this section we describe the dual of several of the standard spaces.&lt;/p&gt;
 &lt;dl&gt;
@@ -44,9 +27,9 @@ It can be verified that $f_j$ is a linear transformation s.t. $f_j(v_k) = \delta
     </item>
     <item>
       <title>Functional Analysis | 3 Linear Operators</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_3/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_3/</link>
       <pubDate>Fri, 23 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_3/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_3/</guid>
       <description>&lt;h2 id=&#34;1-continuous-linear-transformations&#34;&gt;1. Continuous Linear Transformations&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Lemma 1 (&lt;strong&gt;Continuity&lt;/strong&gt;) &lt;span id = &#34;c3_lem_continuity&#34;&gt;&lt;/dt&gt;
@@ -71,9 +54,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 2 Hilbert Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_2/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_2/</link>
       <pubDate>Thu, 22 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_2/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_2/</guid>
       <description>&lt;h2 id=&#34;1-inner-product-spaces&#34;&gt;1. Inner Product spaces&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Inner product&lt;/strong&gt;)&lt;/dt&gt;
@@ -88,9 +71,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 1 Normed Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_1/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_1/</link>
       <pubDate>Wed, 21 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_1/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_1/</guid>
       <description>&lt;h2 id=&#34;1-finite-dimensional-normed-spaces&#34;&gt;1. Finite-dimensional Normed Spaces&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Norm)&lt;/dt&gt;
@@ -105,9 +88,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 0 Preliminaries</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_0/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_0/</link>
       <pubDate>Tue, 20 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_0/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_0/</guid>
       <description>&lt;h1 id=&#34;functional-analysis--0-preliminaries&#34;&gt;Functional Analysis | 0 Preliminaries&lt;/h1&gt;
 &lt;hr&gt;
 &lt;p&gt;Notation:&lt;/p&gt;

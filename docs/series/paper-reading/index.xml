@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Paper Reading on My Notes</title>
-    <link>http://localhost:1313/series/paper-reading/</link>
+    <link>https://wangchxx.github.io/series/paper-reading/</link>
     <description>Recent content in Paper Reading on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Sat, 21 Aug 2021 04:18:02 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/series/paper-reading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reading | Estimating a smooth function on a large graph (2)</title>
-      <link>http://localhost:1313/posts/reading/gp_graph_2/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>
       <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_graph_2/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_2/</guid>
       <description>&lt;p&gt;This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1709.06360&#34;&gt;http://arxiv.org/abs/1709.06360&lt;/a&gt;&lt;/li&gt;
@@ -30,9 +30,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Estimating a smooth function on a large graph (1)</title>
-      <link>http://localhost:1313/posts/reading/gp_graph_1/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
       <pubDate>Fri, 20 Aug 2021 23:28:03 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_graph_1/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_1/</guid>
       <description>&lt;p&gt;This paper proposed an approach to estimating smooth functions on graphs using GP priors.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1511.02515&#34;&gt;http://arxiv.org/abs/1511.02515&lt;/a&gt;&lt;/li&gt;
@@ -43,9 +43,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Bayesian Classification of Multiclass Functional Data</title>
-      <link>http://localhost:1313/posts/reading/gp_multiclass_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</link>
       <pubDate>Sun, 08 Aug 2021 17:02:19 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_multiclass_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</guid>
       <description>&lt;p&gt;Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.&lt;/p&gt;
 &lt;p&gt;Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. &lt;a href=&#34;http://arxiv.org/abs/1808.00662&#34;&gt;http://arxiv.org/abs/1808.00662&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;
@@ -54,9 +54,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</title>
-      <link>http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 18:24:27 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). &lt;a href=&#34;https://doi.org/10.1214/009053606000000795&#34;&gt;https://doi.org/10.1214/009053606000000795&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -70,9 +70,9 @@ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ 
     </item>
     <item>
       <title>Reading | Nonparametric binary regression using a Gaussian process prior</title>
-      <link>http://localhost:1313/posts/reading/gppriors_for_binary_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gppriors_for_binary_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
       <description>&lt;p&gt;Let&amp;rsquo;s discuss this paper&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.&lt;/li&gt;

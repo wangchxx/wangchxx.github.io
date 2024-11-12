@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Functional Analysis | 1 Normed Spaces | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="1. Finite-dimensional Normed Spaces
@@ -19,16 +19,16 @@ $\|x&#43;y\|\leq \|x\| &#43; \|y\|$.
 
 A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\|x\|=1$.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/analysis_3/functional_1/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_3/functional_1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_3/functional_1/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_3/functional_1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -84,7 +84,92 @@ A vector $X$ equipped with a norm is called a normed vector space or just a norm
 
 
 
+<meta property="og:title" content="Functional Analysis | 1 Normed Spaces">
+<meta property="og:description" content="1. Finite-dimensional Normed Spaces
 
+Definition 1 (Norm)
+Let $X$ be a vector space over $\mathbb{F}$. A norm on $X$ is a function $\|\cdot\|:X\to\R$ s.t. for all $x,y\in X$ and $\alpha\in\mathbb{F}$,
+
+$\| x\|\geq 0$ ,
+$\|x\|=0$ iff $x=0$,
+$\| \alpha x\| = |\alpha| \| x\|$,
+$\|x&#43;y\|\leq \|x\| &#43; \|y\|$.
+
+A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\|x\|=1$.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_1/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-21T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-21T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Functional Analysis | 1 Normed Spaces">
+<meta name="twitter:description" content="1. Finite-dimensional Normed Spaces
+
+Definition 1 (Norm)
+Let $X$ be a vector space over $\mathbb{F}$. A norm on $X$ is a function $\|\cdot\|:X\to\R$ s.t. for all $x,y\in X$ and $\alpha\in\mathbb{F}$,
+
+$\| x\|\geq 0$ ,
+$\|x\|=0$ iff $x=0$,
+$\| \alpha x\| = |\alpha| \| x\|$,
+$\|x&#43;y\|\leq \|x\| &#43; \|y\|$.
+
+A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\|x\|=1$.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Functional Analysis | 1 Normed Spaces",
+      "item": "https://wangchxx.github.io/posts/analysis_3/functional_1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Functional Analysis | 1 Normed Spaces",
+  "name": "Functional Analysis | 1 Normed Spaces",
+  "description": "1. Finite-dimensional Normed Spaces Definition 1 (Norm) Let $X$ be a vector space over $\\mathbb{F}$. A norm on $X$ is a function $\\|\\cdot\\|:X\\to\\R$ s.t. for all $x,y\\in X$ and $\\alpha\\in\\mathbb{F}$, $\\| x\\|\\geq 0$ , $\\|x\\|=0$ iff $x=0$, $\\| \\alpha x\\| = |\\alpha| \\| x\\|$, $\\|x+y\\|\\leq \\|x\\| + \\|y\\|$. A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\\|x\\|=1$.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Finite-dimensional Normed Spaces Definition 1 (Norm) Let $X$ be a vector space over $\\mathbb{F}$. A norm on $X$ is a function $\\|\\cdot\\|:X\\to\\R$ s.t. for all $x,y\\in X$ and $\\alpha\\in\\mathbb{F}$, $\\| x\\|\\geq 0$ , $\\|x\\|=0$ iff $x=0$, $\\| \\alpha x\\| = |\\alpha| \\| x\\|$, $\\|x+y\\|\\leq \\|x\\| + \\|y\\|$. A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\\|x\\|=1$.\nExample 2 (Norms on $\\mathbb{F}^n$) Let $x=(x_1,...,x_n)$, $\\|x \\| = \\left(\\sum_{i=1}^n |x_i|^2\\right)^{1/2}$ is a norm. Example 3 (Norms on $C(M)$) Let $M$ be a compact metric space and let $C(M)$ be the vector space of functions defined on $M$. Then the function $\\|\\cdot\\|:C(M)\\to\\R$ given by $$ \\|f\\| = \\sup_{x\\in M} |f(x)| $$ is a norm on $C(M)$. Example 4 (Norms on $L^p$) Let $(X,\\Sigma,\\mu)$ be a measure space. If $1\\leq p \u003c\\infty$, then $\\|f\\|_p = \\left(\\int |f|^p \\;d\\mu\\right)^{1/p}$ is a norm on $L^p(X)$. If $p=\\infty$, then $\\|f\\|_\\infty = \\mathrm{ess}\\sup |f|$ is a norm on $L^\\infty(X)$, where the essential supremum $\\mathrm{ess}\\sup$ of a measurable function $f$ is defined by $$ \\mathrm{ess}\\sup f = \\inf \\{b: f(x)\\leq b \\; a.e.\\} . $$ Lemma 5 (Norm and metric) Let $X$ be a vector space equipped with norm $\\|\\cdot\\|$. If $d: X\\times X\\to\\R$ is defined by $d(x,y) = \\|x-y\\|$, then $(X,d)$ is a metric space. Notice that there can be many different norms on each finite-dimensional space.\nDefinition 6 (Equivalence) Let $X$ be a vector space and let $\\|\\cdot\\|_1$ and $\\|\\cdot\\|_2$ be two norms on $X$. We say the norm $\\|\\cdot\\|_2$ is equivalent to the norm $\\|\\cdot\\|_1$ if there exists $M,m\u003e0$ s.t. for all $x\\in X$ $$ m\\|x\\|_1 \\leq \\|x\\|_2 \\leq M\\|x\\|_1. $$ Theorem 7 Let $X$ be finite-dimensional vector space with norm $\\|\\cdot\\|$ and let $\\{e_1,...,e_n\\}$ be a basis for $X$. We define another norm $\\|\\cdot\\|_1$ on $X$ by $$ \\begin{equation} \\lVert \\sum_{j=1}^n \\lambda_j e_j \\rVert_1 = \\left(\\sum_{i=1}^n |\\lambda_i|^2\\right)^{1/2}. \\end{equation} $$ Then norms $\\|\\cdot\\|$ and $\\|\\cdot\\|_1$ are equivalent. proof Let $M = \\left(\\sum_{i=1}^n \\|e_i\\|^2\\right)^{1/2}$. Then we have $$ \\begin{align*} \\| \\sum_{i=1}^n \\lambda_i e_i\\| \u0026\\leq \\sum_{i=1}^n \\|\\lambda_i e_i\\| \\cr \u0026=\\sum_{i=1}^n |\\lambda_i | \\|e_i\\| \\cr \u0026\\leq \\left(\\sum_{i=1}^n |\\lambda_i|^2\\right)^{1/2} \\left(\\sum_{i=1}^n \\|e_i\\|^2\\right)^{1/2} \\cr \u0026= M\\| \\sum_{j=1}^n \\lambda_j e_j\\|_1 \\end{align*} $$ Next, we define a function $f$ by $$ f(\\lambda_1,...,\\lambda_n) = \\| \\sum_{i=1}^n \\lambda_i e_i\\|. $$ The function $f$ is continuous w.r.t. the standard metric. Now we define $S$ be the unit circle, i.e. $$ S = \\{(\\lambda_1,...,\\lambda_n): \\sum_{i=1}^n |\\lambda_i|^2 = 1\\}. $$ Since $S$ is compact, there exists $(u_1,...,u_n)\\in S $s.t. $f(u_1,...,u_n)\\leq f(\\lambda_1,...,\\lambda_n)$ for all $(\\lambda_1,...,\\lambda_n)\\in S$. Let $m = f(u_1,...,u_n)$. Notice that $m\u003e0$. By the definition of $\\|\\cdot\\|_1$, if $\\|x\\|_1=1$ then $\\|x\\|\\geq m$. Therefore $y\\in X\\setminus\\{0\\}$, we have $\\| \\frac{y}{\\|y\\|_1}\\|\\geq m$ since $\\| \\frac{y}{\\|y\\|_1}\\|_1 = 1$. It follows that $$ \\|y\\|\\geq m \\|y\\|_1. $$ For $y=0$, it still holds.\n$\\Box$\nCorollary 8 (Equivalent norms \u0026 finite-dimensional) If $\\|\\cdot\\|$ and $\\|\\cdot\\|_2$ are any two norms on a finite-dimensional vector space $X$, then they are equivalent proof By Theorem 1.7, we can see that both $\\|\\cdot\\|$ and $\\|\\cdot\\|_2$ are equivalent to $\\|\\cdot\\|_1$. $\\Box$\nLemma 9 (Complete metric space \u0026 finite-dimensional) Let $X$ be finite-dimensional vector space with norm $\\|\\cdot\\|_1$ that is defined as (1) and let $\\{e_1,...,e_n\\}$ be a basis for $X$. Then $X$ is a complete metric space. proof Let $\\{x_m\\}$ be a Cauchy sequence. It implies when $k,m\\geq N$, $$ \\sum_{j=1}^n |\\lambda_{j,k} - \\lambda_{j,m}|^2 = \\|x_k - x_m \\|_1^2 \u003c\\epsilon. $$ Hence $\\{\\lambda_{j,m}\\}$ is a Cauchy sequence for $j\\leq n$. And since $\\mathbb{F}$ is complete, there exists $\\lambda_j\\in\\mathbb{F}$ s.t. $\\lambda_{j,m}\\to \\lambda$. Define $x = \\sum_{j=1}^n \\lambda_je_j$, we have $\\|x_m - x \\|_1^2\\to 0$. $\\Box$\nThis lemma means that for any norm on a finite-dimensional space $X$, $X$ is a complete metric space.\nCorollary 10 If $Y$ is a finite-dimensional subspace of a normed vector space $X$, then $Y$ is closed. proof Y is a complete metric space by Lemma 1.10. Hence $Y$ is closed since any complete subset of a metric space $X$ is closed. $\\Box$\n2. Banach Spaces In this Section we turn to infinite-dimensional vector spaces.\nLemma 11 If $X$ is a normed vector space and $S$ is a linear subspace of $X$ then $\\bar{S}$ is also a linear subspace of $X$. proof Let $x,y \\in\\bar{S}$, so we can find sequences $\\{x_n\\},\\{y_n\\}$ in $S$ s.t. $$ x_n\\to x, y_n\\to y. $$ Then $x+y\\in\\bar{S}$ and $\\alpha x \\in\\bar{S}$. $\\Box$\nLet $X$ be a normed vector space and $E\\subset X,E\\neq \\empty$. The closed linear span of $E$, denoted by $\\overline{sp}(E)$, is the intersection of all closed linear subspaces of $x$ which contain $E$.\nTheorem 12 (Riesz’s) Let $X$ is a normed vector space, $Y$ is closed linear subspace of $X$ s.t. $Y\\neq X$, and $\\alpha\\in(0,1)$. Then there exists $x_\\alpha\\in X$ s.t. $$ \\|x_\\alpha\\| = 1, \\quad \\|x_\\alpha - y\\|\u003e\\alpha, \\;\\forall y\\in Y. $$ proof Let $x\\in X\\setminus Y$. Also, since $Y$ is closed, $$ d = \\inf\\{\\|x-z\\|: z\\in Y\\} \u003e0. $$ Thus there exists $z\\in Y$ s.t. $\\|x-z\\|\u003c d \\alpha^{-1}$. Let $x_\\alpha = \\frac{x-z}{\\|x-z\\|}$. Then for any $y\\in Y$ $$ \\begin{align*} \\|x_\\alpha - y\\| \u0026= \\frac{1}{\\|x-z\\|} \\| x - (z - \\|x-z\\|y)\\|\\cr \u0026\u003e\\alpha d^{-1} d. \\end{align*} $$ $\\Box$\nTheorem 13 (Compactness \u0026 infinite-dimensional) Let $X$ be an infinite-dimensional normed vector space, then neither $D =\\{x\\in X: \\|x\\|\\leq 1\\}$ nor $K =\\{x\\in X: \\|x\\|= 1\\}$ is compact. proof Let $x_1\\in K$, then $sp(x_1)$ is closed. By Riesz’s, there exists $x_2\\in K$ s.t. $$ \\| x_2 - a x_1\\| \\geq 3/4, \\;\\forall a\\in\\mathbb{F}. $$ Go on with $sp(x_1,x_2)$, we have $x_3\\in K$ s.t. $$ \\| x_3 - a x_1 - b x_2\\|\\geq 3/4,\\; \\forall a,b\\in\\mathbb{F}. $$ Continuing this way, we obtain a sequence $\\{x_n\\}$ in $K$ s.t. $\\|x_n - x_m\\|\\geq 3/4$ when $n\\neq m$. This cannot have a convergent subsequence. $\\Box$\nRecall that in a finite-dimensional normed space, any closed bounded set is compact, but this is not true for infinite-dimensional spaces.\nDefinition 14 (Banach space) A Banach space is a normed vector space which is complete relative to the metric associated with the norm. Theorem 15 Any finite-dimensional normed vector space is a Banach space. if $X$ is a compact metric space then $C(X)$ is a Banach space. if $(X,\\Sigma,\\mu)$ is a measure space, then $L^p(X)$ is a Banach space for $1\\leq p\\leq \\infty$. $\\ell^p$ is a Banach space for $1\\leq p\\leq \\infty$. If $X$ is a Banach space and $Y$ is a linear subspace of $X$, then $Y$ is a Banach space $\\Leftrightarrow$ $Y$ is closed in $X$. proof Any finite-dimensional normed vector space is complete. $C(M)$ is complete. $L^p(X)$ is complete. $\\ell^p$ is a special case of $L^p$ by taking counting measure on $\\N$. A subset of a complete metric space is complete iff it is closed. $\\Box$ ",
+  "wordCount" : "1122",
+  "inLanguage": "en",
+  "datePublished": "2021-04-21T10:52:59+02:00",
+  "dateModified": "2021-04-21T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_3/functional_1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -102,7 +187,7 @@ A vector $X$ equipped with a norm is called a normed vector space or just a norm
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -128,27 +213,27 @@ A vector $X$ equipped with a norm is called a normed vector space or just a norm
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -366,12 +451,12 @@ $\Box$</li>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/analysis_3/functional_2/">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_3/functional_2/">
     <span class="title">« Prev</span>
     <br>
     <span>Functional Analysis | 2 Hilbert Spaces</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/analysis_3/functional_0/">
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_3/functional_0/">
     <span class="title">Next »</span>
     <br>
     <span>Functional Analysis | 0 Preliminaries</span>
@@ -383,7 +468,7 @@ $\Box$</li>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

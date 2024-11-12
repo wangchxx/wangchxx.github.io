@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Mathematical Analysis | 8 Indefinite Integrals | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="1. Definitions
@@ -33,16 +33,16 @@ $[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
 
 $\Box$">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/analysis_1/math_analysis_8/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_1/math_analysis_8/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
 <noscript>
     <style>
         #theme-toggle,
@@ -98,7 +98,120 @@ $\Box$">
 
 
 
+<meta property="og:title" content="Mathematical Analysis | 8 Indefinite Integrals">
+<meta property="og:description" content="1. Definitions
 
+Definition 1 (Primary function)
+Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$.
+Theorem 2 (Existence)
+If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.
+Definition 3 (Indefinite integral)
+The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$.
+
+2. Change of Variable and Integration by Parts
+
+Theorem 4 (Change of variable)
+Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.
+
+
+If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$
+If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$.
+
+
+Theorem 5 (Integration by Parts)
+If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$.
+proof
+$[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
+
+$\Box$">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-08T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-08T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematical Analysis | 8 Indefinite Integrals">
+<meta name="twitter:description" content="1. Definitions
+
+Definition 1 (Primary function)
+Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$.
+Theorem 2 (Existence)
+If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.
+Definition 3 (Indefinite integral)
+The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$.
+
+2. Change of Variable and Integration by Parts
+
+Theorem 4 (Change of variable)
+Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.
+
+
+If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$
+If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$.
+
+
+Theorem 5 (Integration by Parts)
+If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$.
+proof
+$[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
+
+$\Box$">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mathematical Analysis | 8 Indefinite Integrals",
+      "item": "https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Analysis | 8 Indefinite Integrals",
+  "name": "Mathematical Analysis | 8 Indefinite Integrals",
+  "description": "1. Definitions Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\\int f(x) dx= F(x) + C$. 2. Change of Variable and Integration by Parts Theorem 4 (Change of variable) Let $f(x)$ defined on $I$, $\\phi(t)$ differentiable on $J$ and $\\phi(J)\\subset I$. If the indefinite integral $\\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt$ exists too, and $\\int f(\\phi(t))\\phi'(t) dt = F(\\phi(t))+C$ If the function $x = \\phi(t)$ has inverse function $t=\\phi^{-1}(x)$,and $\\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt = G(t) + C$ exists too, and $\\int f(x) dx =G(\\phi^{-1}(x)) + C$. Theorem 5 (Integration by Parts) If $u(x)$ and $v(x)$ are differentiable, and $\\int v(x)u'(x) dx$ exists, then $\\int v'(x) u(x) dx$ exists too, and $\\int v'(x) u(x) dx = v(x)u(x) - \\int v(x) u'(x) dx$. proof $[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$. $\\Box$\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Definitions Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\\int f(x) dx= F(x) + C$. 2. Change of Variable and Integration by Parts Theorem 4 (Change of variable) Let $f(x)$ defined on $I$, $\\phi(t)$ differentiable on $J$ and $\\phi(J)\\subset I$. If the indefinite integral $\\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt$ exists too, and $\\int f(\\phi(t))\\phi'(t) dt = F(\\phi(t))+C$ If the function $x = \\phi(t)$ has inverse function $t=\\phi^{-1}(x)$,and $\\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt = G(t) + C$ exists too, and $\\int f(x) dx =G(\\phi^{-1}(x)) + C$. Theorem 5 (Integration by Parts) If $u(x)$ and $v(x)$ are differentiable, and $\\int v(x)u'(x) dx$ exists, then $\\int v'(x) u(x) dx$ exists too, and $\\int v'(x) u(x) dx = v(x)u(x) - \\int v(x) u'(x) dx$. proof $[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$. $\\Box$\n",
+  "wordCount" : "217",
+  "inLanguage": "en",
+  "datePublished": "2021-04-08T10:52:59+02:00",
+  "dateModified": "2021-04-08T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -116,7 +229,7 @@ $\Box$">
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -142,27 +255,27 @@ $\Box$">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -230,12 +343,12 @@ $\Box$">
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/analysis_1/math_analysis_9/">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
     <span class="title">« Prev</span>
     <br>
     <span>Mathematical Analysis | 9 Riemann Integrals</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/analysis_1/math_analysis_7/">
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
     <span class="title">Next »</span>
     <br>
     <span>Mathematical Analysis | 7 Completeness of the Real Numbers</span>
@@ -247,7 +360,7 @@ $\Box$">
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

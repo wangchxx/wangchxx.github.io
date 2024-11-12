@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Policy Gradient Methods | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
 One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_07_policy_gradient/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_07_policy_gradient/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/">
 <noscript>
     <style>
         #theme-toggle,
@@ -75,7 +75,74 @@ One advantage of parameterizing policies is that it can learn stochastic policie
 
 
 
+<meta property="og:title" content="RL | Policy Gradient Methods">
+<meta property="og:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-26T03:20:07+02:00">
+<meta property="article:modified_time" content="2021-08-26T03:20:07+02:00">
 
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Policy Gradient Methods">
+<meta name="twitter:description" content="So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Policy Gradient Methods",
+      "item": "https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Policy Gradient Methods",
+  "name": "RL | Policy Gradient Methods",
+  "description": "So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\\pi_\\theta(a|s) = \\Pr(A_t = a| S_t = s, \\theta)$.\nOne advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\\pi_\\theta(a|s) = \\Pr(A_t = a| S_t = s, \\theta)$.\nOne advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.\n1. The Policy Gradient Theorem First we consider how to measure the performance of the parameter $\\theta$. In episodic case, we can assume a fixed start state $s_0$ w.l.o.g. and define the performance as $$ \\begin{align} J(\\theta) = v_{\\pi_\\theta}(s_0), \\end{align} $$ where $v_{\\pi_\\theta}(s_0)$ is the value function for policy $\\pi_\\theta$, the policy determined by $\\theta$. In continuous case, where not start states or termination exit and no discounting factor for future rewards, we need to define performance in terms of the average rate of reward per time step: $$ \\begin{align} J(\\theta) \u0026= \\sum_s \\mu_{\\pi_\\theta}(s) R_{\\pi_\\theta}(s) = \\mathbb{E}_{\\pi_\\theta}[r], \\end{align} $$ Where $R_{\\pi}(s)$ is the expected reward at state $s$ following the policy $\\pi$, i.e. $R_\\pi(s) = \\sum_a \\pi(a|s) r(s,a)$ and $\\mu_\\pi$ is the stationary measure of Markov chain for policy $\\pi$.\nTheorem 7.1 (policy gradient theorem) For any differentiable policy $\\pi_\\theta$, for both episodic and continuous cases, the gradient of $J(\\theta) $ w.r.t. $\\theta$ is $$ \\begin{equation} \\nabla_\\theta J(\\theta) = \\mathbb{E}_{\\pi_\\theta} \\left[ \\nabla_\\theta \\log \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\right]. \\end{equation} $$ Naturally, we can define the loss function as $$ L(\\theta) = -J(\\theta) = -\\mathbb{E}_{\\pi_\\theta}[\\log \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a)], $$ and improve the performance by SGD.\nProof For the epidotic case, $$ \\begin{align*} \\nabla_\\theta v_\\pi(s) \u0026= \\nabla_\\theta \\left[\\sum_{a} \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\right] \\cr \u0026= \\sum_{a} \\left[ \\nabla_\\theta\\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) + \\pi_\\theta(a|s) \\nabla_\\theta q_{\\pi_\\theta}(s,a) \\right] \\cr \u0026= \\sum_{x\\in\\mathcal{S}} \\sum_n P^{\\pi_\\theta}_n(x|s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|x) q_{\\pi_\\theta}(x,a)\\cr \u0026= \\sum_{x\\in\\mathcal{S}} \\eta(x) \\sum_a \\nabla_\\theta \\pi_\\theta(a|x) q_{\\pi_\\theta}(x,a), \\end{align*} $$ where $P^\\pi_n$ is the n-step transition probability following $\\pi$, and $\\eta(s)$ is the time spent on state $s$. It follows that $$ \\begin{align*} \\nabla_\\theta J(\\theta) \u0026= \\nabla_\\theta v_\\pi(s_0) \\cr \u0026=\\sum_{s} \\eta(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\cr \u0026= \\sum_{s'} \\eta(s') \\sum_{s} \\frac{\\eta(s)}{\\sum \\eta(s')} \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\cr \u0026= \\sum_{s'} \\eta(s') \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\cr \u0026\\propto \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a). \\end{align*} $$ For the continuous case, we also have $\\nabla_\\theta J(\\theta) = \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a)$. Since $\\nabla_\\theta \\pi_\\theta = \\pi_\\theta \\nabla_\\theta \\log \\pi_\\theta$, we see that $$ \\begin{align} \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \u0026= \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\pi_\\theta(a|s) \\nabla_\\theta \\log \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\cr \u0026= \\mathbb{E}_{\\pi_\\theta} \\left[ \\nabla_\\theta \\log \\pi_\\theta(a|s) q_{\\pi_\\theta}(s,a) \\right]. \\end{align} $$ $\\Box$\n2. Monte Carlo Policy Gradient Update $\\theta$ by $$ \\theta \\leftarrow \\theta + \\alpha \\nabla_\\theta \\log \\pi_\\theta( A_t|S_t) G_t. $$ Monte Carlo Policy Gradient (REINFORCE)(episodic) Initialize $\\theta$. Repeat: for each episode from $\\pi_\\theta$, Update $\\theta$ by $$ \\theta \\leftarrow \\theta + \\alpha \\nabla_\\theta \\log \\pi_\\theta( A_t|S_t) G_t. $$ However, Monte-Carlo policy gradient may of high variance and thus produce slow learning. One solution to this is to conclude a baseline $b(s)$ that does not depend on $a$. Then we have $$ \\nabla_\\theta J(\\theta) \\propto \\sum_s \\mu_{\\pi_\\theta}(s) \\sum_a \\nabla_\\theta \\pi_\\theta(a|s) (q_{\\pi_\\theta}(s,a) - b(s)). $$ The equation remains valid since the gradient of a probability measure sums up to 0. The update rule now becomes $$ \\theta \\leftarrow \\theta + \\alpha \\nabla_\\theta \\log \\pi_\\theta( A_t|S_t)( G_t - b(S_t)). $$Moreover, the baseline function $b$ can be defined as a learnable function $b(s,w)$.\nREINFORCE with Baseline (episodic) Initialize $\\theta,w$. Initialize $S_0$ Repeat: for each episode from $\\pi_\\theta$, Compute $\\delta = G_t - b(S_t,w)$ Update $\\theta$ by $$ \\theta \\leftarrow \\theta + \\alpha_\\theta \\nabla_\\theta \\log \\pi_\\theta(A_t|S_t) \\delta. $$ Update $w$ by $$ w \\leftarrow w + \\alpha_w \\nabla_w b(S_t, w) \\delta. $$ 3. Actor-Critic Policy Gradient Methods that learn approximations to both policy and value functions are called actor-critic methods, where ‘actor’ refers to the learned policy, and ‘critic’ refers to the learned value function.\nAlthough the REINFORCE with baseline method learns both a policy and a state-value function, we don’t consider it to be an actor-critic method because its state-value function is used only as a baseline.\nTo apply the actor-critic method, we need approximate $q_\\pi(s,a)$ using a learnable function $Q(s,a,w)$. First consider one-step actor-critic methods:\nactor: update $\\theta$ by policy gradient. critic: update $w$ by TD(0). One-step AC methods replace the return $G_t$ with the one-step return $R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$\nOne-step Aactor-Critic (episodic and continuous) Initialize $\\theta,w$. Initialize $S_0$. Repeat: for each time step, Choose action $A_t \\sim \\pi_\\theta(\\cdot|S_t)$, and observe $S_{t+1}, R_{t+1}$. Compute $\\delta = R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$. Update $\\theta$ by $$ \\theta \\leftarrow \\theta + \\alpha_\\theta \\nabla_\\theta \\log \\pi_\\theta(A_t|S_t) \\delta. $$ Update $w$ by $$ w \\leftarrow w + \\alpha_w \\nabla_w Q(S_t, A_t, w) \\delta. $$ For the continuous case We should compute $\\delta = R_{t+1} - \\bar{R} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\\bar{R} \\leftarrow \\bar{R} + \\alpha_R \\delta$ since $q_{\\pi_\\theta}(s,a) = R_{t+1} - \\mathbb{E}_{\\pi_\\theta}[ r] + R_{t+2} - \\mathbb{E}_{\\pi_\\theta}[ r] + \\cdots.$\nNote that one-step methods are fully online and incremental. But the approximation to policy gradient is biased now since $Q$ dependents on action $A_t$. A biased policy gradient may not find the right solution. The following theorem shows that the bias can be avoid if we choose value function approximation carefully.\nTheorem 7.2 (compatible function approximation theorem) If the value function approximation satisfies Value function approximation is compatible to the policy, i.e. $$ \\nabla_w Q(s,a,w) = \\nabla_\\theta \\log \\pi_\\theta(a|s). $$ Parameters $w$ of $Q$ minimize the MSE $$ \\epsilon = \\mathbb{E}_{\\pi_\\theta} [ q_{\\pi_\\theta}(s,a) - Q(s,a,w)]^2. $$ Then the policy gradient is exact, $$ \\nabla_\\theta J(\\theta) = \\mathbb{E}_{\\pi_\\theta} [\\nabla_\\theta \\log \\pi_\\theta(a|a) Q(s,a,w) ] $$ Proof $\\nabla_w \\epsilon = 0$, and it follows that $$ \\mathbb{E}_{\\pi_\\theta} [( q_{\\pi_\\theta}(s,a) - Q(s,a,w)) \\nabla_w Q(s,a,w)] = 0. $$ Then the condition (i) finishes the proof. Aactor-Critic (episodic and continuous) with Eligibility Trances Initialize $\\theta,w$. Initialize $S_0$. Initialize $E_\\theta, E_\\theta = 0$ Repeat: for each time step, Choose action $A_t \\sim \\pi_\\theta(\\cdot|S_t)$, and observe $S_{t+1}, R_{t+1}$. Compute $\\delta = R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$. Update $E_w = \\lambda_w E_{w} + \\nabla_w Q(S_t, A_t, w)$. Update $E_\\theta = \\lambda_\\theta E_{\\theta} + \\nabla_\\theta \\log \\pi_\\theta(A_t|S_t)$. Update $\\theta$ by $$ \\theta \\leftarrow \\theta + \\alpha_\\theta \\nabla_\\theta \\log \\pi_\\theta(A_t| S_t) \\delta E_\\theta. $$ Update $w$ by $$ w \\leftarrow w + \\alpha_w \\nabla_w Q(S_t, A_t, w) \\delta E_w. $$ For the continuous case We should compute $\\delta = R_{t+1} - \\bar{R} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$ and update $\\bar{R} \\leftarrow \\bar{R} + \\alpha_R \\delta$ since $q_{\\pi_\\theta}(s,a) = R_{t+1} - \\mathbb{E}_{\\pi_\\theta}[ r] + R_{t+2} - \\mathbb{E}_{\\pi_\\theta}[ r] + \\cdots.$\n4. Finite-Difference Policy Gradient In section 1, we derived the analytical policy gradient and both MC and AC methods introduced in section 2,3 were based on the analytical gradients. A simple way of estimating derivatives is the finite difference.\n$$ \\frac{\\partial J(\\theta)}{\\partial \\theta_k} \\approx \\frac{J(\\theta + 1/2 e_k) - J(\\theta - 1/2 e_k)}{\\epsilon}, $$ where $e_k$ is unit vector with 1 in $k$-th element. Finite difference works even if $\\pi_\\theta$ is not differentiable.\n",
+  "wordCount" : "1187",
+  "inLanguage": "en",
+  "datePublished": "2021-08-26T03:20:07+02:00",
+  "dateModified": "2021-08-26T03:20:07+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -93,7 +160,7 @@ One advantage of parameterizing policies is that it can learn stochastic policie
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -119,27 +186,27 @@ One advantage of parameterizing policies is that it can learn stochastic policie
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -418,12 +485,12 @@ where $e_k$ is unit vector with 1 in $k$-th element. Finite difference works eve
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/rl/rl_08_dynamics_approximation/">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/">
     <span class="title">« Prev</span>
     <br>
     <span>RL | Dynamics Approximation for Model-Based RL</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_06_value_function_approximation/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Value Function Approximation</span>
@@ -435,7 +502,7 @@ where $e_k$ is unit vector with 1 in $k$-th element. Finite difference works eve
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

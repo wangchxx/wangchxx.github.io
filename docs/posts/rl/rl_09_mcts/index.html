@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Multiplayer Monte Carlo Tree Search | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="1. Multi-Agent Systems
@@ -18,16 +18,16 @@ how information is communicated and propagated among agents.
 2. Monte Carlo Tree Search (MCTS)
 The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_09_mcts/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_09_mcts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_09_mcts/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_09_mcts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,7 +83,90 @@ The MCTS focus on the analysis of the most promising moves, expanding the search
 
 
 
+<meta property="og:title" content="RL | Multiplayer Monte Carlo Tree Search">
+<meta property="og:description" content="1. Multi-Agent Systems
+A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.
+MAS research spans a range of problems, such as
 
+how to design MAS to incentivize certain behaviors in agents,
+how to design algorithms enabling agents to achieve specific goals in a MAS,
+how information is communicated and propagated among agents.
+
+2. Monte Carlo Tree Search (MCTS)
+The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_09_mcts/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-20T23:01:33+02:00">
+<meta property="article:modified_time" content="2021-09-20T23:01:33+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Multiplayer Monte Carlo Tree Search">
+<meta name="twitter:description" content="1. Multi-Agent Systems
+A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.
+MAS research spans a range of problems, such as
+
+how to design MAS to incentivize certain behaviors in agents,
+how to design algorithms enabling agents to achieve specific goals in a MAS,
+how information is communicated and propagated among agents.
+
+2. Monte Carlo Tree Search (MCTS)
+The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Multiplayer Monte Carlo Tree Search",
+      "item": "https://wangchxx.github.io/posts/rl/rl_09_mcts/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Multiplayer Monte Carlo Tree Search",
+  "name": "RL | Multiplayer Monte Carlo Tree Search",
+  "description": "1. Multi-Agent Systems A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.\nMAS research spans a range of problems, such as\nhow to design MAS to incentivize certain behaviors in agents, how to design algorithms enabling agents to achieve specific goals in a MAS, how information is communicated and propagated among agents. 2. Monte Carlo Tree Search (MCTS) The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Multi-Agent Systems A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.\nMAS research spans a range of problems, such as\nhow to design MAS to incentivize certain behaviors in agents, how to design algorithms enabling agents to achieve specific goals in a MAS, how information is communicated and propagated among agents. 2. Monte Carlo Tree Search (MCTS) The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.\nA playout, also called rollout, is a sequence of state-action-reward tuples until the terminal. Definition (static evaluation function) A static evaluation function (also known as evaluation function or heuristic evaluation function) is a function used to estimate the goodness of a state. The function is called static because it does not take into account the history of the state or explore possible forward moves. Each round of MCTS consists of four steps:\nSelection: start from root node $R$ and select successive child nodes until a leaf node $L$ is reached. The leaf is any node that has a potential child from which no playout has yet been initiated.\nExpansion: unless $L$ is the terminal state, create child nodes and choose node $C$ from one of them. Child nodes are any valid moves from the state $L$.\nSimulation: complete one random playout from node $C$.\nBackpropagation: use the result of the playout to update the information in the nodes on the path from $C$ to $R$.\nWhen selecting child nodes, the exploration-exploitation techniques, such as UCT and UCB, can be applied.\nIn the $n$-agent sequential move games, the MCTS can be quite inefficient since the search space grows exponentially. There are some improvements for MCTS\nParanoid assumption: all other agents are always conspiring against the root agent. This simplifies the game to a 2-agent game.\nProgressive widening or progressive unpruning: restrict the number optional moves to $[cn^\\alpha]$ ,where $n$ is the number of visits to the current node so far.\nOpponent move abstraction (OMA): The MCTS in its basic form estimates the value of each move $a_d$ at depth $d$ in the precise context of its entire history from the root. These estimators are unbiased, but require large number of simulations. Move abstraction is a technique that generalize context by focusing on only a part of a move’s history. OMA ignores past moves of component agents and only considers past moves of the currently moving player.\n3. Upper Confidence bounds applied to Trees (UCT) In selection, the choice of actions depends on the value the actions at the root node. The value of a state-action node is computed based on the average of the sum of rewards along the edges originating at the node and the values at the corresponding successor nodes. To find an action whose value is within the $\\epsilon$-vicinity of that of the best, the depth of the tree needed is proportional to $1/(1-\\gamma) \\log \\frac{1}{\\epsilon(1-\\gamma)}$, hence the width is proportional to $\\frac{K}{\\epsilon (1-\\gamma)}$.\nIn the selection step of MCTS, UCT treats it as a multi-armed bandits problem, selecting the action that maximizes $$ Q_{d,t}(s,a) + \\sqrt{\\frac{2\\ln N_{d,t}(s)}{N_{d,t}(s,a)}}, $$ where $N_{d,t}(\\cdot)$ is the number times state has been visited up to time t at depth $d$.\n4. Context Generalization The count $N_{d,t}(s,a)$ is hard to update, because it depends on the trajectories of states and actions. To speed up training, we need to reduce the trajectory space. This technique is called abstraction. This can be done by reducing dimensionality.\nAnother idea is to define the pseudo-counts $\\hat{N}$.\nFitting generative models. fit a density model $p_\\theta(s)$ s.t. $p_\\theta(s)$ is high even $s$ has never been seen if $s$ is similar to previously seen states. $$ p_\\theta(s) = \\frac{\\hat{N}(s)}{\\hat{n}}, \\quad p_{\\theta'}(s) = \\frac{\\hat{N}(s) + 1}{\\hat{n}+1}. $$ It leads to $\\hat{N}(s) = \\hat{n}p_\\theta(s), \\hat{n} = \\frac{1-p_{\\theta'}(s)}{p_{\\theta'}(s) - p_\\theta(s)} p_\\theta(s)$. The model $p_\\theta$ can be a deep neural network (learning hashing) 5. Rapid Action Value Estimation (RAVE) 5. Best-Reply-Search (BRS) One difficulty of MAS is that the width of tree grows exponentially with the number of agents. To solve this problem we need opponent abstraction.\nLike Paranoid, BRS assumes that all opponents are playing against the root agent, however, it restricts the move choices of this coalition-only the opponent with the strongest move against the root can move, while all other opponents pass. This also simplifies the game to a 2-agent game\nBut BRS can lead to illegal game states if passing is not allowed in the game. This motivates BRS+, which assumes access to a static move ordering function. Its basic idea is that whenever an opponent does not have the strongest move against the root, this opponent play the move ranked highest by the move ordering (a fixed move).\nReferences [1] L. Kocsis and C. Szepesvári, “Bandit Based Monte-Carlo Planning,” in Machine Learning: ECML 2006, vol. 4212, J. Fürnkranz, T. Scheffer, and M. Spiliopoulou, Eds. Berlin, Heidelberg: Springer Berlin Heidelberg, 2006, pp. 282–293. doi: 10.1007/11871842_29.\n[2] H. Baier and M. Kaisers, “ME-MCTS: Online Generalization by Combining Multiple Value Estimators,” in Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, Montreal, Canada, Aug. 2021, pp. 4032–4038. doi: 10.24963/ijcai.2021/555.\n[3] J. He, M. Suau, and F. A. Oliehoek, “Influence-Augmented Online Planning for Complex Environments,” arXiv:2010.11038 [cs], Jun. 2021, Accessed: Sep. 20, 2021. [Online]. Available: http://arxiv.org/abs/2010.11038\n[4] S. Srinivasan, E. Talvitie, and M. Bowling, “Improving Exploration in UCT Using Local Manifolds,” p. 7.\n[5] H. Baier and M. Kaisers, “Guiding Multiplayer MCTS by Focusing on Yourself,” in 2020 IEEE Conference on Games (CoG), Osaka, Japan, Aug. 2020, pp. 550–557. doi: 10.1109/CoG47356.2020.9231603.\n[6] S. Gelly and D. Silver, “Monte-Carlo tree search and rapid action value estimation in computer Go,” Artificial Intelligence, vol. 175, no. 11, pp. 1856–1875, Jul. 2011, doi: 10.1016/j.artint.2011.03.007.\n",
+  "wordCount" : "990",
+  "inLanguage": "en",
+  "datePublished": "2021-09-20T23:01:33+02:00",
+  "dateModified": "2021-09-20T23:01:33+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_09_mcts/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -101,7 +184,7 @@ The MCTS focus on the analysis of the most promising moves, expanding the search
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -127,27 +210,27 @@ The MCTS focus on the analysis of the most promising moves, expanding the search
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -290,12 +373,12 @@ It leads to $\hat{N}(s) = \hat{n}p_\theta(s), \hat{n} = \frac{1-p_{\theta'}(s)}{
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/diffusion_1_ddmp/">
+  <a class="prev" href="https://wangchxx.github.io/posts/diffusion_1_ddmp/">
     <span class="title">« Prev</span>
     <br>
     <span>DL | Diffusion Models 1 - DDMP</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_08_dynamics_approximation/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Dynamics Approximation for Model-Based RL</span>
@@ -307,7 +390,7 @@ It leads to $\hat{N}(s) = \hat{n}p_\theta(s), \hat{n} = \frac{1-p_{\theta'}(s)}{
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

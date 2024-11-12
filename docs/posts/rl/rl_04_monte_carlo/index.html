@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Model-Free: Monte Carlo Methods | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
@@ -13,16 +13,16 @@ In this chapter we will consider the Monte Carlo methods for prediction and cont
 We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$
 ">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_04_monte_carlo/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_04_monte_carlo/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/">
 <noscript>
     <style>
         #theme-toggle,
@@ -78,7 +78,80 @@ We begin by consider Monte Carlo methods for learning the value function $v_\pi$
 
 
 
+<meta property="og:title" content="RL | Model-Free: Monte Carlo Methods">
+<meta property="og:description" content="We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
+In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
+1. Monte Carlo Prediction
+We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-24T18:27:52+02:00">
+<meta property="article:modified_time" content="2021-08-24T18:27:52+02:00">
 
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Model-Free: Monte Carlo Methods">
+<meta name="twitter:description" content="We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
+In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
+1. Monte Carlo Prediction
+We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Model-Free: Monte Carlo Methods",
+      "item": "https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Model-Free: Monte Carlo Methods",
+  "name": "RL | Model-Free: Monte Carlo Methods",
+  "description": "We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.\nIn this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.\n1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\\pi$ for a given policy $\\pi$. Suppose that we wish to estimate $v_\\pi(s)$ given a set of episodes under policy $\\pi$ ",
+  "keywords": [
+    
+  ],
+  "articleBody": "We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.\nIn this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.\n1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\\pi$ for a given policy $\\pi$. Suppose that we wish to estimate $v_\\pi(s)$ given a set of episodes under policy $\\pi$ $$ S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T \\sim \\pi. $$Recall that the $v_\\pi(s)$ is the expected return, i.e. expected cumulative future discounted rewards, starting from state $s$, $$ v_\\pi(s) = \\mathbb{E}_{\\pi} [R_{t+1} + \\gamma R_{t+2} + \\cdots| S_t = s]. $$ The idea of Monte Carlo methods is to estimate the expected return by the mean of empirical returns.\nDefinition 4.1 (visit to states) Each occurrence of state $s$ in an episode is called a visit to $s$. 1.1 First-visit MC prediction Initialize the total return $S(s) = 0$. For each episode under $\\pi$: $S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.\nFor $t = T-1,...,0$:\nupdate $G_t = \\gamma G_{t+1} + R_{t+1}$. if $S_t = s$, update the total return $S(s)+= G_t$ and end the for loop. Do steps 1-2 for each episode and record the total number of the first visits to $s$, denoted $N(s)$. By LLN, $$ \\frac{S(s)}{N(s)} \\to v_\\pi(s), $$ as $N(s) \\to \\infty$.\n1.2 Every-visit MC prediction Initialize the total return $S(s) = 0$. For each episode under $\\pi$: $S_0, A_0 , R_1, ..., S_{T-1}, A_{T-1}, R_T$, initialize $G = 0$.\nFor $t = T-1,...,0$:\nupdate $G_t = \\gamma G_{t+1} + R_{t+1}$. if $S_t = s$, update the total return $S(s)+= G_t$ and reset the $G =0$. Do steps 1-2 for each episode and record the total number of visits to $s$, denoted $N(s)$. By LLN, $$ \\frac{S(s)}{N(s)} \\to v_\\pi(s), $$ as $N(s) \\to \\infty$.\nRecall the incremental mean that $$ \\mu_n = \\sum_{i=1}^n x_i = \\mu_{n-1} + \\frac{1}{n}(x_k - \\mu_{k-1}). $$ We can update $V(s):= \\frac{S(s)}{N(s)}$ incrementally by $$ V^{new}(s) = V^{old}(s) + \\frac{1}{N(s)}(G_t - V^{old}(s)). $$ In non-stationary problems, we can replace the factor $\\frac{1}{N(s)}$ by $\\alpha \\in(0,1)$.\n2. Monte Carlo Control Recall that the policy improvement discussed in DP is given by $$ \\begin{align*} \\pi'(s) \u0026:= \\arg\\max_{a} q_\\pi(s,a) \\cr \u0026=\\arg\\max_a \\sum_{s',r}p(s',r|s,a) [ r+ \\gamma v_\\pi(s')]. \\end{align*} $$For an unknown MDP, the transition probabilities $p$ are unknown, so that it is impossible to implement the policy improvement with value function $v_\\pi$ alone. Instead, it is more useful to use the action-value function $q_\\pi$.\nThe Monte Carlo methods for estimating $q_\\pi$ are essentially the same as presented for $v_\\pi$, except now we consider visits to the state-action pair $(s,a)$ rather than to a state $s$.\nMonte Carlo prediction for $q_\\pi$ For each episode: Generate an episode following $\\pi$: $S_0,A_0,R_1,...,R_T$. Initialize $G = 0$. Loop for each step $t = T - 1 ,...,0$: update $G_t = \\gamma G_{t+1} + R_{t+1}$. if $S_t = s, A_t = a$, update the total return $S(s,a)+= G_t$ and end the loop. $q_\\pi(s,a)$ is estimated by the empirical mean $Q(s,a) = \\frac{S(s,a)}{N(s,a)}$.\nThen we can estimate the optimal policy $\\pi_*$ by the policy iteration $$ \\pi_0 \\xrightarrow{E} q_{\\pi_0} \\xrightarrow{I} \\pi_1 \\xrightarrow{E} q_{\\pi_1} \\to \\cdots \\pi_* \\xrightarrow{E} q_*, $$ where $\\xrightarrow{E}$ denotes a policy evaluation done by Monte Carlo methods and $\\xrightarrow{I}$ denotes the policy improvement. The policy improvement $$ \\pi'(s) = \\arg\\max_{a} q_\\pi(s,a) $$ is greedy, which can prevent further exploration of nongreedy actions, so that we cannot obtain the optimal policy $\\pi_*$. One solution is to use the $\\epsilon$-greedy policy improvement, $$ \\pi(a|s) = \\begin{cases} \\frac{\\epsilon}{|\\mathcal{S}|} + 1 - \\epsilon, \u0026 a = \\arg\\max_{a'} Q(s,a') \\cr \\frac{\\epsilon}{|\\mathcal{S}|} ,\u0026 otherwise. \\end{cases} $$ Theorem 4.3($\\epsilon$-greedy policy improvement) For any $\\epsilon-$greedy policy $\\pi$, the $\\epsilon-$greedy policy $\\pi'$ w.r.t. $q_\\pi$ is an improvement, i.e. $v_{\\pi'}(s) \\geq v_\\pi(s)$ for all $s\\in\\mathcal{S}$. Proof $$ \\begin{align*} q_\\pi(s,\\pi'(s)) \u0026= \\sum_a \\pi'(a|s) q_\\pi(s,a) \\cr \u0026= \\frac{\\epsilon}{|\\mathcal{S}|} \\sum_{a} q_\\pi(s,a) + (1-\\epsilon) \\max_a q_\\pi(s,a) \\cr \u0026\\geq \\frac{\\epsilon}{|\\mathcal{S}|} \\sum_{a} q_\\pi(s,a) + (1-\\epsilon) \\sum_{a} \\frac{\\pi(a|s) - \\epsilon/|\\mathcal{S}|}{1-\\epsilon} \\cr \u0026= \\sum_a \\pi(a|s)q_\\pi(s,a) = v_\\pi(s). \\end{align*} $$ Then the desired result follows from the policy improvement theorem. $\\Box$\nThis theorem guarantees that the $\\epsilon$-greedy policy improvement does find a better policy using action-state functions $q_\\pi$.\nDefinition 4.2 (GLIE) A learning is called greedy in the limit with infinite exploration (GLIE) if it satisfies the following two properties: all state-action pairs are explored infinitely many times, $$ \\lim_{n\\to\\infty} N_n(s,a) = \\infty. $$ the learning policy converges to a greedy policy w.r.t. the learned $Q_n$. $$ \\lim_{n\\to\\infty} \\pi_n(a|s) = 1_{a= a_*}, $$ where $a_* = \\arg\\max_{a'} Q_n(s,a')$. $\\epsilon$-greedy policy is GLIE if $\\epsilon = \\epsilon_n = 1/n$. Naturally, we have a Monte Carlo Control method.\nGLIE Monte Carlo Control Initialize $Q(s,a)$ arbitrarily for all $a,s$.\ninitialize a policy $\\pi$ w.r.t. $Q$.\nFor each episode:\nGenerate an episode following $\\pi$: $S_0,A_0,R_1,...,R_T$. Initialize $G = 0$. Loop for each step $t = T - 1 ,...,0$: update $G_t = \\gamma G_{t+1} + R_{t+1}$. if $S_t = s, A_t = a$: $N(s,a)+= 1$. incremental update $Q$ by $$Q(s,a)\\leftarrow Q(s,a) + \\frac{1}{N(s,a)}(G_t - Q(s,a)).$$ $\\epsilon$-greedy policy improvement with $\\epsilon = 1/n$. By the $\\epsilon$-greedy policy improvement theorem, and the definition of GLIE, we see that GLIE Monte Carlo control converges to the optimal action-value function, $Q(s,a) \\to q_*(s,a)$ for all $s,a$.\n3. Off-policy Monte Carlo Control The Monte Carlo control methods introduced in the previous section are called on-policy control as they evaluate or improve the policy that is used to make decisions.\non-policy learning. Learn about policy $\\pi$ from experience sampled from $\\pi$. off-policy learning. Learn about policy $\\pi$ from experience sample from $\\mu$, where the policy $\\pi$ is called the target policy and the policy $\\mu$ used to generate experience is called the behavior policy. We begin with considering the prediction problem, where both target policy $\\pi$ and behavior policy $\\mu$ are given, and we wish to estimate $v_\\pi$ or $q_\\pi$.\nThe importance sampling method allows us to estimate the expectation under a measure $P$ by sampling from another measure $Q$, $$ \\begin{align*} \\mathbb{E}_P [f(X)] \u0026= \\mathbb{E}_Q \\left[ \\frac{P(X)}{Q(X)} f(X) \\right], \\end{align*} $$ where $L(P,Q):=\\frac{P(X)}{Q(X)}$ is called the importance sampling ratio.\nGiven a starting state $S_t$, the probability of the subsequent state-action trajectory, $A_t, S_{t+1}, A_{t+1},...,S_T$, following the policy $\\pi$ is $$ \\Pr(A_t, S_{t+1},...,S_T| S_t, A_{t:T-1}\\sim \\pi) = \\prod_{k=t}^{T-1} \\pi(A_k|S_k) p(S_{s+1}| S_k, A_k), $$ where $p$ the state-transition probability function. Thus we can easily obtain that the importance sampling ratio of policy $\\pi$ and policy $\\mu$ is given by $$ L_t(\\pi, \\mu) = \\prod_{k=t}^{T-1} \\frac{\\pi(A_k|S_k)}{\\mu(A_k|S_k)}. $$ Then by the importance sampling, we have $$ v_\\pi(s) = \\mathbb{E}_\\pi[G_t|S_t = s] = \\mathbb{E}_\\mu[L_t(\\pi, \\mu)G_t|S_t = s]. $$If we estimate $v_\\pi(s)$ by the ordinary average $$ V(s) = \\frac{\\sum L_t(\\pi,\\mu) G_t}{N(s)}, $$ the estimator typically have high variance. An alternative is weighted importance sampling, which uses a weighted average, given by $$ V(s) = \\frac{\\sum L_t(\\pi,\\mu) G_t}{\\sum L_t(\\pi,\\mu)}. $$ This estimator has lower variance, but higher bias. Written in the form of incremental implementation, we can update $V(s)$ by $$ \\begin{align*} V(s) \\leftarrow V(s) + \\frac{1}{N(s)}(L_{t}(\\pi,\\mu)G_t - V(s)), \u0026\\quad \\text{ordinary} \\cr V(s) \\leftarrow V(s) + \\frac{W}{C(s)}(G_t - V(s)), \u0026\\quad \\text{weighted} \\end{align*} $$ where $C(s) \\leftarrow C(s) + W$ is the cumulative sum of the weights $W$, e.g. $L_t(\\pi,\\mu)$. Similarly, we can use this method to estimate the action-value function $q_\\pi$.\nNow we consider estimating the optimal policy $\\pi_*$ by off-policy Monte Carlo.\nOff-policy Monte Carlo Control Initialize $Q(s,a)$ arbitrarily for all $a,s$.\nInitialize $C(s,a) = 0$ for all $a,s$.\ninitialize a policy $\\pi$ w.r.t. $Q$.\nFor each episode:\nGenerate an episode following the behavior policy $\\mu$: $S_0,A_0,R_1,...,R_T$. Initialize $G = 0, W = 1$. Loop for each step $t = T - 1 ,...,0$: update $G_t = \\gamma G_{t+1} + R_{t+1}$.\n$C(s,a)+= W$.\nif $S_t = s, A_t = a$:\nincremental update $Q$ by $$Q(s,a)\\leftarrow Q(s,a) + \\frac{W}{C(s,a)}(G_t - Q(s,a)).$$ improve the target policy $\\pi$ by greedy or $\\epsilon$-greedy policy improvement. exit the inner loop. update $W\\leftarrow W\\frac{\\pi(A_t|S_t)}{\\mu(A_t|S_t)}$\n",
+  "wordCount" : "1357",
+  "inLanguage": "en",
+  "datePublished": "2021-08-24T18:27:52+02:00",
+  "dateModified": "2021-08-24T18:27:52+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -96,7 +169,7 @@ We begin by consider Monte Carlo methods for learning the value function $v_\pi$
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -122,27 +195,27 @@ We begin by consider Monte Carlo methods for learning the value function $v_\pi$
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -475,12 +548,12 @@ $$Q(s,a)\leftarrow Q(s,a) + \frac{W}{C(s,a)}(G_t - Q(s,a)).$$</li>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/rl/rl_05_temporal_difference/">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
     <span class="title">« Prev</span>
     <br>
     <span>RL | Model-Free: Temporal Difference Learning</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_03_dynamic_programming/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Dynamic Programming</span>
@@ -492,7 +565,7 @@ $$Q(s,a)\leftarrow Q(s,a) + \frac{W}{C(s,a)}(G_t - Q(s,a)).$$</li>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

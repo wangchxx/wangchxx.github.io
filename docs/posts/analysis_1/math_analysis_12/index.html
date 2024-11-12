@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Mathematical Analysis | 12 Power Series | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form
@@ -59,16 +59,16 @@ $\Box$
 2. Power Series Expansion
 If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $f(x) = \sum_{n=0}^\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series  about the point $x=x_0$.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/analysis_1/math_analysis_12/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_1/math_analysis_12/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/">
 <noscript>
     <style>
         #theme-toggle,
@@ -124,7 +124,172 @@ If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $
 
 
 
+<meta property="og:title" content="Mathematical Analysis | 12 Power Series">
+<meta property="og:description" content="In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form
 
+$$ 
+ \sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1}
+$$
+W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e.
+
+$$ 
+   \sum_{n=0}^\infty c_n x^n. \tag{2}
+$$1. Power Series
+First, we study the convergence of series (2).
+
+Lemma 1
+Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every  $[-R&#43;\epsilon, R-\epsilon]$.
+proof
+Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\lim\sup_{n\to\infty}\sqrt[n]{a_n} = 0 &lt;1$. By root test we complete the proof.
+$\Box$
+Theorem 2
+Suppose the series (2) converges for $|x|&lt; R$, and define
+$$ 
+ f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; R). \tag{3}
+$$
+Then (2) converges uniformly on every $[-R&#43;\epsilon, R-\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and
+$$ 
+ f&#39;(x) = \sum_{n=1}^\infty n c_n x^{n-1}  , \quad (|x|&lt; R). \tag{4}
+$$
+proof
+For $|x|&lt; R-\epsilon$, we have
+$$ 
+ |c_n x^n|\leq |c_n (R-\epsilon)^n|
+$$
+and since $\sum c_n (R-\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R&#43;\epsilon, R-\epsilon]$.
+Next, we have $\lim\sup_{n\to\infty} \sqrt[n]{n|c_n|} = \lim\sup_{n\to\infty} \sqrt[n]{|c_n|}$ since $\sqrt[n]{n} = 1$, which implies that $f$ and $f&#39;$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R&#43;\epsilon, R-\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4).
+Continuity of $f$ follows from the existence of $f&#39;$.
+$\Box$
+Theorem 3
+Suppose $\sum c_n$ converges, Put
+$$ 
+ f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; 1).
+$$
+Then
+$$ 
+ \lim_{x\to 1_-} f(x) = \sum_{n=0}^\infty c_n.
+$$
+proof
+Let $f_n(x) = \sum_{j=0}^n c_j x^j$. $f_n \to f$ at $x=1$, so $f_n\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$).
+$\Box$
+
+
+2. Power Series Expansion
+If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $f(x) = \sum_{n=0}^\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series  about the point $x=x_0$.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_12/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-12T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-12T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematical Analysis | 12 Power Series">
+<meta name="twitter:description" content="In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form
+
+$$ 
+ \sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1}
+$$
+W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e.
+
+$$ 
+   \sum_{n=0}^\infty c_n x^n. \tag{2}
+$$1. Power Series
+First, we study the convergence of series (2).
+
+Lemma 1
+Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every  $[-R&#43;\epsilon, R-\epsilon]$.
+proof
+Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\lim\sup_{n\to\infty}\sqrt[n]{a_n} = 0 &lt;1$. By root test we complete the proof.
+$\Box$
+Theorem 2
+Suppose the series (2) converges for $|x|&lt; R$, and define
+$$ 
+ f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; R). \tag{3}
+$$
+Then (2) converges uniformly on every $[-R&#43;\epsilon, R-\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and
+$$ 
+ f&#39;(x) = \sum_{n=1}^\infty n c_n x^{n-1}  , \quad (|x|&lt; R). \tag{4}
+$$
+proof
+For $|x|&lt; R-\epsilon$, we have
+$$ 
+ |c_n x^n|\leq |c_n (R-\epsilon)^n|
+$$
+and since $\sum c_n (R-\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R&#43;\epsilon, R-\epsilon]$.
+Next, we have $\lim\sup_{n\to\infty} \sqrt[n]{n|c_n|} = \lim\sup_{n\to\infty} \sqrt[n]{|c_n|}$ since $\sqrt[n]{n} = 1$, which implies that $f$ and $f&#39;$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R&#43;\epsilon, R-\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4).
+Continuity of $f$ follows from the existence of $f&#39;$.
+$\Box$
+Theorem 3
+Suppose $\sum c_n$ converges, Put
+$$ 
+ f(x) =   \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; 1).
+$$
+Then
+$$ 
+ \lim_{x\to 1_-} f(x) = \sum_{n=0}^\infty c_n.
+$$
+proof
+Let $f_n(x) = \sum_{j=0}^n c_j x^j$. $f_n \to f$ at $x=1$, so $f_n\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$).
+$\Box$
+
+
+2. Power Series Expansion
+If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $f(x) = \sum_{n=0}^\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series  about the point $x=x_0$.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mathematical Analysis | 12 Power Series",
+      "item": "https://wangchxx.github.io/posts/analysis_1/math_analysis_12/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Analysis | 12 Power Series",
+  "name": "Mathematical Analysis | 12 Power Series",
+  "description": "In this Chapter we shall the power series formed by the sequence of power functions $\\{c_n (x-x_0)^n\\}$, i.e. of the form $$ \\sum_{n=0}^\\infty c_n (x-x_0)^n. \\tag{1}\r$$ W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. $$ \\sum_{n=0}^\\infty c_n x^n. \\tag{2}\r$$1. Power Series First, we study the convergence of series (2).\nLemma 1 Suppose the series (2) converges for $|x|\u003c R$, then it is absolutely convergent on every $[-R+\\epsilon, R-\\epsilon]$. proof Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\\lim\\sup_{n\\to\\infty}\\sqrt[n]{a_n} = 0 \u003c1$. By root test we complete the proof. $\\Box$ Theorem 2 Suppose the series (2) converges for $|x|\u003c R$, and define $$ f(x) = \\sum_{n=0}^\\infty c_n x^n, \\quad (|x|\u003c R). \\tag{3}\r$$ Then (2) converges uniformly on every $[-R+\\epsilon, R-\\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and $$ f'(x) = \\sum_{n=1}^\\infty n c_n x^{n-1} , \\quad (|x|\u003c R). \\tag{4}\r$$ proof For $|x|\u003c R-\\epsilon$, we have $$ |c_n x^n|\\leq |c_n (R-\\epsilon)^n|\r$$ and since $\\sum c_n (R-\\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R+\\epsilon, R-\\epsilon]$. Next, we have $\\lim\\sup_{n\\to\\infty} \\sqrt[n]{n|c_n|} = \\lim\\sup_{n\\to\\infty} \\sqrt[n]{|c_n|}$ since $\\sqrt[n]{n} = 1$, which implies that $f$ and $f'$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R+\\epsilon, R-\\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4). Continuity of $f$ follows from the existence of $f'$. $\\Box$ Theorem 3 Suppose $\\sum c_n$ converges, Put $$ f(x) = \\sum_{n=0}^\\infty c_n x^n, \\quad (|x|\u003c 1).\r$$ Then $$ \\lim_{x\\to 1_-} f(x) = \\sum_{n=0}^\\infty c_n.\r$$ proof Let $f_n(x) = \\sum_{j=0}^n c_j x^j$. $f_n \\to f$ at $x=1$, so $f_n\\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$). $\\Box$ 2. Power Series Expansion If (1) converges for $|x-x_0|\u003c R$, and a function $f$ can be represented as $f(x) = \\sum_{n=0}^\\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series about the point $x=x_0$.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "In this Chapter we shall the power series formed by the sequence of power functions $\\{c_n (x-x_0)^n\\}$, i.e. of the form $$ \\sum_{n=0}^\\infty c_n (x-x_0)^n. \\tag{1}\r$$ W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. $$ \\sum_{n=0}^\\infty c_n x^n. \\tag{2}\r$$1. Power Series First, we study the convergence of series (2).\nLemma 1 Suppose the series (2) converges for $|x|\u003c R$, then it is absolutely convergent on every $[-R+\\epsilon, R-\\epsilon]$. proof Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\\lim\\sup_{n\\to\\infty}\\sqrt[n]{a_n} = 0 \u003c1$. By root test we complete the proof. $\\Box$ Theorem 2 Suppose the series (2) converges for $|x|\u003c R$, and define $$ f(x) = \\sum_{n=0}^\\infty c_n x^n, \\quad (|x|\u003c R). \\tag{3}\r$$ Then (2) converges uniformly on every $[-R+\\epsilon, R-\\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and $$ f'(x) = \\sum_{n=1}^\\infty n c_n x^{n-1} , \\quad (|x|\u003c R). \\tag{4}\r$$ proof For $|x|\u003c R-\\epsilon$, we have $$ |c_n x^n|\\leq |c_n (R-\\epsilon)^n|\r$$ and since $\\sum c_n (R-\\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R+\\epsilon, R-\\epsilon]$. Next, we have $\\lim\\sup_{n\\to\\infty} \\sqrt[n]{n|c_n|} = \\lim\\sup_{n\\to\\infty} \\sqrt[n]{|c_n|}$ since $\\sqrt[n]{n} = 1$, which implies that $f$ and $f'$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R+\\epsilon, R-\\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4). Continuity of $f$ follows from the existence of $f'$. $\\Box$ Theorem 3 Suppose $\\sum c_n$ converges, Put $$ f(x) = \\sum_{n=0}^\\infty c_n x^n, \\quad (|x|\u003c 1).\r$$ Then $$ \\lim_{x\\to 1_-} f(x) = \\sum_{n=0}^\\infty c_n.\r$$ proof Let $f_n(x) = \\sum_{j=0}^n c_j x^j$. $f_n \\to f$ at $x=1$, so $f_n\\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$). $\\Box$ 2. Power Series Expansion If (1) converges for $|x-x_0|\u003c R$, and a function $f$ can be represented as $f(x) = \\sum_{n=0}^\\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series about the point $x=x_0$.\nTheorem 4 (Taylor expansion) Suppose $f(x) = \\sum_{n=0}^\\infty c_n x^n$, the series converging in $|x|\u003c R$. If $a\\in(-R,R)$, then $f$ can be expanded in a power series about the point $x = a$, which converges in $|x-a|\u003c R - |a|$, i.e. $$ f(x) = \\sum_{n=0}^\\infty \\frac{f^{(n)}(a)}{n!}(x-a)^n.\r$$ proof Notice that $f^{(k)}(x) = \\sum_{n=k}^\\infty n (n-1)\\cdots (n-k+1) c_n x^{n-k}$. And $$\r\\begin{align*}\rf(x) \u0026= \\sum_{n=0}^\\infty c_n (x-a+a )^n \\cr\r\u0026= \\sum_{n=0}^\\infty c_n \\sum_{m=0}^n \\binom{n}{m} a^{n-m} (x-a )^m \\cr\r\u0026= \\sum_{m=0}^\\infty \\sum_{n=m}^\\infty \\binom{n}{m} c_n a^{n-m} (x-a )^m\r\\end{align*}\r$$ We can exchange the order of summation because the series is convergent. $\\Box$\nTheorem 5 Suppose the series $\\sum a_n x^n$ and $\\sum b_n x^n$ converge in the segment $S = (-R,R)$. Let $E$ be the set of all $x\\in S$ where $$ \\sum_{n=0}^\\infty a_n x^n = \\sum_{n=0}^\\infty b_n x^n . \\tag{5}\r$$ If $E$ has a limit point in $S$, then $a_n = b_n$ for $n=0,1,2,...$. Hence the equation (5) holds for all $x\\in S$. proof Let $c_n = a_n - b_n$ and $f(x) = \\sum_{n=0}^\\infty c_n x^n $, then $f(x) = 0$ on $E$. Let $A$ be the set of limit points of $E$ in $S$, and $B = S\\setminus A$. It is clear that $B$ is open. Suppose we can prove that $A$ is open, because $S = A\\cup B$ and $S$ is connected (check definiiton), then it follows that $B$ is empty, thus $A = S$. Since $f$ is continuous in $S$, $A\\subset E$. Thus $E=S$, and $c_n = 0$ for $n=0,1,...$. Now we prove that $A$ is open. If $x_0\\in A$, then we can expand $f$ at $x=x_0$ by $$ f(x) = \\sum_{n=0}^\\infty d_n (x - x_0)^n,\\quad |x - x_0|\u003c R- |x_0|.\r$$ By Theorem 12.4, $d_n = 0$ for all $n$. So that $f(x)=0$ for all $x:|x-x_0|\u003c R- |x_0|$, i.e. in a neighbourhood of $x_0$. This shows that $A$ is open.\n$\\Box$\n",
+  "wordCount" : "656",
+  "inLanguage": "en",
+  "datePublished": "2021-04-12T10:52:59+02:00",
+  "dateModified": "2021-04-12T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_1/math_analysis_12/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -142,7 +307,7 @@ If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -168,27 +333,27 @@ If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -334,12 +499,12 @@ By Theorem 12.4, $d_n = 0$ for all $n$. So that $f(x)=0$  for all $x:|x-x_0|< R-
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/analysis_1/math_analysis_13/">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_13/">
     <span class="title">« Prev</span>
     <br>
     <span>Mathematical Analysis | 13 Fourier Series</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/analysis_1/math_analysis_11/">
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_11/">
     <span class="title">Next »</span>
     <br>
     <span>Mathematical Analysis | 11 Sequences and Series of Functions</span>
@@ -351,7 +516,7 @@ By Theorem 12.4, $d_n = 0$ for all $n$. So that $f(x)=0$  for all $x:|x-x_0|< R-
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

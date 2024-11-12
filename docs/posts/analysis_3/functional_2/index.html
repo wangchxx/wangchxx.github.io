@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Functional Analysis | 2 Hilbert Spaces | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="1. Inner Product spaces
@@ -19,16 +19,16 @@ $ \langle x,y \rangle = \overline{\langle y,x \rangle}$.
 
 A vector space $X$ with an inner product $\langle \rangle$ is called an inner product space.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/analysis_3/functional_2/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_3/functional_2/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_3/functional_2/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_3/functional_2/">
 <noscript>
     <style>
         #theme-toggle,
@@ -84,7 +84,92 @@ A vector space $X$ with an inner product $\langle \rangle$ is called an inner pr
 
 
 
+<meta property="og:title" content="Functional Analysis | 2 Hilbert Spaces">
+<meta property="og:description" content="1. Inner Product spaces
 
+Definition 1 (Inner product)
+Let $X$ be a vector space. An inner product on $X$ is a function $\langle\cdot,\cdot\rangle:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,
+
+$\langle x,x \rangle\geq 0$,
+$\langle x,x \rangle = 0 \Leftrightarrow x = 0$ ,
+$\langle \alpha x &#43; \beta y ,z\rangle = \alpha \langle x,z \rangle &#43; \beta \langle y,z \rangle$,
+$ \langle x,y \rangle = \overline{\langle y,x \rangle}$.
+
+A vector space $X$ with an inner product $\langle \rangle$ is called an inner product space.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_3/functional_2/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-22T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-22T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Functional Analysis | 2 Hilbert Spaces">
+<meta name="twitter:description" content="1. Inner Product spaces
+
+Definition 1 (Inner product)
+Let $X$ be a vector space. An inner product on $X$ is a function $\langle\cdot,\cdot\rangle:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$,
+
+$\langle x,x \rangle\geq 0$,
+$\langle x,x \rangle = 0 \Leftrightarrow x = 0$ ,
+$\langle \alpha x &#43; \beta y ,z\rangle = \alpha \langle x,z \rangle &#43; \beta \langle y,z \rangle$,
+$ \langle x,y \rangle = \overline{\langle y,x \rangle}$.
+
+A vector space $X$ with an inner product $\langle \rangle$ is called an inner product space.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Functional Analysis | 2 Hilbert Spaces",
+      "item": "https://wangchxx.github.io/posts/analysis_3/functional_2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Functional Analysis | 2 Hilbert Spaces",
+  "name": "Functional Analysis | 2 Hilbert Spaces",
+  "description": "1. Inner Product spaces Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $\\langle\\cdot,\\cdot\\rangle:X\\times X\\to \\mathbb{F}$, s.t. for all $x,y,z\\in X$, $\\alpha,\\beta\\in\\mathbb{F}$, $\\langle x,x \\rangle\\geq 0$, $\\langle x,x \\rangle = 0 \\Leftrightarrow x = 0$ , $\\langle \\alpha x + \\beta y ,z\\rangle = \\alpha \\langle x,z \\rangle + \\beta \\langle y,z \\rangle$, $ \\langle x,y \\rangle = \\overline{\\langle y,x \\rangle}$. A vector space $X$ with an inner product $\\langle \\rangle$ is called an inner product space.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Inner Product spaces Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $\\langle\\cdot,\\cdot\\rangle:X\\times X\\to \\mathbb{F}$, s.t. for all $x,y,z\\in X$, $\\alpha,\\beta\\in\\mathbb{F}$, $\\langle x,x \\rangle\\geq 0$, $\\langle x,x \\rangle = 0 \\Leftrightarrow x = 0$ , $\\langle \\alpha x + \\beta y ,z\\rangle = \\alpha \\langle x,z \\rangle + \\beta \\langle y,z \\rangle$, $ \\langle x,y \\rangle = \\overline{\\langle y,x \\rangle}$. A vector space $X$ with an inner product $\\langle \\rangle$ is called an inner product space.\nWith an inner product, we can define a norm by $\\| x\\| = \\sqrt{\\langle x, x\\rangle}$, and hence we can define a metric $d$.\nLemma 2 (Continuity of inner product) let $X$ be an inner product space, and suppose that $\\{x_n\\}, \\{y_n\\}$ are convergent sequences $X$ with $x_n \\to x, y_n\\to y$. Then $$ \\langle x_n, y_n \\rangle \\to \\langle x, y\\rangle.\r$$ proof $$\r\\begin{align*}\r| \\langle x_n , y_n\\rangle - \\langle x , y\\rangle | \u0026\\leq | \\langle x_n , y_n\\rangle - \\langle x_n , y\\rangle | + | \\langle x_n , y\\rangle - \\langle x , y\\rangle | \\cr\r\u0026\\leq \\|x_n\\| \\|y_n - y\\| + \\|y\\| \\|x_n - x\\|\\to 0 \\end{align*}\r$$2. Hilbert Spaces Definition 3 (Hilbert space) An inner product space is called a Hilbert space if it is complete w.r.t. the metric associated with the norm induced by the inner product. Lemma 4 Let $\\mathcal{H}$ be a Hilbert and $Y\\subset \\mathcal{H}$ is a linear subspace, then $Y$ is a Hilbert space iff $Y$ is closed. proof A subset of a complete metric space is complete iff it is closed. $\\Box$\nLemma 5 Let $Y$ be a linear subspace of an inner product space $X$. Then $$ x\\in Y^\\perp \\Leftrightarrow \\| x-y\\| \\geq \\|x\\|,\\;\\forall y\\in Y.\r$$ proof ($\\Rightarrow$) $\\| x - y\\|^2 = \\|X\\|^2 + \\|y\\|^2$ if $x\\perp y$. $\\Leftarrow$ $\\|x - \\alpha y\\|^2 - \\|x\\|^2$ is minimized at $\\alpha = $.\n$\\Box$\nTheorem 6 (Projection theorem) Let $A$ be a closed linear subspace of a $\\mathcal{H}$. Then for any $x\\in \\mathcal{H}$, there exists a unique $x_0 \\in A$ s.t. $$ \\|x-x_a\\| = \\inf_{y\\in A} \\| x- y\\|,\r$$ and $x - x_a \\in A^\\perp$. proof Suppose $\\gamma = \\inf_{y\\in A} \\| x- y\\|$. We first prove the existence of $x_0$. For each $n$, there exists $x_n\\in A$ s.t. $$ \\|x - x_n\\|^2 \u003c \\gamma^2+ 1/n.\r$$ Applying the parallelogram rule to $x-x_n, x - x_m$, we can show that $\\{x_n\\}$ is Cauchy. So $x_n \\to x_0 , x_0 \\in A$. Then we obtain the equality by the continuity of inner product. Uniqueness. Suppose that $x'\\in A$ makes the equality. Then $(x_0, x')/2 \\in A$ by linearity, and $\\|x - (x_0, x')/2 \\in A\\|\\geq \\gamma$. Applying the parallelogram rule to $x - x', x-x_0$, we obtain that $\\|x_0 - x'\\|^2 = 0$.\nFinally, $x-x_0\\in A^\\perp$ follows from Lemma 2.5.\n$\\Box$\nLet $\\{e_n\\}$ a orthonormal system in an infinite-dimensional Hilbert space $X$, then for any $x\\in X$, $$ x = \\sum_{n=1}^\\infty \\langle x, e_n\\rangle e_n.\r$$ proof By Bessel’s inequality, we obtain that $ \\sum_{n=1}^\\infty |\\langle x, e_n\\rangle|^2\\langle\\infty$. Also we can show that $y_k = \\sum_{n=1}^k \\langle x, e_n\\rangle e_n$ is Cauchy and converges to $x$. $\\Box$\nLemma 7 (Bessel’s inequality) Let $X$ be an inner product space and let $\\{e_n\\}$ a orthonormal system in $X$. Then for any $x\\in X$ the series $\\sum_{n=1}^\\infty |\\langle x, e_n\\rangle|^2$ converges and $$ \\sum_{n=1}^\\infty |\\langle x, e_n\\rangle|^2 \\leq \\|x \\|^2.\r$$ proof Let $y_k = \\sum_{n=1}^k \\langle x, e_n\\rangle e_n$. Then $$ \\|x - y_k\\|^2 = \\|x\\|^2 - \\|y_k\\|^2.\r$$ It shows that $\\|y_k\\|^2 \\leq \\|x\\|^2$ for all $k\\in\\N$. In addition $\\|y_k\\|^2$ is increasing and bounded, so it is convergent. $\\Box$\nDefinition (Separability) A Hilbert space $\\mathcal{H}$ is called seperable if there is an at most countable orthonormal system $\\{e_n\\}$ s.t. $$ \\mathcal{H} = \\overline{sp}(\\{e_n\\}) .\r$$ ",
+  "wordCount" : "644",
+  "inLanguage": "en",
+  "datePublished": "2021-04-22T10:52:59+02:00",
+  "dateModified": "2021-04-22T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_3/functional_2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -102,7 +187,7 @@ A vector space $X$ with an inner product $\langle \rangle$ is called an inner pr
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -128,27 +213,27 @@ A vector space $X$ with an inner product $\langle \rangle$ is called an inner pr
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -289,12 +374,12 @@ $$</dd>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/analysis_3/functional_3/">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_3/functional_3/">
     <span class="title">« Prev</span>
     <br>
     <span>Functional Analysis | 3 Linear Operators</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/analysis_3/functional_1/">
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_3/functional_1/">
     <span class="title">Next »</span>
     <br>
     <span>Functional Analysis | 1 Normed Spaces</span>
@@ -306,7 +391,7 @@ $$</dd>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

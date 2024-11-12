@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dl on My Notes</title>
-    <link>http://localhost:1313/categories/dl/</link>
+    <link>https://wangchxx.github.io/categories/dl/</link>
     <description>Recent content in Dl on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 24 Oct 2024 00:01:41 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/dl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/categories/dl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DL | Diffusion Models 4 - Conditional Diffusion Models</title>
-      <link>http://localhost:1313/posts/diffusion_4_conditional_df/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</link>
       <pubDate>Thu, 24 Oct 2024 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_4_conditional_df/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</guid>
       <description>&lt;h1 id=&#34;conditional-diffusion-models&#34;&gt;Conditional diffusion models&lt;/h1&gt;
 &lt;p&gt;Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$:
 &lt;/p&gt;
@@ -31,11 +31,11 @@ So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But 
     </item>
     <item>
       <title>DL | Diffusion Models 3 - Understanding DDMP from a Unified Prospective</title>
-      <link>http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</link>
       <pubDate>Wed, 23 Oct 2024 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</guid>
       <description>&lt;h2 id=&#34;understand-ddmp-from-vlb&#34;&gt;Understand DDMP from VLB&lt;/h2&gt;
-&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/diffusion_2_preliminary_sde/&#34;&gt;Diffusion-models-1&lt;/a&gt; we have introduced the DDMP model
+&lt;p&gt;In the &lt;a href=&#34;https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/&#34;&gt;Diffusion-models-1&lt;/a&gt; we have introduced the DDMP model
 &lt;/p&gt;
 $$
 X_t|X_{t-1} = \mathcal{N}(\sqrt{1-\beta_t}X_{t-1}, \beta_t I), \quad X_t|X_0 = \mathcal{N}(\sqrt{\bar{\alpha}_t} X_0, (1-\bar{\alpha}_{t})I),
@@ -56,9 +56,9 @@ Since the conditional distribution $X_{t}|(X_{t-1}, X_{0})$ is Gaussian
     </item>
     <item>
       <title>DL | Diffusion Models 2 - Preliminary ODE and SDE</title>
-      <link>http://localhost:1313/posts/diffusion_2_preliminary_sde/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</link>
       <pubDate>Tue, 22 Oct 2024 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_2_preliminary_sde/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</guid>
       <description>&lt;h2 id=&#34;basics&#34;&gt;Basics&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ODE definition&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Consider the ordinary differential equation (ODE)
@@ -76,12 +76,12 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
     </item>
     <item>
       <title>DL | Diffusion Models 1 - DDMP</title>
-      <link>http://localhost:1313/posts/diffusion_1_ddmp/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_1_ddmp/</link>
       <pubDate>Mon, 21 Oct 2024 04:34:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_1_ddmp/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_1_ddmp/</guid>
       <description>&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
 &lt;p&gt;A diffusion probabilistic model is a parameterized Markov chain that gradually adds noise to the data and then learn to reverse the diffusion process to generate data samples from noise.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/diffusion_1_ddmp/ddmp_graph.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/posts/diffusion_1_ddmp/ddmp_graph.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
 &lt;p&gt;Compared with other AI tasks, image generation is harder, since it does not have a standard answer. To solve this issue, GAN and VAE are propsed.&lt;/p&gt;
 &lt;ul&gt;

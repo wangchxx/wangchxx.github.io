@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -18,16 +18,16 @@ $$
 A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form
 ">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,7 +83,90 @@ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ 
 
 
 
+<meta property="og:title" content="Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression">
+<meta property="og:description" content="
+Ghosal, S., &amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795
 
+The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.
+1. Problem setup
+$$ 
+ p(x) = P(Y=1|x) = H(\eta(x)).
+$$
+A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-07T18:24:27+02:00">
+<meta property="article:modified_time" content="2021-08-07T18:24:27+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression">
+<meta name="twitter:description" content="
+Ghosal, S., &amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795
+
+The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.
+1. Problem setup
+$$ 
+ p(x) = P(Y=1|x) = H(\eta(x)).
+$$
+A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ is put on the function $\eta$. The covariance kernel is assumed to be of the form
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression",
+      "item": "https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression",
+  "name": "Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression",
+  "description": " Ghosal, S., \u0026amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795 The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.\n1. Problem setup $$ p(x) = P(Y=1|x) = H(\\eta(x)). $$ A GP prior with mean function $\\mu(x)$ and covariance kernle $\\sigma(x,x')$ is put on the function $\\eta$. The covariance kernel is assumed to be of the form ",
+  "keywords": [
+    
+  ],
+  "articleBody": " Ghosal, S., \u0026 Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). https://doi.org/10.1214/009053606000000795 The previous article discussed the methodology of GP priors for binary classification. This article would show the consistency results.\n1. Problem setup $$ p(x) = P(Y=1|x) = H(\\eta(x)). $$ A GP prior with mean function $\\mu(x)$ and covariance kernle $\\sigma(x,x')$ is put on the function $\\eta$. The covariance kernel is assumed to be of the form $$ \\sigma(x,x') = \\tau^{-1}\\sigma_0(\\lambda x, \\lambda x'), $$ where $\\sigma_0$ is a nonsingular covariance kernel and the hyper-parameters $\\tau\u003e0,\\lambda\u003e0$ play the roles of a scaling parameter and a bandwidth parameter, respectively. Let $\\tau\\sim \\Pi_\\tau, \\lambda\\sim \\Pi_\\lambda$, respectively.\nA popular method of prior construction on function is by expanding the function in a series $\\sum_j \\theta_j \\psi_j(x)$ and then putting independent $N(0,\\tau_j^2)$ priors on the coefficients. Such a prior leads to a GP prior on the function with covariance kernel $\\sigma(x,y) = \\sum_j \\tau_j^2 \\psi_j(x) \\psi_j(y)$.\n2. Main results Let $D^w \\eta = \\frac{\\partial \\eta(t_1,...,t_d)}{\\partial t_1 \\cdots \\partial t_d}$, $|w| = \\sum w_j$. Let sequences $\\lambda_n ,\\tau_n$ be s.t. $$ \\Pi_\\tau(\\tau\u003c\\tau_n) = e^{-cn} ,\\quad \\Pi_\\lambda(\\lambda\u003e\\lambda_n) = e^{-cn}, $$ for some constant $c$.\nDefine $$ \\Theta_n = \\Theta_{n,\\alpha} = \\{ p: P(x) = H(\\eta(x)), || D^2\\eta||_\\infty \u003c M_n, |w|\\leq \\alpha\\}. $$Assumptions\n(P). For every fixed $x$, the covariance function $\\sigma_0(x,\\cdot)$ has continuous partial derivatives up to order $2\\alpha+2$, where $\\alpha\u003e0$ is to be specified later.\n(C). The covariate space $\\mathcal{X}$ is a bounded subset of $\\mathbb{R}^d$.\n(T). The transformed true response function $\\eta_0 \\in \\bar{\\mathbb{H}}$, where $\\mathbb{H}$ is the RKHS of GP.\n(G). For every $b_1\u003e0, b_2\u003e0$, there exist sequences $M_n,\\tau_n, \\lambda_n$ s.t. $$ M_n^2 \\tau_n \\lambda_n^{-2} \\geq b_1 n , \\quad M_n^{d/\\alpha} \\leq b_2 n. $$ Theorem 1 Suppse $X$ is random covariate sampled from a prob dist $Q$. Supppse that assumptions (P), (C), (T) and (G) hold. Then for any $\\epsilon\u003e0$, $$ \\Pi(p: ||p - p_0||_{1,Q} \u003e\\epsilon| X^{(n)}, Y^{(n)}) \\to 0 $$ in $P_0^n$-probability. Theorem 2 Let $(x_i)$ be fixed design points, and $Q_n$ be empirical measure of the design points. Then under assumptions (P), (C), (T) and (G), for any $\\epsilon\u003e0$, $$ \\Pi(p: ||p - p_0||_{1,Q_n} \u003e\\epsilon| Y^{(n)}) \\to 0 $$ in $P_0^n$-probability. Let $\\mathcal{X}$ be one-dimensional. Let $S_{i,n} = X_{i+1,n} - x_{i,n}$ be the spacings between consecutive covariate values.\nAssumption\n(U). Given $\\delta\u003e0$, there exist a constant $K_1$ and an integer $N$ s.t., for $n\u003eN$, we have that $\\sum_{i:S_{i,n}\u003eK_1 n^{-1}} S_{i,n}\\leq \\delta$. This assumption means that the measure of the part of the design space where data is parse is small.\nTheorem 3 Suppose that the values of the covariate arise as design points satisfying assumption (U) and $\\mathcal{X}$ is a bounded interval of $\\mathbb{R}$. Assume that the prior satisfies assumption (P). The mapping $x\\mapsto \\eta_0(x)$ and the prior mean $\\mu$ are assumed to have two continuous derivatives and the covariance kernel is assumed to have continous partial derivatives up to order 6. Assume that $\\Pi_\\lambda ,\\Pi_\\tau$ are such that $\\tau_n^{-1} \\lambda_n^4 = O(n)$. Then for any $\\epsilon\u003e0$, $$ \\Pi(p: ||p - p_0||_{1} \u003e\\epsilon| Y^{(n)}) \\to 0 $$ in $P_0^n$-probability. Theorem 4 Assume that (W(t)) is a GP with continuous sample paths having mean function $\\mu$ and continuous covariance kernel $\\sigma(s,t)$. Assume that $\\mu$ and a function $w$ belong to the RKHS of the kernel $\\sigma(s,t)$. Then $$ P(\\sup_{t\\in T} |W(t) - w(t)| \u003c \\epsilon) \u003e0 \\quad \\text{for all } \\epsilon\u003e0. $$ proof W.l.o.g. we assume that $\\mu$ is the zero function. Let $\\sum_i \\sqrt{\\lambda_i} \\xi_i \\psi_i(t)$ be the Karhunen-Loeve expansion of $W(t)$, where $\\lambda_i's$ are the eigenvalues of the kernel $\\sigma(s,t)$, $\\psi_i$ are the corresponding eigenfunctions and $\\xi_i$ are independent $N(0,1)$. Represent $w(t)$ also as $\\sum_i \\sqrt{\\lambda_i} a_i \\psi_i(t)$, where $\\sum_ki \\lambda_i a_i^2 \u003c\\infty$. It follows from Mercer’s theorem that the series $\\sum_i \\sqrt{\\lambda_i} a_i \\psi_i(t)$ converges uniformly, and hence, the tail sum is uniformly small. Theorem 5 : Let $\\eta$ be a GP on $\\mathcal{X}$, a bouned subset of $\\mathbb{R}^d$. Assume that the mean function $\\mu \\in C^\\alpha(\\mathcal{X})$ and the covariance kernel $\\sigma$ has $2\\alpha+2$ mixed partial derivatives for some $\\alpha\\geq 1$. Then $\\eta$ has differentiable sample paths with mixed partial derivatives up to order $\\alpha$ and the successive derivative process $D^w \\eta$ are also Gaussian with continuous sample paths. Also the derivative processes are sub-Gaussian w.r.t. a constant multiple of the Euclidean distance. Further, there exits a constant $d_w$ s.t. $$ P(\\sup_x |D^2 \\eta (x)|\u003e M)\\leq K(\\eta)e^{-d_w M^2/\\sigma_w^2(\\eta)} $$ for $w = (w_1,...,w_d)$, $w_i\\in\\{0,1,2,...,\\alpha\\}$, $|w| \\leq \\alpha$ and $\\sigma_w^2(\\eta) = \\sup_x var(D^w\\eta(x)) \u003c\\infty$, $K(\\eta)$ is a polynomial in the supremum of the $(2\\alpha+2)$-order derivatives of $\\sigma$ and the covariance functions of the derivative processes $D^w\\eta(x)$ are functions of the derivatives of the covariance kernel $\\sigma$.\nproof . 3. Necessary lemmas Without proof we state some lemmas that would be used in the proof of main theorems.\nLemma 1 (prior mass) Under assumptions (P), (C) and (G), $\\Pi(\\Theta_n^\\complement)\\leq Ae^{-cn}$ for some constants $A$ and $c$. Lemma 2 (entropy bound) $\\log N(\\epsilon, \\Theta_n, ||\\cdot||_\\infty)\\leq KM_n^{d/\\alpha} \\epsilon^{-d/\\alpha}$ for some constant $K$. Lemma 3 Let $\\nu$ be a finite meaasure on $\\mathcal{X}$ and let $\\psi_1,\\psi_2$ be measurable functions s.t. $0\\leq \\psi_1,\\psi_2\\leq M$ and $\\int |\\psi_1 - \\psi_2| d\\nu \u003e (1 + \\nu(\\mathcal{X})\\epsilon$ for some $M,\\epsilon\u003e0$. Then $$ \\nu(x: |\\psi_1(x) - \\psi_2(x)|\u003e\\epsilon) \\geq \\epsilon/M. $$ Let $\\psi_1 = p, \\psi_2 = p_0$ and $\\nu = Q_n$, we see $$ \\begin{equation} I_{n,p} = \\#\\{x_i: |p(x_i) - p_0(x_i)|\u003e\\epsilon\\} \\geq K'n \\end{equation} $$ for some $K'$. $I_{n,p}$ contains those points s.t. either $p(x) \u003c p_0(x) - \\epsilon$ or $p(x) \u003e p_0(x) + \\epsilon$, and at least one case contains more than $K'n/2$ points. So we would not lose order of the number of indices to work with one case only.\nLemma 4 (tests) Let $Y_j$ be independent Bernoulli variable with $P(Y_j = 0) = \\mu_j$. Consider testing $H_0: u = u_0$ against $H_0: u \u003e u_0 + \\epsilon$. Then there exist tests $\\phi_n$ s.t. $$ P_0(\\phi_n) \\leq e^{-m\\epsilon^2/2}, \\quad P_1(1-\\phi_n)\\leq e^{-m\\epsilon^2/2}. $$ It can be extend to any $p_1 \\in \\Theta_n$. Consider the case $x_i$ s.t. $p(x_i) \u003e p_0(x_i) + \\epsilon$ and $||p^* - p||\u003c\\epsilon/2$, then $$ p^*(x_i) - p_0(x_i) \\geq p(x_i) - p_0(x_i) - ||p - p^*||_\\infty \u003e\\epsilon /2. $$With $\\epsilon$ replaced by $\\epsilon/2$, Lemma 4 implies the existence of tests $\\phi_{n,p}$ s.t. $$ P_0(\\phi_{n,p}) \\leq e^{-m\\epsilon^2/8}, \\quad P^*(1-\\phi_{n,p})\\leq e^{-m\\epsilon^2/8}. $$ Let $p_1,...,p_N \\in\\Theta_n$ be the maximal $\\epsilon/2$-separated points. Consider $\\phi_n = \\max_{j\\leq N} \\phi_{n,p_j}$, then $$ P_0\\phi_n \\leq \\sum_j^N P_0(\\phi_{n,p_{j}}) \\leq N e^{-m\\epsilon^2/8} = exp(\\log N - m\\epsilon^2/8). $$ For any $p\\in\\Theta_n$, we can find $p_j\\in\\Theta_n$ s.t. $||p - p_j||_\\infty \u003c \\epsilon/2$. Then $$ P(1-\\phi_n) \\leq P(1 - \\phi_{n,p_j}) \\leq e^{-m\\epsilon^2/8} $$With $M_n$ satisfying assumption (G), we have $\\log N \\leq b_2' n$, then $$ P_0 \\phi_n\\leq e^{-c'n}, \\quad \\sup_{||p- p_0|| \u003e \\epsilon/2,p\\in\\Theta_n} P(1-\\phi_n) \\leq e^{-c'n} $$ for some constant $c'$.\nLemma 5 (taylor’s expansion) Let $0\u003c \\epsilon_0 \u003c 1/2$ and $\\epsilon_0 \u003c \\alpha,b \u003c 1-\\epsilon_0$. Then there exists a constant $L_{\\epsilon_0}$ s.t. $$ \\alpha(\\log \\alpha/\\beta)^m + (1-\\alpha)(\\log \\frac{1-\\alpha}{1-\\beta}) \\leq L(\\alpha-\\beta)^2. $$ 4. Proof of the main theorems Proof of Thm 1 $Y_i|X_i \\sim Bin(1, p(X_i)), X_i \\sim Q$ i.i.d. then the joint density of $(X,Y)$ is given by $$ f(x,y) = p(x)^y(1-p(x))^{1-y}. $$ The corresponding true joint density is $f_0(x,y) = p_0(x)^y (1-p_0(x))^{1-y}$. Assumption (T) implies that $p_0$ is bounded s.t. $\\epsilon_0 \u003c p_0(x) \u003c 1-\\epsilon_0$ for some $\\epsilon_0\u003c1/2$. Thus $f_0(x,y) \u003e\\epsilon_0$. Note that $||f_1 - f_2||_{1} = 2||p_1 - p_2||_{1,Q} $ and $$ KL(f_0||f) = KL(p_0||p) + \\int(1-p_0)\\log \\frac{1-p_0}{1-p} dQ. $$ First, we show that $f_0\\in KL(\\Pi)$, or equivalently, $$ \\Pi(p: KL(p_0||p) + \\int(1-p_0)\\log \\frac{1-p_0}{1-p} dQ \u003c\\epsilon) \u003e0, $$ for any $\\epsilon\u003e0$. Lemma 5 implies that it suffices to show that $$ \\Pi(p:||p-p_0||_\\infty \u003c\\epsilon)\u003e0. $$ Because $p_0 = H(\\eta)$ and the link funciton $H$ is bounded and Lipschitz continuous, thus it is enough to show that $$ \\Pi(\\eta: ||\\eta- \\eta_0||_\\infty\u003c\\epsilon)\u003e0. $$ This is an immediate result of Theorem 4. Then we check the entropy condition. Consider the set $F_n = \\{f: p\\in\\Theta_n\\}$. Lemma 2, with $M_n = bn^{\\alpha/d}$, gives $$ \\log N(\\epsilon, F_n, ||\\cdot||_\\infty)\\leq K \\epsilon^{-d/\\alpha}b^{d/\\alpha}n. $$ Chose $b\u003c(\\beta/K)^{\\alpha/d}\\epsilon$, we have that $$ \\log N(\\epsilon, F_n, ||\\cdot||_\\infty)\\leq n\\beta. $$ Finally, we check the prior mass, which is given by Lemma 1.\nProof of Thm 2 Same. 5. Discussion This paper didn’t study the contraction rate. A more general result with contraction rates was studied in\nvan der Vaart, A. W., \u0026 van Zanten, J. H. (2008). Rates of contraction of posterior distributions based on Gaussian process priors. The Annals of Statistics, 36(3), 1435–1463. https://doi.org/10/ctnd8h ",
+  "wordCount" : "1423",
+  "inLanguage": "en",
+  "datePublished": "2021-08-07T18:24:27+02:00",
+  "dateModified": "2021-08-07T18:24:27+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -101,7 +184,7 @@ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -127,27 +210,27 @@ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ 
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -389,12 +472,12 @@ Finally, we check the prior mass, which is given by Lemma 1.</p>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/reading/gp_multiclass_classification/">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
     <span class="title">« Prev</span>
     <br>
     <span>Reading | Bayesian Classification of Multiclass Functional Data</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/reading/gppriors_for_binary_classification/">
+  <a class="next" href="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/">
     <span class="title">Next »</span>
     <br>
     <span>Reading | Nonparametric binary regression using a Gaussian process prior</span>
@@ -406,7 +489,7 @@ Finally, we check the prior mass, which is given by Lemma 1.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

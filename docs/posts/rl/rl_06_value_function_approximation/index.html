@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Value Function Approximation | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
@@ -18,16 +18,16 @@ $$
 we can approximate $v$ or $q$ by GD, i.e.
 ">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_06_value_function_approximation/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_06_value_function_approximation/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,7 +83,90 @@ we can approximate $v$ or $q$ by GD, i.e.
 
 
 
+<meta property="og:title" content="RL | Value Function Approximation">
+<meta property="og:description" content="So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
+$$ 
+ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).
+$$For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g.
 
+$$ 
+ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2,
+$$
+we can approximate $v$ or $q$ by GD, i.e.
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-25T22:17:58+02:00">
+<meta property="article:modified_time" content="2021-08-25T22:17:58+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Value Function Approximation">
+<meta name="twitter:description" content="So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
+$$ 
+ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).
+$$For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g.
+
+$$ 
+ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2,
+$$
+we can approximate $v$ or $q$ by GD, i.e.
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Value Function Approximation",
+      "item": "https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Value Function Approximation",
+  "name": "RL | Value Function Approximation",
+  "description": "So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation\n$$ \\hat{v}(s,w) \\approx v_\\pi(s), \\quad \\hat{q}(s,a,w) \\approx q_\\pi(s,a). $$For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \\mathbb{E}_\\pi (f(s,w) - v_\\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.e. ",
+  "keywords": [
+    
+  ],
+  "articleBody": "So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation\n$$ \\hat{v}(s,w) \\approx v_\\pi(s), \\quad \\hat{q}(s,a,w) \\approx q_\\pi(s,a). $$For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \\mathbb{E}_\\pi (f(s,w) - v_\\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.e. $$ w \\leftarrow w - \\frac{1}{2}\\alpha \\nabla_w J_w, $$ where $\\nabla_w J_w = 2 \\mathbb{E}_{\\pi} [(f(s,w) - v_\\pi(s)) \\nabla_w f(s,w)]$. We assume that samples are generated by policy $\\pi$, then we can estimate the gradient by sampling, $$ \\begin{equation} \\nabla_w J_w = 2(f(s,w) - v_\\pi(s)) \\nabla_w f(s,w). \\end{equation} $$ This is known as SGD.\nThe function approximator can be of various forms, e.g. linear function, neural network, decision tree, etc.\n1. MC and TD with Value Function Approximation So far we have assumed that the target function $v_\\pi$ or $q_\\pi$ is known, but in RL where is no supervisor, on rewards. So, in practice, we do not approximate $v_\\pi$ or $q_\\pi$ directly, but substitute a target for it.\nFor MC, the target is the return $G_t$ $$ \\begin{align*} \\nabla_w J_w \u0026= 2(f(S_t,(A_t),w) - G_t) \\nabla_w f(S_t,(A_t),w), \\cr \\end{align*} $$ For TD($0$), the target is the TD target $R_{t+1} + \\gamma f(S_{t+1},(A_{t+1}), w)$ $$ \\nabla_w J_w = 2(f(S_t,(A_t),w) - (R_{t+1} + \\gamma f(S_{t+1},(A_{t+1}), w))) \\nabla_w f(S_t,(A_t),w), $$ For TD($\\lambda$), the target is the $\\lambda$-return $G_t^\\lambda$ or $q_t^\\lambda$ $$ \\nabla_w J_w = 2(f(S_t,(A_t),w) - G_t^\\lambda) \\nabla_w f(S_t,(A_t),w). $$ When the argument $A_t$ if function $f$ exists, it means that $f$ is an approximator for $q_\\pi(s,a)$.\nThe backward view of TD($\\lambda$) becomes $$ \\begin{align*} E_0(s,(a)) \u0026= 0 \\cr E_t(s,(a)) \u0026= \\gamma \\lambda E_{t-1}(s,(a)) + \\nabla_w f(S_t,(A_t),w)\\cr \\delta_t \u0026= R_{t+1} - \\gamma f(S_{t+1},(A_{t+1}), w) - f(S_t,(A_t),w) \\cr w \u0026\\leftarrow w + \\alpha \\delta_t E_t. \\end{align*} $$2.Batch Methods All the methods we have discussed in the previous section required computation per state transition. In this section we present a method for batch computation.\nTake approximating state-value function $v_\\pi$ as an example, and the case for $q_\\pi$ is essentially the same. Assume that we have a training date set $D$ consisting of state-value pairs $$ D = \\{ (s_1, v_{\\pi,1}),...,(s_n, v_{\\pi,n}) \\}. $$ Define the loss function by $$ J_w = \\frac{1}{n}\\sum_{i=1}^n (v_{\\pi,i} - f(s_i,w))^2 = \\mathbb{E}_D [v_\\pi - f(s,w)]^2. $$The SGD yields $$ w \\leftarrow w - \\frac{1}{2} \\alpha \\nabla_w J_w. $$In particular, if the approximator $f$ is a linear function, i.e. $f(s,w) = x(s)^T w$, we can solve $w$ analytically $$ w = (X^T X)^{-1}X^T v_\\pi. $$However, the training data $D$ can be generated from many policies. To evaluate $q_\\pi$, we must learn off-policy. We use the same idea as $Q$-learning:\nLeast Square TD Q-learning (LSTDQ) Initialize parameters $w$ and target policy $\\pi_{0}$, behavior policy $\\pi$.\nGiven dataset $D$\nRepeat:\nGenerate transitions $(S_t, A_t, R_{t+1}, S_{t+1})$ from policy $\\pi$ and store in replay memory $D$.\nConsider alternative successor action $A' = \\pi_0(S_{t+1})$.\nSample mini-batch from $D$ and update $w$ by SGD $$ w \\leftarrow w - \\alpha(f(S_t, A_t,w) - (R_{t+1} + \\gamma f(S_{t+1}, A', w)))\\nabla_w f $$ update the policy $\\pi_0$ w.r.t. the function $f$ with new $w$.\nWith the policy evaluation, we can solve the control problem by policy iteration.\nLeast Square Policy Iteration Initialize parameters $w$, and derive a policy $\\pi$ w.r.t. $w$. Given the training dataset $D$ Repeat policy evaluation LSTDQ$(\\pi, D)$. policy improvement, update $\\pi$. Example 6.1 (Experience replay in deep Q-networks) Deep Q-networks (DQN) uses deep neural networks as the approximator for the action-value function $q_\\pi(s,a)$. Initialize parameters $w$ and a target action-value function $Q$. Given states $s$, take actions $a$ by $\\epsilon$-greedy w.r.t. $f(s,a,w)$. Store transitions $(S_t, A_t, R_{t+1}, S_{t+1})$ in replay memory $D$. Sample random mini-batch, of size $n$, of transitions $(s,a,r,s')$ from $D$. Compute Q-learning targets w.r.t network $f(s,a,w)$. Compute MSE $$ J_w = \\frac{1}{n} \\sum_{i=1}^n \\left( r + \\gamma \\max_{a'} Q(s',a') - f(s,a,w) \\right)^2. $$ Compute $w$ by SGD, and update the target $Q$ using $f(s,a,w^{old}).$ ",
+  "wordCount" : "687",
+  "inLanguage": "en",
+  "datePublished": "2021-08-25T22:17:58+02:00",
+  "dateModified": "2021-08-25T22:17:58+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -101,7 +184,7 @@ we can approximate $v$ or $q$ by GD, i.e.
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -127,27 +210,27 @@ we can approximate $v$ or $q$ by GD, i.e.
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -344,12 +427,12 @@ $$
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/rl/rl_07_policy_gradient/">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/">
     <span class="title">« Prev</span>
     <br>
     <span>RL | Policy Gradient Methods</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_05_temporal_difference/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Model-Free: Temporal Difference Learning</span>
@@ -361,7 +444,7 @@ $$
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Model-Free: Temporal Difference Learning | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
@@ -17,16 +17,16 @@ $$
 where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by
 ">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_05_temporal_difference/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_05_temporal_difference/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/">
 <noscript>
     <style>
         #theme-toggle,
@@ -82,7 +82,88 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
 
 
 
+<meta property="og:title" content="RL | Model-Free: Temporal Difference Learning">
+<meta property="og:description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
+1. TD Prediction
+Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by
 
+$$ 
+ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)],
+$$
+where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-24T18:28:15+02:00">
+<meta property="article:modified_time" content="2021-08-24T18:28:15+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Model-Free: Temporal Difference Learning">
+<meta name="twitter:description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
+1. TD Prediction
+Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by
+
+$$ 
+ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)],
+$$
+where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Model-Free: Temporal Difference Learning",
+      "item": "https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Model-Free: Temporal Difference Learning",
+  "name": "RL | Model-Free: Temporal Difference Learning",
+  "description": "Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment\u0026rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).\n1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \\leftarrow V(S_t) + \\alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by ",
+  "keywords": [
+    
+  ],
+  "articleBody": "Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment’s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).\n1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \\leftarrow V(S_t) + \\alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by $$ \\begin{equation} V(S_t) \\leftarrow V(S_t) + \\alpha \\big[ R_{t+1} + \\gamma V(S_{t+1}) - V(S_t) \\big]. \\end{equation} $$It implies that TD can update $V$ immediately on transition to $S_{t+1}$ and receiving $R_{t+1}$. This TD method is called TD(0), or one-step TD, because it is a special case of the $TD(\\lambda)$, $n$-step TD.\nBecause TD(0) update $V(S_t)$ using an existing estimate $V(S_{t+1})$, we say that is is a bootstrapping method, like DP. We know that $$ \\begin{align} v_\\pi(s) \u0026= \\mathbb{E}_\\pi [G_t|S_t = s] \\cr \u0026= \\mathbb{E}_\\pi [R_{t+1} + \\gamma v_\\pi(S_{t+1})|S_t = s]. \\end{align} $$ MC methods use an estimate of (2) as a target, whereas DP methods use an estimate of (3) as a target. The MC methods estimate the expectation in (2) by sampling and TD methods estimate $v_\\pi$ using existing estimate $V(S_{t+1})$. The TD methods combine the sampling of MC with the bootstrapping of DP.\n2. TD($\\lambda$) and $n$-step TD $n$-step returns: $G_t^{(n)} := R_{t+1} + \\cdots + \\gamma^{n-1}R_{t+n} + \\gamma^n V(S_{t+n})$ for $n=1,2,...,\\infty$. Then the $n$-step TD learning is $$ V(S_t) \\leftarrow V(S_t) + \\alpha [ G_t^{(n)} - V(S_t)]. $$ $\\lambda$-returns: $G_t^\\lambda:= (1-\\lambda) \\sum_{n=1}^\\infty \\lambda^{n-1}G_t^{(n)}$. Then the $TD(\\lambda)$ learning is $$ V(S_t) \\leftarrow V(S_t) + \\alpha [ G_t^{\\lambda} - V(S_t)]. $$Like MC, the $\\lambda$-returns can only be computed from complete episodes.\nDefinition 5.1 (TD error) The TD error is defined as $\\delta_t:= R_{t+1} + \\gamma V(S_{t+1}) - V(S_t)$. Definition 5.2 (Eligibility trace) The Eligibility trace is defined as $$ \\begin{align*} E_0(s) \u0026= 0 \\cr E_t(s) \u0026= \\gamma \\lambda E_{t-1}(s) + 1_{S_t = s}. \\end{align*} $$ If we view $TD(\\lambda)$ backward, keeping $E_t(s)$ for every $s$ and $\\delta_t$ when updating $V(s)$, the $TD(\\lambda)$ can be written as an online learning algorithm $$ V(s) \\leftarrow V(s) + \\alpha \\delta_t E_t(s). $$Note that if the array $V$ does not change during the episode (episodic offline), then the MC error can be written as a sum of TD errors: $$ \\begin{align} G_t - V(S_t) \u0026= \\delta_t + \\gamma \\delta_{t+1} + \\cdots + \\gamma_{T-t-1}\\delta_{T-1} + \\gamma^{T-t}(G_T - V(S_T)) \\cr \u0026= \\delta_t + \\gamma \\delta_{t+1} + \\cdots + \\gamma_{T-t-1}\\delta_{T-1} + \\gamma^{T-t}(0 - 0) \\cr \u0026= \\sum_{k=t}^{T-1} \\gamma^{k-t} \\delta_k. \\end{align} $$ Theorem 5.3 The sum of offline updates is identical for forward-view and backward-view $TD(\\lambda)$, i.e. $$ \\sum_{t=1}^T \\alpha \\delta_t E_t(s) = \\sum_{t=1}^T \\alpha(G_t^\\lambda - V(S_t)) 1_{S_t = s}. $$ Consider an episode where state $s$ is visited once at time-step $k$. The eligibility trace of TD(1) is $$ E_t(s) = \\gamma^{t-k} 1_{t\\geq k}. $$By the Theorem 5.3, we see that $$ \\sum_{t=1}^{T-1} \\alpha \\delta_t E_t(s) = \\alpha \\sum_{k=t}^{T-1} \\gamma^{k-t} \\delta_k = \\alpha ( G_t - V(S_t)), $$ which is exactly the total update for MC. It implies that TD(1) is roughly equivalent to every-visit MC.\n3. On-policy TD Control :SARSA We now turn to the use of TD prediction methods for the control problem. The first step is to learn an action-value function $q_\\pi$. In the first section, we considered transitions from state to state and learned the value function $v_\\pi$. The idea of estimating $q_\\pi$ is essentially identical to estimating $v_\\pi$. Apply TD(0) to updating $Q(S_t, A_t)$ by $$ \\begin{equation} Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]. \\end{equation} $$ This rules uses the tuple $(S_t, A_t, R_{t+1}, S_{t+1}, A_{t+1})$, that makes up a transition from one state-action pair to the next, $(S_t, A_t)\\to R_{t+1} \\to (S_{t+1}, A_{t+1})$. This tuple gives rise to the name SARSA for the algorithm.\nSARSA for On-policy Control Initialize $Q(s,a)$ arbitrarily for all $a,s$, and $Q(S_T,\\cdot) = 0$.\ninitialize a policy $\\pi$ w.r.t. $Q$.\nFor each episode:\nInitialize $S_0$ Choose $A_0$ using the policy $\\pi$. Loop for each step $t = 0,...,T-1$: take action $A_t$, observe $R_{t+1}, S_{t+1}$. choose action $A_{t+1}$ using policy derived from $Q$ (e.g., $\\epsilon$-greedy). incremental update $Q$ by $$ Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]. $$ Theorem 5.4 (convergence of SARSA) SARSA converges to the optimal action-value function $q_*$, under the following conditions: GLIE sequence of policies $\\pi_t(a|s)$. Robbins-Monro sequence of $\\alpha_t$, $$ \\sum_{t=1}^\\infty \\alpha_t = \\infty, \\quad \\sum_{t=1}^\\infty \\alpha_t^2\u003c\\infty. $$ We can also apply the TD($\\lambda$) idea or $n$-step TD learning to estimating $q_*$.\n$n$-step SARSA: $q_t^{(n)} := R_{t+1} + \\cdots + \\gamma^{n-1}R_{t+n} + \\gamma^n Q(S_{t+n}, A_{t+n})$ for $n=1,2,...,\\infty$. Then the $n$-step SARSA updates $$ Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [ q_t^{(n)} - Q(S_t, A_t)]. $$ $q^\\lambda$-return: $q_t^\\lambda:= (1-\\lambda) \\sum_{n=1}^\\infty \\lambda^{n-1}q_t^{(n)}$. Then the forward SARSA($\\lambda$) updates $$ Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [ q_t^{\\lambda} - Q(S_t, A_t)]. $$Note that $q_t^\\lambda$ is unknown until the terminal state. Just like TD($\\lambda$), we use eligibility traces in an online algorithm. We need the eligibility trace for each state-action pair, $$ \\begin{align*} E_0(s,a) \u0026= 0 \\cr E_t(s,a) \u0026= \\gamma \\lambda E_{t-1}(s,a) + 1_{(S_t = s, A_t = a)}. \\end{align*} $$And the TD error $\\delta_t$ now becomes $$ \\delta_t = R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t), $$ and hence we update $Q(s,a)$ by $$ Q(s,a) \\leftarrow Q(s,a) + \\alpha \\delta_t E_t(s,a). $$ SARSA($\\lambda$) for On-policy Control Initialize $Q(s,a)$ arbitrarily for all $a,s$ and $Q(S_T,\\cdot) = 0$.\ninitialize a policy $\\pi$ w.r.t. $Q$.\nFor each episode:\nInitialize $E(s,a) = 0$ for all $a,s$. Initialize $S_0$ Choose $A_0$ using the policy $\\pi$. Loop for each step $t = 0,...,T-1$: take action $A_t$, observe $R_{t+1}, S_{t+1}$. choose action $A_{t+1}$ using policy derived from $Q$ (e.g., $\\epsilon$-greedy). compute $\\delta_t = R_{t+1} + \\gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)$, update $E(S_t, A_t) += 1 $. incremental update $Q, E$ for all $s,a$ by $$ \\begin{align*} Q(s,a) \u0026\\leftarrow Q(s,a) + \\alpha \\delta_t E(s,a), \\cr E(s,a) \u0026\\leftarrow \\gamma \\lambda E(s,a). \\end{align*} $$ 4. Off-policy TD Control: Q-learning We now apply TD methods to off-policy control. Given the a policy $\\pi$ and a behavior policy $\\mu$, when choosing next action $A_{t+1}$ conditioned on state $S_{t+1}$ using the policy $\\mu$, we also consider alternative successor action $A'$ using the target policy $\\pi$. Then we can update $Q$ by $$ Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [R_{t+1} + \\gamma Q(S_{t+1}, A') - Q(S_t, A_t)], $$ where reward $R_{t+1}$ is a result of action $A_{t+1}$.\nNow we allow both behavior and target policies to improve:\nthe target policy $\\pi$ is greedy w.r.t. $Q(s,a)$. the behavior policy $\\mu$ is e.g. $\\epsilon$-greedy w.r.t. $Q(s,a)$. The Q-learning target then simplifies: $$ \\begin{align*} R_{t+1} + \\gamma Q(S_{t+1}, A') \u0026= R_{t+1} + \\gamma Q(S_{t+1}, \\arg\\max_{a'} Q(S_{t+1}, a')) \\cr \u0026= R_{t+1} + \\max_{a'}\\gamma Q(S_{t+1}, a'). \\end{align*} $$Hence Q-learning becomes $$ \\begin{equation} Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [R_{t+1} + \\max_{a'}\\gamma Q(S_{t+1}, a') - Q(S_t, A_t)] \\end{equation} $$ Theorem 5.5 Q-learning control converges to the optimal action-value function $q_*$. Q-learning for Off-policy Control Initialize $Q(s,a)$ arbitrarily for all $a,s$ and $Q(S_T,\\cdot) = 0$.\ninitialize the behavior policy $\\mu$ w.r.t. $Q$.\nFor each episode:\nInitialize $S_0$\nChoose $A_0$ using the policy $\\mu$ (derived from $Q$).\nLoop for each step $t = 0,...,T-1$:\ntake action $A_t$, observe $R_{t+1}, S_{t+1}$. choose action $A_{t+1}$ using policy $\\mu$ derived from $Q$ (e.g., $\\epsilon$-greedy). incremental update $Q$ by $$ Q(S_t, A_t) \\leftarrow Q(S_t, A_t) + \\alpha [R_{t+1} + \\max_{a'}\\gamma Q(S_{t+1}, a') - Q(S_t, A_t)]. $$ $Q(s,a)\\to q_*(s,a)$ by theorem 5.5, then we obtain $\\pi_*$ from $q_*$.\n",
+  "wordCount" : "1289",
+  "inLanguage": "en",
+  "datePublished": "2021-08-24T18:28:15+02:00",
+  "dateModified": "2021-08-24T18:28:15+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -100,7 +181,7 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -126,27 +207,27 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -473,12 +554,12 @@ $$
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/rl/rl_06_value_function_approximation/">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/">
     <span class="title">« Prev</span>
     <br>
     <span>RL | Value Function Approximation</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_04_monte_carlo/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Model-Free: Monte Carlo Methods</span>
@@ -490,7 +571,7 @@ $$
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

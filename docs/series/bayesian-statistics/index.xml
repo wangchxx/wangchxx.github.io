@@ -2,119 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bayesian Statistics on My Notes</title>
-    <link>http://localhost:1313/series/bayesian-statistics/</link>
+    <link>https://wangchxx.github.io/series/bayesian-statistics/</link>
     <description>Recent content in Bayesian Statistics on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 05 Aug 2021 00:01:41 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/bayesian-statistics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/series/bayesian-statistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (3)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_7_gp3/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
       <pubDate>Thu, 05 Aug 2021 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_7_gp3/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</guid>
       <description>&lt;p&gt;In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.&lt;/p&gt;
 &lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_6_gp2/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_6_gp2/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
       <description>&lt;!-- # Bayesian Statistics| Gaussian Process Priors (2) --&gt;
-&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/bayes/bayes_4_gp1/&#34;&gt;GP(1)&lt;/a&gt; we introduced the RKHS of the GP and some of its properties. The main content of this section is to derive the &lt;strong&gt;posterior contraction rate&lt;/strong&gt; of the GP.&lt;/p&gt;
-&lt;p&gt;At the same time, in &lt;a href=&#34;http://localhost:1313/posts/bayes/bayes_5_contraction/&#34;&gt;Posterior Consistency and Contraction&lt;/a&gt;, we derived the most important conclusion:&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;contraction_thm&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img_bayes_GP/Contraction_2.PNG&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_4_gp1/&#34;&gt;GP(1)&lt;/a&gt; we introduced the RKHS of the GP and some of its properties. The main content of this section is to derive the &lt;strong&gt;posterior contraction rate&lt;/strong&gt; of the GP.&lt;/p&gt;
+&lt;p&gt;At the same time, in &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_5_contraction/&#34;&gt;Posterior Consistency and Contraction&lt;/a&gt;, we derived the most important conclusion:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;contraction_thm&#34; loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/img_bayes_GP/Contraction_2.PNG&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.&lt;/p&gt;
 &lt;h2 id=&#34;1-posterior-contraction&#34;&gt;1. Posterior Contraction&lt;/h2&gt;
 &lt;p&gt;Theorem (GP contraction)
-:&lt;img alt=&#34;GP contraction&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img_bayes_GP/GPrate_1.PNG&#34;&gt;&lt;/p&gt;</description>
+:&lt;img alt=&#34;GP contraction&#34; loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/img_bayes_GP/GPrate_1.PNG&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (1)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_4_gp1/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_4_gp1/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
       <description>&lt;!-- # Bayesian Statistics| Gaussian Process Priors (1) --&gt;
 &lt;p&gt;In the previous chapters, we introduced the &lt;strong&gt;Dirichlet Process (DP) prior&lt;/strong&gt;, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the &lt;strong&gt;Gaussian Process (GP)&lt;/strong&gt;, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is
 &lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
-      <link>http://localhost:1313/posts/bayes/bayes_5_contraction/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
       <pubDate>Tue, 20 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_5_contraction/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
       <description>&lt;!-- # Bayesian Statistics| Posterior Consistency and Contraction --&gt;
 &lt;p&gt;This chapter discusses the theoretical question of whether non-parametric Bayes methods truly work. In other words, it addresses whether the posterior distribution really converges to the so-called &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction is a richer concept than consistency, as it also involves the rate of convergence.&lt;/p&gt;
 &lt;p&gt;Dirichlet Process priors and Gaussian Process priors are common non-parametric Bayesian methods, along with their various variants. It would be too cumbersome to discuss the convergence issues of these methods on a case-by-case basis. Therefore, this chapter will focus on some general theory, which can then be applied to specific models as needed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Dirichlet Process</title>
-      <link>http://localhost:1313/posts/bayes/bayes_3_dirichlet/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
       <pubDate>Mon, 19 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_3_dirichlet/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
       <description>&lt;!-- # Bayesian Statistics| Dirichlet Process --&gt;
 &lt;p&gt;The Dirichlet Process (DP) is widely used in &lt;strong&gt;Bayesian nonparametrics&lt;/strong&gt;, where it is often treated as a default prior on spaces of probability measures. As a &lt;strong&gt;prior&lt;/strong&gt; on probability measures, the DP reflects our prior belief about the potential distributions of data, with the assumption that the data might be drawn from an infinite mixture of possible underlying distributions. This is why the Dirichlet Process is often called a &lt;strong&gt;nonparametric prior&lt;/strong&gt;: it does not assume a fixed, finite number of parameters but rather allows the model to grow with the complexity of the data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Bernstein-von Mises Theorem</title>
-      <link>http://localhost:1313/posts/bayes/bayes_2_bvm/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
       <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_2_bvm/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
       <description>&lt;!-- # Bayesian Statistics| Bernstein-von Mises Theorem  --&gt;
 &lt;p&gt;From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.&lt;/p&gt;
 $$
 \sqrt{n} (\hat{\theta}_n - \theta_0) \to N(0,\Sigma)
 $$&lt;p&gt;From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bayesian Statistics| Pirors and Posteriors</title>
-      <link>http://localhost:1313/posts/bayes/bayes_1_priors/</link>
-      <pubDate>Sat, 17 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_1_priors/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;这个系列主要内容是介绍贝叶斯理论，是我之前上课笔记的简单整理。整个体系是建立在测度论基础上的，所以默认读者已经熟悉 measure-theoretical probability 的基本内容了， 如果没有这方面基础，建议任意找本教材查阅。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是第一章，我们的主要任务是定义先验概率(piror)和后验概率(posterior). 在非贝叶斯统计里，我们认为一个统计模型是一个概率分布的集合 $\{ P_\theta: \theta\in \Theta \}$. 然而，贝叶斯统计给与了参数$\theta$一个先验分布，denoted by $\Pi$, 这样分布$P_\theta$就成了 data $X$ given $\vartheta = \theta$ 的条件概率, 从而 $(X,\vartheta)$拥有联合概率
-&lt;/p&gt;
-$$
-\begin{equation} 
-   \Pr(X\in A,\vartheta\in B) = \int_B P_\theta(A) d\Pi(\theta) .
-\end{equation}
-$$&lt;p&gt;
-观测到数据之后，我们可以对 prior 进行更新，这被称为posterior, given by
-&lt;/p&gt;
-$$ 
- \Pi(B|x) = \Pr(\vartheta\in B| X =x).
-$$&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
-&lt;p&gt;$\mathfrak{X},\mathscr{X}$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bayesian Statistics| Introduction</title>
-      <link>http://localhost:1313/posts/bayes/bayes_0_intro/</link>
-      <pubDate>Fri, 16 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_0_intro/</guid>
-      <description>&lt;p&gt;这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.&lt;/p&gt;
-&lt;p&gt;目标人群：&lt;/p&gt;
-&lt;p&gt;对Bayes有初步了解的，有一定 statistics，machine learning 基础的，且对理论有兴趣的人。整体上是基于 measure-theoretical probability， 所以读者最好有一定 measure theory 基础，基本上，具有数学本科三年级基础就足够了。&lt;/p&gt;
-&lt;p&gt;主要内容:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Parametric Bayes and posterior consistency.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;General consistency theory for non-parametric Bayes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reproducing kernel Hilbert space (RKHS) theory.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;大部分内容将参考 Ghosal, S., &amp;amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。&lt;/p&gt;
-&lt;p&gt;风格：
-框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。&lt;/p&gt;
-&lt;p&gt;欢迎讨论。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

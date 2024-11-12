@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Reinforcement Learning on My Notes</title>
-    <link>http://localhost:1313/series/reinforcement-learning/</link>
+    <link>https://wangchxx.github.io/series/reinforcement-learning/</link>
     <description>Recent content in Reinforcement Learning on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Mon, 20 Sep 2021 23:01:33 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/series/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RL | Multiplayer Monte Carlo Tree Search</title>
-      <link>http://localhost:1313/posts/rl/rl_09_mcts/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_09_mcts/</link>
       <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_09_mcts/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_09_mcts/</guid>
       <description>&lt;h2 id=&#34;1-multi-agent-systems&#34;&gt;1. Multi-Agent Systems&lt;/h2&gt;
 &lt;p&gt;A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.&lt;/p&gt;
 &lt;p&gt;MAS research spans a range of problems, such as&lt;/p&gt;
@@ -26,9 +26,9 @@
     </item>
     <item>
       <title>RL | Dynamics Approximation for Model-Based RL</title>
-      <link>http://localhost:1313/posts/rl/rl_08_dynamics_approximation/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</link>
       <pubDate>Thu, 09 Sep 2021 13:26:05 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_08_dynamics_approximation/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</guid>
       <description>&lt;p&gt;One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.&lt;/p&gt;
 &lt;h2 id=&#34;1-dynamics-approximation&#34;&gt;1. Dynamics Approximation&lt;/h2&gt;
 &lt;p&gt;Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t+1}$. However, this function can be difficult to learn as $s_t$ and $s_{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
@@ -36,17 +36,17 @@
     </item>
     <item>
       <title>RL | Policy Gradient Methods</title>
-      <link>http://localhost:1313/posts/rl/rl_07_policy_gradient/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
       <pubDate>Thu, 26 Aug 2021 03:20:07 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_07_policy_gradient/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</guid>
       <description>&lt;p&gt;So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.&lt;/p&gt;
 &lt;p&gt;One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RL | Value Function Approximation</title>
-      <link>http://localhost:1313/posts/rl/rl_06_value_function_approximation/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
       <pubDate>Wed, 25 Aug 2021 22:17:58 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_06_value_function_approximation/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</guid>
       <description>&lt;p&gt;So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation&lt;/p&gt;
 $$ 
  \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).
@@ -60,9 +60,9 @@ we can approximate $v$ or $q$ by GD, i.e.
     </item>
     <item>
       <title>RL | Model-Free: Temporal Difference Learning</title>
-      <link>http://localhost:1313/posts/rl/rl_05_temporal_difference/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
       <pubDate>Tue, 24 Aug 2021 18:28:15 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_05_temporal_difference/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</guid>
       <description>&lt;p&gt;Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).&lt;/p&gt;
 &lt;h2 id=&#34;1-td-prediction&#34;&gt;1. TD Prediction&lt;/h2&gt;
 &lt;p&gt;Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by
@@ -75,9 +75,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Model-Free: Monte Carlo Methods</title>
-      <link>http://localhost:1313/posts/rl/rl_04_monte_carlo/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</link>
       <pubDate>Tue, 24 Aug 2021 18:27:52 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_04_monte_carlo/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</guid>
       <description>&lt;p&gt;We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: &lt;em&gt;Monte Carlo&lt;/em&gt; methods and &lt;em&gt;temporal-difference&lt;/em&gt; learning.&lt;/p&gt;
 &lt;p&gt;In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.&lt;/p&gt;
 &lt;h2 id=&#34;1-monte-carlo-prediction&#34;&gt;1. Monte Carlo Prediction&lt;/h2&gt;
@@ -86,9 +86,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Dynamic Programming</title>
-      <link>http://localhost:1313/posts/rl/rl_03_dynamic_programming/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_03_dynamic_programming/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
       <description>&lt;p&gt;There are two common tasks in an MDP&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$.&lt;/li&gt;
@@ -98,9 +98,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Markov Decision Processes</title>
-      <link>http://localhost:1313/posts/rl/rl_02_markov_decision_process/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_02_markov_decision_process/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
       <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -120,9 +120,9 @@ The function $p$ defines the &lt;em&gt;dynamics&lt;/em&gt; of the MDP. Given the
     </item>
     <item>
       <title>RL | Multi-armed Bandits</title>
-      <link>http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
       <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</guid>
       <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;
 &lt;hr&gt;
 &lt;ul&gt;

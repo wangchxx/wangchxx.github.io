@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Reading | Nonparametric binary regression using a Gaussian process prior | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="Let&rsquo;s discuss this paper
@@ -24,16 +24,16 @@ $$
 $$
 where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/reading/gppriors_for_binary_classification/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading/gppriors_for_binary_classification/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/">
 <noscript>
     <style>
         #theme-toggle,
@@ -89,7 +89,102 @@ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can
 
 
 
+<meta property="og:title" content="Reading | Nonparametric binary regression using a Gaussian process prior">
+<meta property="og:description" content="Let&rsquo;s discuss this paper
 
+Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.
+
+1. Problem Setup
+Consider a binary classification probem given by
+
+$$ 
+ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
+$$
+This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as
+
+$$ 
+ p(x) = H(\eta(x)),
+$$
+where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-07T08:36:14+02:00">
+<meta property="article:modified_time" content="2021-08-07T08:36:14+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Nonparametric binary regression using a Gaussian process prior">
+<meta name="twitter:description" content="Let&rsquo;s discuss this paper
+
+Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.
+
+1. Problem Setup
+Consider a binary classification probem given by
+
+$$ 
+ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
+$$
+This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as
+
+$$ 
+ p(x) = H(\eta(x)),
+$$
+where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Nonparametric binary regression using a Gaussian process prior",
+      "item": "https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Nonparametric binary regression using a Gaussian process prior",
+  "name": "Reading | Nonparametric binary regression using a Gaussian process prior",
+  "description": "Let\u0026rsquo;s discuss this paper\nChoudhuri, N., Ghosal, S., \u0026amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17. 1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\\eta$ was estimated with a Gaussian prior.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Let’s discuss this paper\nChoudhuri, N., Ghosal, S., \u0026 Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17. 1. Problem Setup Consider a binary classification probem given by $$ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x). $$ This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as $$ p(x) = H(\\eta(x)), $$ where $H$ is commonly choosen as a cdf, called the link function, and $\\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\\eta$ was estimated with a Gaussian prior.\nThere are two functional hyper-parameters in the GP prior. The mean function $\\mu(x)$ and the covariance kernel $r(x,y)$. The most important parameter is the covariance kernel that controls the local smoothness of the sample paths of $\\eta(x)$ and thus determines the extent of strength borrowed from neighbors in obtaining the posterior process.\n2. MCMC algorithm for posterior The posterior of $\\eta$ is not analytically tractable, and thus an MCMC procedure will be used to compute the posterior.\n2.1 Probit link Consider $H = \\Phi$. Suppoe that $\\eta\\sim GP(\\mu,\\Sigma)$. Let $Z = \\eta(x)|\\eta$ be latent variables, then $Z \\sim N(\\eta(x), I)$. Assume that the observations $Y_i's$ are functions of these latent variables defined as $Y_i = I(Z_i\\geq 0)$. Then $$ Y_i|\\eta \\sim Bernoulli(H(\\eta(x_i))). $$ The procedure can be summarized as:\n$\\eta\\sim GP(\\mu,\\Sigma)$. $Z|\\eta \\sim N(\\eta(x), I)$. $Y_i|Z_i \\sim Bernoulli(H(Z_i))$. The posterior of $\\eta|Z$ could be computed analytically by the conjugacy in the Gaussian observation and the GP prior.\n$$ \\eta|Z,Y = \\eta|Z \\sim N(\\mu^*, \\Sigma^*) $$where $\\Sigma^* = (I + \\Sigma^{-1})^{-1}, \\mu^* = \\Sigma^* (Z + \\Sigma^{-1}\\mu) = \\Sigma^* (Z - \\mu) + \\mu$. Since $Z$ is unobservable, we shall sampe from the joint posterior distribution of $(Z,\\eta)$ via a Gibbs sampler. The value of $Y_i$ indicates the sign of $Z_i$, and thus $$ Z_i|\\eta, Y \\sim \\begin{cases} N(\\eta(x_i), 1) | Z_i\\geq 0, \u0026 \\; Y_i = 1, \\cr N(\\eta(x_i), 1) | Z_i\u003c 0, \u0026\\; Y_i = -1. \\end{cases} $$ Since $\\Sigma$ can be near-singular if points $x_i$ are close to each other, the computation of $\\Sigma^{-1}$ should be avioded. A spectral decomposition of the form $\\Sigma = P \\Lambda P^T$ will be helpful. Then $$ \\Sigma^* = P(\\Lambda + I)^{-1}\\Lambda P^T. $$\n2.2 Arbitrary unimodal symmetric link Let the link funciton $H$ be the cdf having a smooth unimodal symmetric density on the real line. Then $H$ may be represented as the scale mixture of $\\Phi$, and hence $$ H(t) = \\int_0^\\infty \\Phi(t\\sqrt{v}) d G(v), $$ for some known $G$. Introduce two sets of unobservable latent variables $Z,T$ and model it hierarchically by $$ \\begin{align*} \\eta \u0026\\sim GP(\\mu,\\Sigma) \\cr V_i|\\eta \u0026\\sim \\text{ i.i.d. } G, \\cr Z_i|\\eta,V \u0026\\sim \\text{ independent } N(\\eta_i, V_i^{-1}) \\cr Y_i|Z_i \u0026= I(Z_i\\geq 0). \\end{align*} $$ Then, given $\\eta$, the $Y_i's$ are independent Bernoulli random variables with success probability $H(\\eta_i)$. Let $D_V$ be the diagonal matrix with $j$-th element equals to $v_j$, and then by the Gaussian conjugacy, $$ \\Sigma_V^* = (D_V + \\Sigma^{-1})^{-1} ,\\quad \\mu_V^* = \\Sigma_V^* (D_V Z + \\Sigma^{-1}\\mu) = \\Sigma_V^* D_V (Z - \\mu) + \\mu. $$Suppose $G$ has a Labesgue density $g$. Then $$ \\begin{align} \\eta|Z,V,Y = \\eta|Z,V \u0026\\sim N(\\mu_V^*,\\Sigma_V^*), \\cr V_i|Z,\\eta, Y = V_i|\\eta,Z \u0026\\propto \\phi((Z_i - \\eta_i)\\sqrt{v_i}) g(v_i), \\cr Z_i|V,\\eta, V,Y = Z_i| Y,V \u0026\\sim \\begin{cases} N(\\eta(x_i), V_i^{-1}) | Z_i\\geq 0, \u0026 \\; Y_i = 1, \\cr N(\\eta(x_i), V_i^{-1}) | Z_i\u003c0, \u0026\\; Y_i = -1. \\end{cases} \\end{align} $$3. Hierarchical models The choice of the hyper-parameters $\\mu,\\Sigma$ are critical in the prior elicitation. One may put priors on these hyper-parameters. For instance, we can consider a parametric form for $\\Sigma$ by $$ \\Sigma_\\tau = \\Sigma/\\tau, $$ for some known $\\Sigma$ and unknown hyper-parameter $\\tau\u003e0$. Note that $\\tau$ determines the smoothness of data. A gamma distribution is an appropriate prior for $\\tau$, thus we consider the following hierarchical model\n$\\tau \\sim Gamma(a,b)$. $\\eta|\\tau \\sim N(\\mu,\\Sigma_\\tau)$. $Z|\\eta,\\tau \\sim N(\\eta(x), I)$. $Y_i|Z_i \\sim Bernoulli(H(Z_i))$. The distribution of $\\tau$ given $Y,Z,\\eta$ can be easily derived, which is still a Gamma distribution, wirte $Gamma(a^*, b^*)$. Then we can use a Gibbs sampler to generate samples from the distribution of $(\\tau,Z,\\eta|Y)$.\n4. Discussion This article described a nonparametric Bayesian approach to estimating the regression function for binary classification. The case where the link function $H$ who has smooth unimodal symmetric density was discussed. However, consistency behaviour was not mentioned.\n",
+  "wordCount" : "749",
+  "inLanguage": "en",
+  "datePublished": "2021-08-07T08:36:14+02:00",
+  "dateModified": "2021-08-07T08:36:14+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -107,7 +202,7 @@ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -133,27 +228,27 @@ where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -302,12 +397,12 @@ for some known $\Sigma$ and unknown hyper-parameter $\tau>0$. Note that $\tau$ d
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/">
     <span class="title">« Prev</span>
     <br>
     <span>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/bayes/bayes_7_gp3/">
+  <a class="next" href="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/">
     <span class="title">Next »</span>
     <br>
     <span>Bayesian Statistics| Gaussian Process Priors (3)</span>
@@ -319,7 +414,7 @@ for some known $\Sigma$ and unknown hyper-parameter $\tau>0$. Note that $\tau$ d
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

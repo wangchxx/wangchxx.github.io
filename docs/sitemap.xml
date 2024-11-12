@@ -2,214 +2,187 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://wangchxx.github.io/categories/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/deep-learning/</loc>
+    <loc>https://wangchxx.github.io/series/deep-learning/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/diffusion-models/</loc>
+    <loc>https://wangchxx.github.io/series/diffusion-models/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/dl/</loc>
+    <loc>https://wangchxx.github.io/categories/dl/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/diffusion_4_conditional_df/</loc>
+    <loc>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://wangchxx.github.io/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://wangchxx.github.io/posts/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>https://wangchxx.github.io/series/</loc>
     <lastmod>2024-10-24T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/</loc>
+    <loc>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</loc>
     <lastmod>2024-10-23T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/diffusion_2_preliminary_sde/</loc>
+    <loc>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</loc>
     <lastmod>2024-10-22T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/diffusion_1_ddmp/</loc>
+    <loc>https://wangchxx.github.io/posts/diffusion_1_ddmp/</loc>
     <lastmod>2024-10-21T04:34:23+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/math-examples/</loc>
+    <loc>https://wangchxx.github.io/math-examples/</loc>
     <lastmod>2024-01-24T18:09:49-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/ml/</loc>
+    <loc>https://wangchxx.github.io/categories/ml/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/reinforcement-learning/</loc>
+    <loc>https://wangchxx.github.io/series/reinforcement-learning/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/rl/</loc>
+    <loc>https://wangchxx.github.io/categories/rl/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_09_mcts/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_09_mcts/</loc>
     <lastmod>2021-09-20T23:01:33+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_08_dynamics_approximation/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</loc>
     <lastmod>2021-09-09T13:26:05+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_07_policy_gradient/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</loc>
     <lastmod>2021-08-26T03:20:07+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_06_value_function_approximation/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</loc>
     <lastmod>2021-08-25T22:17:58+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_05_temporal_difference/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</loc>
     <lastmod>2021-08-24T18:28:15+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_04_monte_carlo/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</loc>
     <lastmod>2021-08-24T18:27:52+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_03_dynamic_programming/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</loc>
     <lastmod>2021-08-24T03:00:31+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_02_markov_decision_process/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</loc>
     <lastmod>2021-08-24T03:00:02+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/</loc>
+    <loc>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</loc>
     <lastmod>2021-08-24T00:56:37+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gp_graph_3/</loc>
-    <lastmod>2021-08-21T04:18:09+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/paper-reading/</loc>
+    <loc>https://wangchxx.github.io/series/paper-reading/</loc>
     <lastmod>2021-08-21T04:18:02+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gp_graph_2/</loc>
+    <loc>https://wangchxx.github.io/posts/reading/gp_graph_2/</loc>
     <lastmod>2021-08-21T04:18:02+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/stat/</loc>
+    <loc>https://wangchxx.github.io/categories/stat/</loc>
     <lastmod>2021-08-21T04:18:02+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gp_graph_1/</loc>
+    <loc>https://wangchxx.github.io/posts/reading/gp_graph_1/</loc>
     <lastmod>2021-08-20T23:28:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gp_multiclass_classification/</loc>
+    <loc>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</loc>
     <lastmod>2021-08-08T17:02:19+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/</loc>
+    <loc>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</loc>
     <lastmod>2021-08-07T18:24:27+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/reading/gppriors_for_binary_classification/</loc>
+    <loc>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</loc>
     <lastmod>2021-08-07T08:36:14+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/bayesian-statistics/</loc>
+    <loc>https://wangchxx.github.io/series/bayesian-statistics/</loc>
     <lastmod>2021-08-05T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_7_gp3/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</loc>
     <lastmod>2021-08-05T00:01:41+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_6_gp2/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</loc>
     <lastmod>2021-07-22T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_4_gp1/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</loc>
     <lastmod>2021-07-21T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_5_contraction/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</loc>
     <lastmod>2021-07-20T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_3_dirichlet/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</loc>
     <lastmod>2021-07-19T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_2_bvm/</loc>
+    <loc>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</loc>
     <lastmod>2021-07-18T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/example/about/</loc>
-    <lastmod>2021-07-18T11:24:06+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/example/emoji-support/</loc>
-    <lastmod>2021-07-18T10:52:59+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/example/markdown-syntax/</loc>
-    <lastmod>2021-07-18T10:52:59+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/example/math-typesetting/</loc>
-    <lastmod>2021-07-18T10:52:59+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/example/placeholder-text/</loc>
-    <lastmod>2021-07-18T10:52:59+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_1_priors/</loc>
-    <lastmod>2021-07-17T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/bayes/bayes_0_intro/</loc>
-    <lastmod>2021-07-16T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/analysis/</loc>
-    <lastmod>2021-04-25T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/functional-analysis/</loc>
-    <lastmod>2021-04-25T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_5/</loc>
-    <lastmod>2021-04-25T10:52:59+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_4/</loc>
+    <loc>https://wangchxx.github.io/categories/analysis/</loc>
     <lastmod>2021-04-24T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_3/</loc>
+    <loc>https://wangchxx.github.io/series/functional-analysis/</loc>
+    <lastmod>2021-04-24T10:52:59+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/analysis_3/functional_4/</loc>
+    <lastmod>2021-04-24T10:52:59+02:00</lastmod>
+  </url><url>
+    <loc>https://wangchxx.github.io/posts/analysis_3/functional_3/</loc>
     <lastmod>2021-04-23T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_2/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_3/functional_2/</loc>
     <lastmod>2021-04-22T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_1/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_3/functional_1/</loc>
     <lastmod>2021-04-21T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_3/functional_0/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_3/functional_0/</loc>
     <lastmod>2021-04-20T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/math-analysis/</loc>
+    <loc>https://wangchxx.github.io/series/math-analysis/</loc>
     <lastmod>2021-04-13T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_13/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_13/</loc>
     <lastmod>2021-04-13T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_12/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_12/</loc>
     <lastmod>2021-04-12T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_11/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_11/</loc>
     <lastmod>2021-04-11T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_10/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_10/</loc>
     <lastmod>2021-04-10T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_9/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_9/</loc>
     <lastmod>2021-04-09T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_8/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_8/</loc>
     <lastmod>2021-04-08T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_7/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_7/</loc>
     <lastmod>2021-04-07T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_6/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_6/</loc>
     <lastmod>2021-04-06T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_5/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_5/</loc>
     <lastmod>2021-04-05T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_4/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_4/</loc>
     <lastmod>2021-04-04T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_3/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_3/</loc>
     <lastmod>2021-04-03T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_2/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_2/</loc>
     <lastmod>2021-04-02T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/analysis_1/math_analysis_1/</loc>
+    <loc>https://wangchxx.github.io/posts/analysis_1/math_analysis_1/</loc>
     <lastmod>2021-04-01T10:52:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://wangchxx.github.io/archives/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://wangchxx.github.io/search/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://wangchxx.github.io/tags/</loc>
   </url>
 </urlset>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My Notes</title>
-    <link>http://localhost:1313/</link>
+    <link>https://wangchxx.github.io/</link>
     <description>Recent content on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 24 Oct 2024 00:01:41 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DL | Diffusion Models 4 - Conditional Diffusion Models</title>
-      <link>http://localhost:1313/posts/diffusion_4_conditional_df/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</link>
       <pubDate>Thu, 24 Oct 2024 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_4_conditional_df/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</guid>
       <description>&lt;h1 id=&#34;conditional-diffusion-models&#34;&gt;Conditional diffusion models&lt;/h1&gt;
 &lt;p&gt;Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$:
 &lt;/p&gt;
@@ -31,11 +31,11 @@ So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But 
     </item>
     <item>
       <title>DL | Diffusion Models 3 - Understanding DDMP from a Unified Prospective</title>
-      <link>http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</link>
       <pubDate>Wed, 23 Oct 2024 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</guid>
       <description>&lt;h2 id=&#34;understand-ddmp-from-vlb&#34;&gt;Understand DDMP from VLB&lt;/h2&gt;
-&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/diffusion_2_preliminary_sde/&#34;&gt;Diffusion-models-1&lt;/a&gt; we have introduced the DDMP model
+&lt;p&gt;In the &lt;a href=&#34;https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/&#34;&gt;Diffusion-models-1&lt;/a&gt; we have introduced the DDMP model
 &lt;/p&gt;
 $$
 X_t|X_{t-1} = \mathcal{N}(\sqrt{1-\beta_t}X_{t-1}, \beta_t I), \quad X_t|X_0 = \mathcal{N}(\sqrt{\bar{\alpha}_t} X_0, (1-\bar{\alpha}_{t})I),
@@ -56,9 +56,9 @@ Since the conditional distribution $X_{t}|(X_{t-1}, X_{0})$ is Gaussian
     </item>
     <item>
       <title>DL | Diffusion Models 2 - Preliminary ODE and SDE</title>
-      <link>http://localhost:1313/posts/diffusion_2_preliminary_sde/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</link>
       <pubDate>Tue, 22 Oct 2024 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_2_preliminary_sde/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</guid>
       <description>&lt;h2 id=&#34;basics&#34;&gt;Basics&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ODE definition&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Consider the ordinary differential equation (ODE)
@@ -76,12 +76,12 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
     </item>
     <item>
       <title>DL | Diffusion Models 1 - DDMP</title>
-      <link>http://localhost:1313/posts/diffusion_1_ddmp/</link>
+      <link>https://wangchxx.github.io/posts/diffusion_1_ddmp/</link>
       <pubDate>Mon, 21 Oct 2024 04:34:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diffusion_1_ddmp/</guid>
+      <guid>https://wangchxx.github.io/posts/diffusion_1_ddmp/</guid>
       <description>&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
 &lt;p&gt;A diffusion probabilistic model is a parameterized Markov chain that gradually adds noise to the data and then learn to reverse the diffusion process to generate data samples from noise.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/diffusion_1_ddmp/ddmp_graph.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/posts/diffusion_1_ddmp/ddmp_graph.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
 &lt;p&gt;Compared with other AI tasks, image generation is harder, since it does not have a standard answer. To solve this issue, GAN and VAE are propsed.&lt;/p&gt;
 &lt;ul&gt;
@@ -90,9 +90,9 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
     </item>
     <item>
       <title>Math examples</title>
-      <link>http://localhost:1313/math-examples/</link>
+      <link>https://wangchxx.github.io/math-examples/</link>
       <pubDate>Wed, 24 Jan 2024 18:09:49 -0800</pubDate>
-      <guid>http://localhost:1313/math-examples/</guid>
+      <guid>https://wangchxx.github.io/math-examples/</guid>
       <description>&lt;p&gt;This is an inline (a^&lt;em&gt;=x-b^&lt;/em&gt;) equation.&lt;/p&gt;
 &lt;p&gt;These are block equations:&lt;/p&gt;
 \[a^*=x-b^*\]\[ a^*=x-b^* \]\[
@@ -104,9 +104,9 @@ $$</description>
     </item>
     <item>
       <title>RL | Multiplayer Monte Carlo Tree Search</title>
-      <link>http://localhost:1313/posts/rl/rl_09_mcts/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_09_mcts/</link>
       <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_09_mcts/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_09_mcts/</guid>
       <description>&lt;h2 id=&#34;1-multi-agent-systems&#34;&gt;1. Multi-Agent Systems&lt;/h2&gt;
 &lt;p&gt;A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.&lt;/p&gt;
 &lt;p&gt;MAS research spans a range of problems, such as&lt;/p&gt;
@@ -120,9 +120,9 @@ $$</description>
     </item>
     <item>
       <title>RL | Dynamics Approximation for Model-Based RL</title>
-      <link>http://localhost:1313/posts/rl/rl_08_dynamics_approximation/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</link>
       <pubDate>Thu, 09 Sep 2021 13:26:05 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_08_dynamics_approximation/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_08_dynamics_approximation/</guid>
       <description>&lt;p&gt;One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.&lt;/p&gt;
 &lt;h2 id=&#34;1-dynamics-approximation&#34;&gt;1. Dynamics Approximation&lt;/h2&gt;
 &lt;p&gt;Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t+1}$. However, this function can be difficult to learn as $s_t$ and $s_{t+1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step
@@ -130,17 +130,17 @@ $$</description>
     </item>
     <item>
       <title>RL | Policy Gradient Methods</title>
-      <link>http://localhost:1313/posts/rl/rl_07_policy_gradient/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</link>
       <pubDate>Thu, 26 Aug 2021 03:20:07 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_07_policy_gradient/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_07_policy_gradient/</guid>
       <description>&lt;p&gt;So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.&lt;/p&gt;
 &lt;p&gt;One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RL | Value Function Approximation</title>
-      <link>http://localhost:1313/posts/rl/rl_06_value_function_approximation/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</link>
       <pubDate>Wed, 25 Aug 2021 22:17:58 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_06_value_function_approximation/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_06_value_function_approximation/</guid>
       <description>&lt;p&gt;So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation&lt;/p&gt;
 $$ 
  \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a).
@@ -154,9 +154,9 @@ we can approximate $v$ or $q$ by GD, i.e.
     </item>
     <item>
       <title>RL | Model-Free: Temporal Difference Learning</title>
-      <link>http://localhost:1313/posts/rl/rl_05_temporal_difference/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</link>
       <pubDate>Tue, 24 Aug 2021 18:28:15 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_05_temporal_difference/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_05_temporal_difference/</guid>
       <description>&lt;p&gt;Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment&amp;rsquo;s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).&lt;/p&gt;
 &lt;h2 id=&#34;1-td-prediction&#34;&gt;1. TD Prediction&lt;/h2&gt;
 &lt;p&gt;Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by
@@ -169,9 +169,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Model-Free: Monte Carlo Methods</title>
-      <link>http://localhost:1313/posts/rl/rl_04_monte_carlo/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</link>
       <pubDate>Tue, 24 Aug 2021 18:27:52 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_04_monte_carlo/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_04_monte_carlo/</guid>
       <description>&lt;p&gt;We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: &lt;em&gt;Monte Carlo&lt;/em&gt; methods and &lt;em&gt;temporal-difference&lt;/em&gt; learning.&lt;/p&gt;
 &lt;p&gt;In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.&lt;/p&gt;
 &lt;h2 id=&#34;1-monte-carlo-prediction&#34;&gt;1. Monte Carlo Prediction&lt;/h2&gt;
@@ -180,9 +180,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Dynamic Programming</title>
-      <link>http://localhost:1313/posts/rl/rl_03_dynamic_programming/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:31 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_03_dynamic_programming/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/</guid>
       <description>&lt;p&gt;There are two common tasks in an MDP&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$.&lt;/li&gt;
@@ -192,9 +192,9 @@ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD meth
     </item>
     <item>
       <title>RL | Markov Decision Processes</title>
-      <link>http://localhost:1313/posts/rl/rl_02_markov_decision_process/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</link>
       <pubDate>Tue, 24 Aug 2021 03:00:02 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_02_markov_decision_process/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/</guid>
       <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -214,9 +214,9 @@ The function $p$ defines the &lt;em&gt;dynamics&lt;/em&gt; of the MDP. Given the
     </item>
     <item>
       <title>RL | Multi-armed Bandits</title>
-      <link>http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/</link>
+      <link>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</link>
       <pubDate>Tue, 24 Aug 2021 00:56:37 +0200</pubDate>
-      <guid>http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/</guid>
+      <guid>https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/</guid>
       <description>&lt;h2 id=&#34;notations&#34;&gt;Notations&lt;/h2&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -238,19 +238,10 @@ The function $p$ defines the &lt;em&gt;dynamics&lt;/em&gt; of the MDP. Given the
 &lt;p&gt;Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Reading | Estimating a smooth function on a large graph (3)</title>
-      <link>http://localhost:1313/posts/reading/gp_graph_3/</link>
-      <pubDate>Sat, 21 Aug 2021 04:18:09 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_graph_3/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;Roy, A. (n.d.). Optimal Bayesian Smoothing of Functional Observations over a Large Graph. 16.&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    <item>
       <title>Reading | Estimating a smooth function on a large graph (2)</title>
-      <link>http://localhost:1313/posts/reading/gp_graph_2/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_2/</link>
       <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_graph_2/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_2/</guid>
       <description>&lt;p&gt;This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1709.06360&#34;&gt;http://arxiv.org/abs/1709.06360&lt;/a&gt;&lt;/li&gt;
@@ -268,9 +259,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Estimating a smooth function on a large graph (1)</title>
-      <link>http://localhost:1313/posts/reading/gp_graph_1/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_graph_1/</link>
       <pubDate>Fri, 20 Aug 2021 23:28:03 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_graph_1/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_graph_1/</guid>
       <description>&lt;p&gt;This paper proposed an approach to estimating smooth functions on graphs using GP priors.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Kirichenko, A., &amp;amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. &lt;a href=&#34;http://arxiv.org/abs/1511.02515&#34;&gt;http://arxiv.org/abs/1511.02515&lt;/a&gt;&lt;/li&gt;
@@ -281,9 +272,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Bayesian Classification of Multiclass Functional Data</title>
-      <link>http://localhost:1313/posts/reading/gp_multiclass_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</link>
       <pubDate>Sun, 08 Aug 2021 17:02:19 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gp_multiclass_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gp_multiclass_classification/</guid>
       <description>&lt;p&gt;Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.&lt;/p&gt;
 &lt;p&gt;Li, X., &amp;amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. &lt;a href=&#34;http://arxiv.org/abs/1808.00662&#34;&gt;http://arxiv.org/abs/1808.00662&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-problem-setup&#34;&gt;1. Problem setup&lt;/h2&gt;
@@ -292,9 +283,9 @@ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
     </item>
     <item>
       <title>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</title>
-      <link>http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 18:24:27 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Ghosal, S., &amp;amp; Roy, A. (2006). Posterior consistency of Gaussian process prior for nonparametric binary regression. The Annals of Statistics, 34(5). &lt;a href=&#34;https://doi.org/10.1214/009053606000000795&#34;&gt;https://doi.org/10.1214/009053606000000795&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -308,9 +299,9 @@ A GP prior with mean function $\mu(x)$ and covariance kernle $\sigma(x,x&#39;)$ 
     </item>
     <item>
       <title>Reading | Nonparametric binary regression using a Gaussian process prior</title>
-      <link>http://localhost:1313/posts/reading/gppriors_for_binary_classification/</link>
+      <link>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</link>
       <pubDate>Sat, 07 Aug 2021 08:36:14 +0200</pubDate>
-      <guid>http://localhost:1313/posts/reading/gppriors_for_binary_classification/</guid>
+      <guid>https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/</guid>
       <description>&lt;p&gt;Let&amp;rsquo;s discuss this paper&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Choudhuri, N., Ghosal, S., &amp;amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.&lt;/li&gt;
@@ -330,58 +321,58 @@ where $H$ is commonly choosen as a cdf, called the &lt;em&gt;link function&lt;/e
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (3)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_7_gp3/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</link>
       <pubDate>Thu, 05 Aug 2021 00:01:41 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_7_gp3/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_7_gp3/</guid>
       <description>&lt;p&gt;In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.&lt;/p&gt;
 &lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (2)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_6_gp2/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</link>
       <pubDate>Thu, 22 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_6_gp2/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_6_gp2/</guid>
       <description>&lt;!-- # Bayesian Statistics| Gaussian Process Priors (2) --&gt;
-&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/bayes/bayes_4_gp1/&#34;&gt;GP(1)&lt;/a&gt; we introduced the RKHS of the GP and some of its properties. The main content of this section is to derive the &lt;strong&gt;posterior contraction rate&lt;/strong&gt; of the GP.&lt;/p&gt;
-&lt;p&gt;At the same time, in &lt;a href=&#34;http://localhost:1313/posts/bayes/bayes_5_contraction/&#34;&gt;Posterior Consistency and Contraction&lt;/a&gt;, we derived the most important conclusion:&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;contraction_thm&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img_bayes_GP/Contraction_2.PNG&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_4_gp1/&#34;&gt;GP(1)&lt;/a&gt; we introduced the RKHS of the GP and some of its properties. The main content of this section is to derive the &lt;strong&gt;posterior contraction rate&lt;/strong&gt; of the GP.&lt;/p&gt;
+&lt;p&gt;At the same time, in &lt;a href=&#34;https://wangchxx.github.io/posts/bayes/bayes_5_contraction/&#34;&gt;Posterior Consistency and Contraction&lt;/a&gt;, we derived the most important conclusion:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;contraction_thm&#34; loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/img_bayes_GP/Contraction_2.PNG&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To show the posterior contraction of GP, we only need to check conditions 5.7-5.9.&lt;/p&gt;
 &lt;h2 id=&#34;1-posterior-contraction&#34;&gt;1. Posterior Contraction&lt;/h2&gt;
 &lt;p&gt;Theorem (GP contraction)
-:&lt;img alt=&#34;GP contraction&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img_bayes_GP/GPrate_1.PNG&#34;&gt;&lt;/p&gt;</description>
+:&lt;img alt=&#34;GP contraction&#34; loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/img_bayes_GP/GPrate_1.PNG&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Gaussian Process Priors (1)</title>
-      <link>http://localhost:1313/posts/bayes/bayes_4_gp1/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</link>
       <pubDate>Wed, 21 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_4_gp1/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_4_gp1/</guid>
       <description>&lt;!-- # Bayesian Statistics| Gaussian Process Priors (1) --&gt;
 &lt;p&gt;In the previous chapters, we introduced the &lt;strong&gt;Dirichlet Process (DP) prior&lt;/strong&gt;, which is primarily used as a prior on measure spaces. In this chapter, we will introduce the &lt;strong&gt;Gaussian Process (GP)&lt;/strong&gt;, which can be used as a prior on function spaces. Consider the scenario where we have sample pairs $(X_i,Y_i),i\leq n$. We are interested in studying the relationship between the inputs $X_i$ and the outputs $Y_i$.  A common model for such a relationship is
 &lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Posterior Consistency and Contraction</title>
-      <link>http://localhost:1313/posts/bayes/bayes_5_contraction/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</link>
       <pubDate>Tue, 20 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_5_contraction/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_5_contraction/</guid>
       <description>&lt;!-- # Bayesian Statistics| Posterior Consistency and Contraction --&gt;
 &lt;p&gt;This chapter discusses the theoretical question of whether non-parametric Bayes methods truly work. In other words, it addresses whether the posterior distribution really converges to the so-called &amp;ldquo;true&amp;rdquo; parameter $\theta_0$. Contraction is a richer concept than consistency, as it also involves the rate of convergence.&lt;/p&gt;
 &lt;p&gt;Dirichlet Process priors and Gaussian Process priors are common non-parametric Bayesian methods, along with their various variants. It would be too cumbersome to discuss the convergence issues of these methods on a case-by-case basis. Therefore, this chapter will focus on some general theory, which can then be applied to specific models as needed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Dirichlet Process</title>
-      <link>http://localhost:1313/posts/bayes/bayes_3_dirichlet/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</link>
       <pubDate>Mon, 19 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_3_dirichlet/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_3_dirichlet/</guid>
       <description>&lt;!-- # Bayesian Statistics| Dirichlet Process --&gt;
 &lt;p&gt;The Dirichlet Process (DP) is widely used in &lt;strong&gt;Bayesian nonparametrics&lt;/strong&gt;, where it is often treated as a default prior on spaces of probability measures. As a &lt;strong&gt;prior&lt;/strong&gt; on probability measures, the DP reflects our prior belief about the potential distributions of data, with the assumption that the data might be drawn from an infinite mixture of possible underlying distributions. This is why the Dirichlet Process is often called a &lt;strong&gt;nonparametric prior&lt;/strong&gt;: it does not assume a fixed, finite number of parameters but rather allows the model to grow with the complexity of the data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bayesian Statistics| Bernstein-von Mises Theorem</title>
-      <link>http://localhost:1313/posts/bayes/bayes_2_bvm/</link>
+      <link>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</link>
       <pubDate>Sun, 18 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_2_bvm/</guid>
+      <guid>https://wangchxx.github.io/posts/bayes/bayes_2_bvm/</guid>
       <description>&lt;!-- # Bayesian Statistics| Bernstein-von Mises Theorem  --&gt;
 &lt;p&gt;From a non-Bayesian perspective, when we aim to estimate the parameters of a certain model, we often apply the Central Limit Theorem (CLT) and obtain a result similar to this.&lt;/p&gt;
 $$
@@ -389,110 +380,10 @@ $$
 $$&lt;p&gt;From a Bayesian perspective, a similar conclusion can be drawn, often referred to as the Bayesian Central Limit Theorem. This is precisely the Bernstein-von Mises Theorem (BvM), which will be introduced in this article.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>About</title>
-      <link>http://localhost:1313/posts/example/about/</link>
-      <pubDate>Sun, 18 Jul 2021 11:24:06 +0800</pubDate>
-      <guid>http://localhost:1313/posts/example/about/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>http://localhost:1313/posts/example/emoji-support/</link>
-      <pubDate>Sun, 18 Jul 2021 10:52:59 +0800</pubDate>
-      <guid>http://localhost:1313/posts/example/emoji-support/</guid>
-      <description>Guide to emoji usage in Hugo</description>
-    </item>
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>http://localhost:1313/posts/example/markdown-syntax/</link>
-      <pubDate>Sun, 18 Jul 2021 10:52:59 +0800</pubDate>
-      <guid>http://localhost:1313/posts/example/markdown-syntax/</guid>
-      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
-    </item>
-    <item>
-      <title>Math Typesetting</title>
-      <link>http://localhost:1313/posts/example/math-typesetting/</link>
-      <pubDate>Sun, 18 Jul 2021 10:52:59 +0800</pubDate>
-      <guid>http://localhost:1313/posts/example/math-typesetting/</guid>
-      <description>A brief guide to setup KaTeX</description>
-    </item>
-    <item>
-      <title>Placeholder Text</title>
-      <link>http://localhost:1313/posts/example/placeholder-text/</link>
-      <pubDate>Sun, 18 Jul 2021 10:52:59 +0800</pubDate>
-      <guid>http://localhost:1313/posts/example/placeholder-text/</guid>
-      <description>Lorem Ipsum Dolor Si Amet</description>
-    </item>
-    <item>
-      <title>Bayesian Statistics| Pirors and Posteriors</title>
-      <link>http://localhost:1313/posts/bayes/bayes_1_priors/</link>
-      <pubDate>Sat, 17 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_1_priors/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;这个系列主要内容是介绍贝叶斯理论，是我之前上课笔记的简单整理。整个体系是建立在测度论基础上的，所以默认读者已经熟悉 measure-theoretical probability 的基本内容了， 如果没有这方面基础，建议任意找本教材查阅。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是第一章，我们的主要任务是定义先验概率(piror)和后验概率(posterior). 在非贝叶斯统计里，我们认为一个统计模型是一个概率分布的集合 $\{ P_\theta: \theta\in \Theta \}$. 然而，贝叶斯统计给与了参数$\theta$一个先验分布，denoted by $\Pi$, 这样分布$P_\theta$就成了 data $X$ given $\vartheta = \theta$ 的条件概率, 从而 $(X,\vartheta)$拥有联合概率
-&lt;/p&gt;
-$$
-\begin{equation} 
-   \Pr(X\in A,\vartheta\in B) = \int_B P_\theta(A) d\Pi(\theta) .
-\end{equation}
-$$&lt;p&gt;
-观测到数据之后，我们可以对 prior 进行更新，这被称为posterior, given by
-&lt;/p&gt;
-$$ 
- \Pi(B|x) = \Pr(\vartheta\in B| X =x).
-$$&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
-&lt;p&gt;$\mathfrak{X},\mathscr{X}$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bayesian Statistics| Introduction</title>
-      <link>http://localhost:1313/posts/bayes/bayes_0_intro/</link>
-      <pubDate>Fri, 16 Jul 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/bayes/bayes_0_intro/</guid>
-      <description>&lt;p&gt;这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.&lt;/p&gt;
-&lt;p&gt;目标人群：&lt;/p&gt;
-&lt;p&gt;对Bayes有初步了解的，有一定 statistics，machine learning 基础的，且对理论有兴趣的人。整体上是基于 measure-theoretical probability， 所以读者最好有一定 measure theory 基础，基本上，具有数学本科三年级基础就足够了。&lt;/p&gt;
-&lt;p&gt;主要内容:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Parametric Bayes and posterior consistency.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;General consistency theory for non-parametric Bayes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reproducing kernel Hilbert space (RKHS) theory.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;大部分内容将参考 Ghosal, S., &amp;amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。&lt;/p&gt;
-&lt;p&gt;风格：
-框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。&lt;/p&gt;
-&lt;p&gt;欢迎讨论。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Functional Analysis | 5 Linear Operators on Hilbert Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_5/</link>
-      <pubDate>Sun, 25 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_5/</guid>
-      <description>&lt;p&gt;There is an additional structure on $B(X,Y)$ if $X,Y$ are Hilbert spaces, which enables us to obtain a simpler characterization of invertibility. This is the &lt;span style = &#34;color:orange&#34;&gt;&lt;em&gt;adjoint&lt;/em&gt;&lt;/span&gt; of an operator.&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;Definition and properties of adjoints.&lt;/li&gt;
-&lt;li&gt;Adjoints and invertibility.&lt;/li&gt;
-&lt;li&gt;Three important operators (normal, self-adjoint and unitary operators) that are related to the adjoint, and their properties.&lt;/li&gt;
-&lt;li&gt;Spectrum of operators.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;1-adjoint&#34;&gt;1. Adjoint&lt;/h2&gt;
-&lt;p&gt;In this section we define the adjoint and show its existence and uniqueness.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Functional Analysis | 4 Duality and Hahn-Banach Theorem</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_4/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_4/</link>
       <pubDate>Sat, 24 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_4/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_4/</guid>
       <description>&lt;h2 id=&#34;1-dual-spaces&#34;&gt;1. Dual Spaces&lt;/h2&gt;
 &lt;p&gt;In this section we describe the dual of several of the standard spaces.&lt;/p&gt;
 &lt;dl&gt;
@@ -507,9 +398,9 @@ It can be verified that $f_j$ is a linear transformation s.t. $f_j(v_k) = \delta
     </item>
     <item>
       <title>Functional Analysis | 3 Linear Operators</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_3/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_3/</link>
       <pubDate>Fri, 23 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_3/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_3/</guid>
       <description>&lt;h2 id=&#34;1-continuous-linear-transformations&#34;&gt;1. Continuous Linear Transformations&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Lemma 1 (&lt;strong&gt;Continuity&lt;/strong&gt;) &lt;span id = &#34;c3_lem_continuity&#34;&gt;&lt;/dt&gt;
@@ -534,9 +425,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 2 Hilbert Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_2/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_2/</link>
       <pubDate>Thu, 22 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_2/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_2/</guid>
       <description>&lt;h2 id=&#34;1-inner-product-spaces&#34;&gt;1. Inner Product spaces&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Inner product&lt;/strong&gt;)&lt;/dt&gt;
@@ -551,9 +442,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 1 Normed Spaces</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_1/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_1/</link>
       <pubDate>Wed, 21 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_1/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_1/</guid>
       <description>&lt;h2 id=&#34;1-finite-dimensional-normed-spaces&#34;&gt;1. Finite-dimensional Normed Spaces&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Norm)&lt;/dt&gt;
@@ -568,9 +459,9 @@ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt
     </item>
     <item>
       <title>Functional Analysis | 0 Preliminaries</title>
-      <link>http://localhost:1313/posts/analysis_3/functional_0/</link>
+      <link>https://wangchxx.github.io/posts/analysis_3/functional_0/</link>
       <pubDate>Tue, 20 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_3/functional_0/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_3/functional_0/</guid>
       <description>&lt;h1 id=&#34;functional-analysis--0-preliminaries&#34;&gt;Functional Analysis | 0 Preliminaries&lt;/h1&gt;
 &lt;hr&gt;
 &lt;p&gt;Notation:&lt;/p&gt;
@@ -625,9 +516,9 @@ The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With th
     </item>
     <item>
       <title>Mathematical Analysis | 13 Fourier Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_13/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_13/</link>
       <pubDate>Tue, 13 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_13/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_13/</guid>
       <description>&lt;h2 id=&#34;1-fourier-series&#34;&gt;1. Fourier Series&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Trigonometric polynomial&lt;/strong&gt;)&lt;/dt&gt;
@@ -649,9 +540,9 @@ which is more convenient for most purposes. It is clear that every Trigonometric
     </item>
     <item>
       <title>Mathematical Analysis | 12 Power Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_12/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_12/</link>
       <pubDate>Mon, 12 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_12/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_12/</guid>
       <description>&lt;p&gt;In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form
 &lt;/p&gt;
 $$ 
@@ -721,9 +612,9 @@ $$ --&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 11 Sequences and Series of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_11/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_11/</link>
       <pubDate>Sun, 11 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_11/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_11/</guid>
       <description>&lt;p&gt;We have studied how to define a number by convergent sequences or series. In this chapter we discuss how to define a function by a sequence or series of functions, and study the properties of this function.&lt;/p&gt;
 &lt;h2 id=&#34;1-uniform-convergence&#34;&gt;1. Uniform Convergence&lt;/h2&gt;
 &lt;dl&gt;
@@ -747,9 +638,9 @@ for all $x\in E$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 10 Numerical Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_10/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_10/</link>
       <pubDate>Sat, 10 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_10/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_10/</guid>
       <description>&lt;h2 id=&#34;1-convergence&#34;&gt;1. Convergence&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Series)&lt;/dt&gt;
@@ -771,9 +662,9 @@ if $m\geq n\geq N$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 9 Riemann Integrals</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_9/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_9/</link>
       <pubDate>Fri, 09 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_9/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_9/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Partition&lt;/strong&gt;)&lt;/dt&gt;
@@ -805,9 +696,9 @@ we say that the function $f$ is &lt;code&gt;Stieltjes integrable&lt;/code&gt; w.
     </item>
     <item>
       <title>Mathematical Analysis | 8 Indefinite Integrals</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_8/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_8/</link>
       <pubDate>Thu, 08 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_8/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_8/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Primary function&lt;/strong&gt;)&lt;/dt&gt;
@@ -836,9 +727,9 @@ we say that the function $f$ is &lt;code&gt;Stieltjes integrable&lt;/code&gt; w.
     </item>
     <item>
       <title>Mathematical Analysis | 7 Completeness of the Real Numbers</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_7/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_7/</link>
       <pubDate>Wed, 07 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_7/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_7/</guid>
       <description>&lt;h2 id=&#34;1-nested-intervals-theorem&#34;&gt;1. Nested Intervals Theorem&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Nested intervals&lt;/strong&gt;)&lt;/dt&gt;
@@ -866,9 +757,9 @@ which means that $\xi = \xi&#39;$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 6 Mean Value Theorem</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_6/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_6/</link>
       <pubDate>Tue, 06 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_6/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_6/</guid>
       <description>&lt;h2 id=&#34;1-rolles-theorem&#34;&gt;1. Rolle&amp;rsquo;s Theorem&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Theorem 1 (Rolle&amp;rsquo;s theorem)&lt;/dt&gt;
@@ -888,9 +779,9 @@ which means that $\xi = \xi&#39;$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 5 Derivatives and Differentiations</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_5/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_5/</link>
       <pubDate>Mon, 05 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_5/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_5/</guid>
       <description>&lt;h2 id=&#34;1-derivatives&#34;&gt;1. Derivatives&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Derivative at $x_0$)&lt;/dt&gt;
@@ -933,9 +824,9 @@ we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$.&lt;
     </item>
     <item>
       <title>Mathematical Analysis | 4 The Continuity of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_4/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_4/</link>
       <pubDate>Sun, 04 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_4/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_4/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Continuity at $x_0$&lt;/strong&gt;)&lt;/dt&gt;
@@ -950,9 +841,9 @@ $$&lt;p&gt;We introduce a new terminology &amp;ldquo;increment&amp;rdquo;, which
     </item>
     <item>
       <title>Mathematical Analysis | 3 Limit of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_3/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_3/</link>
       <pubDate>Sat, 03 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_3/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_3/</guid>
       <description>&lt;h2 id=&#34;1-limit-of-functions&#34;&gt;1. Limit of Functions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Limit at $\infty$)&lt;/dt&gt;
@@ -998,9 +889,9 @@ for any $x\in U^o_+(x_0,\delta)$, we say that $f$ has right limit $A$ as $x\to x
     </item>
     <item>
       <title>Mathematical Analysis | 2 Limit of Sequences</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_2/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_2/</link>
       <pubDate>Fri, 02 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_2/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_2/</guid>
       <description>&lt;h2 id=&#34;1-limit-of-sequences&#34;&gt;1. Limit of Sequences&lt;/h2&gt;
 &lt;p&gt;Given a function $f:\mathbb{N}_{+}\to \mathbb{R}$, we call $f( \mathbb{N}_{+})$ as a &lt;em&gt;sequence&lt;/em&gt;, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.&lt;/p&gt;
 &lt;dl&gt;
@@ -1015,9 +906,9 @@ And the point $a$ is called the &lt;em&gt;limit&lt;/em&gt; of the sequence $\{a_
     </item>
     <item>
       <title>Mathematical Analysis | 1 Real Numbers and Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_1/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_1/</link>
       <pubDate>Thu, 01 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_1/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_1/</guid>
       <description>&lt;h2 id=&#34;1-real-numbers&#34;&gt;1. Real Numbers&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Bounds)&lt;/dt&gt;

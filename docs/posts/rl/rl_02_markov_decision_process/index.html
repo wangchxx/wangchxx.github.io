@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>RL | Markov Decision Processes | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="Notations
@@ -24,16 +24,16 @@ $$
 $$
 The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/rl/rl_02_markov_decision_process/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/rl/rl_02_markov_decision_process/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/">
 <noscript>
     <style>
         #theme-toggle,
@@ -89,7 +89,102 @@ The function $p$ defines the dynamics of the MDP. Given the four-argument functi
 
 
 
+<meta property="og:title" content="RL | Markov Decision Processes">
+<meta property="og:description" content="Notations
 
+
+$\mathcal{S}$: state space.
+$\mathcal{A}$: action space.
+$\mathcal{R}$: reward space.
+
+
+1. Agent-Environment Interaction
+On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write
+
+$$ 
+ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
+$$
+The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-24T03:00:02+02:00">
+<meta property="article:modified_time" content="2021-08-24T03:00:02+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RL | Markov Decision Processes">
+<meta name="twitter:description" content="Notations
+
+
+$\mathcal{S}$: state space.
+$\mathcal{A}$: action space.
+$\mathcal{R}$: reward space.
+
+
+1. Agent-Environment Interaction
+On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write
+
+$$ 
+ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a).
+$$
+The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RL | Markov Decision Processes",
+      "item": "https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RL | Markov Decision Processes",
+  "name": "RL | Markov Decision Processes",
+  "description": "Notations $\\mathcal{S}$: state space. $\\mathcal{A}$: action space. $\\mathcal{R}$: reward space. 1. Agent-Environment Interaction On each step, the agent selects an action $A_t\\in\\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.\nWrite $$ p(s',r|s,a) = \\Pr(S_t = s', R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Notations $\\mathcal{S}$: state space. $\\mathcal{A}$: action space. $\\mathcal{R}$: reward space. 1. Agent-Environment Interaction On each step, the agent selects an action $A_t\\in\\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t+1}$ and moves to a new state $S_{t+1}$ corresponding the selected action $A_t$ and state $S_t$.\nWrite $$ p(s',r|s,a) = \\Pr(S_t = s', R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as\nstate-transition probabilities. $$ p(s'|s,a) = \\sum_{r\\in\\mathcal{R}} p(s',r|s,a). $$ expected rewards given $(s,a)$. $$ r(s,a) = \\mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a] = \\sum_{r} r \\sum_{s'} p(s',r|s,a). $$ expected rewards given $(s,a,s')$. $$ r(s,a,s') = \\mathbb{E}[R_t|S_{t-1}=s ,A_{t-1} =a, S_t = s'] = \\sum_{r} r \\frac{p(s',r|s,a)}{p(s'|s,a)}. $$ The objective is to maximize the expected return, denoted $G_t$, that measures the cumulative reward in the long run. The simplest definition is given by $$ G_t = R_{t+1} + R_{t+2} + \\cdots $$Given a discount factor $\\gamma\\in[0,1]$, we can define the discounted return by $$ G_t = R_{t+1} + \\gamma R_{t+2} + \\cdots = \\sum_{k=1}^\\infty \\gamma^k R_{t+k+1} = R_{t+1} + \\gamma G_{t+1}. $$2. Policies and Value Functions Definition 2.1 (policy) A policy is a mapping $\\pi:\\mathcal{S}\\to \\mu(\\mathcal{A})$ where $\\mu$ is a probability measure. We use the notion $\\pi(a|s)$ to denote the probability that $A_t =a $ given the state $S_t = s$. Definition 2.2 (value function) The value function of a state $s$ under a policy $\\pi$, denoted $v_\\pi(s)$, is the expected return when starting in state $s$ and following the policy $\\pi$. For MDPs, we can define $v_\\pi(s)$ by $$ v_\\pi(s) = \\mathbb{E}_{\\pi}[G_t|S_t = s] = \\mathbb{E}_\\pi \\left[ \\sum_{k=0}^\\infty \\gamma^k R_{t+k+1}| S_t = s \\right]. $$ Definition 2.3 (action-value function) The action-value function of taking action $a$ in state $s$ under a policy $\\pi$, denoted $q_\\pi(s,a)$, is defined as the expected return starting from state $s$, taking the action $a$ and following the policy $\\pi$, i.e. $$ \\begin{align*} q_\\pi(s,a) \u0026= \\mathbb{E}_{\\pi}[G_t|S_t = s, A_t = a] \\cr \u0026= \\mathbb{E}_\\pi \\left[ \\sum_{k=0}^\\infty \\gamma^k R_{t+k+1}| S_t = s, A_t = a \\right] \\cr \u0026= r(s,a) + \\gamma \\sum_{s'} p(s'|s,a) \\sum_{a'} \\pi(a'|s') q_\\pi(s',a'). \\end{align*} $$ A fundamental property of value functions is that they satisfy recursive relationships $$ \\begin{align} v_\\pi(s) \u0026= \\mathbb{E}_{\\pi}[R_{t+1} + \\gamma G_{t+1}|S_t = s] \\cr \u0026= \\sum_a \\pi(a|s) \\sum_{s'}\\sum_{r} p(s',r|s,a) \\left( r + \\gamma \\mathbb{E}_\\pi[G_{t+1}|S_{t+1} = s'] \\right) \\cr \u0026= \\sum_a \\pi(a|s) \\left( r(s,a) + \\gamma \\sum_{s'} p(s'|s,a) v_\\pi(s') \\right). \\end{align} $$Equation (3) is the Bellman equation for $v_\\pi$. It expresses a relationship between the value of a state and the values of its successor states.\n3. Optimal Policies and Optimal Value Functions We would like to find a policy that achieves highest expected return. We say a policy $\\pi$ is better than policy $\\pi'$ if $v_\\pi(s) \\geq v_{\\pi'}(s)$ for all $s\\in\\mathcal{S}$. There is always at least one optimal policy, denoted $\\pi_*$. Then we can define\noptimal value function. $$ v_*(s):= \\max_{\\pi}v_\\pi(s). $$ optimal action-value function. $$ q_*(s,a) = \\max_\\pi q_\\pi(s,a). $$ If there are more than one optimal policies, they share the same value functions and action-value functions.\nThe Bellman equation (2) for the optimal value function $v_*$ can be written in a specific form. $$ \\begin{align} v_*(s) \u0026= \\max_{a} q_{\\pi_*}(s,a) \\cr \u0026= \\max_a \\mathbb{E}_{\\pi_*}[R_{t+1}+ \\gamma G_{t+1}|S_t = s, A_t = a] \\cr \u0026= \\max_a \\mathbb{E}[R_{t+1}+ \\gamma v_*(S_{t+1})|S_t = s, A_t = a] \\cr \u0026= \\max_a \\sum_{s'}\\sum_r p(s',r|s,a)[r+ \\gamma v_*(s')] \\cr \u0026= \\max_a r(s,a) + \\gamma \\sum_{s'} p(s'|s,a) v_*(s') \\end{align} $$The Bellman equation for optimal action-value function $q_*$ is $$ \\begin{align} q_*(s,a) \u0026= \\mathbb{E}[R_{t+1}+ \\gamma v_*(S_{t+1})|S_t = s, A_t = a] \\cr \u0026= \\mathbb{E}[R_{t+1}+ \\gamma \\max_{a'} q_*(S_{t+1},a')|S_t = s, A_t = a] \\cr \u0026=\\sum_{s'}\\sum_{r} p(s',r|s,a) [r + \\gamma \\max_{a'} q_*(s',a')] \\cr \u0026= r(s,a) + \\gamma \\sum_{s'} p(s'|s,a) v_*(s'). \\end{align} $$",
+  "wordCount" : "641",
+  "inLanguage": "en",
+  "datePublished": "2021-08-24T03:00:02+02:00",
+  "dateModified": "2021-08-24T03:00:02+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/rl/rl_02_markov_decision_process/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -107,7 +202,7 @@ The function $p$ defines the dynamics of the MDP. Given the four-argument functi
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -133,27 +228,27 @@ The function $p$ defines the dynamics of the MDP. Given the four-argument functi
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -298,12 +393,12 @@ $$
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/rl/rl_03_dynamic_programming/">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_03_dynamic_programming/">
     <span class="title">« Prev</span>
     <br>
     <span>RL | Dynamic Programming</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/">
+  <a class="next" href="https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/">
     <span class="title">Next »</span>
     <br>
     <span>RL | Multi-armed Bandits</span>
@@ -315,7 +410,7 @@ $$
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

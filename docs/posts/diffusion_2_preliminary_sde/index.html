@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>DL | Diffusion Models 2 - Preliminary ODE and SDE | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="Basics
@@ -22,16 +22,16 @@ X_{k&#43;1} = X_{k} &#43; \Delta _{t} f(X_{k}, k\Delta_{t}), \quad k = 0,1,2,\do
 $$
 under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfloor  \frac{t}{\Delta_{t}}  \right\rfloor} \right\}_{t} \to \{X_{t}\}_{t}$ uniformly on compact intervals.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/diffusion_2_preliminary_sde/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/diffusion_2_preliminary_sde/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/">
 <noscript>
     <style>
         #theme-toggle,
@@ -87,7 +87,99 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
 
 
 
+<meta property="og:title" content="DL | Diffusion Models 2 - Preliminary ODE and SDE">
+<meta property="og:description" content="Basics
+ODE definition
+Consider the ordinary differential equation (ODE)
 
+$$
+\frac{dX}{dt}(t) = f(X(t), t),
+$$
+which we also express as $dX_{t} = f(X_{t}, t)dt$, where $X(t), f(X(t),t)\in  \mathbb{R}^d$. Then, $\{X(t)\}_{t}$ is a deterministic curve.
+We can define the ODE by the limit
+
+$$
+X_{k&#43;1} = X_{k} &#43; \Delta _{t} f(X_{k}, k\Delta_{t}), \quad k = 0,1,2,\dots,
+$$
+under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfloor  \frac{t}{\Delta_{t}}  \right\rfloor} \right\}_{t} \to \{X_{t}\}_{t}$ uniformly on compact intervals.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2024-10-22T00:01:41+02:00">
+<meta property="article:modified_time" content="2024-10-22T00:01:41+02:00">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DL | Diffusion Models 2 - Preliminary ODE and SDE">
+<meta name="twitter:description" content="Basics
+ODE definition
+Consider the ordinary differential equation (ODE)
+
+$$
+\frac{dX}{dt}(t) = f(X(t), t),
+$$
+which we also express as $dX_{t} = f(X_{t}, t)dt$, where $X(t), f(X(t),t)\in  \mathbb{R}^d$. Then, $\{X(t)\}_{t}$ is a deterministic curve.
+We can define the ODE by the limit
+
+$$
+X_{k&#43;1} = X_{k} &#43; \Delta _{t} f(X_{k}, k\Delta_{t}), \quad k = 0,1,2,\dots,
+$$
+under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfloor  \frac{t}{\Delta_{t}}  \right\rfloor} \right\}_{t} \to \{X_{t}\}_{t}$ uniformly on compact intervals.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "DL | Diffusion Models 2 - Preliminary ODE and SDE",
+      "item": "https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DL | Diffusion Models 2 - Preliminary ODE and SDE",
+  "name": "DL | Diffusion Models 2 - Preliminary ODE and SDE",
+  "description": "Basics ODE definition\nConsider the ordinary differential equation (ODE) $$ \\frac{dX}{dt}(t) = f(X(t), t), $$ which we also express as $dX_{t} = f(X_{t}, t)dt$, where $X(t), f(X(t),t)\\in \\mathbb{R}^d$. Then, $\\{X(t)\\}_{t}$ is a deterministic curve.\nWe can define the ODE by the limit $$ X_{k+1} = X_{k} + \\Delta _{t} f(X_{k}, k\\Delta_{t}), \\quad k = 0,1,2,\\dots, $$ under $\\Delta_{t}\\to 0$ with $t = k\\Delta_{t}$. Precisely, $\\left\\{ X_{\\left\\lfloor \\frac{t}{\\Delta_{t}} \\right\\rfloor} \\right\\}_{t} \\to \\{X_{t}\\}_{t}$ uniformly on compact intervals.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Basics ODE definition\nConsider the ordinary differential equation (ODE) $$ \\frac{dX}{dt}(t) = f(X(t), t), $$ which we also express as $dX_{t} = f(X_{t}, t)dt$, where $X(t), f(X(t),t)\\in \\mathbb{R}^d$. Then, $\\{X(t)\\}_{t}$ is a deterministic curve.\nWe can define the ODE by the limit $$ X_{k+1} = X_{k} + \\Delta _{t} f(X_{k}, k\\Delta_{t}), \\quad k = 0,1,2,\\dots, $$ under $\\Delta_{t}\\to 0$ with $t = k\\Delta_{t}$. Precisely, $\\left\\{ X_{\\left\\lfloor \\frac{t}{\\Delta_{t}} \\right\\rfloor} \\right\\}_{t} \\to \\{X_{t}\\}_{t}$ uniformly on compact intervals.\nODE solution\nWe say that $\\{X(t)\\}_{t=0}^T$ solves ODE if it satisfies the differential form of ODE $$ \\frac{dX}{dt}(t) = f(X(t),t), $$ or the integral form of ODE $$ X(t) = X_{0} + \\int_{0}^t f(X(s),s) ds. $$SDE definition\nConsider the stochastic differential equation (SDE) $$ dX_{t} = f(X_{t}, t) dt + g(X_{t}, t) dW_{t}, $$ where $X_{t}, f(X_{t}, t)\\in\\mathbb{R}^d, g(X_{t}, t)\\in\\mathbb{R}^{d\\times d}$, and $W_{t}$ is a $d$-dimensional Brownian motion or Wiener process. Then, $\\{X_{t})\\}_{t}$ is a stochastic process.\nWe can define the SDE by the limit $$ X_{k+1} = X_{k} + \\Delta _{t} f(X_{k}, k\\Delta_{t}) + g(k \\Delta_{t})\\sqrt{ \\Delta_{t} } Z_{k}, \\quad k = 0,1,2,\\dots, $$ under $\\Delta_{t}\\to 0$ with $t = k\\Delta_{t}$ and $Z_{k}\\sim \\mathcal{N}(0,I)$ i.i.d. Precisely, $\\left\\{ X_{\\left\\lfloor \\frac{t}{\\Delta_{t}} \\right\\rfloor} \\right\\}_{t} \\to \\{X_{t}\\}_{t}$ uniformly on compact intervals.\nSDE solution\nWe say that $\\{X_{t}\\}_{t=0}^T$ is a solution path for SDE if it is nice (right-continuous with left limits) with probability distribution defined by $$ X_{t} = X_{0} + \\int_{0}^t f(X_{s}, s) ds + \\int_{0}^t g(X_{s},s) d W_{s}, $$ where the Ito stochastic integral is defined as $$ \\int_{0}^t g(X_{s},s) dW_s = \\lim_{ \\Delta_{t} \\to 0 } \\sum_{k=0}^{\\lfloor t / \\Delta_{t} \\rfloor } g(X_{k\\Delta_{t}}, k\\Delta_{t}) \\sqrt{ \\Delta_{t} } Z_{k}. $$Fokker-Planck (FP) equation Given a fixed path $\\{X_{t}\\}_{t=0}^T$, we cannot determine whether it was generated from the SDE. But we can determine it with a distribution $p(x_{t}, t\\in[0.T])$. Now we consider a weaker notion: the marginal distribution $\\{p_{t}\\}_{t=0}^T$ s.t. $X_{t}\\sim p_{t}$ for all $t\\in[0, T]$.\nBut how does $p_{t}$ evolve as a function of time $t$? Fokker-Planck equation (also called forward Kolmogorov equaiton) states that for $d = 1$ $$ \\frac{\\partial p_{t}}{\\partial_{t}} = - \\frac{\\partial}{\\partial_{x}} (f p_{t}) + \\frac{g^2}{2} \\frac{\\partial^2}{\\partial x^2} p_{t} $$ and for multi-dimensional case $d\u003e1$, $$ \\partial_{t}p_{t} = - \\nabla_{x}\\cdot(f p_{t}) + \\frac{1}{2} \\mathrm{Tr}(g^T \\nabla^2_{x}p_{t} g). $$ See proof of Fokker-Planck equation.\nOrnstein-Uhlenbeck (O-U) process The O-U process $\\{X_{t}\\}$ is defined by the following SDE $$ dX_{t} = -\\beta X_{t} dt + \\sigma dW_{t} $$ Using Ito formula with $f(x,t) = e^{\\beta t}x$, we get $$ df(X_{t},t) = f_{t}dt + f_{x}dX_{t} + \\frac{1}{2}f_{x x} dt = \\beta e^{\\beta t}X_{t} dt + e^{\\beta t} dX_{t} = \\sigma e^{\\beta t} dW_{t}. $$ Integrating gives $$ X_{t} = e^{-\\beta t}X_{0} + \\sigma \\int_{0}^t e^{-\\beta (t-s)} dW_{s}. $$ This process is Gaussian being a linear combination of the Gaussian process $W_{t}$. Its mean and variance are (using the Ito isometry) $$ \\begin{align} \\mathbb{E} X_{t} \u0026= e^{-\\beta t} X_{0} \\\\ \\mathbb{E}(X_{t} - \\mathbb{E}X_{t})^2 \u0026= \\sigma^2 \\int_{0}^t e^{-2\\beta(t-s)} ds = \\frac{\\sigma^2}{2\\beta} (1- e^{-2\\beta t}). \\end{align} $$ Thus when $\\beta \u003e 0$, $X_{t} \\to \\mathcal{N}\\left( 0, \\frac{\\sigma^2}{2\\beta} \\right)$ in distribution as $t\\to \\infty$ if $X_{0} = 0$. With the density function $p_{t}$ of $X_{t}$, we can verify that $p_{t}$ satisfies the FP equation by direct calculations $$ \\partial_{t} p_{t} = -\\partial_{x} (fp_{t}) + \\frac{g^2}{2}\\partial_{x}^2 p_{t} = 0. $$ODE Recall the definition of ODE $$ X_{k+1} = X_{k} + \\Delta _{t} f(X_{k}, k\\Delta_{t}), \\quad k = 0,1,2,\\dots, $$ under $\\Delta_{t}\\to 0$ with $t = k\\Delta_{t}$. This is the forward-time ODE. It tells us how to simulate $X_{T}$ given $X_{0}$.\nTo simulate the reverse-time ODE is easy $$ X_{k-1} = X_{k} - \\Delta _{t} f(X_{k}, k\\Delta_{t}), \\quad k = K,K-1,K-2,\\dots 1, $$SDE Recall the definition of SDE $$ X_{k+1} = X_{k} + \\Delta _{t} f(X_{k}, k\\Delta_{t}) + g(k \\Delta_{t})\\sqrt{ \\Delta_{t} } Z_{k}, \\quad k = 0,1,2,\\dots, $$ under $\\Delta_{t}\\to 0$ with $t = k\\Delta_{t}$ and $Z_{k}\\sim \\mathcal{N}(0,I)$ i.i.d. With initial value $X_{0}$, we can simulate $X_{T}$ by this process.\nBut how to simulate the reverse-time SDE? Is it $$ X_{k-1} = X_{k} - \\Delta _{t} f(X_{k}, k\\Delta_{t}) - g(k \\Delta_{t})\\sqrt{ \\Delta_{t} } Z_{k}, \\quad k = K,K-1,K-2,\\dots 1 ? $$ Unfortunately, this does not work! Anderson’s theorem The main theorem of Anderson, 1982 states that given a forwrad-time SDE $$ d X_{t} = f(X_{t}, t) dt + g(X_{t}, t) d W_{t}, \\quad X_{0}\\sim p_{0}, $$ the corresponding reverse-time SDE is $$ d \\bar{X}_{t} = \\left(f(\\bar{X}_{t}, t) - g^2(\\bar{X}_{t}, t)\\nabla_{x}\\log p_{t}(\\bar{X}_{t})\\right) dt + g(\\bar{X}_{t},t) d\\bar{W}_{t}, \\quad \\bar{X}_{T}\\sim p_{T}, $$ where $\\bar{W}_{t}$ is the reverse-time Brownian motion, $dt$ is an infinitesimal negative timestep, and $p_{T}$ is the pdf of $\\bar{X}_{T}$ defined by the forward-time SDE.\nAlternatively, define $\\{Y_{t} = \\bar{X}_{T-t}\\}_{t=0}^T$ via $$ dY_{t} = -\\left(f(Y_{t}, T-t) - g^2(Y_{t}, T- t)\\nabla_{y}\\log p_{T-t}(Y_{t})\\right) dt + g(Y_{t}, T-t) dW_{t}, \\quad Y_{0}\\sim p_{T}. $$ Then we have $X_{t} \\overset{\\mathcal{D}}{=} \\bar{X}_{t} = Y_{T-t}$ for all $t\\in[0,T]$. See proof in Anderson’s proof.\nThen we simulate the reverse-time SDE by $$ \\bar{X}_{k-1} = \\bar{X}_{k} - \\left(f(\\bar{X}_{k}, k\\Delta_{t}) - g^2(\\bar{X}_{k}, k\\Delta_{t})\\nabla_{x}\\log p_{k\\Delta_{t}}(\\bar{X}_{k})\\right) \\Delta_{t} + g({\\bar{X}_{k}}, k\\Delta_{t}) \\sqrt{ \\Delta_{t} }Z_{k}, \\quad k=K,K-1,\\dots,1, $$ where $Z_{i}\\sim \\mathcal{N}(0,I)$ i.i.d.\nHow to sample from revise-time process? Reverse-time SDE Given a SDE with forward-time SDE $$ d X_{t} = f dt + g dW_{t},\\quad X_{0}\\sim p_{0}, $$ Anderson’s theorem allows us to sample $X_{0}$ from $X_{T}$ by the reverse-time SDE $$ d \\bar{X}_{t} = (f - g^2\\nabla_{x}\\log p_{t}) dt + g d \\bar{W}_{t}, \\quad \\bar{X}_{T}\\sim p_{T}. $$ More precisely, using the standard discretization (Euler-Maruyama method), we get $$ \\bar{X}_{k-1} = \\bar{X}_{k} - \\left(f - g^2{\\color{red}\\nabla_{x}\\log p_{k\\Delta_{t}}(\\bar{X}_{k})}\\right) \\Delta_{t} + g \\sqrt{ \\Delta_{t} }Z_{k}, \\quad k=K,K-1,\\dots,1. $$ However, we do not have access to the score function $\\color{red}\\nabla_{x} \\log p_{t}$.\nReverse-time ODE It can also be shown that the process $\\{ X_{t} \\}_{t=0}^T$ defined by the following reverse-time ODE\n$$ d\\bar{X}_{t} = \\left( f - \\frac{g^2}{2} \\nabla_{x}\\log p_{t} \\right) dt,\\quad \\bar{X}_{T}\\sim p_{T}, $$ possesses the same marginal density functions $\\{ p_{t} \\}_{t=0}^T$ as the original forward-time SDE.\nLet $q_{t}$ be the density of $\\bar{X}_{t}$. By the FP equation, we have $$ \\begin{aligned} \\partial_{t} q_{t} \u0026= -\\partial_{x} \\left( \\left( f - \\frac{g^2}{2} \\nabla_{x} \\log p_{t} \\right)q_{t} \\right) \\\\ \u0026= -\\partial_{x}\\left( fq_{t} - \\frac{g^2}{2} \\frac{\\partial_{x}p_{t}}{p_{t}}q_{t} \\right) \\\\ \u0026= -\\partial_{x}(f q_{t}) + \\frac{g^2}{2} \\frac{q_{t}}{p_{t}} \\partial_{x}^2 p_{t}. \\end{aligned} $$ When $q_{t} = p_{t}$ we get exactly the same FP equation as the forward-time SDE. In other words, we have verified that $q_{t} = p_{t}$ solves the FP equation for $q_{t}$. Note: This is not a strict proof, as the uniqueness of the solution to the PDE is omitted.\nHowever, this method is still not yet implementable since we do not have access to the score function $\\color{red}\\nabla_{x} \\log p_{t}$.\nHow to train the model? As mentioned above, to sample from the reverse-time SDE, we need to evaluate the score function $\\color{red}\\nabla_{x} \\log p_{t}$. To solve this issue, we can use the model $s_{\\theta}(X_{t}, t)$ to approximate the score function $\\nabla_{x} p_{t}(X_{t})$.\nA natural choice for the loss function is $$ \\mathcal{L}(\\theta) = \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{t}\\sim p_{t}} [\\|s_{\\theta}(x_{t}, t)- \\nabla_{x}\\log p_{t}(x_{t})\\|^2], $$ where $\\lambda_{t}\u003e0$ is a weighting factor. However, we cannot use it since $p_{t}$ is inaccessible. We introduce two methods to estimate $\\nabla_{x} \\log p_{t}(x_{t})$.\nDenosing score matching (DSM) If the drift $f$ and diffusion $g$ are nice, $p_{t|0}(x_{t}|x_{0})$ is known, so DSM use the loss function $$ \\mathcal{L}_{DSM}(\\theta) = \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{0}\\sim p_{0}}\\left[\\mathbb{E}_{{x_{t}\\sim p_{t|0}}}[\\|s_{\\theta}(x_{t}, t) - \\nabla_{x}\\log p_{t|0}(x_{t}|x_{0})\\|^2|x_{0} ]\\right]dt. $$ We shall show that $\\mathcal{L}_{DSM}$ is equivalent to $\\mathcal{L}$.\nFirst, we show that $\\nabla_{x}\\log p_{t}(x_{t}) = \\mathbb{E}_{x_{0}\\sim p_{0|t}}[\\nabla_{x}\\log p_{t|0}(x_{t}|x_{0})|x_{0}]$. $$ \\begin{aligned} \\nabla_{x}\\log p_{t}(x_{t}) \u0026= \\frac{\\nabla_{x}p_{t}(x_{t})}{p_{t}(x_{t})} \\\\ \u0026=\\frac{1}{p_{t(x_{t})}} \\nabla_{x}\\int p_{t|0}(x_{t}|x_{0}) p_{0}(x_{0}) dx_{0} \\\\ \u0026=\\int [\\nabla_{x}p_{t|0}(x_{t}|x_{0})] \\frac{p_{0}(x_{0})}{p_{t(x_{t})}} dx_{0} \\\\ \u0026= \\int [\\nabla_{x} \\log p_{t|0}(x_{t}|x_{0})] \\frac{p_{0}(x_{0}) p_{t|0}(x_{t}|x_{0})}{p_{t(x_{t})}} dx_{0} \\\\ \u0026= \\int [\\nabla_{x} \\log p_{t|0}(x_{t}|x_{0})] p_{0|t}(x_{0}|x_{t}) dx_{0} \\\\ \u0026= \\mathbb{E}_{{x_{0}\\sim p_{0|t}}} [\\nabla_{x} \\log p_{t|0}(x_{t}|x_{0})|x_{t}]. \\end{aligned} $$ Then we can show the result $$ \\begin{aligned} \\mathcal{L}(\\theta) \u0026=\\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{t}\\sim p_{t}} [\\|s_{\\theta}(x_{t}, t)- \\nabla_{x}\\log p_{t}(x_{t})\\|^2] dt\\\\ \u0026= \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{t}\\sim p_{t}} [\\|s_{\\theta}(x_{t}, t)\\|^2-2 \\langle s_{\\theta}(x_{t},t), \\nabla_{x}\\log p_{t}(x_{t}) \\rangle ] dt + C \\\\ \u0026= \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{t}\\sim p_{t}} [\\|s_{\\theta}(x_{t}, t)\\|^2-2 \\langle s_{\\theta}(x_{t},t), \\mathbb{E}_{{x_{0}\\sim p_{0|t}}} [\\nabla_{x} \\log p_{t|0}(x_{t}|x_{0})|x_{t}] \\rangle ] dt + C \\\\ \u0026= \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{t}\\sim p_{t}}\\mathbb{E}_{{x_{0}\\sim p_{0|t}}} [\\|s_{\\theta}(x_{t}, t)\\|^2-2 \\langle s_{\\theta}(x_{t},t), \\nabla_{x} \\log p_{t|0}(x_{t}|x_{0}) \\rangle | x_{t}] dt + C \\\\ \u0026= \\int_{0}^T \\lambda_{t} \\mathbb{E}_{(x_{0},x_{t})\\sim p_{0,t}} [\\|s_{\\theta}(x_{t}, t)\\|^2-2 \\langle s_{\\theta}(x_{t},t), \\nabla_{x} \\log p_{t|0}(x_{t}|x_{0}) \\rangle] dt + C \\\\ \u0026= \\mathcal{L}_{DSM}(\\theta). \\end{aligned} $$Sliced score matching (SSM) What if the conditional distribution $p_{t|0}(x_{t|x_{0}})$ is unknown? The loss of SSM is $$ \\mathcal{L}_{SSM}(\\theta) = \\int_{0}^T \\lambda_{t}\\mathbb{E}_{x_{t}\\sim p_{t}} \\left[ \\|s_{\\theta}(x_{t}, t)\\|^2 + 2\\mathbb{E}_{v}\\left[ \\frac{d}{d h} v^T s_{\\theta}(x_{t}+h v) |_{h=0} \\right] \\right] dt + C, $$ where $v\\in \\mathbb{R}^n$ is a random vector s.t. $$ \\mathbb{E}_{v}[v_{i} v_{j}] = \\delta_{i,j} = 1_{i=j}. $$Before proving that $\\mathcal{L}_{SSM}$ is equivalent to $\\mathcal{L}$, we introduce the Hutchinson’s trace estimator that will be useful in later proof. Let $A\\in \\mathbb{R}^{n\\times n}$. Then $$ \\begin{aligned} \\mathbb{E}_{v}[v^T A v] \u0026= \\mathbb{E}_{v}[\\mathrm{Tr}(v^T A v)] \\\\ \u0026= \\mathbb{E}_{v}[\\mathrm{Tr}(A v v^T)] \\\\ \u0026= \\mathrm{Tr}(\\mathbb{E}_{v}[ A vv^T]) \\\\ \u0026= \\mathrm{Tr}(A\\mathbb{E}_{v}[ vv^T]) \\\\ \u0026= \\mathrm{A}. \\end{aligned} $$In the proof of DSM, we see that the expansion of $\\mathcal{L}(\\theta)$ contains term $\\langle s_{\\theta}(x_{t},t), \\nabla_{x}\\log p_{t}(x_{t}) \\rangle$. where the divergence operator takes a vector field and produces a scalar value which is defined by $$ \\nabla \\cdot F = \\frac{\\partial F_{x}}{\\partial x} + \\frac{\\partial F_{y}}{\\partial y} + \\frac{\\partial F_{z}}{\\partial z}. \\quad F = (F_{x}, F_{y}, F_{z}). $$ And $D_{x} F(x)$ should be the partial differentiation matrix $\\left[ \\frac{\\partial}{\\partial x_{1}} F, \\frac{\\partial}{\\partial x_{2}} F, \\dots, \\frac{\\partial}{\\partial x_{n}} F \\right]$ (I guess).\nOverall,\nSSM is more broadly applicable than DSM as it does not require the conditional score $\\nabla_{x} p_{t|0}(x_{t}|x_{0})$. SSM requires mixed (2nd-order) derivatives, one for $h$ and another for $\\theta$. Examples with O-U process Recall the definition of Ornstein-Uhlenbeck process $$ dX_{t} = -\\beta X_{t} dt + \\sigma dW_{t} $$ With conditional distribution $X_{t}|X_{0} \\sim \\mathcal{N}(e^{-\\beta t} X_{0}, \\frac{\\sigma^2}{2\\beta} (1- e^{-2\\beta t})I)$. In this section, we will discuss two types of O-U processes: variance-exploding (VE) SDE and variance-preserving (VP) SDE as well as their training losses and sampling methods. VE SDE Let $\\sigma_{t}$ be a non-decreasing function of $t$, the VE SDE is defined by $$ dX_{t} = \\sqrt{ \\frac{d(\\sigma_{t}^2)}{dt} } dW_{t}. $$ It can be easily checked that $X_{t}|X_{0} \\sim \\mathcal{N}(X_{0}, \\sigma_{t}^2)$, which means that variance explodes.\nVP SDE $$ d X_{t} = - \\frac{\\beta_{t}}{2} X_{t} dt + \\sqrt{ \\beta_{t} } dW_{t}. $$ By (5.50) and (5.51) of Applied Stochastic Differential Equation we can get the variance of $\\{X_{t}\\}_{t}$ is governed by the ODE $$ \\frac{d\\Sigma_{t}}{dt} = \\beta_{t}(I + \\Sigma_{t}). $$ Solving this ODE, we obtain $$ \\Sigma_{t} = I + \\exp\\left( -\\int_{0}^t \\beta_{s} ds \\right)(\\Sigma_{0}- I), $$ from which it is clear that the variance of VP SDE is bounded by $\\Sigma_{0}$ from above. Moreover, if $\\Sigma_{0} = I$, we have $\\Sigma_{t} = I$, so its name is called variance-preserving. And the conditional mean of $X_{t}|X_{0}$ is $\\exp\\left( -\\frac{1}{2}\\int_{0}^t\\beta_{s} ds\\right) X_{0}$ and conditional variance is $I- \\exp\\left( -\\int_{0}^t \\beta_{s} ds\\right)I$\nTraining with O-U Generally, for both VE and VP SDE, we write its conditional distribution $X_{t}|X_{0}$ in the form of $$ X_{t}|X_{0} \\sim \\mathcal{N}(\\gamma_{t}X_{0}, \\sigma_{t}^2 I). $$with $$ \\text{VE SDE:} \\begin{cases} \\gamma_{t} = 1 \\\\ \\sigma_{t}^2 = \\sigma_{t}^2 \\end{cases} ,\\quad \\text{VP SDE:} \\begin{cases} \\gamma_{t} = \\exp\\left( -\\frac{1}{2}\\int_{0}^t\\beta_{s} ds\\right) \\\\ \\sigma_{t}^2 = 1- \\exp\\left( -\\int_{0}^t \\beta_{s} ds\\right) \\end{cases} $$ So we can write $X_{t}$ as $X_{t} = \\gamma_{t} X_{0} + \\sigma_{t} \\epsilon$, where $\\epsilon$ is a standard Gaussian r.v.,thus the score function simplifies to $$ \\nabla_{x} \\log p_{t|0}(x_{t}) = - \\frac{X_{t}- \\gamma_{t}X_{0}}{\\sigma^2} = - \\frac{\\epsilon}{\\sigma_{t}}. $$ Define a scaled score network $$ \\epsilon_{\\theta}(x_{t}, t) = -\\sigma_{t}s_{\\theta}(x_{t},t), $$ then the DSM loss becomes $$ \\begin{aligned} \\mathcal{L}_{DSM}(\\theta) \u0026= \\int_{0}^T \\lambda_{t} \\mathbb{E}_{x_{0}\\sim p_{0}}\\left[\\mathbb{E}_{{x_{t}\\sim p_{t|0}}}[\\|s_{\\theta}(x_{t}, t) - \\nabla_{x}\\log p_{t|0}(x_{t}|x_{0})\\|^2|x_{0} ]\\right]dt \\\\ \u0026= \\int_{0}^T \\frac{\\lambda_{t}}{\\sigma_{t}^2} \\mathbb{E}_{x_{0}\\sim p_{0}}\\left[\\mathbb{E}_{{\\epsilon \\sim \\mathcal{N}(0,1)}}[\\|\\epsilon_{\\theta}(\\gamma_{t}x_{0} + \\sigma_{t}\\epsilon, t) - \\epsilon\\|^2|x_{0} ]\\right]dt \\\\ \u0026= T \\mathbb{E}_{x_{0}\\sim p_{0}, t\\sim U[0, T], \\epsilon\\sim \\mathcal{N}(0,1)} \\left[ \\frac{\\lambda_{t}}{\\sigma_{t}^2} \\|\\epsilon_{\\theta}(\\gamma_{t}x_{0} + \\sigma_{t}\\epsilon, t) - \\epsilon\\|^2 \\right]. \\end{aligned} $$ Note that when $t=0$, $\\sigma_{t} = 0$ and the loss blows up. There several ways to deal with it\nDo the integral on the interval $[\\delta, T]$ with a small $\\delta\u003e0$. Choose appropriate $\\lambda_{t}$ s.t. $\\frac{\\lambda_{t}}{\\sigma_{t}^2} \u003c C$ for all $t$. Use importance sampling to reduce the vriance. Training O-U with DSM loss Training O-U with SSM loss Sampling with O-U SDE sampling Once $s_{\\theta}$ has been trained, we can generate new samples with the approximated reverse-time SDE $$ d \\bar{X}_{t} = \\left( f - g^2 s_{\\theta} \\right) dt + g dW_{t}, \\quad \\bar{X}_{T}\\sim\\mathcal{N}(0, \\sigma_{T}^2 I). $$ Sampling VE SDE with reverse SDE Start from $X_{N}\\sim \\mathcal{N}(0,\\sigma_{T}^2I)$ For $i = N-1$ to $0$ do $X_{i} = X_{i+1} + (\\sigma_{i+1}^2 - \\sigma_{i}^2) s_{\\theta}(x_{i+1}, t_{i+1}) + \\sqrt{ \\sigma_{i+1}^2 - \\sigma_{i}^2 }Z$. Return $X_{0}$.\nSampling VP SDE with reverse SDE Start from $X_{N}\\sim \\mathcal{N}(0,\\sigma_{T}^2I)$ For $i = N-1$ to $0$ do $X_{i} = X_{i+1} + \\frac{1}{2}(\\beta_{i+1} - \\beta_{i}) + (\\beta_{i+1} - \\beta_{i}) s_{\\theta}(x_{i+1}, t_{i+1}) + (\\sqrt{ \\beta_{i+1}} - \\sqrt{ \\beta_{i} })Z$. Return $X_{0}$.\nODE sampling We can also use the approximated reverse-time ODE for sampling $$ d\\bar{X}_{t} = \\left( f - \\frac{g^2}{2} s_{\\theta} \\right)dt, \\quad \\bar{X}_{T}\\sim\\mathcal{N}(0, \\sigma_{T}^2 I). $$ Sampling VE SDE with reverse ODE Start from $X_{N}\\sim \\mathcal{N}(0,\\sigma_{T}^2I)$ For $i = N-1$ to $0$ do $X_{i} = X_{i+1} + \\frac{\\sigma_{i+1}^2 - \\sigma_{i}^2}{2} s_{\\theta}(x_{i+1}, t_{i+1})$. Return $X_{0}$.\nSampling VP SDE with reverse ODE Start from $X_{N}\\sim \\mathcal{N}(0,\\sigma_{T}^2I)$ For $i = N-1$ to $0$ do $X_{i} = X_{i+1} + \\frac{1}{2}(\\beta_{i+1} - \\beta_{i}) + \\frac{\\beta_{i+1} - \\beta_{i}}{2} s_{\\theta}(x_{i+1}, t_{i+1})$. Return $X_{0}$.\nSupplementary Integration by parts Assume $\\psi$ and $f$ are sufficiently smooth and decay sufficiently quickly as $|x|\\to \\infty$. Then $$ \\int_{\\mathbb{R}} \\psi(x)f^\\prime(x) dx = -\\int_{\\mathbb{R}} \\psi(x) f(x) dx. $$ For higher-dimensional case $\\psi: \\mathbb{R}^d \\to \\mathbb{R}^d, f:\\mathbb{R}^d \\to \\mathbb{R}$, we have $$ \\int_{\\mathbb{R}^d} \\psi(x) \\cdot \\nabla f(x) dx = - \\int_{\\mathbb{R}^d} (\\nabla \\cdot \\psi(x)) f(x) dx. $$Proof of Fokker-Planck equation We prove FP equation for $d=1$. Let $\\psi$ be a continuous function, we have $$ \\begin{aligned} \\partial_{t} \\mathbb{E}_{x\\sim p_{t}}[\\psi(x)] \u0026\\approx \\frac{1}{\\epsilon}(\\mathbb{E}_{x\\sim p_{t+\\epsilon}}[\\psi(x)] - \\mathbb{E}_{x\\sim p_{t}}[\\psi(x)])\\\\ \u0026\\approx \\frac{1}{\\epsilon} \\mathbb{E}_{x\\sim p_{t}, z\\sim\\mathcal{N}(0,I)}[\\psi(x+\\epsilon f + \\sqrt{ \\epsilon }) - \\psi(x)] \\\\ \u0026\\approx \\frac{1}{\\epsilon} \\mathbb{E}_{x\\sim p_{t}, z\\sim\\mathcal{N}(0,I)}\\left[ \\psi(x) + \\epsilon \\psi^\\prime(x)f + \\sqrt{ \\epsilon }\\psi^\\prime(x) g z + \\frac{1}{2} \\epsilon\\psi^{\\prime\\prime}(x)g^2z^2 + \\mathcal{O}(\\epsilon^{3 / 2}) - \\psi(x) \\right] ;\\quad\\text{taylor expansion}\\\\ \u0026\\approx \\mathbb{E}_{x\\sim p_{t}}\\left[ \\psi^\\prime(x)f + \\frac{1}{2}\\psi^{\\prime\\prime}(x)g^2 \\right] \\\\ \\end{aligned} $$ It follows that $$ \\begin{align} \\partial_{t} \\int \\psi(x) p_{t}(x) dx \u0026= \\int \\psi^\\prime(x)f p_{t}(x)dx + \\frac{1}{2} \\int \\psi^{\\prime\\prime}(x)g^2(t) p_{t}(x) dx \\\\ \\int \\psi(x) \\partial_{t}p_{t}(x) dx \u0026= \\int \\psi(x)(-\\partial_{x}(fp_{t})) dx + \\frac{1}{2}\\int \\psi(x) g^2 \\partial_{x}^2(p_{t}) dx ;\\quad \\text{integration by parts} \\end{align} $$ Therefore, $$ \\partial_{t}p_{t} = -\\partial_{x} fp_{t} + \\frac{g^2}{2}\\partial_{x}^2 (p_{t}). $$Proof Anderson’s theorem For the forward-time SDE, we have the FP equation $$ \\partial_{t}p_{t} = -\\partial_{x}(fp_{t}) + \\frac{g^2}{2}\\partial_{x}^2 p_{t}. $$Let $\\{q_{t}\\}_{t=0}^T$ be the marginal densities of the SDE $$ dY_{t} = -(f(Y_{t}, T-t) -g^2(T-t)\\partial_{y}\\log p_{T-t}(Y_{t}) )dt + g(T-t)dW_{t},\\quad Y_{0} \\sim p_{T}. $$ Then $\\{ q_{t} \\}$ satisfies the FP equation $$ \\partial_{t}q_{t} = \\partial_{y}\\left((f(y,T-t)-g^2(T-t)\\partial_{y}\\log p_{T-t}(y)) q_{t}(y)\\right) + \\frac{g^2(T-t)}{2}\\partial_{y}^2(q_{t}(y)). $$ Let $\\{ \\bar{p}_{t} \\}$ be the marginal densities of the reverse-time SDE given by Anderson’s theorem $$ d \\bar{X}_{t} = \\left(f(\\bar{X}_{t}, t) - g^2(\\bar{X}_{t}, t)\\nabla_{x}\\log p_{t}(\\bar{X}_{t})\\right) dt + g(\\bar{X}_{t},t) d\\bar{W}_{t}, \\quad \\bar{X}_{T}\\sim p_{T}, $$ Since $\\bar{p}_{t} = q_{T-t}$, the densities $\\{ \\bar{p}_{t} \\}$ satisfies $$ \\partial_{t}\\bar{p}_{t} = -\\partial_{x}\\left((f(x,t)-g^2(t)\\partial_{x}\\log p_{t}(x)) \\bar{p}_{t}(y)\\right) - \\frac{g^2(t)}{2}\\partial_{x}^2(\\bar{p}_{t}(x)). $$ If we substitute $\\bar{p}_{t}$ with $p_{t}$ in the last FP equation, we get $$ \\partial_{t}p_{t} = -\\partial_{x}\\left((f(x,t)-g^2(t)\\partial_{x}\\log p_{t}(x)) p_{t}(y)\\right) - \\frac{g^2(t)}{2}\\partial_{x}^2(p_{t}(x)) = -\\partial_{x}(fp_{t}) + \\frac{g^2}{2}\\partial_{x}^2(p_{t}). $$ In other words, we have verified that $\\bar{p}_{t}= p_{t}$ solves the FP equation for $\\bar{p}_{t}$, which proves $\\bar{p}_{t}= p_{t}$ provided that the solution to the PDE is unique.\n",
+  "wordCount" : "2583",
+  "inLanguage": "en",
+  "datePublished": "2024-10-22T00:01:41+02:00",
+  "dateModified": "2024-10-22T00:01:41+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -105,7 +197,7 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -131,27 +223,27 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -666,12 +758,12 @@ In other words, we have verified that $\bar{p}_{t}= p_{t}$ solves the FP equatio
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/diffusion_3_from_a_unified_prospective/">
+  <a class="prev" href="https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/">
     <span class="title">« Prev</span>
     <br>
     <span>DL | Diffusion Models 3 - Understanding DDMP from a Unified Prospective</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/diffusion_1_ddmp/">
+  <a class="next" href="https://wangchxx.github.io/posts/diffusion_1_ddmp/">
     <span class="title">Next »</span>
     <br>
     <span>DL | Diffusion Models 1 - DDMP</span>
@@ -683,7 +775,7 @@ In other words, we have verified that $\bar{p}_{t}= p_{t}$ solves the FP equatio
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by

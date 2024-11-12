@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Math Analysis on My Notes</title>
-    <link>http://localhost:1313/series/math-analysis/</link>
+    <link>https://wangchxx.github.io/series/math-analysis/</link>
     <description>Recent content in Math Analysis on My Notes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 13 Apr 2021 10:52:59 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/math-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wangchxx.github.io/series/math-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mathematical Analysis | 13 Fourier Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_13/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_13/</link>
       <pubDate>Tue, 13 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_13/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_13/</guid>
       <description>&lt;h2 id=&#34;1-fourier-series&#34;&gt;1. Fourier Series&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Trigonometric polynomial&lt;/strong&gt;)&lt;/dt&gt;
@@ -34,9 +34,9 @@ which is more convenient for most purposes. It is clear that every Trigonometric
     </item>
     <item>
       <title>Mathematical Analysis | 12 Power Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_12/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_12/</link>
       <pubDate>Mon, 12 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_12/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_12/</guid>
       <description>&lt;p&gt;In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form
 &lt;/p&gt;
 $$ 
@@ -106,9 +106,9 @@ $$ --&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 11 Sequences and Series of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_11/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_11/</link>
       <pubDate>Sun, 11 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_11/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_11/</guid>
       <description>&lt;p&gt;We have studied how to define a number by convergent sequences or series. In this chapter we discuss how to define a function by a sequence or series of functions, and study the properties of this function.&lt;/p&gt;
 &lt;h2 id=&#34;1-uniform-convergence&#34;&gt;1. Uniform Convergence&lt;/h2&gt;
 &lt;dl&gt;
@@ -132,9 +132,9 @@ for all $x\in E$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 10 Numerical Series</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_10/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_10/</link>
       <pubDate>Sat, 10 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_10/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_10/</guid>
       <description>&lt;h2 id=&#34;1-convergence&#34;&gt;1. Convergence&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Series)&lt;/dt&gt;
@@ -156,9 +156,9 @@ if $m\geq n\geq N$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 9 Riemann Integrals</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_9/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_9/</link>
       <pubDate>Fri, 09 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_9/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_9/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Partition&lt;/strong&gt;)&lt;/dt&gt;
@@ -190,9 +190,9 @@ we say that the function $f$ is &lt;code&gt;Stieltjes integrable&lt;/code&gt; w.
     </item>
     <item>
       <title>Mathematical Analysis | 8 Indefinite Integrals</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_8/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_8/</link>
       <pubDate>Thu, 08 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_8/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_8/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Primary function&lt;/strong&gt;)&lt;/dt&gt;
@@ -221,9 +221,9 @@ we say that the function $f$ is &lt;code&gt;Stieltjes integrable&lt;/code&gt; w.
     </item>
     <item>
       <title>Mathematical Analysis | 7 Completeness of the Real Numbers</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_7/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_7/</link>
       <pubDate>Wed, 07 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_7/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_7/</guid>
       <description>&lt;h2 id=&#34;1-nested-intervals-theorem&#34;&gt;1. Nested Intervals Theorem&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Nested intervals&lt;/strong&gt;)&lt;/dt&gt;
@@ -251,9 +251,9 @@ which means that $\xi = \xi&#39;$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 6 Mean Value Theorem</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_6/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_6/</link>
       <pubDate>Tue, 06 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_6/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_6/</guid>
       <description>&lt;h2 id=&#34;1-rolles-theorem&#34;&gt;1. Rolle&amp;rsquo;s Theorem&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Theorem 1 (Rolle&amp;rsquo;s theorem)&lt;/dt&gt;
@@ -273,9 +273,9 @@ which means that $\xi = \xi&#39;$.&lt;/dd&gt;
     </item>
     <item>
       <title>Mathematical Analysis | 5 Derivatives and Differentiations</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_5/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_5/</link>
       <pubDate>Mon, 05 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_5/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_5/</guid>
       <description>&lt;h2 id=&#34;1-derivatives&#34;&gt;1. Derivatives&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Derivative at $x_0$)&lt;/dt&gt;
@@ -318,9 +318,9 @@ we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$.&lt;
     </item>
     <item>
       <title>Mathematical Analysis | 4 The Continuity of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_4/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_4/</link>
       <pubDate>Sun, 04 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_4/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_4/</guid>
       <description>&lt;h2 id=&#34;1-definitions&#34;&gt;1. Definitions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (&lt;strong&gt;Continuity at $x_0$&lt;/strong&gt;)&lt;/dt&gt;
@@ -335,9 +335,9 @@ $$&lt;p&gt;We introduce a new terminology &amp;ldquo;increment&amp;rdquo;, which
     </item>
     <item>
       <title>Mathematical Analysis | 3 Limit of Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_3/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_3/</link>
       <pubDate>Sat, 03 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_3/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_3/</guid>
       <description>&lt;h2 id=&#34;1-limit-of-functions&#34;&gt;1. Limit of Functions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Limit at $\infty$)&lt;/dt&gt;
@@ -383,9 +383,9 @@ for any $x\in U^o_+(x_0,\delta)$, we say that $f$ has right limit $A$ as $x\to x
     </item>
     <item>
       <title>Mathematical Analysis | 2 Limit of Sequences</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_2/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_2/</link>
       <pubDate>Fri, 02 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_2/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_2/</guid>
       <description>&lt;h2 id=&#34;1-limit-of-sequences&#34;&gt;1. Limit of Sequences&lt;/h2&gt;
 &lt;p&gt;Given a function $f:\mathbb{N}_{+}\to \mathbb{R}$, we call $f( \mathbb{N}_{+})$ as a &lt;em&gt;sequence&lt;/em&gt;, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.&lt;/p&gt;
 &lt;dl&gt;
@@ -400,9 +400,9 @@ And the point $a$ is called the &lt;em&gt;limit&lt;/em&gt; of the sequence $\{a_
     </item>
     <item>
       <title>Mathematical Analysis | 1 Real Numbers and Functions</title>
-      <link>http://localhost:1313/posts/analysis_1/math_analysis_1/</link>
+      <link>https://wangchxx.github.io/posts/analysis_1/math_analysis_1/</link>
       <pubDate>Thu, 01 Apr 2021 10:52:59 +0200</pubDate>
-      <guid>http://localhost:1313/posts/analysis_1/math_analysis_1/</guid>
+      <guid>https://wangchxx.github.io/posts/analysis_1/math_analysis_1/</guid>
       <description>&lt;h2 id=&#34;1-real-numbers&#34;&gt;1. Real Numbers&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Definition 1 (Bounds)&lt;/dt&gt;

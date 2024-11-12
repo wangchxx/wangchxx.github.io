@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Mathematical Analysis | 1 Real Numbers and Functions | My Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="1. Real Numbers
@@ -24,16 +24,16 @@ Given nonempty sets $A,B$. If $\forall x\in A,\forall y\in B$ $x\leq y$, then $\
 proof:
 The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\in B$, $\sup A\leq y$. It suggests that $\sup A$ is a lower bound of $B$, hence $\sup A\leq \inf B$.">
 <meta name="author" content="Chaohua Wang">
-<link rel="canonical" href="http://localhost:1313/posts/analysis_1/math_analysis_1/">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_1/math_analysis_1/">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -89,7 +89,102 @@ The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the in
 
 
 
+<meta property="og:title" content="Mathematical Analysis | 1 Real Numbers and Functions">
+<meta property="og:description" content="1. Real Numbers
 
+Definition 1 (Bounds)
+$S\in\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\in S$ $x\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\geq M$, and $M$ is called the lower bound of $S$.
+
+We say that $S$ is bounded if its upper bounds and lower bounds exist.
+
+Definition 2 (Supremum and infimum)
+Let $\eta$ be an upper bound of $S$. If for any $\alpha&lt;\eta$ there exists $x_0\in S$ s.t. $x_0&gt;\alpha$, then $\eta$ is called the supremum of $S$, denoted by $\eta = \sup S$. Similarly, $\eta$ is the infimum of $S$, denoted by $\eta = \inf S$, if for any $\alpha&gt;\eta$, there exits $x_0\in S$ s.t. $x_0&lt;\alpha$.
+Theorem 3 (Existence)
+If $S$ has an upper bound, then $\sup S$ exists. If $S$ has an lower bound, then $\inf S$ exists.
+Corollary 4
+Given nonempty sets $A,B$. If $\forall x\in A,\forall y\in B$ $x\leq y$, then $\sup A$ and $\inf B$ exist. Moreover, $\sup A\leq \inf B$.
+
+proof:
+The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\in B$, $\sup A\leq y$. It suggests that $\sup A$ is a lower bound of $B$, hence $\sup A\leq \inf B$.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_1/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-01T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-01T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematical Analysis | 1 Real Numbers and Functions">
+<meta name="twitter:description" content="1. Real Numbers
+
+Definition 1 (Bounds)
+$S\in\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\in S$ $x\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\geq M$, and $M$ is called the lower bound of $S$.
+
+We say that $S$ is bounded if its upper bounds and lower bounds exist.
+
+Definition 2 (Supremum and infimum)
+Let $\eta$ be an upper bound of $S$. If for any $\alpha&lt;\eta$ there exists $x_0\in S$ s.t. $x_0&gt;\alpha$, then $\eta$ is called the supremum of $S$, denoted by $\eta = \sup S$. Similarly, $\eta$ is the infimum of $S$, denoted by $\eta = \inf S$, if for any $\alpha&gt;\eta$, there exits $x_0\in S$ s.t. $x_0&lt;\alpha$.
+Theorem 3 (Existence)
+If $S$ has an upper bound, then $\sup S$ exists. If $S$ has an lower bound, then $\inf S$ exists.
+Corollary 4
+Given nonempty sets $A,B$. If $\forall x\in A,\forall y\in B$ $x\leq y$, then $\sup A$ and $\inf B$ exist. Moreover, $\sup A\leq \inf B$.
+
+proof:
+The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\in B$, $\sup A\leq y$. It suggests that $\sup A$ is a lower bound of $B$, hence $\sup A\leq \inf B$.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mathematical Analysis | 1 Real Numbers and Functions",
+      "item": "https://wangchxx.github.io/posts/analysis_1/math_analysis_1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Analysis | 1 Real Numbers and Functions",
+  "name": "Mathematical Analysis | 1 Real Numbers and Functions",
+  "description": "1. Real Numbers Definition 1 (Bounds) $S\\in\\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\\in S$ $x\\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\\geq M$, and $M$ is called the lower bound of $S$. We say that $S$ is bounded if its upper bounds and lower bounds exist.\nDefinition 2 (Supremum and infimum) Let $\\eta$ be an upper bound of $S$. If for any $\\alpha\u003c\\eta$ there exists $x_0\\in S$ s.t. $x_0\u003e\\alpha$, then $\\eta$ is called the supremum of $S$, denoted by $\\eta = \\sup S$. Similarly, $\\eta$ is the infimum of $S$, denoted by $\\eta = \\inf S$, if for any $\\alpha\u003e\\eta$, there exits $x_0\\in S$ s.t. $x_0\u003c\\alpha$. Theorem 3 (Existence) If $S$ has an upper bound, then $\\sup S$ exists. If $S$ has an lower bound, then $\\inf S$ exists. Corollary 4 Given nonempty sets $A,B$. If $\\forall x\\in A,\\forall y\\in B$ $x\\leq y$, then $\\sup A$ and $\\inf B$ exist. Moreover, $\\sup A\\leq \\inf B$. proof: The existence of $\\sup A$ and $\\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\\in B$, $\\sup A\\leq y$. It suggests that $\\sup A$ is a lower bound of $B$, hence $\\sup A\\leq \\inf B$.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Real Numbers Definition 1 (Bounds) $S\\in\\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\\in S$ $x\\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\\geq M$, and $M$ is called the lower bound of $S$. We say that $S$ is bounded if its upper bounds and lower bounds exist.\nDefinition 2 (Supremum and infimum) Let $\\eta$ be an upper bound of $S$. If for any $\\alpha\u003c\\eta$ there exists $x_0\\in S$ s.t. $x_0\u003e\\alpha$, then $\\eta$ is called the supremum of $S$, denoted by $\\eta = \\sup S$. Similarly, $\\eta$ is the infimum of $S$, denoted by $\\eta = \\inf S$, if for any $\\alpha\u003e\\eta$, there exits $x_0\\in S$ s.t. $x_0\u003c\\alpha$. Theorem 3 (Existence) If $S$ has an upper bound, then $\\sup S$ exists. If $S$ has an lower bound, then $\\inf S$ exists. Corollary 4 Given nonempty sets $A,B$. If $\\forall x\\in A,\\forall y\\in B$ $x\\leq y$, then $\\sup A$ and $\\inf B$ exist. Moreover, $\\sup A\\leq \\inf B$. proof: The existence of $\\sup A$ and $\\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\\in B$, $\\sup A\\leq y$. It suggests that $\\sup A$ is a lower bound of $B$, hence $\\sup A\\leq \\inf B$.\n2. Functions Definition 5 (Functions) A mapping $f: D\\to M$ is a function if for every $x\\in D$, there exists a unique $y\\in M$ s.t. $f(x) = y$. $D$ is called the domain of $f$, $M$ is called the codomain of $f$, and $f(D):=\\{f(x): x\\in D\\}$ is the range of $f$. Definition 6 (Inverse functions) Given a function $f: D\\to M$, if for any $y\\in f(D)$ there is a unique $x\\in D$ s.t. $f(x) = y$, then we can define a function $$ f^{-1}: f(D)\\to D,\r$$ which is called the inverse function of $f$. It is obvious that $f^{-1}$ exists $\\Leftrightarrow$ $f$ is bijective.\nDefinition 7 (Elementary functions) constants, $f(x) = c$. power of $x$, $f(x) = x^a$. exponential, $f(x) = a^x$. logarithm, $f(x) = \\log_a x$. trigonometric, $f(x) = \\sin x$. inverse trigonometric, $f(x) = \\arcsin x$. Definition 8 (Bounded functions) A function $f: D\\to M$ is bounded if there exists a constant $M$ s.t. $f(x)\\leq M$ for every $x\\in D$. Definition 9 (Monotonicity) $f$ is an increasing function if $f(x_1)\\leq f(x_2)$ for every $x_1\u003c x_2$, and is strictly increasing if $f(x_1)",
+  "wordCount" : "412",
+  "inLanguage": "en",
+  "datePublished": "2021-04-01T10:52:59+02:00",
+  "dateModified": "2021-04-01T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_1/math_analysis_1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -107,7 +202,7 @@ The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the in
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -133,27 +228,27 @@ The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the in
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Posts">
+                <a href="https://wangchxx.github.io/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives" title="Archive">
+                <a href="https://wangchxx.github.io/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/series/" title="Series">
+                <a href="https://wangchxx.github.io/series/" title="Series">
                     <span>Series</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories" title="Categories">
+                <a href="https://wangchxx.github.io/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -244,7 +339,7 @@ which is called the <em>inverse function</em> of $f$.</dd>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/analysis_1/math_analysis_2/">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/">
     <span class="title">« Prev</span>
     <br>
     <span>Mathematical Analysis | 2 Limit of Sequences</span>
@@ -256,7 +351,7 @@ which is called the <em>inverse function</em> of $f$.</dd>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
 
     <span>
         Powered by
