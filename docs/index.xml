@@ -89,20 +89,6 @@ under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfl
 &lt;p&gt;GAN uses another model (discriminator) to decide the quality of generated images.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Math examples</title>
-      <link>https://wangchxx.github.io/math-examples/</link>
-      <pubDate>Wed, 24 Jan 2024 18:09:49 -0800</pubDate>
-      <guid>https://wangchxx.github.io/math-examples/</guid>
-      <description>&lt;p&gt;This is an inline (a^&lt;em&gt;=x-b^&lt;/em&gt;) equation.&lt;/p&gt;
-&lt;p&gt;These are block equations:&lt;/p&gt;
-\[a^*=x-b^*\]\[ a^*=x-b^* \]\[
-a^*=x-b^*
-\]&lt;p&gt;These are block equations using alternate delimiters:&lt;/p&gt;
-$$a^*=x-b^*$$$$ a^*=x-b^* $$$$
-a^*=x-b^*
-$$</description>
-    </item>
-    <item>
       <title>RL | Multiplayer Monte Carlo Tree Search</title>
       <link>https://wangchxx.github.io/posts/rl/rl_09_mcts/</link>
       <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
