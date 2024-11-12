@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mathematical Analysis | 8 Indefinite Integrals | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="1. Definitions
+
+Definition 1 (Primary function)
+Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$.
+Theorem 2 (Existence)
+If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.
+Definition 3 (Indefinite integral)
+The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$.
+
+2. Change of Variable and Integration by Parts
+
+Theorem 4 (Change of variable)
+Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.
+
+
+If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$
+If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$.
+
+
+Theorem 5 (Integration by Parts)
+If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$.
+proof
+$[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
+
+$\Box$">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Mathematical Analysis | 8 Indefinite Integrals">
+<meta property="og:description" content="1. Definitions
+
+Definition 1 (Primary function)
+Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$.
+Theorem 2 (Existence)
+If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.
+Definition 3 (Indefinite integral)
+The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$.
+
+2. Change of Variable and Integration by Parts
+
+Theorem 4 (Change of variable)
+Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.
+
+
+If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$
+If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$.
+
+
+Theorem 5 (Integration by Parts)
+If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$.
+proof
+$[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
+
+$\Box$">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-08T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-08T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematical Analysis | 8 Indefinite Integrals">
+<meta name="twitter:description" content="1. Definitions
+
+Definition 1 (Primary function)
+Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$.
+Theorem 2 (Existence)
+If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.
+Definition 3 (Indefinite integral)
+The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$.
+
+2. Change of Variable and Integration by Parts
+
+Theorem 4 (Change of variable)
+Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.
+
+
+If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$
+If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$.
+
+
+Theorem 5 (Integration by Parts)
+If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$.
+proof
+$[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$.
+
+$\Box$">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mathematical Analysis | 8 Indefinite Integrals",
+      "item": "https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Analysis | 8 Indefinite Integrals",
+  "name": "Mathematical Analysis | 8 Indefinite Integrals",
+  "description": "1. Definitions Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\\int f(x) dx= F(x) + C$. 2. Change of Variable and Integration by Parts Theorem 4 (Change of variable) Let $f(x)$ defined on $I$, $\\phi(t)$ differentiable on $J$ and $\\phi(J)\\subset I$. If the indefinite integral $\\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt$ exists too, and $\\int f(\\phi(t))\\phi'(t) dt = F(\\phi(t))+C$ If the function $x = \\phi(t)$ has inverse function $t=\\phi^{-1}(x)$,and $\\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt = G(t) + C$ exists too, and $\\int f(x) dx =G(\\phi^{-1}(x)) + C$. Theorem 5 (Integration by Parts) If $u(x)$ and $v(x)$ are differentiable, and $\\int v(x)u'(x) dx$ exists, then $\\int v'(x) u(x) dx$ exists too, and $\\int v'(x) u(x) dx = v(x)u(x) - \\int v(x) u'(x) dx$. proof $[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$. $\\Box$\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Definitions Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\\int f(x) dx= F(x) + C$. 2. Change of Variable and Integration by Parts Theorem 4 (Change of variable) Let $f(x)$ defined on $I$, $\\phi(t)$ differentiable on $J$ and $\\phi(J)\\subset I$. If the indefinite integral $\\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt$ exists too, and $\\int f(\\phi(t))\\phi'(t) dt = F(\\phi(t))+C$ If the function $x = \\phi(t)$ has inverse function $t=\\phi^{-1}(x)$,and $\\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\\int f(\\phi(t))\\phi'(t) dt = G(t) + C$ exists too, and $\\int f(x) dx =G(\\phi^{-1}(x)) + C$. Theorem 5 (Integration by Parts) If $u(x)$ and $v(x)$ are differentiable, and $\\int v(x)u'(x) dx$ exists, then $\\int v'(x) u(x) dx$ exists too, and $\\int v'(x) u(x) dx = v(x)u(x) - \\int v(x) u'(x) dx$. proof $[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$. $\\Box$\n",
+  "wordCount" : "217",
+  "inLanguage": "en",
+  "datePublished": "2021-04-08T10:52:59+02:00",
+  "dateModified": "2021-04-08T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Mathematical Analysis | 8 Indefinite Integrals
+    </h1>
+    <div class="post-meta"><span title='2021-04-08 10:52:59 +0200 +0200'>April 8, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-definitions" aria-label="1. Definitions">1. Definitions</a></li>
+                <li>
+                    <a href="#2-change-of-variable-and-integration-by-parts" aria-label="2. Change of Variable and Integration by Parts">2. Change of Variable and Integration by Parts</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="1-definitions">1. Definitions<a hidden class="anchor" aria-hidden="true" href="#1-definitions">#</a></h2>
+<dl>
+<dt>Definition 1 (<strong>Primary function</strong>)</dt>
+<dd>Let $f$ and $F$ be functions defined on $I$. If $F'(x) = f(x)$ for every $x\in I$, we say that $F$ is the <code>primary function</code> of $f$ on $I$.</dd>
+<dt>Theorem 2 (<strong>Existence</strong>)</dt>
+<dd>If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$.</dd>
+<dt>Definition 3 (<strong>Indefinite integral</strong>)</dt>
+<dd>The set of all primary functions of $f$ on $I$ is called the <code>indefinite integral</code> of $f$ on $I$, denoted by $\int f(x) dx= F(x) + C$.</dd>
+</dl>
+<h2 id="2-change-of-variable-and-integration-by-parts">2. Change of Variable and Integration by Parts<a hidden class="anchor" aria-hidden="true" href="#2-change-of-variable-and-integration-by-parts">#</a></h2>
+<dl>
+<dt>Theorem 4 (<strong>Change of variable</strong>)</dt>
+<dd>Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$.</dd>
+</dl>
+<ol>
+<li>If the indefinite integral $\int f(x) dx = F(x) + C$ exists, then the indefinite integral $\int f(\phi(t))\phi'(t) dt$ exists too, and $\int f(\phi(t))\phi'(t) dt = F(\phi(t))+C$</li>
+<li>If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) + C$ exists, then then the indefinite integral $\int f(\phi(t))\phi'(t) dt = G(t) + C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) + C$.</li>
+</ol>
+<dl>
+<dt>Theorem 5 (<strong>Integration by Parts</strong>)</dt>
+<dd>If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u'(x) dx$ exists, then $\int v'(x) u(x) dx$ exists too, and $\int v'(x) u(x) dx = v(x)u(x) - \int v(x) u'(x) dx$.</dd>
+<dt>proof</dt>
+<dd>$[u(x)v(x)]' = u'(x)v(x) + v'(x)u(x)$.</dd>
+</dl>
+<p>$\Box$</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_9/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Mathematical Analysis | 9 Riemann Integrals</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Mathematical Analysis | 7 Completeness of the Real Numbers</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

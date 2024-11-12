@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bayesian Statistics| Gaussian Process Priors (3) | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
+1. Introduction
+Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Bayesian Statistics| Gaussian Process Priors (3)">
+<meta property="og:description" content="In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
+1. Introduction
+Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/bayes/bayes_7_gp3/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-05T00:01:41+02:00">
+<meta property="article:modified_time" content="2021-08-05T00:01:41+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bayesian Statistics| Gaussian Process Priors (3)">
+<meta name="twitter:description" content="In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.
+1. Introduction
+Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\&#34;o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta&#43;1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bayesian Statistics| Gaussian Process Priors (3)",
+      "item": "https://wangchxx.github.io/posts/bayes/bayes_7_gp3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bayesian Statistics| Gaussian Process Priors (3)",
+  "name": "Bayesian Statistics| Gaussian Process Priors (3)",
+  "description": "In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.\n1. Introduction Suppose that we want to estimate a density function $p_0 \\in C^\\beta[0,1]$, where $C^\\beta[0,1]$ denotes the H$\\mathrm{\\\"o}$lder space of order $\\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\\beta/(2\\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\\beta$, for instance, kernel estimators.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.\n1. Introduction Suppose that we want to estimate a density function $p_0 \\in C^\\beta[0,1]$, where $C^\\beta[0,1]$ denotes the H$\\mathrm{\\\"o}$lder space of order $\\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\\beta/(2\\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\\beta$, for instance, kernel estimators.\nIn general the smoothness parameter is unknown. If we choose a parameter $\\beta'\u003e\\beta$, then we lose in terms of the consistency rate. On the other hand, if we choose a family of functions with smoothness level $\\beta'\u003c\\beta$, then the model is misspecified. In this case, consistency cannot be guaranteed. Therefore, we intend to find an estimator that achieves the optimal minimax rate without knowing $\\beta$, which is called adaption.\n2. RKHS of BM and Smoothness Let us review the contraction rate of GP priors\nIt implies that the optimal consistency rate for GP priors cannot be better than $n^{-1/2}$ when $w_0\\in \\bar{\\mathbb{H}}$. To estimate the density function, we need a RKHS containing continuous fucntions, so that Brownian motion is of interest.\nLemma (RKSH of BM) The RKSH of BM is the family of fuctions in $B^1[0,1]$ vanishing at zero, where $B^k[0,1]$ is the Sobolev space of all functions $f\\in L^2[0,1]$ that are $k-1$ times differentiable with $f^{(k-1)}$ absolutely continuous with $f^{(k)}\\in L^2[0,1]$, equipped with the inner product $$ \\langle f,g\\rangle_{\\mathbb{H}} = \\int_0^1 f' g' d\\mu. $$ proof The covariance kernel of BM is $r(s,t) = s\\wedge t$. The RKHS is the closed linear span of functions $t\\mapsto s\\wedge t$ as $s$ runs through $[0,1]$, unnder the inner product given by $$ \\langle s_1\\wedge \\cdot, s_2\\wedge\\cdot\\rangle_{\\mathbb{H}} = s_1\\wedge s_2 = \\int (s_1\\wedge t)' (s_2\\wedge t)' dt. $$ Thus the RKHS contains every function that vanishes at 0, continuous, and piecewise linear on any partition of $[0,1]$. The derivatives of these functions are piecewise constant, and the set of piecewise constant function is dense in $L^2[0,1]$. $\\Box$\nWithout proof, we state that, if $w_0\\in C^\\beta[0,1]$ for some $\\beta\\in(0,1]$, the contraction rate of BM prior is $$ n^{-\\frac{\\beta\\wedge 1/2}{2}}. $$ The optimal minimax rate can only be obtained for functions $p_0\\in C^{1/2}[0,1]$. For any $\\beta\\neq 1/2$, the contraction rate is at most $n^{-1/4}$, which is caused by the rough paths of BM. But the BM is a good building block for smoother function spaces.\nIntegrated BM. The $k$-fold integration of BM $I_{0+}^k B = I_{0+} I_{0+}^{k-1}B$, where $(I_{0+} f)(t) = \\int_0^t f(s) ds $. The RKHS of $I_{0+}^k B$ is $B^{k+1}[0,1]$, with inner product $$ \\langle f,g\\rangle_{\\mathbb{H}} = \\int_0^1 f^{(k+1)} (s) g^{(k+1)} (s) ds. $$ The k-fold integrated BM priors achieve contraction rates $n^{-\\frac{\\beta\\wedge k + 1/2}{2k+2}}$, where the optimal rate is obtained at $\\beta = k + 1/2$ only. For $\\beta\\geq k+1/2$, the performance does not improve for increasing $\\beta$.\n3. Adaptive GP Priors The GP priors discussed so far possess itself a certain regularity, and are optimal iff this matches the regularity of the target function. To obtain a prior that is adaptive for unknown $\\beta\u003e0$, there are two popular methods:\nHierachical prior, impose a prior on the smoothness prameter $\\beta$, which is also known as mixtures of GP. Rescaling, $W^a = (W_{ct}:t \\in [0,1])$. Here, we shall discuss rescaling only. The rescaling has the purpose of changing the appearance of the sample paths, making our prior reflect the true function better. Scaling factor $c\u003e1$ shrinks the sample paths $t\\mapsto W_t$ on a long interval $W_{[0,ct]}$ to the interval $[0,1]$, which roughens the sample paths by incorporating the randomness of a longer period. Conversely, factor $c\u003c1$ stretchs the sample paths to a shorter interval $[0,ct]$, which smooths the sample paths.\nDef (Self-similar) A SP $W$ is called self-similar of order $\\alpha$ if $(W_{ct}: t\\in[0,1])$ and $(c^\\alpha W_t: t\\in [0,1])$ are equal in distribution. Lemma (RKHS of rescaled GP) The RKHS $\\mathbb{H}^c$ of the rescaled process $W^c$ corresponding to a self-similar process $W$ of order $\\alpha$ is a RKHS of $W$, equipped with the norm $||h||_{\\mathbb{H}^c} = c^{-\\alpha}||h||_{\\mathbb{H}}$ instead. Without proof we state that the optimal contraction rate of rescaled GP corresponding to a self-similar process $W$ of order $\\alpha$ is $$ n^{-\\frac{2+r}{(4+ 4r + rs)}}, \\quad \\text{ by setting } c_n = n^{\\frac{s-r}{4\\alpha + 4r\\alpha + rs\\alpha}}, $$ where $r,s\u003e0$ are some constants s.t. $$ \\psi_0(\\epsilon) \\asymp \\epsilon^{-r} ,\\quad \\inf \\{ ||h||_{\\mathbb{H}}: ||h-w_0||\\leq \\epsilon \\} \\asymp \\epsilon^{-s}. $$ Note that the optimal contraction rate does not depends on the parameter $\\alpha$. BM is self-similar of order $1/2$, and thus the k-fold integrated BM is self-similar of order $1/2 + k$. If $w_0 \\in C^\\beta [0,1]$ with $\\beta\\leq k+1$. The rescaled k-fold integraed BM priors yield the minimax rate $n^{-\\beta/(2\\beta + 1)}$ by setting appropriate scaling factor $c_n$.\nReferences [1] van der Vaart, A. W., \u0026 van Zanten, J. H. (2008). Reproducing kernel Hilbert spaces of Gaussian priors.\n[2] Ghosal, S., \u0026 Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference.\n[3] Vaart, A. V. D., \u0026 Zanten, H. V. (2007). Bayesian inference with rescaled Gaussian process priors.\n[4] Belitser, E., \u0026 Ghosal, S. (2003). Adaptive Bayesian inference on the mean of an infinite-dimensional normal distribution. The Annals of Statistics, 31(2), 536–559.\n[5] Tsybakov, A. B. (2009). Introduction to nonparametric estimation. Springer.\n",
+  "wordCount" : "920",
+  "inLanguage": "en",
+  "datePublished": "2021-08-05T00:01:41+02:00",
+  "dateModified": "2021-08-05T00:01:41+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/bayes/bayes_7_gp3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Bayesian Statistics| Gaussian Process Priors (3)
+    </h1>
+    <div class="post-meta"><span title='2021-08-05 00:01:41 +0200 +0200'>August 5, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-introduction" aria-label="1. Introduction">1. Introduction</a></li>
+                <li>
+                    <a href="#2-rkhs-of-bm-and-smoothness" aria-label="2. RKHS of BM and Smoothness">2. RKHS of BM and Smoothness</a></li>
+                <li>
+                    <a href="#3-adaptive-gp-priors" aria-label="3. Adaptive GP Priors">3. Adaptive GP Priors</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>In GP(1) and GP(2), we studied the RKSH and consistency rate of GP priors. In this sectin we are going to consider the smoothness of the target function and see how the smoothness level impacts the consistency rates.</p>
+<h2 id="1-introduction">1. Introduction<a hidden class="anchor" aria-hidden="true" href="#1-introduction">#</a></h2>
+<p>Suppose that we want to estimate a density function $p_0 \in C^\beta[0,1]$, where $C^\beta[0,1]$ denotes the H$\mathrm{\"o}$lder space of order $\beta$. By Assouad’s method it can shown that no estimator can achieve better rates than $n^{-\beta/(2\beta+1)}$ uniformly, in terms of the distance $d(p_0, p) = ||p_0 - p||_1$. It has been long known that some estimators can achieve this rate given known smoothness level $\beta$, for instance, kernel estimators.</p>
+<p>In general the smoothness parameter is unknown. If we choose a parameter $\beta'>\beta$, then we lose in terms of the consistency rate. On the other hand, if we choose a family of functions with smoothness level $\beta'<\beta$, then the model is misspecified. In this case, consistency cannot be guaranteed. Therefore, we intend to find an estimator that achieves the optimal minimax rate without knowing $\beta$, which is called <em>adaption</em>.</p>
+<h2 id="2-rkhs-of-bm-and-smoothness">2. RKHS of BM and Smoothness<a hidden class="anchor" aria-hidden="true" href="#2-rkhs-of-bm-and-smoothness">#</a></h2>
+<p>Let us review the contraction rate of GP priors</p>
+<!-- In this section, we introduce adaptive GP priors. Consider a GP regression problem,
+$$ 
+ Y_i = f(X_i) + \epsilon_i, \; \epsilon_i \sim N(0,1), 
+$$ -->
+<p><img alt="GP contraction" loading="lazy" src="/img_bayes_GP/GPrate_1.PNG">
+It implies that the optimal consistency rate for GP priors cannot be better than $n^{-1/2}$ when $w_0\in \bar{\mathbb{H}}$. To estimate the density function, we need a RKHS containing continuous fucntions, so that Brownian motion is of interest.</p>
+<dl>
+<dt>Lemma (RKSH of BM)</dt>
+<dd>The RKSH of BM is the family of fuctions in $B^1[0,1]$  vanishing at zero, where $B^k[0,1]$ is the Sobolev space of all functions $f\in L^2[0,1]$ that are $k-1$ times differentiable with $f^{(k-1)}$ absolutely continuous with $f^{(k)}\in L^2[0,1]$, equipped with the inner product
+$$
+ \langle f,g\rangle_{\mathbb{H}} = \int_0^1 f' g' d\mu.
+$$
+proof</dd>
+<dd>The covariance kernel of BM is $r(s,t) = s\wedge t$. The RKHS is the closed linear span of functions $t\mapsto s\wedge t$ as $s$ runs through $[0,1]$, unnder the inner product given by
+$$ 
+ \langle s_1\wedge \cdot, s_2\wedge\cdot\rangle_{\mathbb{H}} = s_1\wedge s_2 = \int (s_1\wedge t)' (s_2\wedge t)' dt.
+$$
+Thus the RKHS contains every function that vanishes at 0, continuous, and piecewise linear on any partition of $[0,1]$. The derivatives of these functions are piecewise constant, and the set of piecewise constant function is dense in $L^2[0,1]$.</dd>
+</dl>
+<p>$\Box$</p>
+<p>Without proof, we state that, if $w_0\in C^\beta[0,1]$ for some $\beta\in(0,1]$, the contraction rate of BM prior is
+</p>
+$$
+ n^{-\frac{\beta\wedge 1/2}{2}}.
+$$<p>
+The optimal minimax rate can only be obtained for functions $p_0\in C^{1/2}[0,1]$. For any $\beta\neq 1/2$, the contraction rate is at most $n^{-1/4}$, which is caused by the rough paths of BM. But the BM is a good building block for smoother function spaces.</p>
+<ul>
+<li>Integrated BM. The $k$-fold integration of BM $I_{0+}^k B = I_{0+} I_{0+}^{k-1}B$, where $(I_{0+} f)(t) = \int_0^t f(s) ds $. The RKHS of $I_{0+}^k B$ is $B^{k+1}[0,1]$, with inner product
+$$ 
+ \langle f,g\rangle_{\mathbb{H}} = \int_0^1 f^{(k+1)} (s) g^{(k+1)} (s) ds.
+$$</li>
+</ul>
+<p>The k-fold integrated BM priors achieve contraction rates $n^{-\frac{\beta\wedge k + 1/2}{2k+2}}$, where the optimal rate is obtained at $\beta = k + 1/2$ only. For $\beta\geq k+1/2$, the performance does not improve for increasing $\beta$.</p>
+<h2 id="3-adaptive-gp-priors">3. Adaptive GP Priors<a hidden class="anchor" aria-hidden="true" href="#3-adaptive-gp-priors">#</a></h2>
+<p>The GP priors discussed so far possess itself a certain regularity, and are optimal iff this matches the regularity of the target function. To obtain a prior that is adaptive for unknown $\beta>0$, there are two popular methods:</p>
+<ol>
+<li>Hierachical prior, impose a prior on the smoothness prameter $\beta$, which is also known as <em>mixtures of GP</em>.</li>
+<li>Rescaling, $W^a = (W_{ct}:t \in [0,1])$.</li>
+</ol>
+<p>Here, we shall discuss rescaling only. The rescaling has the purpose of changing the appearance of the sample paths, making our prior reflect the true function better. Scaling factor $c>1$ shrinks the sample paths $t\mapsto W_t$ on a long interval $W_{[0,ct]}$ to the interval $[0,1]$, which roughens the sample paths by incorporating the randomness of a longer period. Conversely, factor $c<1$ stretchs the sample paths to a shorter interval $[0,ct]$, which smooths the sample paths.</p>
+<dl>
+<dt>Def (Self-similar)</dt>
+<dd>A SP $W$ is called <em>self-similar</em> of order $\alpha$ if $(W_{ct}: t\in[0,1])$ and $(c^\alpha W_t: t\in [0,1])$ are equal in distribution.</dd>
+<dt>Lemma (RKHS of rescaled GP)</dt>
+<dd>The RKHS $\mathbb{H}^c$ of the rescaled process $W^c$ corresponding to a self-similar process $W$ of order $\alpha$ is a RKHS of $W$, equipped with the norm $||h||_{\mathbb{H}^c} = c^{-\alpha}||h||_{\mathbb{H}}$ instead.</dd>
+</dl>
+<p>Without proof we state that the optimal contraction rate of rescaled GP corresponding to a self-similar process $W$ of order $\alpha$ is
+</p>
+$$ 
+ n^{-\frac{2+r}{(4+ 4r + rs)}}, \quad \text{ by setting } c_n = n^{\frac{s-r}{4\alpha + 4r\alpha + rs\alpha}},
+$$<p>
+where $r,s>0$ are some constants s.t.
+</p>
+$$ 
+ \psi_0(\epsilon) \asymp \epsilon^{-r} ,\quad \inf \{ ||h||_{\mathbb{H}}: ||h-w_0||\leq \epsilon \} \asymp \epsilon^{-s}.
+$$<p>
+Note that the optimal contraction rate does not depends on the parameter $\alpha$. BM is self-similar of order $1/2$, and thus the k-fold integrated BM is self-similar of order $1/2 + k$. If $w_0 \in C^\beta [0,1]$ with $\beta\leq k+1$. The rescaled k-fold integraed BM priors yield the minimax rate $n^{-\beta/(2\beta + 1)}$ by setting appropriate scaling factor $c_n$.</p>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ul>
+<li>
+<p>[1] van der Vaart, A. W., &amp; van Zanten, J. H. (2008). Reproducing kernel Hilbert spaces of Gaussian priors.</p>
+</li>
+<li>
+<p>[2] Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference.</p>
+</li>
+<li>
+<p>[3] Vaart, A. V. D., &amp; Zanten, H. V. (2007). Bayesian inference with rescaled Gaussian process priors.</p>
+</li>
+<li>
+<p>[4] Belitser, E., &amp; Ghosal, S. (2003). Adaptive Bayesian inference on the mean of an infinite-dimensional normal distribution. The Annals of Statistics, 31(2), 536–559.</p>
+</li>
+<li>
+<p>[5] Tsybakov, A. B. (2009). Introduction to nonparametric estimation. Springer.</p>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gppriors_for_binary_classification/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Reading | Nonparametric binary regression using a Gaussian process prior</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/bayes/bayes_6_gp2/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Bayesian Statistics| Gaussian Process Priors (2)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

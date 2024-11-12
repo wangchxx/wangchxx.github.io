@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Analysis | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/categories/analysis/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://wangchxx.github.io/categories/analysis/index.xml">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/categories/analysis/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Analysis">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wangchxx.github.io/categories/analysis/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Analysis">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Analysis
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 8 Indefinite Integrals
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Definitions Definition 1 (Primary function) Let $f$ and $F$ be functions defined on $I$. If $F&#39;(x) = f(x)$ for every $x\in I$, we say that $F$ is the primary function of $f$ on $I$. Theorem 2 (Existence) If $f$ is continuous on $I$, then $f$ possesses a primary function $F$ on $I$. Definition 3 (Indefinite integral) The set of all primary functions of $f$ on $I$ is called the indefinite integral of $f$ on $I$, denoted by $\int f(x) dx= F(x) &#43; C$. 2. Change of Variable and Integration by Parts Theorem 4 (Change of variable) Let $f(x)$ defined on $I$, $\phi(t)$ differentiable on $J$ and $\phi(J)\subset I$. If the indefinite integral $\int f(x) dx = F(x) &#43; C$ exists, then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt$ exists too, and $\int f(\phi(t))\phi&#39;(t) dt = F(\phi(t))&#43;C$ If the function $x = \phi(t)$ has inverse function $t=\phi^{-1}(x)$,and $\int f(x) dx = F(x) &#43; C$ exists, then then the indefinite integral $\int f(\phi(t))\phi&#39;(t) dt = G(t) &#43; C$ exists too, and $\int f(x) dx =G(\phi^{-1}(x)) &#43; C$. Theorem 5 (Integration by Parts) If $u(x)$ and $v(x)$ are differentiable, and $\int v(x)u&#39;(x) dx$ exists, then $\int v&#39;(x) u(x) dx$ exists too, and $\int v&#39;(x) u(x) dx = v(x)u(x) - \int v(x) u&#39;(x) dx$. proof $[u(x)v(x)]&#39; = u&#39;(x)v(x) &#43; v&#39;(x)u(x)$. $\Box$
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-08 10:52:59 +0200 +0200'>April 8, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 8 Indefinite Integrals" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 7 Completeness of the Real Numbers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Nested Intervals Theorem Definition 1 (Nested intervals) A sequence of closed intervals $\{[a_n,b_n]\}$ is called a sequence of nested closed intervals if $[a_{n&#43;1}, b_{n&#43;1}]\subset [a_n, b_n]$, $\lim_{n\to\infty}(b_n - a_n) = 0$. Theorem 2 (Nested intervals theorem) Let $\{[a_n,b_n]\}$ be a sequence of nested closed intervals, there exist a unique real number $\xi$ s.t. $\xi\in [a_n,b_n]$ for every $n$. proof Notice that $\{a_n\}$ is an increasing and bounded sequence, and thus it has limit $\xi$ s.t. $\xi\geq a_n$ for all $n$. Similarly, the sequence $\{b_n\}$ also has a limit. Combing (ii) of the definition, we have $$ \lim_{n\to\infty}a_n = \lim_{n\to\infty}b_n = \xi, $$ and $a_n\leq \xi\leq b_n$ for all $n$. The left work is to show the uniqueness. Suppose that there exists another $\xi&#39;$ s.t. $a_n\leq \xi&#39;\leq b_n$, we have $$ |\xi - \xi&#39;|\leq b_n - a_n \to 0, $$ which means that $\xi = \xi&#39;$. $\Box$
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-07 10:52:59 +0200 +0200'>April 7, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 7 Completeness of the Real Numbers" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 6 Mean Value Theorem
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Rolle’s Theorem Theorem 1 (Rolle’s theorem) If a function $f$ satisfies $f$ is continuous on a closed interval $[a,b]$, $f$ is differentiable on $(a,b)$, $f(a) = f(b)$, then there exists a number $\xi\in(a,b)$ s.t. $f&#39;(\xi)= 0$.
+proof Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-06 10:52:59 +0200 +0200'>April 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 6 Mean Value Theorem" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_6/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 5 Derivatives and Differentiations
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Derivatives Definition 1 (Derivative at $x_0$) Given a function $f$ defined on an neighbourhood of $x_0$ $U(x_0,\delta)$, we say that $f$ is differentiable at $x_0$ if the following limit exists $$ \lim_{x\to x_0}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;(x_0)$. According to the definition, we can see that if $f$ has derivative at $x_0$, then it is continuous at $x_0$. But the converse is not true.
+Definition 2 (One-sided derivatives) Given a function $f$ defined on $[x_0,x_0&#43;\delta)$, then it has a right derivative at $x_0$, if the right limit exists $$ \lim_{x\to x_0^&#43;}\frac{f(x)- f(x_0)}{x-x_0}, $$ denoted by $f&#39;_{&#43;}(x_0)$. Theorem 3 $f&#39;(x_0)$ exists iff both $f&#39;_{&#43;}(x_0)$ and $f&#39;_{-}(x_0)$ exist. Definition 4 (Local maximum) If there is a neighbourhood $U(x_0,\delta)$ where for any $x\in U(x_0,\delta)$ s.t. $$ f(x_0)\geq f(x), $$ we say that $f$ attains its local maximum at $x_0$. Theorem 5 (Fermat’s Theorem) If $f$ has a local extremum at $x_0$ and if it is differentiable at $x_0$, then $f&#39;(x_0) = 0$. 2. Differentials Definition 5 (Differential) We define an increment of $f$ by $\Delta y = f(x_0 &#43; \Delta x) - f(x_0)$. If there exists a constant $A$ s.t. $$ \Delta y = A\Delta x &#43; o(\Delta x), $$ we say $f$ has a differential at $x_0$, denoted by $d y|_{x_0} = A\Delta x$. Theorem 6 $f$ has a differential at $x_0$ iff $f$ is differentiable at $x_0$ and $A = f&#39;(x_0)$. </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-05 10:52:59 +0200 +0200'>April 5, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 5 Derivatives and Differentiations" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_5/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 4 The Continuity of Functions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Definitions Definition 1 (Continuity at $x_0$) Given a function $f$ defined on $U(x_0,\delta)$. If $\lim_{x\to x_0} = f(x_0)$, $f$ is said to be continuous at $x_0$. That $f$ is continuous at $x_0$ implies that we can interchange the order of $\lim$ and $f$, $$ \lim_{x\to x_0} = f(\lim{x\to x_0} x).$$We introduce a new terminology “increment”, which is defined by $\Delta x = x - x_0$ and $\Delta y = y- y_0 = f(x_0 &#43; \Delta x) - f(x_0)$. Now the continuity of function $f$ at $x_0$ is equivalent to ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-04 10:52:59 +0200 +0200'>April 4, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 4 The Continuity of Functions" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_4/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 3 Limit of Functions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Limit of Functions Definition 1 (Limit at $\infty$) Given a function $f$ defined on $[a,\infty)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists $M$ s.t. for any $x\geq M$, $$ |f(x) - A|&lt;\infty, $$ we say that $f$ has limit $A$ as $x\to&#43;\infty$, denoted by $\lim_{x\to &#43;\infty}f(x) = A$. If $\lim_{x\to &#43;\infty}f(x)= \lim_{x\to -\infty}f(x) = A$, we deonte it by $\lim_{x\to \infty}f(x) = A$.
+Definition 2 (Limit at $x_0$) Given a function $f$ that is well defined on $U^o(x_0,\delta&#39;)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s.t. $$ |f(x)- A|&lt;\infty, $$ for any $x\in U^o(x_0,\delta)$, we say that $f$ has limit $A$ as $x\to x_0$, denoted by $\lim_{x\to x_0}f(x) = A$. Definition 3 (One-sided limit) Given a function $f$ that is well defined on $U^o_&#43;(x_0,\delta&#39;)$ and a constant $A$, if for any $\epsilon&gt;0$ there exists a $\delta$ s.t. $$ |f(x)- A|&lt;\infty, $$ for any $x\in U^o_&#43;(x_0,\delta)$, we say that $f$ has right limit $A$ as $x\to x_0$ from right, denoted by $\lim_{x\to x_0^&#43;}f(x) = A$. Similarly, the left limit can be defined. Theorem 4 $\lim_{x\to x_0}f(x) = A\Leftrightarrow \lim_{x\to x_0^&#43;}f(x) = \lim_{x\to x_0^-}f(x) = A$. Proposition 5 (Properties) uniqueness. If $\lim_{x\to x_0}f(x)$ exists, then the limit is unique. local boundedness. If $\lim_{x\to x_0}f(x)$ exists, then $f$ is bouned on $U^o(x_0,\delta)$ for some $\delta$. signed. If $\lim_{x\to x_0}f(x) = A&gt;0$, then for any $0...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-03 10:52:59 +0200 +0200'>April 3, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 3 Limit of Functions" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 2 Limit of Sequences
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Limit of Sequences Given a function $f:\mathbb{N}_{&#43;}\to \mathbb{R}$, we call $f( \mathbb{N}_{&#43;})$ as a sequence, enumerated as $a_1,a_2,\ldots$, denoted by $\{a_n\}$.
+Definition 1 (Convergence) We say a sequence $\\{a_n\\}$ is convergent to $a$ if for any $\epsilon&gt;0$, there exits a constant $N$ s.t. for any $n\geq N$, $$ |a_n - a|&lt;\epsilon.$$ And the point $a$ is called the limit of the sequence $\{a_n\}$, denoted by $\lim_{n\to\infty}a_n = a$. An equivalent definition of the convergence of a sequence is given by,
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-02 10:52:59 +0200 +0200'>April 2, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 2 Limit of Sequences" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 1 Real Numbers and Functions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Real Numbers Definition 1 (Bounds) $S\in\mathbb{R}$. We say that $S$ is bounded above if there exits $M$ s.t. for every $x\in S$ $x\leq M$, and $M$ is called the upper bond of $S$. Similarly, we say that $S$ is bounded from below if $x\geq M$, and $M$ is called the lower bound of $S$. We say that $S$ is bounded if its upper bounds and lower bounds exist.
+Definition 2 (Supremum and infimum) Let $\eta$ be an upper bound of $S$. If for any $\alpha&lt;\eta$ there exists $x_0\in S$ s.t. $x_0&gt;\alpha$, then $\eta$ is called the supremum of $S$, denoted by $\eta = \sup S$. Similarly, $\eta$ is the infimum of $S$, denoted by $\eta = \inf S$, if for any $\alpha&gt;\eta$, there exits $x_0\in S$ s.t. $x_0&lt;\alpha$. Theorem 3 (Existence) If $S$ has an upper bound, then $\sup S$ exists. If $S$ has an lower bound, then $\inf S$ exists. Corollary 4 Given nonempty sets $A,B$. If $\forall x\in A,\forall y\in B$ $x\leq y$, then $\sup A$ and $\inf B$ exist. Moreover, $\sup A\leq \inf B$. proof: The existence of $\sup A$ and $\inf B$ is immediate by Theorem 3. We show the inequality only. Because $y$ is an upper bound of $A$ for any $y\in B$, $\sup A\leq y$. It suggests that $\sup A$ is a lower bound of $B$, hence $\sup A\leq \inf B$.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-01 10:52:59 +0200 +0200'>April 1, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 1 Real Numbers and Functions" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_1/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://wangchxx.github.io/categories/analysis/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

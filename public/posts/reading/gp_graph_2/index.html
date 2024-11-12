@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading | Estimating a smooth function on a large graph (2) | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360
+
+1. Main results
+
+Theorem 1 (Regression)
+Under conditions (G), (L) and (S),
+$$ 
+ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}.
+$$
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
+
+This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gp_graph_2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gp_graph_2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Reading | Estimating a smooth function on a large graph (2)">
+<meta property="og:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360
+
+1. Main results
+
+Theorem 1 (Regression)
+Under conditions (G), (L) and (S),
+$$ 
+ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}.
+$$
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
+
+This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_2/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-21T04:18:02+02:00">
+<meta property="article:modified_time" content="2021-08-21T04:18:02+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (2)">
+<meta name="twitter:description" content="This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360
+
+1. Main results
+
+Theorem 1 (Regression)
+Under conditions (G), (L) and (S),
+$$ 
+ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}.
+$$
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.
+
+This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Estimating a smooth function on a large graph (2)",
+      "item": "https://wangchxx.github.io/posts/reading/gp_graph_2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Estimating a smooth function on a large graph (2)",
+  "name": "Reading | Estimating a smooth function on a large graph (2)",
+  "description": "This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.\nKirichenko, A., \u0026amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \\inf_{\\hat{f}} \\sup_{f\\in H^\\beta(Q)} \\mathbb{E}_f || \\hat{f} - f||_n^2 \\asymp n^{-2\\beta/(2\\beta+r)}. $$ where the infimum is taken over all estimators $\\hat{f} = \\hat{f}(Y_1,...,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\\beta/(2\\beta+r)}$.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.\nKirichenko, A., \u0026 van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \\inf_{\\hat{f}} \\sup_{f\\in H^\\beta(Q)} \\mathbb{E}_f || \\hat{f} - f||_n^2 \\asymp n^{-2\\beta/(2\\beta+r)}. $$ where the infimum is taken over all estimators $\\hat{f} = \\hat{f}(Y_1,...,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\\beta/(2\\beta+r)}$.\nTheorem 2 (Classification) Under conditions (G), (L) and (S), suppose that the Laplacian eigenfunctions are uniformly bounded by a constant $C$, independent of $n$. Let $\\Psi:\\mathbb{R}\\to (0,1)$ be a differentiable link function with bounded derivative. Then for $\\beta\\geq r/2$ and $Q\u003e0$ $$ \\inf_{\\hat{\\rho}} \\sup_{\\rho_f: f\\in H^\\beta(Q)}\\mathbb{E}_{f} || \\hat{\\rho} - \\rho_f||_n^2 \\asymp n^{-2\\beta/(2\\beta+r)}, $$ where the infimum is taken over all estimators $\\hat{\\rho} = \\hat{\\rho}(Y^{(n)})$. Compared to the regression case, there is an extra requirement $\\beta\\geq r/2$.\n2. Preliminaries In the regression case, we assume that\n$$ Y_i = f_i + \\sigma\\xi_i, $$ where $\\xi_i$ are independent standard Gaussians. Let $\\psi_i$ be the orthonormal (normalized) eigenfunctions of the Laplacian matrix s.t. $$ \\psi_i^T \\psi_i = n. $$ Write $Y = (Y_1,...,Y_n)$, and $\\xi = (\\xi_1,...,\\xi_n)$. Denote $$ \\epsilon_i = \\langle \\xi, \\psi_i \\rangle_n, $$ and observe that the $h_i$ are centered Gaussian with $$ \\mathbb{E} \\epsilon_i \\epsilon_j = \\frac{1}{n} \\delta_{ij}. $$ The inner product $Z_i := _n$ satisfy $$ Z_i = \\langle Y,\\psi_i\\rangle_n = h_i + \\delta \\epsilon_i, $$ where $h_i$ are coefficients in the series representation of the target function $f^* = \\sum_{i=1}^n h_i \\psi_i$. Additionally, consider the decomposition of an estimator $\\hat{f} = \\sum_{i=1}^n \\hat{h}_i \\psi_i$. Then $$ ||\\hat{f} - f^*||_n^2 = \\sum_{i=1}^n(h_i - \\hat{h}_i)^2. $$Hence the original problem is converted into the problem of recovering coefficients $h_i$, given the observations $$ \\begin{equation} Z_i = h_i + \\sigma \\epsilon_i = h_i + e \\xi_i, \\end{equation} $$ where $e = \\sigma/\\sqrt{n}$ and $\\xi_i$ are independent standard Gaussians. The Sobolev-type ball $H^\\beta(Q)$ can be represented in terms of coefficients $h_i$, which is given by $$ B_n(Q) = \\{ h\\in\\mathbb{R}^n: \\sum_{i=1}^n a_i^2 h_i^2 \\leq Q^2 \\}, $$ where $a_i^2 = 1 + \\lambda_i^{\\beta} n^{2\\beta/r}$.\nWe introduce Pinsker’s estimator and recall the linear minimax lemma showing that Pinsker’s estimator is optimal in the class of linear estimators. The risk of a linear estimator $\\hat{f}(l) = (l_1 Z_1,...,l_n Z_n)$ with $l = (l_1,...,l_n)\\in\\mathbb{R}^n$ is given by $$ R(l,f) = \\mathbb{E}_f \\sum_{i=1}^n(\\hat{h}_i - h_i)^2 = \\sum_{i=1}^n( (1-l_i)^2 h_i^2 + e^2 l_i^2). $$ The Pinsker estimator for $B_n(Q)$ is $\\hat{f}(l')$ for $l' = (1+ x a_j)_+$, where $x$ is the unique solution of the followsing equation $$ \\begin{equation} \\frac{e^2}{x} \\sum_{i=1}^n a_j(1 - x a_j)_+ = Q^2. \\end{equation} $$ Lemma 1 (Linear minimax lemma) Suppose that the general ellipsoid $B_n(Q)$ has positive coefficients $a_i$. Suppose there exists a unique solution $x$ of the equation (2) and suppose that the associated coefficients $l_i'$ satisfy $$ \\begin{equation} S = e^2 \\sum_{i=1}^n l_i'\u003c\\infty. \\end{equation} $$ Then the linear minimax risk satisfies $$ \\inf_{l\\in\\mathbb{R}^n}\\sup_{f\\in B_n(Q)} R(l,f) = \\sup_{f\\in B_n(Q)} R(l',f) = S. $$ It shows that the Pinsker estimator is the linear minimax estimator.\nLemma 2 With $B_n(Q)$ and $a_i^2 = 1 + \\lambda_i^\\beta n^{2\\beta/r}$, we have The unique solution of the equation (2) satisfies $$ x\\asymp n^{-\\beta/(2\\beta + r)}. $$ The associated Pinsker’s coefficients $l'_i$ satisfy $$ S\\asymp n^{-2\\beta/(2\\beta + r)}. $$ For $e = \\sigma/\\sqrt{n}$ define $v_i = \\frac{e^2 (1+x a_j)_+}{x a_j}$. Then $$ \\max_{i\\leq n} v_i^2 a_j^2 = O(n^{-r/(2\\beta +r)}). $$ 3. Proofs of main results Proof of Theorem 1 First, we show the upper bound of the risk. Consider the Pinsker estimator $\\hat{f} = (l_1' Z_1,...,l_n' Z_n)$ with $$ l_i' = (1 - xa_j)_+. $$ By Lemma 1 and (ii) of Lemma 2, we conclude that $$ \\sup_{f\\in B_n(Q)} \\mathbb{E}_f\\sum_{i}(\\hat{h}_i - h_i)^2 \\asymp n^{-2\\beta/(2\\beta +r)}. $$ Then we show the lower bound of the risk. Define $N$ by $$ N = \\max\\{m: e^2 \\sum_{i=1}^n a_i(a_m - a_j)\u003c Q^2 \\}. $$ Define $$ B_n(Q,N) = \\{h^{(N)} = (h_1,...,h_N, 0 ,...,0): \\sum_{i=1}^N a_i^2 h_i^2 \\leq Q^2 \\}. $$ Denote the minimax risk by $R_n$, i.e. $$ R_n = \\inf_{\\hat{f}} \\sup_{f\\in H^\\beta(Q)} \\mathbb{E}_f \\sum_{i=1}^n(\\hat{h}_i - h_i)^2, $$ then we have $B_n(Q,N)\\subset B_n(Q)$ and hence $$ R_n \\geq \\inf_{\\hat{f}^{(N)} \\in B_n(Q,N)} \\sup_{f^{(N)}\\in B_n(Q,N)} \\mathbb{E}_f \\sum_{i=1}^n(\\hat{h}_i - h_i)^2. $$ Then we can bound the minimax risk from below by the Bayes risk $$ \\begin{equation} R_n \\geq \\inf_{\\hat{f}^{(N)} \\in B_n(Q,N)} \\sum_{i=1}^N \\int_{B_n(Q,N)} \\mathbb{E}_f (\\hat{h}_i - h_i)^2 \\mu(f^{(N)}) d f^{(N)} \\geq I^* - r^*, \\end{equation} $$ where $$ \\begin{align*} I^* \u0026= \\inf_{\\hat{f}^{(N)} \\in B_n(Q,N)} \\sum_{i=1}^N \\int_{\\mathbb{R}^N} \\mathbb{E}_f (\\hat{h}_i - h_i)^2 \\mu(f^{(N)}) d f^{(N)} \\cr r^* \u0026= \\sup_{\\hat{f}^{(N)} \\in B_n(Q,N)} \\sum_{i=1}^N \\int_{\\mathbb{R}^N \\setminus B_n(Q,N)} \\mathbb{E}_f (\\hat{h}_i - h_i)^2 \\mu(f^{(N)}) d f^{(N)}. \\end{align*} $$ From the proof of Pinsker’s theorem, we get that $$ I^* \\gtrsim S, \\quad r^* \\lesssim \\exp(-K(\\max_{i\\leq n} v_j^2 a_j^2)^{-1}). $$ By Lemma 2, we conclude that $R_n\\gtrsim n^{-2\\beta/(2\\beta+r)}$. $\\Box$\nProof of Theorem 2 Consider the estimator $\\hat{\\rho} = \\Psi(\\sum_{i=1}^n \\hat{h}_i \\psi_i)$. The upper bound can be easily proved by the properties of the link function $\\Psi$, $$ \\sup_{\\rho:\\Psi^{-1}(\\rho)\\in H^\\beta(Q)} \\mathbb{E}_\\rho||\\hat{\\rho} - \\rho||_n^2 \\lesssim \\sup_{f\\in B_n(Q)} \\mathbb{E}_f \\sum_{i=1}^n (\\hat{h}_i - h_i)^2 \\lesssim n^{-2\\beta/(2\\beta + r)}. $$ To show the lower bound of the risk, we use the Markov’s inequality to obtain $$ \\inf \\sup \\mathbb{E}_\\rho n^{2\\beta/(2\\beta+r)} ||\\hat{\\rho} -\\rho||_n^2 \\gtrsim \\inf \\sup \\Pr(||\\hat{\\rho} -\\rho||_n^2 \\geq n^{-2\\beta/(2\\beta+r)}). $$ Conside probability measures $P_1,...,P_M$ corresponding to the soft label function $\\rho_1,...,\\rho_M$. For a test $\\phi:\\mathbb{R}^n\\to\\{1,...,M\\}$ define the average probability of error by $$ \\bar{\\rho}_M(\\phi) = \\frac{1}{M} \\sum_{i=1}^M P_i(\\phi = i). $$ Additionally, let $$ \\bar{\\rho}_M = \\inf_\\phi \\bar{\\rho}_M(\\phi). $$ If we have $$ \\begin{equation} ||\\rho_i - \\rho_j||_n^2 \\gtrsim n^{-2\\beta/(2\\beta+r)} ,\\quad i\\neq j,\\quad i,j\\leq M, \\end{equation} $$ then $$ \\inf_{\\hat{\\rho}} \\max_{\\rho \\in \\{\\rho_1,...,\\rho_M\\}} \\Pr_\\rho(||\\hat{\\rho} - \\rho||_n^2 \\geq C c^{-2\\beta/(2\\beta+r)}) \\gtrsim \\bar{\\rho}_M. $$ In view of the fact that if $P_1,...,P_M$ satisfy $$ \\begin{equation} \\frac{1}{M} \\sum_{i=2}^M KL(P_j||P_1) \\leq \\alpha \\log M, \\end{equation} $$ for some $\\alpha\\in(0,1)$, then $$ \\bar{\\rho}_M \\geq \\frac{\\log M - \\log 2}{\\log (M-1)} - \\alpha. $$ It follows that $$ \\sup_{\\rho:\\Psi^{-1}(\\rho)\\in H^\\beta(Q)} \\mathbb{E}_\\rho n^{2\\beta/(2\\beta+r)} ||\\hat{\\rho} -\\rho||_n^2 \\gtrsim \\frac{\\log M - \\log 2}{\\log (M-1)} - \\alpha \\to 0, $$ as $M\\to\\infty$. This is the desired result. Now we construct the required measures $P_1,...,P_M$ satisfying (5)-(6). Let $N = n^{r/(2\\beta +r)}$. For $\\delta\u003e0$ and $\\theta = (\\theta_1,...,\\theta_N)\\in \\{\\pm 1\\}^N$ define $$ f_\\theta = \\delta N^{-(2\\beta + r)/(2r)} \\sum_{i=1}^N \\theta_i \\psi_i. $$ We try to select M vectors of coefficients $\\theta$ s.t. the measures corresponding to $\\rho_i = \\Psi(f_{\\theta,i})$ satisfy (6). Notice that $f_\\theta \\in H^\\beta(Q)$, and by the assumption (G), we have $$ \\langle f_\\theta, (I + (n^{2/r} L)^\\beta) f_\\theta\\rangle_n = \\delta^2 N^{-(2\\beta + r)/r} \\sum_{i=1}^N (1 + \\lambda_i^{\\beta} n^{2\\beta/r} ) \\leq K_1 \\delta^2 $$ for some constant $K_1\u003e0$. Then we pick a subset $\\{ \\theta^{(2)},...,\\theta^{(M)} \\}$ of $\\{\\pm 1\\}^N$ s.t. $$ d_h(\\theta^{(i)}, \\theta^{(j)}) \\gtrsim N, $$ where $d_h$ is the Hamming distance, i.e. $$ d_h(\\theta, \\theta') = \\sum_{i=1}^N 1_{\\theta_i = \\theta'_i}. $$ It can be shown that such subset exists, and the size $M$ satisfies $$ M \\geq b^N, \\quad b\\in(1,2). $$ Set $\\theta^{(1)} = (0,...,0)\\in\\mathbb{R}^N$. We define the measures $P_0,...,P_M$ by $P_i = P_{\\rho_i}$, where $\\rho_i = \\Psi(f_{\\theta,i})$. Since $KL(P_{\\Psi(v)}||P_{\\Psi(w)}) \\leq cn||v - w||_n^2$, we obtain that $$ KL(P_i||P_1) \\leq K_2 n || f_{\\theta^{(i)}} - 0||_n^2 \\leq 4K_2 n \\delta^2 N^{-2\\beta/r}, $$ according to the fact that $||f_\\theta - f_{\\theta'}||_n^2 = 4\\delta^2 N^{-(2\\beta+r)/r} d_h(\\theta, \\theta')$. It gives the condition (6). Finally, we show the condition (5). By the assumption of the theorem we have for any $j\\leq M$ $$ \\max_{i\\leq n} |f_{\\theta^{(j)},i}| \\lesssim N^{(r-2\\beta)/2r}. $$ For $\\beta\\geq r/2$ the norm is then bounded by some constant. Hence, there esists $K_3$ s.t. for every $i\\leq n$ and every $j\\leq M$ $$ |f_{\\theta^{(j)},i}| \\leq K_3. $$ Since $|\\Psi(x) - \\Psi(y)| \\geq K_4|x- y|$ for any $x,y \\in[-K_3,K_3]$, for any $i,j\\leq M, i\\neq j$ $$ ||\\rho_i - \\rho_j||_n^2 \\gtrsim ||f_{\\theta^{(i)}} - f_{\\theta^{(j)}}||_n^2 = 4\\delta^2 N^{-(2\\beta+r)/r} d_h(\\theta, \\theta') \\gtrsim N^{_-2\\beta/r}. $$ This completes the proof since $N = n^{r/(2\\beta +r)}$. ",
+  "wordCount" : "1344",
+  "inLanguage": "en",
+  "datePublished": "2021-08-21T04:18:02+02:00",
+  "dateModified": "2021-08-21T04:18:02+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gp_graph_2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading | Estimating a smooth function on a large graph (2)
+    </h1>
+    <div class="post-meta"><span title='2021-08-21 04:18:02 +0200 +0200'>August 21, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-main-results" aria-label="1. Main results">1. Main results</a></li>
+                <li>
+                    <a href="#2-preliminaries" aria-label="2. Preliminaries">2. Preliminaries</a></li>
+                <li>
+                    <a href="#3-proofs-of-main-results" aria-label="3. Proofs of main results">3. Proofs of main results</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.</p>
+<ul>
+<li>Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. <a href="http://arxiv.org/abs/1709.06360">http://arxiv.org/abs/1709.06360</a></li>
+</ul>
+<h2 id="1-main-results">1. Main results<a hidden class="anchor" aria-hidden="true" href="#1-main-results">#</a></h2>
+<dl>
+<dt>Theorem 1 (<em>Regression</em>)</dt>
+<dd>Under conditions (G), (L) and (S),
+$$ 
+ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta+r)}.
+$$
+where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$.</dd>
+</dl>
+<p>This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta+r)}$.</p>
+<dl>
+<dt>Theorem 2 (<em>Classification</em>)</dt>
+<dd>Under conditions (G), (L) and (S), suppose that the Laplacian eigenfunctions are uniformly bounded by a constant $C$, independent of $n$. Let $\Psi:\mathbb{R}\to (0,1)$ be a differentiable link function with bounded derivative. Then for $\beta\geq r/2$ and $Q>0$
+$$ 
+ \inf_{\hat{\rho}} \sup_{\rho_f: f\in H^\beta(Q)}\mathbb{E}_{f} || \hat{\rho} - \rho_f||_n^2 \asymp n^{-2\beta/(2\beta+r)},
+$$
+where the infimum is taken over all estimators $\hat{\rho} = \hat{\rho}(Y^{(n)})$.</dd>
+</dl>
+<p>Compared to the regression case, there is an extra requirement $\beta\geq r/2$.</p>
+<h2 id="2-preliminaries">2. Preliminaries<a hidden class="anchor" aria-hidden="true" href="#2-preliminaries">#</a></h2>
+<p>In the regression case, we assume that<br>
+</p>
+$$ 
+   Y_i = f_i + \sigma\xi_i,
+$$<p>
+where $\xi_i$ are independent standard Gaussians. Let $\psi_i$ be the orthonormal (normalized) eigenfunctions of the Laplacian matrix s.t.
+</p>
+$$
+ \psi_i^T \psi_i = n.
+$$<p>
+Write $Y = (Y_1,...,Y_n)$, and  $\xi = (\xi_1,...,\xi_n)$. Denote
+</p>
+$$
+ \epsilon_i = \langle \xi, \psi_i \rangle_n,
+$$<p>
+and observe that the $h_i$ are centered Gaussian with
+</p>
+$$ 
+ \mathbb{E} \epsilon_i \epsilon_j = \frac{1}{n} \delta_{ij}.
+$$<p>
+The inner product $Z_i := <Y,\psi_i>_n$ satisfy
+</p>
+$$ 
+ Z_i  = \langle Y,\psi_i\rangle_n = h_i + \delta \epsilon_i,
+$$<p>
+where $h_i$ are coefficients in the series representation of the target function $f^* = \sum_{i=1}^n h_i \psi_i$. Additionally, consider the decomposition of an estimator $\hat{f} = \sum_{i=1}^n \hat{h}_i \psi_i$. Then
+</p>
+$$ 
+ ||\hat{f} - f^*||_n^2 = \sum_{i=1}^n(h_i - \hat{h}_i)^2.
+$$<p>Hence the original problem is converted into the problem of recovering coefficients $h_i$, given the observations
+</p>
+$$ 
+ \begin{equation}
+ Z_i = h_i + \sigma \epsilon_i = h_i + e \xi_i,
+ \end{equation}
+$$<p>
+where $e = \sigma/\sqrt{n}$ and $\xi_i$ are independent standard Gaussians. The Sobolev-type ball $H^\beta(Q)$ can be represented in terms of coefficients $h_i$, which is given by
+</p>
+$$ 
+ B_n(Q) = \{ h\in\mathbb{R}^n: \sum_{i=1}^n a_i^2 h_i^2 \leq Q^2  \},
+$$<p>
+where $a_i^2 = 1 + \lambda_i^{\beta} n^{2\beta/r}$.</p>
+<p>We introduce Pinsker&rsquo;s estimator and recall the linear minimax lemma showing that Pinsker&rsquo;s estimator is optimal in the class of linear estimators. The risk of a linear estimator $\hat{f}(l) = (l_1 Z_1,...,l_n Z_n)$ with $l = (l_1,...,l_n)\in\mathbb{R}^n$ is given by
+</p>
+$$
+ R(l,f) = \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2 = \sum_{i=1}^n( (1-l_i)^2 h_i^2 + e^2 l_i^2).
+$$<p>
+The Pinsker estimator for $B_n(Q)$ is $\hat{f}(l')$ for $l' = (1+ x a_j)_+$, where $x$ is the unique solution of the followsing equation
+</p>
+$$ 
+ \begin{equation}
+ \frac{e^2}{x} \sum_{i=1}^n a_j(1 - x a_j)_+ = Q^2.
+ \end{equation}
+$$<dl>
+<dt>Lemma 1 (<em>Linear minimax lemma</em>)</dt>
+<dd>Suppose that the general ellipsoid $B_n(Q)$ has positive coefficients $a_i$. Suppose there exists a unique solution $x$ of the equation (2) and suppose that the associated coefficients $l_i'$ satisfy
+$$ 
+ \begin{equation}
+ S = e^2 \sum_{i=1}^n l_i'<\infty.
+ \end{equation}
+$$
+Then the linear minimax risk satisfies
+$$ 
+ \inf_{l\in\mathbb{R}^n}\sup_{f\in B_n(Q)} R(l,f)  = \sup_{f\in B_n(Q)} R(l',f) = S.
+$$</dd>
+</dl>
+<p>It shows that the Pinsker estimator is the linear minimax estimator.</p>
+<dl>
+<dt>Lemma 2</dt>
+<dd>With $B_n(Q)$ and $a_i^2 = 1 + \lambda_i^\beta n^{2\beta/r}$, we have
+<ol>
+<li>The unique solution of the equation (2) satisfies
+$$ 
+     x\asymp n^{-\beta/(2\beta + r)}.
+    $$</li>
+<li>The associated Pinsker&rsquo;s coefficients $l'_i$ satisfy
+$$ 
+     S\asymp n^{-2\beta/(2\beta + r)}.
+    $$</li>
+<li>For $e = \sigma/\sqrt{n}$ define $v_i = \frac{e^2 (1+x a_j)_+}{x a_j}$. Then
+$$ 
+     \max_{i\leq n} v_i^2 a_j^2 = O(n^{-r/(2\beta +r)}).
+    $$</li>
+</ol>
+</dd>
+</dl>
+<h2 id="3-proofs-of-main-results">3. Proofs of main results<a hidden class="anchor" aria-hidden="true" href="#3-proofs-of-main-results">#</a></h2>
+<dl>
+<dt>Proof of Theorem 1</dt>
+<dd>First, we show the upper bound of the risk. Consider the Pinsker estimator $\hat{f} = (l_1' Z_1,...,l_n' Z_n)$ with
+$$ 
+ l_i' = (1 - xa_j)_+.
+$$
+By Lemma 1 and (ii) of Lemma 2, we conclude that
+$$ 
+ \sup_{f\in B_n(Q)} \mathbb{E}_f\sum_{i}(\hat{h}_i - h_i)^2 \asymp n^{-2\beta/(2\beta +r)}.
+$$
+Then we show the lower bound of the risk. Define $N$ by
+$$ 
+ N  = \max\{m: e^2 \sum_{i=1}^n a_i(a_m - a_j)< Q^2 \}.
+$$
+Define
+$$ 
+ B_n(Q,N) = \{h^{(N)} = (h_1,...,h_N, 0 ,...,0): \sum_{i=1}^N a_i^2 h_i^2 \leq Q^2   \}.
+$$
+Denote the minimax risk by $R_n$, i.e.
+$$ 
+ R_n =   \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2,
+$$
+then we have $B_n(Q,N)\subset B_n(Q)$ and hence
+$$ 
+ R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sup_{f^{(N)}\in B_n(Q,N)} \mathbb{E}_f \sum_{i=1}^n(\hat{h}_i - h_i)^2.
+$$
+Then we can bound the minimax risk from below by the Bayes risk
+$$ 
+ \begin{equation}
+ R_n \geq \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \geq I^* - r^*,
+ \end{equation}
+$$
+where
+$$ 
+\begin{align*}
+ I^* &= \inf_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)} \cr
+ r^* &= \sup_{\hat{f}^{(N)} \in B_n(Q,N)} \sum_{i=1}^N \int_{\mathbb{R}^N \setminus B_n(Q,N)} \mathbb{E}_f (\hat{h}_i - h_i)^2 \mu(f^{(N)}) d f^{(N)}.
+ \end{align*}
+$$
+From the proof of Pinsker&rsquo;s theorem, we get that
+$$ 
+ I^* \gtrsim S, \quad r^* \lesssim \exp(-K(\max_{i\leq n} v_j^2 a_j^2)^{-1}).
+$$
+By Lemma 2, we conclude that $R_n\gtrsim n^{-2\beta/(2\beta+r)}$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Proof of Theorem 2</dt>
+<dd>Consider the estimator $\hat{\rho} = \Psi(\sum_{i=1}^n \hat{h}_i \psi_i)$. The upper bound can be easily proved by the properties of the link function $\Psi$,
+$$ 
+ \sup_{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}_\rho||\hat{\rho} - \rho||_n^2 \lesssim  \sup_{f\in B_n(Q)} \mathbb{E}_f \sum_{i=1}^n (\hat{h}_i - h_i)^2 \lesssim n^{-2\beta/(2\beta + r)}.
+$$
+To show the lower bound of the risk, we use the Markov&rsquo;s inequality to obtain
+$$ 
+ \inf \sup \mathbb{E}_\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||_n^2 \gtrsim \inf \sup \Pr(||\hat{\rho} -\rho||_n^2 \geq n^{-2\beta/(2\beta+r)}).
+$$
+Conside probability measures $P_1,...,P_M$ corresponding to the soft label function $\rho_1,...,\rho_M$. For a test  $\phi:\mathbb{R}^n\to\{1,...,M\}$ define the average probability of error by
+$$ 
+ \bar{\rho}_M(\phi) = \frac{1}{M} \sum_{i=1}^M P_i(\phi = i).
+$$
+Additionally, let
+$$ 
+ \bar{\rho}_M = \inf_\phi \bar{\rho}_M(\phi).
+$$
+If we have
+$$ 
+\begin{equation}
+ ||\rho_i - \rho_j||_n^2 \gtrsim n^{-2\beta/(2\beta+r)} ,\quad i\neq j,\quad  i,j\leq M,
+\end{equation}
+$$
+then
+$$ 
+ \inf_{\hat{\rho}} \max_{\rho \in \{\rho_1,...,\rho_M\}} \Pr_\rho(||\hat{\rho} - \rho||_n^2 \geq C c^{-2\beta/(2\beta+r)}) \gtrsim \bar{\rho}_M.
+$$
+In view of the fact that if $P_1,...,P_M$ satisfy
+$$ 
+ \begin{equation}
+ \frac{1}{M} \sum_{i=2}^M KL(P_j||P_1) \leq \alpha \log M,
+ \end{equation}
+$$
+for some $\alpha\in(0,1)$, then
+$$ 
+ \bar{\rho}_M \geq \frac{\log M - \log 2}{\log (M-1)} - \alpha.
+$$
+It follows that
+$$ 
+ \sup_{\rho:\Psi^{-1}(\rho)\in H^\beta(Q)} \mathbb{E}_\rho n^{2\beta/(2\beta+r)} ||\hat{\rho} -\rho||_n^2 \gtrsim \frac{\log M - \log 2}{\log (M-1)} - \alpha \to 0,
+$$
+as $M\to\infty$. This is the desired result.
+Now we construct the required measures $P_1,...,P_M$ satisfying (5)-(6). Let $N = n^{r/(2\beta +r)}$. For $\delta>0$ and $\theta = (\theta_1,...,\theta_N)\in \{\pm 1\}^N$ define
+$$ 
+ f_\theta = \delta N^{-(2\beta + r)/(2r)} \sum_{i=1}^N \theta_i \psi_i. 
+$$
+We try to select M vectors of coefficients $\theta$ s.t. the measures corresponding to $\rho_i = \Psi(f_{\theta,i})$ satisfy (6). Notice that $f_\theta \in H^\beta(Q)$, and by the assumption (G), we have
+$$ 
+ \langle f_\theta, (I + (n^{2/r} L)^\beta) f_\theta\rangle_n = \delta^2 N^{-(2\beta + r)/r} \sum_{i=1}^N (1 + \lambda_i^{\beta} n^{2\beta/r} )   \leq K_1 \delta^2
+$$
+for some constant $K_1>0$. Then we pick a subset $\{ \theta^{(2)},...,\theta^{(M)} \}$ of $\{\pm 1\}^N$ s.t.
+$$ 
+ d_h(\theta^{(i)}, \theta^{(j)}) \gtrsim N,
+$$
+where $d_h$ is the Hamming distance, i.e.
+$$ 
+ d_h(\theta, \theta') = \sum_{i=1}^N 1_{\theta_i = \theta'_i}.
+$$
+It can be shown that such subset exists, and the size $M$ satisfies
+$$ 
+ M \geq b^N, \quad b\in(1,2).
+$$
+Set $\theta^{(1)} = (0,...,0)\in\mathbb{R}^N$. We define the measures $P_0,...,P_M$ by $P_i = P_{\rho_i}$, where $\rho_i = \Psi(f_{\theta,i})$.
+Since $KL(P_{\Psi(v)}||P_{\Psi(w)}) \leq cn||v - w||_n^2$, we obtain that
+$$ 
+ KL(P_i||P_1) \leq K_2 n || f_{\theta^{(i)}} - 0||_n^2 \leq 4K_2 n \delta^2 N^{-2\beta/r},
+$$
+according to the fact that $||f_\theta  - f_{\theta'}||_n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta')$. It gives the condition (6).
+Finally, we show the condition (5). By the assumption of the theorem we have for any $j\leq M$
+$$ 
+ \max_{i\leq n} |f_{\theta^{(j)},i}| \lesssim N^{(r-2\beta)/2r}.
+$$
+For $\beta\geq r/2$ the norm is then bounded by some constant. Hence, there esists $K_3$ s.t. for every $i\leq n$ and every $j\leq M$
+$$ 
+ |f_{\theta^{(j)},i}| \leq K_3.
+$$
+Since $|\Psi(x) - \Psi(y)| \geq K_4|x- y|$ for any $x,y \in[-K_3,K_3]$, for any $i,j\leq M, i\neq j$
+$$ 
+   ||\rho_i - \rho_j||_n^2 \gtrsim ||f_{\theta^{(i)}}  - f_{\theta^{(j)}}||_n^2 = 4\delta^2 N^{-(2\beta+r)/r} d_h(\theta, \theta') \gtrsim N^{_-2\beta/r}.
+$$
+This completes the proof since $N = n^{r/(2\beta +r)}$.</dd>
+</dl>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/rl/rl_01_multi_armed_bandits/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>RL | Multi-armed Bandits</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Reading | Estimating a smooth function on a large graph (1)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

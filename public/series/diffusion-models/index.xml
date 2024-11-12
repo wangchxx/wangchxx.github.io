@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Diffusion Models on My Notes</title>
+    <link>https://wangchxx.github.io/series/diffusion-models/</link>
+    <description>Recent content in Diffusion Models on My Notes</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 24 Oct 2024 00:01:41 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/series/diffusion-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DL | Diffusion Models 4 - Conditional Diffusion Models</title>
+      <link>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</link>
+      <pubDate>Thu, 24 Oct 2024 00:01:41 +0200</pubDate>
+      <guid>https://wangchxx.github.io/posts/diffusion_4_conditional_df/</guid>
+      <description>&lt;h1 id=&#34;conditional-diffusion-models&#34;&gt;Conditional diffusion models&lt;/h1&gt;
+&lt;p&gt;Given $Y$, the forward-time SDE generates $X_{t}$ conditioned on $Y$ and has $X_{t}\sim p_{t}(\cdot|Y)$:
+&lt;/p&gt;
+$$
+d X_{t} = fdt + gdW_{t}, \quad X_{0} \sim q_{0} = p_{data}(\cdot|Y).
+$$&lt;p&gt;
+The reverse-time SDE generates $\bar{X}_{0}\sim p_{0}(\cdot|Y)=p_{data}(\cdot|Y)$:
+&lt;/p&gt;
+$$
+d\bar{X}_{t} = (f-g^2 \nabla_{x}\log p_{t}(\bar{X}_{t}|Y))dt + gd\bar{W}_{t}, \quad \bar{X}_{T}\sim p_{T}(\cdot|Y)\approx \mathcal{N}(0, \sigma^2_{T} I).
+$$&lt;p&gt;
+So we need to learn the conditional score $\nabla_{x} \log p_{t}(X_{t}|Y)$. But how to do it?&lt;/p&gt;
+&lt;h2 id=&#34;classifier-guidance&#34;&gt;Classifier guidance&lt;/h2&gt;
+&lt;p&gt;By Bayes&amp;rsquo; rule
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DL | Diffusion Models 3 - Understanding DDMP from a Unified Prospective</title>
+      <link>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</link>
+      <pubDate>Wed, 23 Oct 2024 10:52:59 +0200</pubDate>
+      <guid>https://wangchxx.github.io/posts/diffusion_3_from_a_unified_prospective/</guid>
+      <description>&lt;h2 id=&#34;understand-ddmp-from-vlb&#34;&gt;Understand DDMP from VLB&lt;/h2&gt;
+&lt;p&gt;In the &lt;a href=&#34;https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/&#34;&gt;Diffusion-models-1&lt;/a&gt; we have introduced the DDMP model
+&lt;/p&gt;
+$$
+X_t|X_{t-1} = \mathcal{N}(\sqrt{1-\beta_t}X_{t-1}, \beta_t I), \quad X_t|X_0 = \mathcal{N}(\sqrt{\bar{\alpha}_t} X_0, (1-\bar{\alpha}_{t})I),
+$$&lt;p&gt;
+with $X_{0}\sim q_{0} = p_{data}$, $\alpha_{t} = 1-\beta_{t}$ and $\bar{\alpha}_{t} = \prod_{s=1}^t (1-\beta_{s})$.&lt;/p&gt;
+&lt;p&gt;The loss function is derived by minimizing the negative log-likelihood $-\log p_{\theta}(X_{0})$ with a variational lower bound $L_{VLB}$
+&lt;/p&gt;
+$$
+L_{VLB} = \mathbb{E}_{q}\left[ \log  \frac{q(x_{1:T}|x_{0})}{p_{\theta}(x_{0:T})}  \right]  = \sum_{t=0}^T L_{t}
+$$&lt;p&gt;
+with
+&lt;/p&gt;
+$$
+L_{t} = D_{KL}(q(x_{t}|x_{t+1},x_{0})\| p_{\theta}(x_{t}|x_{t+1})),\; 1\leq t\leq T-1. 
+$$&lt;p&gt;
+Since the conditional distribution $X_{t}|(X_{t-1}, X_{0})$ is Gaussian
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DL | Diffusion Models 2 - Preliminary ODE and SDE</title>
+      <link>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</link>
+      <pubDate>Tue, 22 Oct 2024 00:01:41 +0200</pubDate>
+      <guid>https://wangchxx.github.io/posts/diffusion_2_preliminary_sde/</guid>
+      <description>&lt;h2 id=&#34;basics&#34;&gt;Basics&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;ODE definition&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Consider the ordinary differential equation (ODE)
+&lt;/p&gt;
+$$
+\frac{dX}{dt}(t) = f(X(t), t),
+$$&lt;p&gt;
+which we also express as $dX_{t} = f(X_{t}, t)dt$, where $X(t), f(X(t),t)\in  \mathbb{R}^d$. Then, $\{X(t)\}_{t}$ is a deterministic curve.&lt;/p&gt;
+&lt;p&gt;We can define the ODE by the limit
+&lt;/p&gt;
+$$
+X_{k+1} = X_{k} + \Delta _{t} f(X_{k}, k\Delta_{t}), \quad k = 0,1,2,\dots,
+$$&lt;p&gt;
+under $\Delta_{t}\to 0$ with $t = k\Delta_{t}$. Precisely, $\left\{ X_{\left\lfloor  \frac{t}{\Delta_{t}}  \right\rfloor} \right\}_{t} \to \{X_{t}\}_{t}$ uniformly on compact intervals.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DL | Diffusion Models 1 - DDMP</title>
+      <link>https://wangchxx.github.io/posts/diffusion_1_ddmp/</link>
+      <pubDate>Mon, 21 Oct 2024 04:34:23 +0800</pubDate>
+      <guid>https://wangchxx.github.io/posts/diffusion_1_ddmp/</guid>
+      <description>&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+&lt;p&gt;A diffusion probabilistic model is a parameterized Markov chain that gradually adds noise to the data and then learn to reverse the diffusion process to generate data samples from noise.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://wangchxx.github.io/posts/diffusion_1_ddmp/ddmp_graph.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+&lt;p&gt;Compared with other AI tasks, image generation is harder, since it does not have a standard answer. To solve this issue, GAN and VAE are propsed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GAN uses another model (discriminator) to decide the quality of generated images.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

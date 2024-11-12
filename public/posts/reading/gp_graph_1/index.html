@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading | Estimating a smooth function on a large graph (1) | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515
+
+1. Problem setup
+Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Reading | Estimating a smooth function on a large graph (1)">
+<meta property="og:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515
+
+1. Problem setup
+Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_graph_1/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-20T23:28:03+02:00">
+<meta property="article:modified_time" content="2021-08-20T23:28:03+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Estimating a smooth function on a large graph (1)">
+<meta name="twitter:description" content="This paper proposed an approach to estimating smooth functions on graphs using GP priors.
+
+Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515
+
+1. Problem setup
+Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Estimating a smooth function on a large graph (1)",
+      "item": "https://wangchxx.github.io/posts/reading/gp_graph_1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Estimating a smooth function on a large graph (1)",
+  "name": "Reading | Estimating a smooth function on a large graph (1)",
+  "description": "This paper proposed an approach to estimating smooth functions on graphs using GP priors.\nKirichenko, A., \u0026amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\\to \\mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\\cdot||_n$ defined by ",
+  "keywords": [
+    
+  ],
+  "articleBody": "This paper proposed an approach to estimating smooth functions on graphs using GP priors.\nKirichenko, A., \u0026 van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. http://arxiv.org/abs/1511.02515 1. Problem setup Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\\to \\mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\\cdot||_n$ defined by $$ ||f||_n^2 = n^{-1}\\sum_{i=1}^n f_i^2. $$ The corresponding inner product of two funtions $f,g$ is denoted by $$ \\langle f,g \\rangle_n = \\frac{1}{n}\\sum_{i=1}^n f_i g_i. $$Assumptions (G). Let $\\lambda_i$ be the (ordered) eigenvalues of the Laplacian matrix. For some $r\\geq 1$, there exist $i_0\\in\\mathbb{N}, \\kappa\\in(0,1]$ and $C_1,C_2\u003e0$ s.t. for all $n$ large enough, $$ \\begin{equation} C_1(\\frac{i}{n})^{2/r} \\leq \\lambda_i \\leq C_2(\\frac{i}{n})^{2/r} \\end{equation} $$ for all $i\\in\\{i_0,...,\\kappa n\\}$\n(L). The graph $G$ is connected, simple, undirected.\n(S). We assume $f$ belongs to a Sobolev-type ball of the form\n$$ H^\\beta(Q) = \\{f: \\langle f, (I + (n^{2/r} L)^\\beta) f\\rangle_n \\leq Q^2\\} $$ for some $\\beta,Q\u003e0$. The parameter $\\beta$ determines the smoothness of the function.\n2. Main results In the regression case we assume that we have observations $Y = (Y_1,...,Y_n)$ at the vertices of the graph satisfying $$ Y_i = f_i^* + \\sigma \\xi_i, $$ where $\\xi_i$ are independent standard Gaussian. By Theorem 1, we have $$ \\begin{equation} \\Pi(||f - f^*||_n \\geq M \\epsilon_n| Y^{(n)}) \\to 0 \\end{equation} $$ in $P_{f^*}$-probability at the rate $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$ for $\\beta\\leq \\alpha+r/2$.\nIn the binary classification case, we assume that $Y_1,...,Y_n$ are 0-1 valued variables satisfying $$ p^*_i = \\Pr(Y_i = 1). $$ We introduce a link function $\\Psi:\\mathbb{R}\\to (0,1)$ and set $p = \\Psi(f)$. We assume that the link function is differentiable with bounded derivative $\\phi$. Then the Theorem also leads to posterior contraction rates $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$ for $\\beta\\leq \\alpha+r/2$ by the following fact $$ || p_v - p_w||_r \\lesssim ||v - w||_{r,G}. $$ Theorem 1 (Power of the Laplacian) Under the assumptions (G), (L) and (S). Let $\\alpha\u003e0$ be fixed and assume that $f^*\\in H^\\beta(Q)$ be the “true” function and $0\u003c \\beta\\leq \\alpha+r/2$. Let the random function $f$ on the graph be defined by $$ \\begin{align} c \u0026\\sim \\exp(1) \\cr f|c \u0026\\sim N(0, \\Sigma_{c}), \\end{align} $$ where $\\Sigma_c^{-1} = (\\frac{n}{c})^{2/r}(L + n^{-2} I)^{\\alpha+r/2}$. Then there exists constants $K_1\u003e0,K_2\u003e1$ and Borel measurable subsets $B_n\\subset \\mathbb{R}^n$ s.t. $$ \\begin{align} \\Pr(||f - f^*||\u003c\\epsilon_n) \u0026\\gtrsim \\exp(-K_1 n\\epsilon_n^2), \\cr \\Pr(f\\notin B_n) \u0026\\lesssim \\exp(-K_2 n \\epsilon_n^2), \\cr \\log N(\\epsilon_n , B_n , ||\\cdot||_n) \u0026\\lesssim n\\epsilon_n^2, \\end{align} $$ where $\\epsilon_n\\asymp n^{-\\beta/(2\\beta+r)}$. This theorem obtains the rate $n^{-\\beta/(2\\beta+r)}$ for all $\\beta$ up to $\\alpha+r/2$.\nTheorem 2 (Exponential of the Laplacian) Under the assumptions (G), (L) and (S). Let $\\alpha\u003e0$ be fixed and assume that $f^*\\in H^\\beta(Q)$ be the “true” function and $\\beta\u003e0$. Let the random function $f$ on the graph be defined by $$ \\begin{align} c \u0026\\sim \\exp(1) \\cr f|c \u0026\\sim N(0, \\Sigma_{c}), \\end{align} $$ where $\\Sigma_c = n \\exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1\u003e0,K_2\u003e1$ and Borel measurable subsets $B_n\\subset \\mathbb{R}^n$ s.t. $$ \\begin{align} \\Pr(||f - f^*||\u003c\\epsilon_n) \u0026\\gtrsim \\exp(-K_1 n\\epsilon_n^2), \\cr \\Pr(f\\notin B_n) \u0026\\lesssim \\exp(-K_2 n \\epsilon_n^2), \\cr \\log N(\\tilde{\\epsilon}_n , B_n , ||\\cdot||_n) \u0026\\lesssim n\\tilde{\\epsilon}_n^2, \\end{align} $$ where $\\epsilon_n\\asymp (n/\\log^{1+r/2}n)^{-\\beta/(2\\beta+r)}$ and $\\tilde{\\epsilon}_n \\asymp \\epsilon_n\\log^{1/2+r/4}n$. 3. Proofs of main results Given $c$, the random vector $f$ is an element in the GP process $GP(0,\\Sigma_c)$. The corresponding RKHS $\\mathbb{H}^c$ is the entire space $\\mathbb{R}^n$, and the corresponding RKHS-norm is given by $$ ||h||_{\\mathbb{H}^c}^2 = h^T\\Sigma_c^{-1}h. $$Let $\\psi_i$ be the engenfunctions of $L$, normalized w.r.t. the norm $||\\cdot||_n$. In particular, the eigenfunctions $\\psi_i$ are normalized s.t.\n$$ \\psi_i^T \\psi_i = n. $$They are also eigenfunctions of $\\Sigma_c^{-1}$. We denote the corresponding engenvalues by $\\mu_i$. The Gaussian $N(0,\\Sigma_c)$ admits the series representation $$ \\sum_i Z_i \\psi_i/\\sqrt{n\\mu_i}, $$ where $Z_i$ are standard Gaussian. In particular the functions $\\psi_i/\\sqrt{n\\mu_i}$ form an orthonormal basis of the RKHS $\\mathbb{H}^c$. Hence, the ordinary $||\\cdot||_n$-norm and the RKHS-norm of a function $h$ with expansion $h = \\sum_i h_i \\psi_i$ are given by $$ \\begin{equation} ||h||_n^2 = \\sum_i h_i^2,\\quad ||h||_{\\mathbb{H}^c}^2 = n\\sum_i \\mu_i h_i^2. \\end{equation} $$Proof of Theorem 1 Lemma 1 (small ball) For $c^{-p/r}\\epsilon\\sqrt{n}$ small enough, $$ -\\log \\Pr(||f||_n \\leq \\epsilon|c) \\lesssim (\\frac{c^{(\\alpha+4/2)/r}}{\\epsilon\\sqrt{n}})^{r/\\alpha}. $$ Proof By the series representation of $f$, we have $$ \\Pr(||f||_n\\leq \\epsilon|c) = \\Pr(\\sum_i Z_i^2/(n\\mu_i)\\leq \\epsilon^2). $$ The assumption (G) allows us to bound $\\mu_i$ from below, then it follows that $$ \\begin{align*} \\Pr(||f||_n\\leq 2\\epsilon^2|c) \u0026\\geq \\Pr(\\sum_{i\\leq i_0}Z_i^2/(n\\mu_i)\\leq \\epsilon^2, \\sum_{i\u003ei_0}Z_i^2/(n\\mu_i)\\leq \\epsilon^2) \\cr \u0026\\geq \\Pr(\\sum_{i\\leq i_0} Z_i^2 \\leq (C_1^p c^{-2p/4} n^{(2\\alpha+2r - 2pr)/4})\\epsilon^2)\\Pr(\\sum_{i\u003ei_0}\\frac{Z_i^2}{e^{2p/r}}\\leq C_1^p c^{-2p/r}n\\epsilon^2), \\end{align*} $$ where we write $p+r/2$. The second factor can be bounded from below by $$ \\exp(-const(c^{p/r}\\epsilon\\sqrt{n})^{-r/\\alpha}), $$ provided $c^{p/r}\\epsilon\\sqrt{n}$ is small. By the triangle inequality and independence, the first factor is bounded from below by $$ \\left(\\Pr(|Z_1|\\leq i_0^{1/2} C_1^{p/2} c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon)\\right)^{i_0}. $$ Since $r\\geq 1$, we have $c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon = O(c^{-p/r} \\epsilon\\sqrt{n})$. Hence, for $c^{-p/r}\\epsilon\\sqrt{n}$ small, the probability is bounded from below by $$ const\\times(c^{-p/r} n^{(\\alpha+r-pr)/r}\\epsilon)^{i_0} $$ Combining the bounds for the two factors, we have $$ -\\log \\Pr(||f||_n^2 \\leq 2\\epsilon^2|c) \\lesssim (\\frac{c^{p/r}}{\\epsilon\\sqrt{n}})^{r/\\alpha} + \\log (\\frac{c^{p/r}}{n^{(\\alpha+r-pr)/r}\\epsilon}) $$ Lemma 2 (discentering) Let $f\\in H^\\beta(Q)$ for $\\beta\\leq \\alpha +r/2$. For $\\epsilon$ s.t. $\\epsilon\\to 0$ and $1/\\epsilon = o(n^{\\beta/r})$, $$ \\inf_{||h-f||_n\\leq \\epsilon} ||h||_{\\mathbb{H}^c}^2\\lesssim nc^{-(2\\alpha+r)/r} \\epsilon^{-\\frac{2(\\alpha-\\beta) +r}{\\beta}} $$ Proof Use the series expansion of $f = \\sum_i h_i \\psi_i$. By the assumption (S) we have $\\sum_i (1 + n^{2\\beta/r}\\lambda_i^\\beta) h_i^2 \\leq Q^2$. Now for $I$ to be determined later, consider $h = \\sum_{i\\leq I} h_i\\psi_i$. By assumption (G), for $I$ large enough $$ ||h - f||_n^2 = \\sum_{i\u003eI}h_i^2\\leq \\frac{Q^2}{1 + n^{2\\beta/r}\\lambda_I^\\beta} \\leq Q^2 C_1^{-\\beta}I^{-2\\beta/r}. $$ Putting $I\\propto \\epsilon^{-r/\\beta}$ we obtain $||h-f||_n \\leq \\epsilon$. Then the RKHS-norm of $h$ satisfies $$ \\begin{align*} ||h||_{\\mathbb{H}^c}^2 \u0026= n\\sum_{i\\leq I}\\left((n/c)^{2/r} (\\lambda_i + n^{-2}) \\right)^{\\alpha+r/2} h_i^2 \\cr \u0026\\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\\alpha-\\beta)/r}\\lambda_I^{p-\\beta} \\end{align*} $$ Then by the assumption (G), we obtain the disired result. Lemma 3 (entropy) $$ \\log N(\\epsilon, \\mathbb{H}_{1,c}, ||\\cdot||_n) \\lesssim c (\\frac{1}{\\epsilon\\sqrt{n}})^{r/(\\alpha+r/2)}. $$ Proof of Theorem 1 Given $c$, the eigenvalues of $\\Sigma_c^{-1}$ are given by $$ \\mu_i = \\left( (\\frac{n}{c})^{2/r} (\\lambda_i + \\frac{1}{n^2})\\right)^{\\alpha+r/2}. $$ For the first assertion. By the fact that $$ \\phi_w(\\epsilon) \\leq -\\log \\Pr(||W-w||\u003c \\epsilon) \\leq \\phi_w(\\epsilon/2) $$ and the Lemma 1 and Lemma 2, for $\\epsilon = \\epsilon_n = n^{-\\beta/(r+2\\beta)}$ and $c = c_n$ s.t. $$ \\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}\\leq c_n^{(\\alpha+r/2)/r}\\leq 2\\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}, $$ we have $-\\log\\Pr(||f- f^* ||_n\u003c\\epsilon_n|c)\\lesssim \\epsilon_n^{-r\\beta}$. By direct computation, we obtain $$ \\Pr(||f-f^*||_n\u003c\\epsilon_n) \\gtrsim e^{-K_1 \\epsilon_n^{-r/\\beta}}. $$ Then we show the left two assertions. Define $B_n = M_n\\mathbb{H}_{1,c_n} + \\epsilon_n\\mathbb{B}_1$, where $\\mathbb{B}_1$ is the unit ball of $(\\mathbb{R}^2,||\\cdot||_n)$. For $\\epsilon_n = n^{-\\beta/(2\\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have $$ \\log N(2\\epsilon_n, B_n, ||\\cdot||_n) \\leq \\log N(\\epsilon_n, M_n\\mathbb{H}_{1,c_n}, ||\\cdot||_n) \\lesssim c_n (\\frac{M_n}{\\epsilon_n\\sqrt{n}})^{r/p}. $$ Choosing $M_n = M\\sqrt{n\\epsilon_n^2}, c_n^{p/r} = N \\sqrt{n} \\epsilon_n^{(\\beta-\\alpha)/\\beta}$, we obtain the third assertion. It remains to show the second assertion. $$ \\Pr(f\\notin B_n) \\leq \\int_0^{c_n} \\Pr(f\\notin B_n|c) e^{-c} dc + \\int_{c_n}^\\infty e^{-c} dc. $$ For $c\\leq c_n$, we have $\\mathbb{H}_{1,c}\\subset \\mathbb{H}_{1,c_n}$. Hence, by the Borell’s’ inequality, we have for $c\\leq c_n$ that $$ \\begin{align*} \\Pr(f\\notin B_n|c) \u0026\\leq \\Pr(f\\notin M_n \\mathbb{H}_{1,c} + \\epsilon_n \\mathbb{B}_1|c) \\cr \u0026\\leq 1 - \\Phi(\\Phi^{-1}(\\Pr(||f||_n \\leq \\epsilon_n|c) + M_n)) \\cr \u0026\\leq 1 - \\Phi(\\Phi^{-1}(\\Pr(||f||_n \\leq \\epsilon_n|c_n) + M_n)) \\end{align*} $$ By Lemma 1 with $c_n^{p/r} = N\\sqrt{n}\\epsilon_n^{(\\beta-\\alpha)-\\beta}$, the small ball probability in this expression is bounded from below by $\\exp(-K \\epsilon_n^{-r/\\beta})$. Then with appropriate choice $M_n$, we obtain the desired result.\n",
+  "wordCount" : "1257",
+  "inLanguage": "en",
+  "datePublished": "2021-08-20T23:28:03+02:00",
+  "dateModified": "2021-08-20T23:28:03+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gp_graph_1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading | Estimating a smooth function on a large graph (1)
+    </h1>
+    <div class="post-meta"><span title='2021-08-20 23:28:03 +0200 +0200'>August 20, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-problem-setup" aria-label="1. Problem setup">1. Problem setup</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#assumptions" aria-label="Assumptions">Assumptions</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#2-main-results" aria-label="2. Main results">2. Main results</a></li>
+                <li>
+                    <a href="#3-proofs-of-main-results" aria-label="3. Proofs of main results">3. Proofs of main results</a><ul>
+                        
+                <li>
+                    <a href="#proof-of-theorem-1" aria-label="Proof of Theorem 1">Proof of Theorem 1</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This paper proposed an approach to estimating smooth functions on graphs using GP priors.</p>
+<ul>
+<li>Kirichenko, A., &amp; van Zanten, H. (2015). Estimating a smooth function on a large graph by Bayesian Laplacian regularisation. ArXiv:1511.02515 [Math, Stat]. <a href="http://arxiv.org/abs/1511.02515">http://arxiv.org/abs/1511.02515</a></li>
+</ul>
+<h2 id="1-problem-setup">1. Problem setup<a hidden class="anchor" aria-hidden="true" href="#1-problem-setup">#</a></h2>
+<p>Let $G = (V,E)$ be a connected undirected graph and $A$ its adjacency matrix, $D$ its degree matrix. Then $L = D-A$ is the Laplacian of the graph. Suppose that there is a function $f:[0,1]\to \mathbb{R}$ on the graph. We are interested in the $n$-dimentional vector $f = (f_1,...,f_n)^T$, where $f_i = f(i/n)$. We measure distances and norms of functions using the norm $||\cdot||_n$ defined by
+</p>
+$$
+ ||f||_n^2 = n^{-1}\sum_{i=1}^n f_i^2.
+$$<p>
+The corresponding inner product of two funtions $f,g$ is denoted by
+</p>
+$$
+ \langle f,g \rangle_n = \frac{1}{n}\sum_{i=1}^n f_i g_i.
+$$<h4 id="assumptions">Assumptions<a hidden class="anchor" aria-hidden="true" href="#assumptions">#</a></h4>
+<ol>
+<li>
+<p>(G). Let $\lambda_i$ be the (ordered) eigenvalues of the Laplacian matrix. For some $r\geq 1$, there exist $i_0\in\mathbb{N}, \kappa\in(0,1]$ and $C_1,C_2>0$ s.t. for all $n$ large enough,
+</p>
+$$
+\begin{equation}
+C_1(\frac{i}{n})^{2/r} \leq \lambda_i \leq C_2(\frac{i}{n})^{2/r}
+\end{equation}
+$$<p>
+for all $i\in\{i_0,...,\kappa n\}$</p>
+</li>
+<li>
+<p>(L). The graph $G$ is connected, simple, undirected.</p>
+</li>
+<li>
+<p>(S). We assume $f$ belongs to a Sobolev-type ball of the form</p>
+</li>
+</ol>
+$$ 
+ H^\beta(Q) = \{f: \langle f, (I + (n^{2/r} L)^\beta) f\rangle_n \leq Q^2\}
+$$<p>
+for some $\beta,Q>0$. The parameter $\beta$ determines the smoothness of the function.</p>
+<h2 id="2-main-results">2. Main results<a hidden class="anchor" aria-hidden="true" href="#2-main-results">#</a></h2>
+<p>In the regression case we assume that we have observations $Y = (Y_1,...,Y_n)$ at the vertices of the graph satisfying
+</p>
+$$ 
+ Y_i = f_i^* + \sigma \xi_i, 
+$$<p>
+where $\xi_i$ are independent standard Gaussian. By Theorem 1, we have
+</p>
+$$ 
+ \begin{equation}
+ \Pi(||f - f^*||_n \geq M \epsilon_n| Y^{(n)}) \to 0
+ \end{equation}
+$$<p>
+in $P_{f^*}$-probability at the rate $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$.</p>
+<p>In the binary classification case, we assume that $Y_1,...,Y_n$ are 0-1 valued variables satisfying
+</p>
+$$
+   p^*_i = \Pr(Y_i = 1).
+$$<p>
+We introduce a link function $\Psi:\mathbb{R}\to (0,1)$ and set $p = \Psi(f)$. We assume that the link function is differentiable with bounded derivative $\phi$. Then the Theorem also leads to posterior contraction rates $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$ for $\beta\leq \alpha+r/2$ by the following fact
+</p>
+$$
+|| p_v - p_w||_r \lesssim ||v - w||_{r,G}.
+$$<dl>
+<dt>Theorem 1 (<em>Power of the Laplacian</em>)</dt>
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha>0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $0< \beta\leq \alpha+r/2$. Let the random function $f$ on the graph be defined by
+$$
+ \begin{align}
+ c &\sim \exp(1) \cr
+ f|c &\sim N(0, \Sigma_{c}),
+ \end{align}
+$$
+where $\Sigma_c^{-1} = (\frac{n}{c})^{2/r}(L + n^{-2} I)^{\alpha+r/2}$. Then there exists constants $K_1>0,K_2>1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
+$$
+ \begin{align}
+ \Pr(||f - f^*||<\epsilon_n) &\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+ \Pr(f\notin B_n) &\lesssim \exp(-K_2 n \epsilon_n^2), \cr
+ \log N(\epsilon_n , B_n , ||\cdot||_n) &\lesssim n\epsilon_n^2,
+ \end{align}
+$$
+where $\epsilon_n\asymp n^{-\beta/(2\beta+r)}$.</dd>
+</dl>
+<p>This theorem obtains the rate $n^{-\beta/(2\beta+r)}$ for all $\beta$ up to $\alpha+r/2$.</p>
+<dl>
+<dt>Theorem 2 (<em>Exponential of the Laplacian</em>)</dt>
+<dd>Under the assumptions (G), (L) and (S). Let $\alpha>0$ be fixed and assume that $f^*\in H^\beta(Q)$ be the &ldquo;true&rdquo; function and $\beta>0$. Let the random function $f$ on the graph be defined by
+$$ 
+ \begin{align}
+ c &\sim \exp(1) \cr
+ f|c &\sim N(0, \Sigma_{c}),
+ \end{align}
+$$
+where $\Sigma_c = n \exp(-(n/c)^{2/r}L)$. Then there exists constants $K_1>0,K_2>1$ and Borel measurable subsets $B_n\subset \mathbb{R}^n$ s.t.
+$$ 
+ \begin{align}
+ \Pr(||f - f^*||<\epsilon_n) &\gtrsim \exp(-K_1 n\epsilon_n^2), \cr
+ \Pr(f\notin B_n) &\lesssim \exp(-K_2 n \epsilon_n^2), \cr
+ \log N(\tilde{\epsilon}_n , B_n , ||\cdot||_n) &\lesssim n\tilde{\epsilon}_n^2,
+ \end{align}
+$$
+where $\epsilon_n\asymp (n/\log^{1+r/2}n)^{-\beta/(2\beta+r)}$ and $\tilde{\epsilon}_n \asymp \epsilon_n\log^{1/2+r/4}n$.</dd>
+</dl>
+<h2 id="3-proofs-of-main-results">3. Proofs of main results<a hidden class="anchor" aria-hidden="true" href="#3-proofs-of-main-results">#</a></h2>
+<p>Given $c$, the random vector $f$ is an element in the GP process $GP(0,\Sigma_c)$. The corresponding RKHS $\mathbb{H}^c$ is the entire space $\mathbb{R}^n$, and the corresponding RKHS-norm is given by
+</p>
+$$ 
+ ||h||_{\mathbb{H}^c}^2 = h^T\Sigma_c^{-1}h.
+$$<p>Let $\psi_i$ be the engenfunctions of $L$, normalized w.r.t. the norm $||\cdot||_n$. In particular, the eigenfunctions $\psi_i$ are normalized s.t.<br>
+</p>
+$$ 
+  \psi_i^T \psi_i = n.
+$$<p>They are also eigenfunctions of $\Sigma_c^{-1}$. We denote the corresponding engenvalues by $\mu_i$. The Gaussian $N(0,\Sigma_c)$ admits the series representation
+</p>
+$$ 
+ \sum_i Z_i \psi_i/\sqrt{n\mu_i},
+$$<p>
+where $Z_i$ are standard Gaussian. In particular the functions $\psi_i/\sqrt{n\mu_i}$ form an orthonormal basis of the RKHS $\mathbb{H}^c$. Hence, the ordinary $||\cdot||_n$-norm and the RKHS-norm of a function $h$ with expansion $h = \sum_i h_i \psi_i$ are given by
+</p>
+$$
+ \begin{equation}
+ ||h||_n^2 = \sum_i h_i^2,\quad ||h||_{\mathbb{H}^c}^2 = n\sum_i \mu_i h_i^2. 
+ \end{equation}
+$$<h3 id="proof-of-theorem-1">Proof of Theorem 1<a hidden class="anchor" aria-hidden="true" href="#proof-of-theorem-1">#</a></h3>
+<dl>
+<dt>Lemma 1 (<em>small ball</em>)</dt>
+<dd>For $c^{-p/r}\epsilon\sqrt{n}$ small enough,
+$$ 
+ -\log \Pr(||f||_n \leq \epsilon|c) \lesssim (\frac{c^{(\alpha+4/2)/r}}{\epsilon\sqrt{n}})^{r/\alpha}.
+$$</dd>
+<dt>Proof</dt>
+<dd>By the series representation of $f$, we have
+$$ 
+ \Pr(||f||_n\leq \epsilon|c) = \Pr(\sum_i Z_i^2/(n\mu_i)\leq \epsilon^2).
+$$
+The assumption (G) allows us to bound $\mu_i$ from below, then it follows that
+$$ 
+ \begin{align*}
+ \Pr(||f||_n\leq 2\epsilon^2|c) &\geq \Pr(\sum_{i\leq i_0}Z_i^2/(n\mu_i)\leq \epsilon^2, \sum_{i>i_0}Z_i^2/(n\mu_i)\leq \epsilon^2) \cr
+    &\geq \Pr(\sum_{i\leq i_0} Z_i^2 \leq (C_1^p c^{-2p/4} n^{(2\alpha+2r - 2pr)/4})\epsilon^2)\Pr(\sum_{i>i_0}\frac{Z_i^2}{e^{2p/r}}\leq C_1^p c^{-2p/r}n\epsilon^2),
+ \end{align*}
+$$
+where we write $p+r/2$. The second factor can be bounded from below by
+$$ 
+ \exp(-const(c^{p/r}\epsilon\sqrt{n})^{-r/\alpha}),
+$$
+provided $c^{p/r}\epsilon\sqrt{n}$ is small. By the triangle inequality and independence, the first factor is bounded from below by
+$$ 
+ \left(\Pr(|Z_1|\leq i_0^{1/2} C_1^{p/2} c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)\right)^{i_0}.
+$$
+Since $r\geq 1$, we have $c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon = O(c^{-p/r} \epsilon\sqrt{n})$. Hence, for $c^{-p/r}\epsilon\sqrt{n}$ small, the probability is bounded from below by
+$$ 
+ const\times(c^{-p/r} n^{(\alpha+r-pr)/r}\epsilon)^{i_0}
+$$
+Combining the bounds for the two factors, we have
+$$ 
+ -\log \Pr(||f||_n^2 \leq 2\epsilon^2|c) \lesssim (\frac{c^{p/r}}{\epsilon\sqrt{n}})^{r/\alpha} + \log (\frac{c^{p/r}}{n^{(\alpha+r-pr)/r}\epsilon})
+$$</dd>
+<dt>Lemma 2 (<em>discentering</em>)</dt>
+<dd>Let $f\in H^\beta(Q)$ for $\beta\leq \alpha +r/2$. For $\epsilon$ s.t. $\epsilon\to 0$ and $1/\epsilon = o(n^{\beta/r})$,
+$$ 
+ \inf_{||h-f||_n\leq \epsilon} ||h||_{\mathbb{H}^c}^2\lesssim nc^{-(2\alpha+r)/r} \epsilon^{-\frac{2(\alpha-\beta) +r}{\beta}}
+$$</dd>
+<dt>Proof</dt>
+<dd>Use the series expansion of $f = \sum_i h_i \psi_i$. By the assumption (S) we have $\sum_i (1 + n^{2\beta/r}\lambda_i^\beta) h_i^2 \leq Q^2$. Now for $I$ to be determined later, consider $h = \sum_{i\leq I} h_i\psi_i$. By assumption (G), for $I$ large enough
+$$
+ ||h - f||_n^2 = \sum_{i>I}h_i^2\leq \frac{Q^2}{1 + n^{2\beta/r}\lambda_I^\beta} \leq Q^2 C_1^{-\beta}I^{-2\beta/r}.
+$$
+Putting $I\propto \epsilon^{-r/\beta}$ we obtain $||h-f||_n \leq \epsilon$. Then the RKHS-norm of $h$ satisfies
+$$ 
+\begin{align*}
+ ||h||_{\mathbb{H}^c}^2 &= n\sum_{i\leq I}\left((n/c)^{2/r} (\lambda_i + n^{-2}) \right)^{\alpha+r/2} h_i^2 \cr
+    &\lesssim nc^{-2p/r}Q^2 + c^{-2p/r}Q^2 n^{2+2(\alpha-\beta)/r}\lambda_I^{p-\beta}
+\end{align*}
+$$
+Then by the assumption (G), we obtain the disired result.</dd>
+<dt>Lemma 3 (<em>entropy</em>)</dt>
+<dd>$$ 
+ \log N(\epsilon, \mathbb{H}_{1,c}, ||\cdot||_n) \lesssim c (\frac{1}{\epsilon\sqrt{n}})^{r/(\alpha+r/2)}.
+$$</dd>
+<dt>Proof of Theorem 1</dt>
+<dd>Given $c$, the eigenvalues of $\Sigma_c^{-1}$ are given by
+$$
+ \mu_i = \left( (\frac{n}{c})^{2/r} (\lambda_i + \frac{1}{n^2})\right)^{\alpha+r/2}.
+$$
+For the first assertion. By the fact that
+$$ 
+ \phi_w(\epsilon) \leq -\log \Pr(||W-w||< \epsilon) \leq \phi_w(\epsilon/2)
+$$
+and the Lemma 1 and Lemma 2, for $\epsilon = \epsilon_n = n^{-\beta/(r+2\beta)}$ and $c = c_n$ s.t.
+$$ 
+ \sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}\leq c_n^{(\alpha+r/2)/r}\leq   2\sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta},
+$$
+we have $-\log\Pr(||f- f^* ||_n<\epsilon_n|c)\lesssim \epsilon_n^{-r\beta}$. By direct computation, we obtain
+$$ 
+ \Pr(||f-f^*||_n<\epsilon_n) \gtrsim e^{-K_1 \epsilon_n^{-r/\beta}}.
+$$
+Then we show the left two assertions. Define $B_n = M_n\mathbb{H}_{1,c_n} + \epsilon_n\mathbb{B}_1$, where $\mathbb{B}_1$ is the unit ball of $(\mathbb{R}^2,||\cdot||_n)$. For $\epsilon_n = n^{-\beta/(2\beta+r)}$ and $c_n,M_n$ to be determined later, by Lemma 3, we have
+$$ 
+ \log N(2\epsilon_n, B_n, ||\cdot||_n) \leq \log N(\epsilon_n, M_n\mathbb{H}_{1,c_n}, ||\cdot||_n) \lesssim c_n (\frac{M_n}{\epsilon_n\sqrt{n}})^{r/p}.
+$$
+Choosing $M_n = M\sqrt{n\epsilon_n^2}, c_n^{p/r} = N \sqrt{n} \epsilon_n^{(\beta-\alpha)/\beta}$, we obtain the third assertion.
+<p>It remains to show the second assertion.
+</p>
+$$ 
+     \Pr(f\notin B_n) \leq \int_0^{c_n} \Pr(f\notin B_n|c) e^{-c} dc + \int_{c_n}^\infty e^{-c} dc.
+    $$<p>
+For $c\leq c_n$, we have $\mathbb{H}_{1,c}\subset \mathbb{H}_{1,c_n}$. Hence, by the Borell&rsquo;s&rsquo; inequality, we have for $c\leq c_n$ that
+</p>
+$$ 
+     \begin{align*}
+     \Pr(f\notin B_n|c) &\leq \Pr(f\notin M_n \mathbb{H}_{1,c} +  \epsilon_n \mathbb{B}_1|c) \cr
+        &\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c) + M_n)) \cr
+        &\leq 1 - \Phi(\Phi^{-1}(\Pr(||f||_n \leq \epsilon_n|c_n) + M_n))
+     \end{align*}
+    $$<p>
+By Lemma 1 with $c_n^{p/r} = N\sqrt{n}\epsilon_n^{(\beta-\alpha)-\beta}$, the small ball probability in this expression is bounded from below by $\exp(-K \epsilon_n^{-r/\beta})$. Then with appropriate choice $M_n$, we obtain the desired result.</p>
+</dd>
+</dl>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gp_graph_2/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Reading | Estimating a smooth function on a large graph (2)</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Reading | Bayesian Classification of Multiclass Functional Data</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reading | Bayesian Classification of Multiclass Functional Data | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
+Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
+1. Problem setup
+Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
+">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Reading | Bayesian Classification of Multiclass Functional Data">
+<meta property="og:description" content="Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
+Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
+1. Problem setup
+Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/reading/gp_multiclass_classification/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-08T17:02:19+02:00">
+<meta property="article:modified_time" content="2021-08-08T17:02:19+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading | Bayesian Classification of Multiclass Functional Data">
+<meta name="twitter:description" content="Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.
+Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662
+1. Problem setup
+Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reading | Bayesian Classification of Multiclass Functional Data",
+      "item": "https://wangchxx.github.io/posts/reading/gp_multiclass_classification/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reading | Bayesian Classification of Multiclass Functional Data",
+  "name": "Reading | Bayesian Classification of Multiclass Functional Data",
+  "description": "Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.\nLi, X., \u0026amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662\n1. Problem setup Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by ",
+  "keywords": [
+    
+  ],
+  "articleBody": "Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.\nLi, X., \u0026 Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. http://arxiv.org/abs/1808.00662\n1. Problem setup Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by $$ P(Y= k|X) = H_k(\\int \\beta(t)X(t) dt), $$ where $H_K$ is a cdf, and $\\beta(\\cdot)$ is unknown.\n2. Model Let $X_i(t)$, $i=1,...,n$, be the observed functional data associated with a categotical variable $Y_i$. The probability of choosing category $k = 1,...,K-1$ is given by $$ \\begin{equation} P(Y_i = k|X_i) = \\frac{\\exp(\\int \\beta_k(t) X_i(t) dt)}{1 + \\sum_{l=1}^{K-1} \\exp(\\int \\beta_l(t)X_i(t) dt)}, \\end{equation} $$ and the probability of choosing category $K$ is given by $$ \\begin{equation} P(Y_i = K|X_i) = \\frac{1}{1 + \\sum_{l=1}^{K-1} \\exp(\\int \\beta_l(t)X_i(t) dt)}. \\end{equation} $$The functional coefficient $\\beta(t)$ is given a prior which is a finite linear combination of a certain basis functions: $$ \\beta(t) = \\sum_{j=1}^J \\theta_j \\psi_j(t), $$ where $(\\psi_j)$ is a basis. A prior is put on the unknown coefficinets $(\\theta_j)$. The number of basis function $J$ is also unknown and is given a hyperprior.\nLet $\\beta_k(t)= \\sum_{j=1}^J \\theta_{k,j}\\psi_j(t)$ and $Z_{ij} = \\int \\psi_j(t)X_i(t) dt$. Then the classification probabilty can be written as, for $k = 1,...,K_1$ $$ \\begin{align*} P(Y_i = k|X_i) \u0026= \\frac{\\exp(\\sum_{j=1}^J \\theta_{k,j}Z_{ij})}{1 + \\sum_{l=1}^{K-1}\\exp(\\sum_{j=1}^J \\theta_{l,j}Z_{ij})} \\cr \u0026= \\frac{\\exp(Z_i^T \\theta_k)}{1 + \\sum_{l=1}^{K-1}\\exp(Z_i^T \\theta_l)}, \\end{align*} $$ and $$ P(Y_i = K|X_i) = \\frac{1}{1 + \\sum_{l=1}^{K-1}\\exp(Z_i^T \\theta_l)}, $$ where $\\theta_k = (\\theta_{k,q},...,\\theta_{k,J})^T, Z_i = (Z_{i,1},...,Z_{i,J})^T$.\nFor each $\\theta_k, k=1,...,K$, we assign a Gaussian prior $N_J(\\mu_k,\\Sigma_k)$.\n3. MCMC Metropolis-Hastings algorithm to sample $\\theta_k$.\nSample $\\theta_k'$ from the proposal distribution $q(\\theta_k',\\theta_k|Y,\\theta_{-1})$. Accept $\\theta_k'$ w.p. $\\alpha(\\theta_k,\\theta_k'|Y,\\theta_{-k})$ given by $$ \\begin{align*} \u0026\\frac{\\pi(\\theta_k'|Y,\\theta_{-k})q(\\theta_k',\\theta_k|Y,\\theta_{-k})}{\\pi(\\theta_k|Y,\\theta_{-k})q(\\theta_k,\\theta_k'|Y,\\theta_{-k})}\\wedge 1 \\cr =\u0026 \\frac{\\pi(\\theta_k',\\theta_{-k}) f(Y|\\theta_k',\\theta_{-k})q(\\theta_k',\\theta_k|Y,\\theta_{-k})}{\\pi(\\theta_k,\\theta_{-k}) f(Y|\\theta_k,\\theta_{-k})q(\\theta_k,\\theta_k'|Y,\\theta_{-k})}\\wedge 1 \\end{align*} $$ Moreover, we can put a prior on $J$, for example, geometric or Possion distribution.\n4. Posterior contraction rate Write $\\pi = (\\pi_1,...,\\pi_K)$, where $\\pi_k = P(Y=k|X)$, and let $\\pi_{0k}$ be the true probability of the k-th category conditioned on $X$. Assume that the joint distribution of $(X,Y)$ follows $\\nu\\times G$, where $\\nu$ is the counting measure on $\\{1,...,K\\}$.\nDefine\nnorm $||f||_{p,G} = (\\int |f|^p d G)^{1/p}$. $KL(p||q)$ the KL-divergence, $H^2(p,q)$ the squared Helinger distance, and $$ V(p||q) = \\int p \\log^2 p/q d\\mu. $$ Then we have $$ \\begin{align*} KL(p_0||p) \u0026= \\int\\int p_0(x,y) \\log \\frac{p_0(x,y)}{p(x,y)} d\\nu(y) dx \\cr \u0026= \\int\\int \\pi_0(y|x) \\log \\frac{\\pi_0(y|x)}{\\pi(y|x)} d\\nu(y) d G(x) \\cr \u0026= \\mathbb{E}_X\\left[\\sum_{k=1}^K \\pi_{0,k}(X) \\log \\frac{\\pi_{0k}(X)}{\\pi_k(X)}\\right] \\cr \u0026= KL(\\pi_0||\\pi) \\end{align*} $$ Similarly, $V(p_0||p) = V(\\pi_0||\\pi)$ and $H^2(p_0,p) = H^2(\\pi_0,\\pi)$. We define a metric $d$ by $$ d(\\pi,\\pi_0) = \\sqrt{\\sum_{k=1}^K \\mathbb{E}_X |\\pi_k(X) - \\pi_{0k}(X)|^2}. $$Then we have the following theorem\nTheorem 1 Assume that $\\pi_0$ is bounded, $X$ is bounded. Let $\\epsilon_n \\geq \\epsilon_n'$ be two sequences of positive numbers satisfying $\\epsilon_n\\to 0, n\\epsilon_n'\\to\\infty$. Let $\\Theta_n$ be a subset of the parameter space s.t. $$ \\begin{align} \\log N(\\epsilon_n,\\Theta_n , H) \u0026\\lesssim n\\epsilon_n^2 \\cr \\Pi(\\Theta\\setminus \\Theta_n) \u0026\\leq \\exp(-a_1 n \\epsilon_n'^2) \\cr \\Pi(\\pi: \\sum_{k=1}^K ||\\pi_k - \\pi_{0k}||_{\\infty}^2 \u003c\\epsilon_n'^2) \u0026\\geq \\exp(-a_2n\\epsilon_n'2). \\end{align} $$ Then for every $M_n\\to\\infty$, we have $\\Pi(d(\\pi,\\pi_0)\\geq M_n \\epsilon_n| X^{(n)}, Y^{(n)}) \\to 0 $ in probability. Proof $H^2 \\geq \\mathbb{E}_X \\sum_{k=1}^K |\\pi_k(X) - \\pi_{0k}(X)|^2$ and by Taylor’s expansion, $$ K_2 \\leq \\sum_{k=1}^K ||\\pi_k - \\pi_{0k}||_\\infty^2. $$ Then the result follows from the general posterior contraction theorem. Assumption (A1) $\\Pi(J= j) \\leq \\exp(-c_2 j \\log^{t_2} j)$. (A2) Given $J$, $\\Pi(||\\theta- \\theta_0||\u003c \\epsilon) \\geq \\exp(-c_3 J\\log (1/\\epsilon))$ for every $||\\theta_0||\\leq M_1$. Also assume that $\\Pi(\\theta\\notin [-M_2, M_2]^J) \\leq J\\exp(-CM^{t_3})$. Theorem 2 Assume that $||X||_1$ is a bounded random variable, the priors satisfy assumptions (A1) and (A2), and that the basis satisfies $$ ||\\beta_0 - \\theta_0^T \\psi||_\\infty \\lesssim J^{-\\alpha}, $$ and $$ ||\\theta_1^T\\phi - \\theta_2^T \\psi||_\\infty \\lesssim J^{K_0} ||\\theta_1 - \\theta_2||_2. $$ The the posterior contracts at $\\pi_0$ at rate $\\epsilon_n \\asymp n^{-\\alpha/(2\\alpha+1)} (\\log n)^{\\alpha/(2\\alpha+1) + (1-t_2)/2}$ relative to $d(\\pi,\\pi_0)$. Proof Becaue $||X||_1$ is bounded, there is some $M$ s.t. $||X||_1 \\leq M$. By the logistic model $$ |\\pi_k - \\pi_{0 k}| \\lesssim ||\\beta_k - \\beta_{0k}||_\\infty. $$ The $L^\\infty$ distance is bounded by $$ ||\\beta_k - \\beta_{0k}||_\\infty \\leq ||\\theta_k^T \\psi - \\theta_{0k}\\psi||_\\infty + ||\\theta_{0k}^T\\psi - \\beta_{0k}||_\\infty. $$ Then we have $$ \\begin{equation} \\Pi(\\sum_k^K||\\pi_k - \\pi_{0k}||_\\infty^2 \\leq \\epsilon_n'^2) \\gtrsim \\exp(-J_n \\log (2\\sqrt{K} J_n^{K_0} /\\epsilon_n')) \\end{equation} $$ Choose appropriate $J_n$ to satisfy the conditions of Theorem 1, and therefore obtain the result. ",
+  "wordCount" : "737",
+  "inLanguage": "en",
+  "datePublished": "2021-08-08T17:02:19+02:00",
+  "dateModified": "2021-08-08T17:02:19+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/reading/gp_multiclass_classification/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading | Bayesian Classification of Multiclass Functional Data
+    </h1>
+    <div class="post-meta"><span title='2021-08-08 17:02:19 +0200 +0200'>August 8, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-problem-setup" aria-label="1. Problem setup">1. Problem setup</a></li>
+                <li>
+                    <a href="#2-model" aria-label="2. Model">2. Model</a></li>
+                <li>
+                    <a href="#3-mcmc" aria-label="3. MCMC">3. MCMC</a></li>
+                <li>
+                    <a href="#4-posterior-contraction-rate" aria-label="4. Posterior contraction rate">4. Posterior contraction rate</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Traditionally, we reduce the multiclass classification problem to a binary problem by 1-vs-1 or 1-vs-rest. This article proposed an alternative method to solve the multiclass classification problem.</p>
+<p>Li, X., &amp; Ghosal, S. (2018). Bayesian Classification of Multiclass Functional Data. ArXiv:1808.00662 [Stat]. <a href="http://arxiv.org/abs/1808.00662">http://arxiv.org/abs/1808.00662</a></p>
+<h2 id="1-problem-setup">1. Problem setup<a hidden class="anchor" aria-hidden="true" href="#1-problem-setup">#</a></h2>
+<p>Consider a response $Y$ taking values $k = 1,...,K$, with functional covariate $(X(t), t\in[0,1])$. The main problem is to estimate the probability $P(Y = k|X)$, which can be modeld by
+</p>
+$$ 
+ P(Y= k|X) = H_k(\int \beta(t)X(t) dt),
+$$<p>
+where $H_K$ is a cdf, and $\beta(\cdot)$ is unknown.</p>
+<h2 id="2-model">2. Model<a hidden class="anchor" aria-hidden="true" href="#2-model">#</a></h2>
+<p>Let $X_i(t)$, $i=1,...,n$, be the observed functional data associated with a categotical variable $Y_i$. The probability of choosing category $k = 1,...,K-1$ is given by
+</p>
+$$ 
+ \begin{equation}
+    P(Y_i = k|X_i) = \frac{\exp(\int \beta_k(t) X_i(t) dt)}{1 + \sum_{l=1}^{K-1} \exp(\int \beta_l(t)X_i(t) dt)},
+ \end{equation}
+$$<p>
+and the probability of choosing category $K$ is given by
+</p>
+$$ 
+\begin{equation}
+P(Y_i = K|X_i) = \frac{1}{1 + \sum_{l=1}^{K-1} \exp(\int \beta_l(t)X_i(t) dt)}.
+\end{equation}
+$$<p>The functional coefficient $\beta(t)$ is given a prior which is a finite linear combination of a certain basis functions:
+</p>
+$$ 
+ \beta(t) = \sum_{j=1}^J \theta_j \psi_j(t),
+$$<p>
+where $(\psi_j)$ is a basis. A prior is put on the unknown coefficinets $(\theta_j)$. The number of basis function $J$ is also unknown and is given a hyperprior.</p>
+<p>Let $\beta_k(t)= \sum_{j=1}^J \theta_{k,j}\psi_j(t)$ and $Z_{ij} = \int \psi_j(t)X_i(t) dt$. Then the classification probabilty can be written as, for $k = 1,...,K_1$
+</p>
+$$ 
+\begin{align*}
+ P(Y_i = k|X_i) &= \frac{\exp(\sum_{j=1}^J \theta_{k,j}Z_{ij})}{1 + \sum_{l=1}^{K-1}\exp(\sum_{j=1}^J \theta_{l,j}Z_{ij})} \cr 
+   &= \frac{\exp(Z_i^T \theta_k)}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
+\end{align*} 
+$$<p>
+and
+</p>
+$$ 
+   P(Y_i = K|X_i) = \frac{1}{1 + \sum_{l=1}^{K-1}\exp(Z_i^T \theta_l)},
+$$<p>
+where $\theta_k = (\theta_{k,q},...,\theta_{k,J})^T, Z_i = (Z_{i,1},...,Z_{i,J})^T$.</p>
+<p>For each $\theta_k, k=1,...,K$, we assign a Gaussian prior $N_J(\mu_k,\Sigma_k)$.</p>
+<h2 id="3-mcmc">3. MCMC<a hidden class="anchor" aria-hidden="true" href="#3-mcmc">#</a></h2>
+<p>Metropolis-Hastings algorithm to sample $\theta_k$.</p>
+<ol>
+<li>Sample $\theta_k'$ from the proposal distribution $q(\theta_k',\theta_k|Y,\theta_{-1})$.</li>
+<li>Accept $\theta_k'$ w.p. $\alpha(\theta_k,\theta_k'|Y,\theta_{-k})$ given by
+$$ 
+\begin{align*}
+ &\frac{\pi(\theta_k'|Y,\theta_{-k})q(\theta_k',\theta_k|Y,\theta_{-k})}{\pi(\theta_k|Y,\theta_{-k})q(\theta_k,\theta_k'|Y,\theta_{-k})}\wedge 1  \cr
+=& \frac{\pi(\theta_k',\theta_{-k}) f(Y|\theta_k',\theta_{-k})q(\theta_k',\theta_k|Y,\theta_{-k})}{\pi(\theta_k,\theta_{-k}) f(Y|\theta_k,\theta_{-k})q(\theta_k,\theta_k'|Y,\theta_{-k})}\wedge 1
+\end{align*}
+$$</li>
+</ol>
+<p>Moreover, we can put a prior on $J$, for example, geometric or Possion distribution.</p>
+<h2 id="4-posterior-contraction-rate">4. Posterior contraction rate<a hidden class="anchor" aria-hidden="true" href="#4-posterior-contraction-rate">#</a></h2>
+<p>Write $\pi = (\pi_1,...,\pi_K)$, where $\pi_k = P(Y=k|X)$, and let $\pi_{0k}$ be the true probability of the k-th category conditioned on $X$. Assume that the joint distribution of $(X,Y)$ follows $\nu\times G$, where $\nu$ is the counting measure on $\{1,...,K\}$.</p>
+<p>Define</p>
+<ol>
+<li>norm $||f||_{p,G} = (\int |f|^p d G)^{1/p}$.</li>
+<li>$KL(p||q)$ the KL-divergence, $H^2(p,q)$ the squared Helinger distance, and
+$$ 
+ V(p||q) = \int p \log^2 p/q d\mu.
+$$</li>
+</ol>
+<p>Then we have
+</p>
+$$ 
+ \begin{align*}
+ KL(p_0||p) &= \int\int p_0(x,y) \log \frac{p_0(x,y)}{p(x,y)} d\nu(y) dx \cr
+ &= \int\int \pi_0(y|x) \log \frac{\pi_0(y|x)}{\pi(y|x)} d\nu(y) d G(x) \cr
+ &= \mathbb{E}_X\left[\sum_{k=1}^K \pi_{0,k}(X) \log \frac{\pi_{0k}(X)}{\pi_k(X)}\right] \cr
+ &= KL(\pi_0||\pi)
+ \end{align*}
+$$<p>
+Similarly, $V(p_0||p) = V(\pi_0||\pi)$ and $H^2(p_0,p) = H^2(\pi_0,\pi)$. We define a metric $d$ by
+</p>
+$$ 
+ d(\pi,\pi_0) = \sqrt{\sum_{k=1}^K \mathbb{E}_X |\pi_k(X) - \pi_{0k}(X)|^2}.
+$$<p>Then we have the following theorem</p>
+<dl>
+<dt>Theorem 1</dt>
+<dd>Assume that $\pi_0$ is bounded, $X$ is bounded. Let $\epsilon_n \geq \epsilon_n'$ be two sequences of positive numbers satisfying $\epsilon_n\to 0, n\epsilon_n'\to\infty$. Let $\Theta_n$ be a subset of the parameter space s.t.
+$$ 
+ \begin{align}
+ \log N(\epsilon_n,\Theta_n , H) &\lesssim  n\epsilon_n^2 \cr
+ \Pi(\Theta\setminus \Theta_n) &\leq \exp(-a_1 n \epsilon_n'^2) \cr
+ \Pi(\pi: \sum_{k=1}^K ||\pi_k - \pi_{0k}||_{\infty}^2 <\epsilon_n'^2) &\geq \exp(-a_2n\epsilon_n'2).
+ \end{align}
+$$
+Then for every $M_n\to\infty$, we have $\Pi(d(\pi,\pi_0)\geq M_n \epsilon_n| X^{(n)}, Y^{(n)}) \to 0 $ in probability.</dd>
+<dt>Proof</dt>
+<dd>$H^2 \geq \mathbb{E}_X \sum_{k=1}^K |\pi_k(X) - \pi_{0k}(X)|^2$ and by Taylor&rsquo;s expansion,
+$$ 
+ K_2 \leq \sum_{k=1}^K ||\pi_k - \pi_{0k}||_\infty^2.
+$$
+Then the result follows from the general posterior contraction theorem.</dd>
+<dt>Assumption</dt>
+<dd><ul>
+<li>(A1) $\Pi(J= j) \leq \exp(-c_2 j \log^{t_2} j)$.</li>
+<li>(A2) Given $J$, $\Pi(||\theta- \theta_0||< \epsilon) \geq \exp(-c_3 J\log (1/\epsilon))$ for every $||\theta_0||\leq M_1$. Also assume that $\Pi(\theta\notin [-M_2, M_2]^J) \leq J\exp(-CM^{t_3})$.</li>
+</ul>
+</dd>
+<dt>Theorem 2</dt>
+<dd>Assume that $||X||_1$ is a bounded random variable, the priors satisfy
+assumptions (A1) and (A2), and that the basis satisfies
+$$
+||\beta_0 - \theta_0^T \psi||_\infty \lesssim J^{-\alpha},
+$$
+and
+$$ 
+   ||\theta_1^T\phi - \theta_2^T \psi||_\infty \lesssim J^{K_0} ||\theta_1 - \theta_2||_2.
+$$
+The the posterior contracts at $\pi_0$ at rate $\epsilon_n \asymp n^{-\alpha/(2\alpha+1)} (\log n)^{\alpha/(2\alpha+1) + (1-t_2)/2}$ relative to $d(\pi,\pi_0)$.</dd>
+<dt>Proof</dt>
+<dd>Becaue $||X||_1$ is bounded, there is some $M$ s.t. $||X||_1 \leq M$. By the logistic model
+$$
+ |\pi_k - \pi_{0 k}|   \lesssim ||\beta_k - \beta_{0k}||_\infty.
+$$
+The $L^\infty$ distance is bounded by
+$$ 
+   ||\beta_k - \beta_{0k}||_\infty \leq ||\theta_k^T \psi - \theta_{0k}\psi||_\infty + ||\theta_{0k}^T\psi - \beta_{0k}||_\infty.
+$$
+Then we have
+$$ 
+ \begin{equation}
+ \Pi(\sum_k^K||\pi_k - \pi_{0k}||_\infty^2 \leq \epsilon_n'^2) \gtrsim \exp(-J_n \log (2\sqrt{K} J_n^{K_0} /\epsilon_n'))
+ \end{equation}
+$$
+Choose appropriate $J_n$ to satisfy the conditions of Theorem 1, and therefore obtain the result.</dd>
+</dl>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/reading/gp_graph_1/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Reading | Estimating a smooth function on a large graph (1)</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/reading/gpconsistency_for_binary_classification/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

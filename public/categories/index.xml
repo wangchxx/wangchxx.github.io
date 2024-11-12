@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on My Notes</title>
+    <link>https://wangchxx.github.io/categories/</link>
+    <description>Recent content in Categories on My Notes</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 24 Oct 2024 00:01:41 +0200</lastBuildDate>
+    <atom:link href="https://wangchxx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dl</title>
+      <link>https://wangchxx.github.io/categories/dl/</link>
+      <pubDate>Thu, 24 Oct 2024 00:01:41 +0200</pubDate>
+      <guid>https://wangchxx.github.io/categories/dl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ml</title>
+      <link>https://wangchxx.github.io/categories/ml/</link>
+      <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
+      <guid>https://wangchxx.github.io/categories/ml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rl</title>
+      <link>https://wangchxx.github.io/categories/rl/</link>
+      <pubDate>Mon, 20 Sep 2021 23:01:33 +0200</pubDate>
+      <guid>https://wangchxx.github.io/categories/rl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stat</title>
+      <link>https://wangchxx.github.io/categories/stat/</link>
+      <pubDate>Sat, 21 Aug 2021 04:18:02 +0200</pubDate>
+      <guid>https://wangchxx.github.io/categories/stat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Analysis</title>
+      <link>https://wangchxx.github.io/categories/analysis/</link>
+      <pubDate>Sat, 24 Apr 2021 10:52:59 +0200</pubDate>
+      <guid>https://wangchxx.github.io/categories/analysis/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

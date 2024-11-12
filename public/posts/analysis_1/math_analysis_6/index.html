@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mathematical Analysis | 6 Mean Value Theorem | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="1. Rolle&rsquo;s Theorem
+
+Theorem 1 (Rolle&rsquo;s theorem)
+If a function $f$ satisfies
+
+
+$f$ is continuous on a closed interval $[a,b]$,
+$f$ is differentiable on $(a,b)$,
+$f(a) = f(b)$,
+
+then there exists a number $\xi\in(a,b)$ s.t. $f&#39;(\xi)= 0$.
+
+proof
+Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_6/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wangchxx.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wangchxx.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wangchxx.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wangchxx.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wangchxx.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_6/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+<meta property="og:title" content="Mathematical Analysis | 6 Mean Value Theorem">
+<meta property="og:description" content="1. Rolle&rsquo;s Theorem
+
+Theorem 1 (Rolle&rsquo;s theorem)
+If a function $f$ satisfies
+
+
+$f$ is continuous on a closed interval $[a,b]$,
+$f$ is differentiable on $(a,b)$,
+$f(a) = f(b)$,
+
+then there exists a number $\xi\in(a,b)$ s.t. $f&#39;(\xi)= 0$.
+
+proof
+Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wangchxx.github.io/posts/analysis_1/math_analysis_6/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-04-06T10:52:59+02:00">
+<meta property="article:modified_time" content="2021-04-06T10:52:59+02:00">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mathematical Analysis | 6 Mean Value Theorem">
+<meta name="twitter:description" content="1. Rolle&rsquo;s Theorem
+
+Theorem 1 (Rolle&rsquo;s theorem)
+If a function $f$ satisfies
+
+
+$f$ is continuous on a closed interval $[a,b]$,
+$f$ is differentiable on $(a,b)$,
+$f(a) = f(b)$,
+
+then there exists a number $\xi\in(a,b)$ s.t. $f&#39;(\xi)= 0$.
+
+proof
+Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wangchxx.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mathematical Analysis | 6 Mean Value Theorem",
+      "item": "https://wangchxx.github.io/posts/analysis_1/math_analysis_6/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mathematical Analysis | 6 Mean Value Theorem",
+  "name": "Mathematical Analysis | 6 Mean Value Theorem",
+  "description": "1. Rolle\u0026rsquo;s Theorem Theorem 1 (Rolle\u0026rsquo;s theorem) If a function $f$ satisfies $f$ is continuous on a closed interval $[a,b]$, $f$ is differentiable on $(a,b)$, $f(a) = f(b)$, then there exists a number $\\xi\\in(a,b)$ s.t. $f'(\\xi)= 0$.\nproof Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Rolle’s Theorem Theorem 1 (Rolle’s theorem) If a function $f$ satisfies $f$ is continuous on a closed interval $[a,b]$, $f$ is differentiable on $(a,b)$, $f(a) = f(b)$, then there exists a number $\\xi\\in(a,b)$ s.t. $f'(\\xi)= 0$.\nproof Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m",
+  "wordCount" : "71",
+  "inLanguage": "en",
+  "datePublished": "2021-04-06T10:52:59+02:00",
+  "dateModified": "2021-04-06T10:52:59+02:00",
+  "author":{
+    "@type": "Person",
+    "name": "Chaohua Wang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wangchxx.github.io/posts/analysis_1/math_analysis_6/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wangchxx.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wangchxx.github.io/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wangchxx.github.io/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wangchxx.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Mathematical Analysis | 6 Mean Value Theorem
+    </h1>
+    <div class="post-meta"><span title='2021-04-06 10:52:59 +0200 +0200'>April 6, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-rolles-theorem" aria-label="1. Rolle&rsquo;s Theorem">1. Rolle&rsquo;s Theorem</a></li>
+                <li>
+                    <a href="#2-cauchys-theorem" aria-label="2. Cauchy&rsquo;s Theorem">2. Cauchy&rsquo;s Theorem</a></li>
+                <li>
+                    <a href="#3-taylors-formula" aria-label="3. Taylor&rsquo;s Formula">3. Taylor&rsquo;s Formula</a></li>
+                <li>
+                    <a href="#4-extremum" aria-label="4. Extremum">4. Extremum</a></li>
+                <li>
+                    <a href="#5-convexity-and-concavity" aria-label="5. Convexity and Concavity">5. Convexity and Concavity</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="1-rolles-theorem">1. Rolle&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#1-rolles-theorem">#</a></h2>
+<dl>
+<dt>Theorem 1 (Rolle&rsquo;s theorem)</dt>
+<dd>If a function $f$ satisfies</dd>
+</dl>
+<ol>
+<li>$f$ is continuous on a closed interval $[a,b]$,</li>
+<li>$f$ is differentiable on $(a,b)$,</li>
+<li>$f(a) = f(b)$,</li>
+</ol>
+<p>then there exists a number $\xi\in(a,b)$ s.t. $f'(\xi)= 0$.</p>
+<dl>
+<dt>proof</dt>
+<dd>Because $f$ is continuous on $[a,b]$, $f$ has maximum and minimum, denoted by $M$ and $m$ respectively. If $m= M$, then $f$ is constant, hence the assertion is true. In the case $m<M$, the assumption $f(a) = f(b)$ implies that at least one of the maximum and minimum is achieved at $\xi\in(a,b)$. Then the Fermat&rsquo;s theorem completes the proof.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 2 (Lagrange&rsquo;s theorem)</dt>
+<dd>If a function $f$ satisfies</dd>
+</dl>
+<ol>
+<li>$f$ is continuous on a closed interval $[a,b]$,</li>
+<li>$f$ is differentiable on $(a,b)$,</li>
+</ol>
+<p>then there exists a number $\xi\in(a,b)$ s.t.
+</p>
+$$ 
+ f'(\xi) = \frac{f(b)- f(a)}{b -a}.
+$$<p>
+We can see that the Rolle&rsquo;s theorem is a special case of Lagrange&rsquo;s theorem with $f(a) = f(b)$.</p>
+<dl>
+<dt>proof</dt>
+<dd>Define a function $F(x) = f(x) - f(a) -\frac{f(b)- f(a)}{b -a} (x- a)$. Obviously, $F(a) = F(b) = 0$, then by Rolle&rsquo;s we see the existence of $\xi\in(a,b)$ s.t. $F'(\xi) = 0 \Rightarrow f'(\xi) =\frac{f(b)- f(a)}{b -a}$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 3 (Increasing)</dt>
+<dd>Given a function $f$ that is differentiable on an interval $I$, $f$ is increasing iif $f'(x)\geq 0\; \forall x\in I$.</dd>
+<dt>proof</dt>
+<dd>By Lagrange&rsquo;s theorem.</dd>
+</dl>
+<p>$\Box$</p>
+<h2 id="2-cauchys-theorem">2. Cauchy&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#2-cauchys-theorem">#</a></h2>
+<dl>
+<dt>Theorem 4 (Cauchy&rsquo;s theorem)</dt>
+<dd>If functions $f$ and $g$ satisfy</dd>
+</dl>
+<ol>
+<li>continuous on $[a,b]$,</li>
+<li>differentiable on $(a,b)$,</li>
+<li>at least one of $f'(x)$ and $g'(x)$ is not zero</li>
+<li>$g(a)\neq g(b)$,</li>
+</ol>
+<p>then there exists $\xi\in(a,b)$ a.t.
+</p>
+$$ 
+ \frac{f'(\xi)}{g'(\xi)} = \frac{f(b) -f(a)}{g(b) - g(a)}.
+$$<p>
+We can see that Lagrange&rsquo;s theorem is a special case of Cauchy&rsquo;s with $g(x) = x$.</p>
+<dl>
+<dt>proof</dt>
+<dd>Define  $F(x) = f(x) - f(a)- \frac{f(b) - f(a)}{g(b) - g(a)}(g(x) - g(a))$. ThE proof is complete by Rolle&rsquo;s theorem.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 5 (L&rsquo;Hospital $0/0$)</dt>
+<dd>For functions  $f$ and $g$, if</dd>
+</dl>
+<ol>
+<li>$\lim_{x\to x_0} f(x) = \lim_{x\to x_0} g(x) = 0$,</li>
+<li>are both differentiable on $U^o(x_0,\delta)$ and $g'(x_0)\neq 0$,</li>
+<li>$\lim_{x\to x_0} \frac{f'(x)}{g'(x)} = A$, possibly $A = \pm\infty$,</li>
+</ol>
+<p>then $\lim_{x\to x_0} \frac{f(x)}{g(x)} = \lim_{x\to x_0} \frac{f's(x)}{g'(x)} = A$.</p>
+<dl>
+<dt>proof</dt>
+<dd>Let $f(x_0) = g(x_0) = 0$, then on any interval $[x_0, x]$, by Cauchy&rsquo;s, we have $\xi\in(x_0,x)$
+$$ 
+   \frac{f'(\xi)}{g'(\xi)} = \frac{f(x)}{g(x)}.
+$$
+Let $x\to x_0$, we obtain the result.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 6 (L&rsquo;Hospital $0/\infty$)</dt>
+<dd>For functions  $f$ and $g$, if</dd>
+</dl>
+<ol>
+<li>differentiable on $(x_0,x_0+\delta)$, and $g'(x)\neq 0$,</li>
+<li>$\lim_{x_0^+}g(x) = \infty$,</li>
+<li>$\lim_{x\to x_0^+} \frac{f'(x)}{g'(x)} = A$, possibly $A = \pm\infty$,</li>
+</ol>
+<p>then $\lim_{x\to x_0}^+ \frac{f(x)}{g(x)}  = A$.</p>
+<h2 id="3-taylors-formula">3. Taylor&rsquo;s Formula<a hidden class="anchor" aria-hidden="true" href="#3-taylors-formula">#</a></h2>
+<p>It has been seen that if $f$ is differentiable at $x_0$, then $f(x) = f(x_0) + f'(x_0)(x - x_0)  + o(x- x_0)$. Now for a function that is $n$ times differentiable at $x_0$, we can define a <code>Taylor polynomial</code> by
+</p>
+$$ 
+ T_n(x) = f(x_0) + \frac{f'(x_0)}{1!}  (x - x_0)+\cdots + \frac{f^{(n)}(x_0)}{n!}  (x - x_0)^n.
+$$<dl>
+<dt>Theorem 7</dt>
+<dd>If  function $f$ is $n$ times differentiable at $x_0$, then $f(x) = T_n(x) + o((x-x_0)^n)$.</dd>
+<dt>proof</dt>
+<dd>Let $R_n(x) = f(x) - T_n(x)$, and $Q_n(x) = (x-x_0)^n$. If suffices to show that $\lim_{x\to x_0} \frac{R_n(x)}{Q_n(x)} = 0$. Obviously, $R_n(x_0) = R'_n(x_0) = \cdots = R_n^{(n)}(x_0) = 0$ and $Q_n(x_0) = Q'_n(x_0) = \cdots = Q_n^{(n-1)}(x_0) = 0, Q_n^{(n)} = n!$. The result is obtained by applying L&rsquo;Hospital $n-1$ times.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 8</dt>
+<dd>If $f$ is $n$ times continuously differentiable on $[a,b]$ and differentiable on $(a,b)$, then for any $x,x_0\in [a,b]$, there exists $\xi\in(a,b)$ s.t.
+$$ 
+ f(x) = T_n(x) +   \frac{f^{(n+1)}(\xi)}{(n+1)!}  (x - x_0)^{n+1}.
+$$</dd>
+</dl>
+<h2 id="4-extremum">4. Extremum<a hidden class="anchor" aria-hidden="true" href="#4-extremum">#</a></h2>
+<p>We have studied the sufficient and necessary conditions for $f$ taking local extremum at $x_0$. Now we study the sufficient conditions.</p>
+<dl>
+<dt>Theorem 9 (1st sufficient)</dt>
+<dd>Given a function $f$ that is continuous at $x_0$, and differentiable on $U^o(x_0,\delta)$,</dd>
+</dl>
+<ol>
+<li>if $f'(x)\leq 0$ for all $x\in (x_0-\delta,x_0)$ and $f'(x)\geq 0$ for all $x\in (x_0,x_0+\delta)$, then $f$ achieves its local minimum at $x_0$.</li>
+<li>&hellip;, then $f$ achieves its local maximum at $x_0$.</li>
+</ol>
+<dl>
+<dt>Theorem 10 (2nd sufficient)</dt>
+<dd>Given a function $f$ that is twice differentiable at $x_0$, differentiable on $U(x_0,\delta)$, and $f'(x_0)=0, f''(x_0)\neq 0$,</dd>
+</dl>
+<ol>
+<li>if $f''(x_0)<0$, then $f$ achieves its local maximum at $x_0$,</li>
+<li>if $f''(x_0)>0$, then $f$ achieves its local minimum at $x_0$.</li>
+</ol>
+<dl>
+<dt>Theorem 11 (3rd sufficient)</dt>
+<dd>Given a function $f$ that is $n$ times differentiable at $x_0$, $n-1$ times differentiable on $U(x_0,\delta)$,  and $f^{(k)}(x_0)=0,k = 1,...,n-1, f^{(n)}(x_0)\neq 0$,</dd>
+</dl>
+<ol>
+<li>if $n$ is even, $f$ achieves it local extremum at $x_0$. Moreover, if $f^{(n)}<0$, it achieves its local maximum, and $f^{(n)}>0$, it achieves its local minimum.</li>
+<li>if $n$ is odd, $f$ does not take its local extremum at $x_0$.</li>
+</ol>
+<h2 id="5-convexity-and-concavity">5. Convexity and Concavity<a hidden class="anchor" aria-hidden="true" href="#5-convexity-and-concavity">#</a></h2>
+<dl>
+<dt>Definition 12 (Convexity)</dt>
+<dd>For a function $f$ defined on interval $I$, if for any $x_1,x_2\in I$ and $\lambda\in (0,1)$,
+$$ 
+ f(\lambda x_1 + (1-\lambda)x_2) \leq \lambda f(x_1) + (1-\lambda)f(x_2),
+$$
+we say $f$ is a <code>convex function</code> on $I$.</dd>
+</dl>
+<p>It is easy to check that $f$ is convex $\Leftrightarrow$ $f'$ is increasing $\Leftrightarrow$ $f(x_2)-f(x_1)\geq f'(x_1)(x_2- x_1)$. Moreover, if $f$ is twice differentiable on $I$, it is also equivalent to $f''(x)\geq 0$.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_7/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Mathematical Analysis | 7 Completeness of the Real Numbers</span>
+  </a>
+  <a class="next" href="https://wangchxx.github.io/posts/analysis_1/math_analysis_5/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Mathematical Analysis | 5 Derivatives and Differentiations</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://wangchxx.github.io/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
