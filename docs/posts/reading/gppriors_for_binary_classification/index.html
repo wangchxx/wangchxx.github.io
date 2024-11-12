@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Reading | Nonparametric binary regression using a Gaussian process prior | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Let&rsquo;s discuss this paper
+
+Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.
+
+1. Problem Setup
+Consider a binary classification probem given by
+
+$$ 
+ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
+$$
+This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as
+
+$$ 
+ p(x) = H(\eta(x)),
+$$
+where $H$ is commonly choosen as a cdf, called the link function, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="http://localhost:1313/posts/reading/gppriors_for_binary_classification/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/reading/gppriors_for_binary_classification/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reading | Nonparametric binary regression using a Gaussian process prior
+    </h1>
+    <div class="post-meta"><span title='2021-08-07 08:36:14 +0200 +0200'>August 7, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-problem-setup" aria-label="1. Problem Setup">1. Problem Setup</a></li>
+                <li>
+                    <a href="#2-mcmc-algorithm-for-posterior" aria-label="2. MCMC algorithm for posterior">2. MCMC algorithm for posterior</a><ul>
+                        
+                <li>
+                    <a href="#21-probit-link" aria-label="2.1 Probit link">2.1 Probit link</a></li>
+                <li>
+                    <a href="#22-arbitrary-unimodal-symmetric-link" aria-label="2.2 Arbitrary unimodal symmetric link">2.2 Arbitrary unimodal symmetric link</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-hierarchical-models" aria-label="3. Hierarchical models">3. Hierarchical models</a></li>
+                <li>
+                    <a href="#4-discussion" aria-label="4. Discussion">4. Discussion</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Let&rsquo;s discuss this paper</p>
+<ul>
+<li>Choudhuri, N., Ghosal, S., &amp; Roy, A. (2007). Nonparametric binary regression using a Gaussian process prior. Statistical Methodology, 17.</li>
+</ul>
+<h2 id="1-problem-setup">1. Problem Setup<a hidden class="anchor" aria-hidden="true" href="#1-problem-setup">#</a></h2>
+<p>Consider a binary classification probem given by
+</p>
+$$ 
+ p(x) = P(Y = 1|X=x) = 1- P(Y = -1|X = x).
+$$<p>
+This problem commonly occurs in many fields of application, such as medical and spatial statics. Traditionally, we would model this problem as
+</p>
+$$ 
+ p(x) = H(\eta(x)),
+$$<p>
+where $H$ is commonly choosen as a cdf, called the <em>link function</em>, and $\eta$ can be choosen parametrically or nonparametrically. In this paper, a nonparametric approach was studied, where $H$ was known, and the function $\eta$ was estimated with a Gaussian prior.</p>
+<p>There are two functional hyper-parameters in the GP prior. The mean function $\mu(x)$ and the covariance kernel $r(x,y)$. The most important parameter is the covariance kernel that controls the local smoothness of the sample paths of $\eta(x)$ and thus determines the extent of strength borrowed from neighbors in obtaining the posterior process.</p>
+<h2 id="2-mcmc-algorithm-for-posterior">2. MCMC algorithm for posterior<a hidden class="anchor" aria-hidden="true" href="#2-mcmc-algorithm-for-posterior">#</a></h2>
+<p>The posterior of $\eta$ is not analytically tractable, and thus an MCMC procedure will be used to compute the posterior.</p>
+<h3 id="21-probit-link">2.1 Probit link<a hidden class="anchor" aria-hidden="true" href="#21-probit-link">#</a></h3>
+<p>Consider $H = \Phi$. Suppoe that $\eta\sim GP(\mu,\Sigma)$. Let $Z = \eta(x)|\eta$ be latent variables, then $Z \sim N(\eta(x), I)$. Assume that the observations $Y_i's$ are functions of these latent variables defined as $Y_i = I(Z_i\geq 0)$. Then
+</p>
+$$
+ Y_i|\eta \sim Bernoulli(H(\eta(x_i))).
+$$<p>
+The procedure can be summarized as:</p>
+<ol>
+<li>$\eta\sim GP(\mu,\Sigma)$.</li>
+<li>$Z|\eta \sim N(\eta(x), I)$.</li>
+<li>$Y_i|Z_i \sim Bernoulli(H(Z_i))$.</li>
+</ol>
+<p>The posterior of $\eta|Z$ could be computed analytically by the conjugacy in the Gaussian observation and the GP prior.</p>
+$$
+ \eta|Z,Y = \eta|Z \sim N(\mu^*, \Sigma^*)
+$$<p>where $\Sigma^* = (I + \Sigma^{-1})^{-1}, \mu^* = \Sigma^* (Z + \Sigma^{-1}\mu) = \Sigma^* (Z - \mu) + \mu$. Since $Z$ is unobservable, we shall sampe from the joint posterior distribution of $(Z,\eta)$ via a Gibbs sampler. The value of $Y_i$ indicates the sign of $Z_i$, and thus
+</p>
+$$ 
+ Z_i|\eta, Y \sim 
+ \begin{cases}
+ N(\eta(x_i), 1) | Z_i\geq 0,  & \; Y_i = 1, \cr 
+ N(\eta(x_i), 1) | Z_i< 0,  &\; Y_i = -1.
+ \end{cases} 
+$$<p>
+Since $\Sigma$ can be near-singular if points $x_i$ are close to each other, the computation of $\Sigma^{-1}$ should be avioded. A spectral decomposition of the form $\Sigma = P \Lambda P^T$ will be helpful. Then
+</p>
+$$ 
+ \Sigma^* = P(\Lambda + I)^{-1}\Lambda P^T.
+$$<p><img alt="Simulation Result" loading="lazy" src="/img_reading/GP_2c_mcmc.png"></p>
+<h3 id="22-arbitrary-unimodal-symmetric-link">2.2 Arbitrary unimodal symmetric link<a hidden class="anchor" aria-hidden="true" href="#22-arbitrary-unimodal-symmetric-link">#</a></h3>
+<p>Let the link funciton $H$ be the cdf having a smooth unimodal symmetric density on the real line. Then  $H$ may be represented as the scale mixture of $\Phi$, and hence
+</p>
+$$ 
+ H(t) = \int_0^\infty \Phi(t\sqrt{v}) d G(v),
+$$<p>
+for some known $G$. Introduce two sets of unobservable latent variables $Z,T$ and model it hierarchically by
+</p>
+$$
+ \begin{align*}
+ \eta &\sim GP(\mu,\Sigma) \cr
+ V_i|\eta &\sim \text{ i.i.d. } G, \cr
+ Z_i|\eta,V &\sim \text{ independent } N(\eta_i, V_i^{-1}) \cr
+ Y_i|Z_i &= I(Z_i\geq 0).
+ \end{align*}
+$$<p>
+Then, given $\eta$, the $Y_i's$ are independent Bernoulli random variables with success probability $H(\eta_i)$. Let $D_V$ be the diagonal matrix with $j$-th element equals to $v_j$, and then by the Gaussian conjugacy,
+</p>
+$$ 
+   \Sigma_V^* = (D_V + \Sigma^{-1})^{-1} ,\quad \mu_V^* = \Sigma_V^*  (D_V Z + \Sigma^{-1}\mu) = \Sigma_V^* D_V (Z - \mu) + \mu.
+$$<p>Suppose $G$ has a Labesgue density $g$. Then
+</p>
+$$ 
+ \begin{align}
+ \eta|Z,V,Y = \eta|Z,V &\sim N(\mu_V^*,\Sigma_V^*),  \cr
+ V_i|Z,\eta, Y = V_i|\eta,Z &\propto \phi((Z_i - \eta_i)\sqrt{v_i}) g(v_i), \cr
+ Z_i|V,\eta, V,Y = Z_i| Y,V &\sim 
+ \begin{cases}
+ N(\eta(x_i), V_i^{-1}) | Z_i\geq 0,  & \; Y_i = 1, \cr 
+ N(\eta(x_i), V_i^{-1}) | Z_i<0,  &\; Y_i = -1.
+ \end{cases} 
+ \end{align}
+$$<h2 id="3-hierarchical-models">3. Hierarchical models<a hidden class="anchor" aria-hidden="true" href="#3-hierarchical-models">#</a></h2>
+<p>The choice of the hyper-parameters $\mu,\Sigma$ are critical in the prior elicitation. One may put priors on these hyper-parameters. For instance, we can consider a parametric form for $\Sigma$ by
+</p>
+$$ 
+ \Sigma_\tau = \Sigma/\tau,  
+$$<p>
+for some known $\Sigma$ and unknown hyper-parameter $\tau>0$. Note that $\tau$ determines the smoothness of data. A gamma distribution is an appropriate prior for $\tau$, thus we consider the following hierarchical model</p>
+<ol>
+<li>$\tau \sim Gamma(a,b)$.</li>
+<li>$\eta|\tau \sim N(\mu,\Sigma_\tau)$.</li>
+<li>$Z|\eta,\tau \sim N(\eta(x), I)$.</li>
+<li>$Y_i|Z_i \sim Bernoulli(H(Z_i))$.</li>
+</ol>
+<p>The distribution of $\tau$ given $Y,Z,\eta$ can be easily derived, which is still a Gamma distribution, wirte $Gamma(a^*, b^*)$. Then we can use a Gibbs sampler to generate samples from the distribution of $(\tau,Z,\eta|Y)$.</p>
+<h2 id="4-discussion">4. Discussion<a hidden class="anchor" aria-hidden="true" href="#4-discussion">#</a></h2>
+<p>This article described a nonparametric Bayesian approach to estimating the regression function for binary classification. The case where the link function $H$ who has smooth unimodal symmetric density was discussed. However, consistency behaviour was not mentioned.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/reading/gpconsistency_for_binary_classification/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Reading | Posterior consistency of Gaussian process prior for nonparametric binary regression</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/bayes/bayes_7_gp3/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Bayesian Statistics| Gaussian Process Priors (3)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

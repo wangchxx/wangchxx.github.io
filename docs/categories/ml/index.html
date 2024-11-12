@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Ml | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="http://localhost:1313/categories/ml/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/ml/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/ml/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Ml
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Multiplayer Monte Carlo Tree Search
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Multi-Agent Systems A multi-agent system (MAS) consists of multiple decision-making agents which interact in a shared environment to achieve common or conflicting goals.
+MAS research spans a range of problems, such as
+how to design MAS to incentivize certain behaviors in agents, how to design algorithms enabling agents to achieve specific goals in a MAS, how information is communicated and propagated among agents. 2. Monte Carlo Tree Search (MCTS) The MCTS focus on the analysis of the most promising moves, expanding the search tree based on random sampling of the search space. MCTS is based on many palyouts, and the result of each playout is then used to weight the nodes.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-20 23:01:33 +0200 +0200'>September 20, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Multiplayer Monte Carlo Tree Search" href="http://localhost:1313/posts/rl/rl_09_mcts/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Dynamics Approximation for Model-Based RL
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>One shortcoming to DP methods is that they assume the knowledge of the dynamics. To overcome it, we introduced two model-free methods: MC and TP. They are capable of learning a wide range of tasks. However, such methods suffer from very high sample complexity. In this chapter, we consider a model-based method with dynamics approximation.
+1. Dynamics Approximation Let $p(s&#39;|s,a)$ be the unknown dynamics function, and $f_\theta(s_t, a_t)$ be the learned dynamics function parameterized by $\theta$. A straightforward parameterization for $f_\theta(s_t, a_t)$ would take as input the current state-action pair and ouput the predicted next state $\hat{s}_{t&#43;1}$. However, this function can be difficult to learn as $s_t$ and $s_{t&#43;1}$ can be too similar and the action has seemingly little effect on the ouput. Instead predict the next state directly, we predict the change in state $s_t$ over the time step ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-09 13:26:05 +0200 +0200'>September 9, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Dynamics Approximation for Model-Based RL" href="http://localhost:1313/posts/rl/rl_08_dynamics_approximation/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Policy Gradient Methods
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>So far all methods have been action-value methods. In this chapter we consider methods that learn a parameterized policy that can select actions with consulting a value function. We write a parametric policy $\pi_\theta(a|s) = \Pr(A_t = a| S_t = s, \theta)$.
+One advantage of parameterizing policies is that it can learn stochastic policies and change action probabilities smoothly as a function of the learned parameter. Largely because of this, stronger convergence guarantees are available for policy-gradient methods.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-26 03:20:07 +0200 +0200'>August 26, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Policy Gradient Methods" href="http://localhost:1313/posts/rl/rl_07_policy_gradient/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Value Function Approximation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>So far we have represented value function by a lookup table. But sometimes we may have large MDPs where there are too many states or actions to store in memory. One solution to this problem is estimating value function with function approximation
+$$ \hat{v}(s,w) \approx v_\pi(s), \quad \hat{q}(s,a,w) \approx q_\pi(s,a). $$For the simplicity of notation, we denote the function approximator by $f$. With a differentiable loss function $J_w$, e.g. $$ J_w = \mathbb{E}_\pi (f(s,w) - v_\pi(s))^2, $$ we can approximate $v$ or $q$ by GD, i.e. ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-25 22:17:58 +0200 +0200'>August 25, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Value Function Approximation" href="http://localhost:1313/posts/rl/rl_06_value_function_approximation/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Model-Free: Temporal Difference Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and DP ideas. Like MC methods, TD can learn from raw experience without knowledge of the environment’s dynamics. Like DP, TD updates estimates based in part on other learned estimates, without waiting for a final output ($G_t$).
+1. TD Prediction Recall that a simple MC methods for nonstationary environment updates $V(S_t)$ by $$ V(S_t) \leftarrow V(S_t) &#43; \alpha [ G_t - V(S_t)], $$ where $G_t$ can only be known when a visit to $S_t$ occurs. The simplest TD method updates $V$ by ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 18:28:15 +0200 +0200'>August 24, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Model-Free: Temporal Difference Learning" href="http://localhost:1313/posts/rl/rl_05_temporal_difference/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Model-Free: Monte Carlo Methods
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>We have introduced the DP algorithm for estimating value functions and optimal policies. One drawback to DP is that assumes complete knowledge of the environment. Now we will introduce two model-free methods: Monte Carlo methods and temporal-difference learning.
+In this chapter we will consider the Monte Carlo methods for prediction and control in an unknown MDP.
+1. Monte Carlo Prediction We begin by consider Monte Carlo methods for learning the value function $v_\pi$ for a given policy $\pi$. Suppose that we wish to estimate $v_\pi(s)$ given a set of episodes under policy $\pi$ ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 18:27:52 +0200 +0200'>August 24, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Model-Free: Monte Carlo Methods" href="http://localhost:1313/posts/rl/rl_04_monte_carlo/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Dynamic Programming
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>There are two common tasks in an MDP
+prediction: estimating the valued function $\pi_\pi$ given a MDP and a policy $\pi$. control: finding optimal policy $\pi_*$ and corresponding optimal value function $v_*$ given a MDP. In this chapter we will show how to use DP to solve the prediction and control problems in an MDP. DP is of limited utility in RL both because of their assumption of a perfect model (environment’s dynamics are completely known) and because of their great computational expense, but they are important theoretically.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 03:00:31 +0200 +0200'>August 24, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Dynamic Programming" href="http://localhost:1313/posts/rl/rl_03_dynamic_programming/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Markov Decision Processes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Notations $\mathcal{S}$: state space. $\mathcal{A}$: action space. $\mathcal{R}$: reward space. 1. Agent-Environment Interaction On each step, the agent selects an action $A_t\in\mathcal{A}$ based on the state $S_t$, and then the environment reveals a reward $R_{t&#43;1}$ and moves to a new state $S_{t&#43;1}$ corresponding the selected action $A_t$ and state $S_t$.
+Write $$ p(s&#39;,r|s,a) = \Pr(S_t = s&#39;, R_t = r| S_{t-1} = s, A_{t-1} = a). $$ The function $p$ defines the dynamics of the MDP. Given the four-argument function $p$, one can compute anything else one might want tot know about the environment, such as
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 03:00:02 +0200 +0200'>August 24, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Markov Decision Processes" href="http://localhost:1313/posts/rl/rl_02_markov_decision_process/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RL | Multi-armed Bandits
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Notations $A_t$: the action selected at time $t$.
+$R_t$: the reward received at time $t$.
+$q_*(a)$: the expected reward given an action $a$, i.e. $q_*(a) = \mathbb{E}[R_t|A_t = a]$.
+$Q_t(a)$: the estimated value of action $a$ at time $t$.
+1. A k-armed Bandit Problem Consider a problem that we have k different actions, and each choice leads to a reward with a certain probability distribution depending on the action selected. Our objective is to maximize the expected total reward.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-24 00:56:37 +0200 +0200'>August 24, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to RL | Multi-armed Bandits" href="http://localhost:1313/posts/rl/rl_01_multi_armed_bandits/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Reading | Estimating a smooth function on a large graph (2)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This paper follows from the one discussed in the previous article and shows that the introduced estimator achieves the optimal rate.
+Kirichenko, A., &amp; van Zanten, H. (2018). Minimax lower bounds for function estimation on graphs. ArXiv:1709.06360 [Math, Stat]. http://arxiv.org/abs/1709.06360 1. Main results Theorem 1 (Regression) Under conditions (G), (L) and (S), $$ \inf_{\hat{f}} \sup_{f\in H^\beta(Q)} \mathbb{E}_f || \hat{f} - f||_n^2 \asymp n^{-2\beta/(2\beta&#43;r)}. $$ where the infimum is taken over all estimators $\hat{f} = \hat{f}(Y_1,...,Y_n)$. This theorem shows that the minimax rate for the regression problem on the graph is equal to $n^{-\beta/(2\beta&#43;r)}$.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-21 04:18:02 +0200 +0200'>August 21, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Reading | Estimating a smooth function on a large graph (2)" href="http://localhost:1313/posts/reading/gp_graph_2/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/categories/ml/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

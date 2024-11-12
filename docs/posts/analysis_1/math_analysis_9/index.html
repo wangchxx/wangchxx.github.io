@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Mathematical Analysis | 9 Riemann Integrals | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="1. Definitions
+
+Definition 1 (Partition)
+Let $[a,b]$ be a given interval, by a partition $T$ of $[a,b]$, we mean a finite set of points $x_0,x_1,...,x_n$, where
+$$ 
+ a = x_0\leq x_1\leq \cdots\leq x_n = b
+$$
+We write $\Delta x_i = x_i  - x_{i-1}$, and denote $|T| = \max_i \Delta x_i$ as the mesh of the partition $T$.
+Definition 2 (Riemann sum)
+Let $f$ be a given function defined on $[a,b]$, and $T$ be a partition of $[a,b]$. For any points $x_{i-1}\leq\xi\leq x_i$, $i=1,2,...,n$, the summation
+$$ 
+ \sum_{i=1}^n f(\xi_i)\Delta x_i,
+$$
+is called the Riemaan sum of $f$ on $[a,b]$.
+Definition 3 (Riemann integrable)
+Let $f$ be a given function defined on $[a,b]$, and $J$ be a fixed number. If for any $\epsilon&gt;0$, there exists $\delta&gt;0$, s.t. for every partition $T$ of $[a,b]$ with $|T|&lt;\delta$ and for any choice of $\{\xi_i\}$ we have
+$$ 
+ |\sum_{i=1}^n f(\xi_i)\Delta x_i - J|  &lt;\epsilon,\tag{1}
+$$
+we say that the function $f$ is Riemann integrable on the interval $[a,b]$, we write $f\in\mathcal{R}$ and we denote the $J$ by $J = \int_a^b f(x) dx$.
+Definition 4 (Stieltjes integral)
+Let $\alpha$ be an increasing and bounded function on $[a,b]$, $f:[a,b]\to \mathbb{R}$. For each partition $T$ of $[a,b]$, we write $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1})$. If for any $\epsilon&gt;0$, there exists $\delta&gt;0$, s.t. for every partition $T$ of $[a,b]$ with $|T|&lt;\delta$ and for any choice of $\{\xi_i\}$ we have
+$$ 
+ |\sum_{i=1}^n f(\xi_i)\Delta \alpha_i - J|  &lt;\epsilon,\tag{2}
+$$
+we say that the function $f$ is Stieltjes integrable w.r.t. $\alpha$ on the interval $[a,b]$, and write $f\in \mathcal{R}(\alpha)$, denoted by $J = \int_a^b f(x) d\alpha(x)$.
+
+By taking $\alpha(x) = x$, the Riemann integral can be viewed as a special case of the Stieltjes integral.">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="http://localhost:1313/posts/analysis_1/math_analysis_9/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_1/math_analysis_9/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Mathematical Analysis | 9 Riemann Integrals
+    </h1>
+    <div class="post-meta"><span title='2021-04-09 10:52:59 +0200 +0200'>April 9, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-definitions" aria-label="1. Definitions">1. Definitions</a></li>
+                <li>
+                    <a href="#2-existence" aria-label="2. Existence">2. Existence</a></li>
+                <li>
+                    <a href="#3-properties" aria-label="3. Properties">3. Properties</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="1-definitions">1. Definitions<a hidden class="anchor" aria-hidden="true" href="#1-definitions">#</a></h2>
+<dl>
+<dt>Definition 1 (<strong>Partition</strong>)</dt>
+<dd>Let $[a,b]$ be a given interval, by a <code>partition</code> $T$ of $[a,b]$, we mean a finite set of points $x_0,x_1,...,x_n$, where
+$$ 
+ a = x_0\leq x_1\leq \cdots\leq x_n = b
+$$
+We write $\Delta x_i = x_i  - x_{i-1}$, and denote $|T| = \max_i \Delta x_i$ as the <code>mesh</code> of the partition $T$.</dd>
+<dt>Definition 2 (<strong>Riemann sum</strong>)</dt>
+<dd>Let $f$ be a given function defined on $[a,b]$, and $T$ be a partition of $[a,b]$. For any points $x_{i-1}\leq\xi\leq x_i$, $i=1,2,...,n$, the summation
+$$ 
+ \sum_{i=1}^n f(\xi_i)\Delta x_i,
+$$
+is called the <code>Riemaan sum</code> of $f$ on $[a,b]$.</dd>
+<dt>Definition 3 (<strong>Riemann integrable</strong>)</dt>
+<dd>Let $f$ be a given function defined on $[a,b]$, and $J$ be a fixed number. If for any $\epsilon>0$, there exists $\delta>0$, s.t. for every partition $T$ of $[a,b]$ with $|T|<\delta$ and for any choice of $\{\xi_i\}$ we have
+$$ 
+ |\sum_{i=1}^n f(\xi_i)\Delta x_i - J|  <\epsilon,\tag{1}
+$$
+we say that the function $f$ is <code>Riemann integrable</code> on the interval $[a,b]$, we write $f\in\mathcal{R}$ and we denote the $J$ by $J = \int_a^b f(x) dx$.</dd>
+<dt>Definition 4 (Stieltjes integral)</dt>
+<dd>Let $\alpha$ be an increasing and bounded function on $[a,b]$, $f:[a,b]\to \mathbb{R}$. For each partition $T$ of $[a,b]$, we write $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1})$. If for any $\epsilon>0$, there exists $\delta>0$, s.t. for every partition $T$ of $[a,b]$ with $|T|<\delta$ and for any choice of $\{\xi_i\}$ we have
+$$ 
+ |\sum_{i=1}^n f(\xi_i)\Delta \alpha_i - J|  <\epsilon,\tag{2}
+$$
+we say that the function $f$ is <code>Stieltjes integrable</code> w.r.t. $\alpha$ on the interval $[a,b]$, and write $f\in \mathcal{R}(\alpha)$, denoted by $J = \int_a^b f(x) d\alpha(x)$.</dd>
+</dl>
+<p>By taking $\alpha(x) = x$, the Riemann integral can be viewed as a special case of the Stieltjes integral.</p>
+<h2 id="2-existence">2. Existence<a hidden class="anchor" aria-hidden="true" href="#2-existence">#</a></h2>
+<dl>
+<dt>Theorem 5 (<strong>Necessary condition</strong>)</dt>
+<dd>If $f\in \mathcal{R}$ on $[a,b]$, then $f$ is bounded on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>By contradiction. If $f$ is unbounded on $[a,b]$, then for any partition $T$ of $[a,b]$, there exists an interval $[x_{k-1},x_k]$ where $f$ is unbounded. Let $G = |\sum_{i\neq k} f(\xi_i) \Delta x_i|$, then for any $M>0$, there exists $\xi_k\in [x_{k-1},x_k]$ s.t.
+$$ 
+ |f(\xi_k)\Delta x_k|> \frac{M+ G}{\Delta x_k}.
+$$
+So $|\sum_{i=1}^n f(\xi_i) \Delta x_i| \geq |f(\xi_k)\Delta x_k| - G > M$.</dd>
+</dl>
+<p>$\Box$</p>
+<p>Suppose $T$ is a partition of $[a,b]$, and $f$ is bounded on $[a,b]$. Then we define $m_i,M_i$ as the lower bound and upper bound of $f$ on $[x_{i-1},x_i]$, respectively. Also we make summations,
+</p>
+$$ 
+ L(T,f) = \sum_{i=1}^n M_i \Delta x_i, \quad U(T,f)  \sum_{i=1}^n m_i \Delta x_i.
+$$<p>
+They are called the <code>upper sum</code> and <code>lower sum</code> of $f$ on $[a,b]$ with partition $T$, respectively. Similarly, we can define
+</p>
+$$ 
+   L(T,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i, \quad U(T,f,\alpha)  \sum_{i=1}^n m_i \Delta \alpha_i.
+$$<dl>
+<dt>Theorem 6</dt>
+<dd>$f\in\mathcal{R}(\alpha)$ on $[a,b]$ iff for any $\epsilon>0$, there exists a partition $T$ s.t.
+$$ 
+ U(T,f,\alpha)  - L(T,f,\alpha)< \epsilon.\tag{3}
+$$</dd>
+<dt>proof</dt>
+<dd>For every $T$, we have that
+$$ 
+   L(T,f,\alpha) \leq \underline{\int} f d\alpha \leq \overline{\int}fd\alpha\leq U(T,f,\alpha),
+$$
+where $\underline{\int} f d\alpha = \sup_T  L(T,f,\alpha)$ and $\overline{\int}fd\alpha =\inf_T U(T,f,\alpha)$. Then the assumption (3) implies that
+$$ 
+ 0\leq \overline{\int}fd\alpha - \underline{\int} f d\alpha <\epsilon,
+$$
+and hence $\overline{\int}fd\alpha = \underline{\int} f d\alpha$.</dd>
+</dl>
+<p>Conversely, if $f\in\mathcal{R}(\alpha)$, then for every $\epsilon>0$, there exist partitions $T_1,T_2$ s.t.
+</p>
+$$ 
+   U(T_2,f,\alpha) - \int_a^b f d\alpha<\epsilon/2, \quad \int_a^b f d\alpha - L(T_1,f,\alpha)<\epsilon/2.\tag{4}
+$$<p>
+We choose $T = T_1\cup T_2$, then we have
+</p>
+$$ 
+   U(T,f,\alpha)\leq U(T_2,f,\alpha) < \int_a^b f d\alpha + \epsilon/2 < L(T_1,f,\alpha) + \epsilon \leq L(T,f,\alpha) + \epsilon.
+$$<p>$\Box$</p>
+<dl>
+<dt>Corollary 7</dt>
+<dd>If $f$ is continuous on $[a,b]$, then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon>0$, we can choose $\eta>0$ s.t.
+$$ 
+ |\alpha(b)  -\alpha(a)|\eta <\epsilon.
+$$
+Since $f$ is continuous on the closed interval $[a,b]$, it is uniformly continuous on $[a,b]$. There exists $\delta>0$ s.t. for any $x_1,x_2\in[a,b]$ satisfying $|x_1 - x_2|<\delta$,
+$$ 
+ |f(x_1) - f(x_2)|<\eta .
+$$</dd>
+</dl>
+<p>Given a partition $T$ s.t. $|T|<\delta$, we have that $U(T,f,\alpha) - L(T,f,\alpha)<\epsilon$.</p>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 8</dt>
+<dd>If $f$ is monotonic on $[a,b]$, and $\alpha$ is continuous on $[a,b]$,then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon>0,n$, we choose a partition $T$ s.t.
+$$ 
+ \Delta \alpha_i = \frac{\alpha(b)- \alpha(a)}{n}.
+$$
+W.l.o.g. we assume that $f$ is increasing, then $M_i = f(x_i), m_i = f(x_{i-1})$, and thus $U(T,f,\alpha) - L(T,f,\alpha) = \frac{\alpha(b)- \alpha(a)}{n} (f(b) - f(a))<\epsilon$, by letting $n$ large enough.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 9</dt>
+<dd>Suppose $f$ is bounded on $[a,b]$, and has only finitely many points of  discontinuity, and $\alpha$ is continuous at each point where $f$ is discontinuous. Then $f\in\mathcal{R}(\alpha)$ on $[a,b]$.</dd>
+<dt>proof</dt>
+<dd>Given any $\epsilon>0$, put $M = \sup_x |f(x)|$, and let $E$ be the set of points of discontinuity. Then we can cover $E$ by finitely many disjoint intervals $[u_i,v_i]\subset [a,b]$ s.t. $\sum |\alpha(v_i) - \alpha(u_i)|<\epsilon$.</dd>
+</dl>
+<p>Let $K:= [a,b]\setminus \cup_i (u_i,v_i)$, we can see $K$ is a union of finitely many closed intervals, thus we can find a partition $T_K$ of $K$ s.t.
+</p>
+$$ 
+   U(T_K,f,\alpha) - L(T_K,f,\alpha)<\epsilon.
+$$<p>
+Consider intervals $(u_i,v_i)$, we can defined a partition $T$ of $[a,b]$ by $T = T_K\cup\{u_1,v_1,...,u_k,v_k\}$. It follows that
+</p>
+$$ 
+ U(T,f,\alpha) - L(T,f,\alpha)\leq  U(T_K,f,\alpha) - L(T_K,f,\alpha) + 2M\epsilon<\epsilon + 2M\epsilon.
+$$<p>$\Box$</p>
+<dl>
+<dt>Theorem 10 (<strong>Fundamental theorem of calculus</strong>)</dt>
+<dd>If $f\in\mathcal{R}$ on $[a,b]$ and if $f$ possesses a primary function $F$, then
+$$ 
+ \int_a^b f(x)dx = F(b) - F(a).
+$$</dd>
+<dt>proof</dt>
+<dd>For any $\epsilon>0$, choose a partition $T$ s.t. $U(T,f) - L(T,f)<\epsilon$. Then by the mean value theorem, we have $\eta_i\in[x_{i-1},x_i]$
+$$ 
+ F(x_i)  - F(x_{i-1}) = f(\eta_i)\Delta x_i.
+$$
+Thus $\sum_{i}^n f(\eta_i)\Delta x_i = F(b) - F(a)$. Because $\sum_{i}^n f(\xi_i)\Delta x_i \in [L,U]$, we obtain that for any $\xi_i \in[x_{i-1},x_i]$
+$$ 
+ |F(b) - F(a) - \sum_{i}^n f(\xi_i)\Delta x_i|<\epsilon  .
+$$</dd>
+</dl>
+<p>$\Box$</p>
+<h2 id="3-properties">3. Properties<a hidden class="anchor" aria-hidden="true" href="#3-properties">#</a></h2>
+<dl>
+<dt>Theorem 11 (<strong>Integral mean value I</strong>)</dt>
+<dd>If $f$ is continuous on $[a,b]$, then there exists $\xi\in[a,b]$ s.t.
+$$ 
+ \int_a^b f(x) dx = f(\xi)(b-a).
+$$</dd>
+<dt>proof</dt>
+<dd>$m(b-a)\leq \int_a^b f(x) dx \leq M(b-a)$. It follows that
+$$ 
+ m\leq \frac{1}{b-a}  \int_a^b f(x) dx \leq M.
+$$
+By the continuity of $f$, we can find $\xi\in[a,b]$ s.t. $f(\xi) = \frac{1}{b-a}  \int_a^b f(x) dx$.</dd>
+</dl>
+<p>$\Box$</p>
+<dl>
+<dt>Theorem 12</dt>
+<dd>If $f\in\mathcal{R}$ on $[a,b]$. For $x\in[a,b]$, put
+$$ 
+ F(x) = \int_a^x f(t)dt.
+$$
+Then $F$ is continuous on $[a,b]$. Furthermore, if $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$, with
+$$ 
+ F'(x_0) = f(x_0) .
+$$</dd>
+<dt>proof</dt>
+<dd>We know that $f$ is bounded $|f|\leq M$. Then $|F(y) - F(x)|\leq M |y-x|$. Given $\epsilon>0$, we see $|F(y) - F(x)|<\epsilon$, provided $|y - x|<\epsilon/M$. This shows the continuity of $F$.</dd>
+</dl>
+<p>Now suppose that $f$ is continuous at $x_0$. We can choose $\delta>0$ s.t. $|f(t) - f(x_0)|<\epsilon$ if $|t-x_0|<\delta$. Hence for any $s,t\in [a,b]$ s.t. $x_0\in [s,t]\subset U(x_0,\delta)$, we have that $F(t) - F(s) = (t-s) f(\xi)$ for some $\xi\in[s,t]$ by the Integral mean value theorem I. Then,
+</p>
+$$ 
+ \bigg|\frac{F(t) - F(s)}{t-s} - f(x_0)\bigg| = |f(\xi) - f(x_0)|  <\epsilon.
+$$<p>$\Box$</p>
+<dl>
+<dt>Theorem 13 (<strong>Integral mean value II</strong>)</dt>
+<dd>Suppose that $f\in\mathcal{R}$ on $[a,b]$.</dd>
+</dl>
+<ol>
+<li>If $g$ is decreasing on $[a,b]$ and $g\geq 0$, then there exists $\xi\in [a,b]$ s.t.
+$$ 
+   \int_a^b f(x)g(x) dx = g(a)\int_a^\xi f(x)dx.
+$$</li>
+<li>If $g$ is increasing on $[a,b]$ and $g\geq 0$, then there exists $\eta\in [a,b]$ s.t.
+$$ 
+   \int_a^b f(x)g(x) dx = g(b)\int_\eta^b f(x)dx.
+$$</li>
+</ol>
+<dl>
+<dt>proof</dt>
+<dd>We have shown that $F(x) = \int_a^x f(t)dt$ is continuous on $[a,b]$, and thus bounded. $g(a) = 0$ is trivial so we show the case $g(a)>0$ only. We shall find $\xi\in[a,b]$ s.t.
+$$ 
+ F(\xi) = \frac{1}{g(a)} \int_a^b f(x)g(x) dx.
+$$</dd>
+</dl>
+<p>Now, by the intermediate value theorem, it suffices to show that
+</p>
+$$ 
+   m\leq \frac{1}{g(a)} \int_a^b f(x)g(x) dx \leq M.
+$$
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/analysis_1/math_analysis_10/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Mathematical Analysis | 10 Numerical Series</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/analysis_1/math_analysis_8/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Mathematical Analysis | 8 Indefinite Integrals</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

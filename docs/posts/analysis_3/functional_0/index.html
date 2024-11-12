@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Functional Analysis | 0 Preliminaries | My Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Functional Analysis | 0 Preliminaries
+
+Notation:
+
+$\R$: the set of real numbers,
+$\mathbb{C}$: the set of complex numbers,
+$\N$: the set of positive integers.
+$\mathbb{F} = \{\R,\mathbb{C}\}$,
+$\Re_z$: the real part of complex number $z$,
+$\Im_z$: the imaginary part of complex number $z$,
+$sp(A)$: span of set $A$.
+$dim V$: dimension of vector space $V$.
+
+
+1. Linear Algebra
+
+Definition 1 (Vector space)
+A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$,
+
+$x&#43;y = y&#43;x$,
+there exists a unique $0\in V$ s.t. $x&#43;0 = x$,
+there exists a unique $-x\in V$ s.t. $x &#43; (-x) = 0$,
+$1x = x$,
+$\alpha(x&#43;y) = \alpha x &#43; \alpha y, (\alpha&#43;\beta)x = \alpha x &#43; \beta x$.
+
+
+Definition 2 (Linear subspace)
+Let $V$ be a vector space. A non-empty set $U\subset V$ is a linear subspace of $V$ if $U$ is itself a vector space, which is equivalent to the condition
+$$ 
+   \alpha x &#43; \beta y \in U, \;\forall \alpha,\beta\in \mathbb{F}, x,y\in U.
+$$
+Definition 3
+Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$.
+Definition 4 (Linear transformation)
+Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a linear transformation if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$
+$$ 
+ T(\alpha x &#43; \beta y) = \alpha T(x) &#43; \beta T(y).
+$$
+The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space.
+
+2. Metric Spaces
+
+Definition 5 (Metric space)
+A metric on a set $M$ is a function $d:M\times M\to \R$ with the following properties,
+
+$d(x,y)\geq 0$,
+$d(x,y)= 0 \Leftrightarrow x=y$,
+$d(x,y) = d(y,x)$,
+$d(x,z)\leq d(x,y) &#43; d(y,z)$.
+
+If $d$  is a metric on $M$, then the pair $(M,d)$ is called a metric space.">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="http://localhost:1313/posts/analysis_3/functional_0/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/analysis_3/functional_0/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Functional Analysis | 0 Preliminaries
+    </h1>
+    <div class="post-meta"><span title='2021-04-20 10:52:59 +0200 +0200'>April 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#functional-analysis--0-preliminaries" aria-label="Functional Analysis | 0 Preliminaries">Functional Analysis | 0 Preliminaries</a><ul>
+                        
+                <li>
+                    <a href="#1-linear-algebra" aria-label="1. Linear Algebra">1. Linear Algebra</a></li>
+                <li>
+                    <a href="#2-metric-spaces" aria-label="2. Metric Spaces">2. Metric Spaces</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="functional-analysis--0-preliminaries">Functional Analysis | 0 Preliminaries<a hidden class="anchor" aria-hidden="true" href="#functional-analysis--0-preliminaries">#</a></h1>
+<hr>
+<p>Notation:</p>
+<ul>
+<li>$\R$: the set of real numbers,</li>
+<li>$\mathbb{C}$: the set of complex numbers,</li>
+<li>$\N$: the set of positive integers.</li>
+<li>$\mathbb{F} = \{\R,\mathbb{C}\}$,</li>
+<li>$\Re_z$: the real part of complex number $z$,</li>
+<li>$\Im_z$: the imaginary part of complex number $z$,</li>
+<li>$sp(A)$: span of set $A$.</li>
+<li>$dim V$: dimension of vector space $V$.</li>
+</ul>
+<hr>
+<h2 id="1-linear-algebra">1. Linear Algebra<a hidden class="anchor" aria-hidden="true" href="#1-linear-algebra">#</a></h2>
+<dl>
+<dt>Definition 1 (<strong>Vector space</strong>)</dt>
+<dd>A <code>vector space</code> over $\mathbb{F}$ is a non-empty set $V$ together with two function $x+y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$,
+<ol>
+<li>$x+y = y+x$,</li>
+<li>there exists a unique $0\in V$ s.t. $x+0 = x$,</li>
+<li>there exists a unique $-x\in V$ s.t. $x + (-x) = 0$,</li>
+<li>$1x = x$,</li>
+<li>$\alpha(x+y) = \alpha x + \alpha y, (\alpha+\beta)x = \alpha x + \beta x$.</li>
+</ol>
+</dd>
+<dt>Definition 2 (<strong>Linear subspace</strong>)</dt>
+<dd>Let $V$ be a vector space. A non-empty set $U\subset V$ is a <code>linear subspace</code> of $V$ if $U$ is itself a vector space, which is equivalent to the condition
+$$ 
+   \alpha x + \beta y \in U, \;\forall \alpha,\beta\in \mathbb{F}, x,y\in U.
+$$</dd>
+<dt>Definition 3</dt>
+<dd>Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$.</dd>
+<dt>Definition 4 (Linear transformation)</dt>
+<dd>Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a <code>linear transformation</code> if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$
+$$ 
+ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y).
+$$
+The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space.</dd>
+</dl>
+<h2 id="2-metric-spaces">2. Metric Spaces<a hidden class="anchor" aria-hidden="true" href="#2-metric-spaces">#</a></h2>
+<dl>
+<dt>Definition 5 (Metric space)</dt>
+<dd>A <code>metric</code> on a set $M$ is a function $d:M\times M\to \R$ with the following properties,
+<ol>
+<li>$d(x,y)\geq 0$,</li>
+<li>$d(x,y)= 0 \Leftrightarrow x=y$,</li>
+<li>$d(x,y) = d(y,x)$,</li>
+<li>$d(x,z)\leq d(x,y) + d(y,z)$.</li>
+</ol>
+<p>If $d$  is a metric on $M$, then the pair $(M,d)$ is called a <code>metric space</code>.</p>
+</dd>
+</dl>
+<p>Given a metric space $(M,d)$ and a subset $U\subset M$, the restriction of $d$ to the subset $N$, denoted by $d_N$, is called the  the metric <code>induced</code> on $N$ by $d$.</p>
+<dl>
+<dt>Definition 6 (<strong>Continuity</strong>)</dt>
+<dd>Let $(M,d_M), (N,d_N)$ be two metric spaces and let $f:M\to N$ be a function.
+<ol>
+<li>$f$  is continuous at $x\in M$, if for any $\epsilon>0$, there exists $\delta>0$ s.t. $y\in M, d(x,y)<\delta$ implies
+$$ 
+     d_N(f(x),f(y))<\epsilon.
+    $$</li>
+<li>$f$ is continuous on $M$ if it is continuous at each $x\in M$.</li>
+<li>$f$ is uniformly continuous on $M$, if for any $\epsilon>0$, there exists $\delta>0$ s.t. $d(x,y)<\epsilon$ implies
+$$ 
+     d_N(f(x),f(y))<\epsilon.
+    $$</li>
+</ol>
+</dd>
+<dt>Definition 6 (Completeness)</dt>
+<dd>A metric space $(M,d)$ is <code>complete</code> if every Cauchy sequence in $(M,d)$ is convergent. A subset $A\subset M$ is complete if every Cauchy sequence lying in $A$ converges to an element of $A$.</dd>
+<dt>Theorem 7 (<strong>Baire&rsquo;s category theorem</strong>)</dt>
+<dd>If $(M,d)$ is a complete metric space and $M=\cup_{j\in\N}A_j$, where $A_j\subset M$, $j=1,2,...$, is closed, then at least one of the sets $A_j$ contains an open ball.</dd>
+<dt>Definition 8 (<strong>Compactness</strong>)</dt>
+<dd>Let $(M,d)$ be a metric space. A set $A\subset M$ is <code>compact</code> if every sequence $\{x_n\}$ in $A$ contains a subsequence that converges to an element of $A$. The set $A$ is <code>relatively compact</code> if the closure $\bar{A}$ is compact. If he set $M$ itself is compact, then we say that $(M,d)$ is a compact metric space.</dd>
+</dl>
+<p>Compactness can also be defined in terms of <code>open coverings</code>, which is more appropriate in more general topological spaces. But in metric spaces both definitions are equivalent.</p>
+<dl>
+<dt>Theorem 8</dt>
+<dd>Suppose  that $(M,d)$ is a metric space and $A\subset M$. Then
+<ol>
+<li>if $A$ is complete, then $A$ is closed,</li>
+<li>if $M$ is complete,then $A$ is complete $\Leftrightarrow$ $A$ is closed,</li>
+<li>if $A$ is compact, then $A$ is closed and bounded,</li>
+<li>(Bolzano-Weierstrass theorem) every closed, bounded subset of $\mathbb{F}$ is compact.</li>
+</ol>
+</dd>
+</dl>
+<p>A subset $A\subset M$ is bounded if $d(x,y)< M$ for all $x,y\in A$.</p>
+<dl>
+<dt>Theorem 9</dt>
+<dd>Let $(M,d)$ be a compact metric space, and let $f:M\to\mathbb{F}$ be a continuous function. Then
+<ol>
+<li>there exists $M>0$ s.t. $f(x)\leq M$ for all $x\in M$ ($f$ is bounded),</li>
+<li>in particular, if $\mathbb{F}=\R$  then $\sup_x f(x),\inf_x f(x)$ exist and are finite,</li>
+<li>furthermore, there exist $x_s,x_i\in M$ s.t. $f(x_s)=\sup_x f(x),f(x_i)=\inf_x f(x)$.</li>
+</ol>
+</dd>
+<dt>Definition 9</dt>
+<dd>Let $(M,d)$ be a compact metric space. The set of continuous functions $f:M\to \mathbb{F}$ will be denoted by $C(M)$. We define a metric on $C(M)$ by
+$$ 
+ d(f,g) = \sup_{x\in M} |f(x) - g(x)|.
+$$</dd>
+</dl>
+<p>The metric space $C(M)$ is complete.</p>
+<dl>
+<dt>Definition 10 (separable)</dt>
+<dd>A metric space $(M,d)$ is <code>separable</code> if it contains a countable, dense subset.</dd>
+<dt>Theorem 11</dt>
+<dd>Suppose that $(M,d)$ is a metric space and $A\subset M$.
+<ol>
+<li>If $A$ is compact then it is separable.</li>
+<li>If $A$ is separable and $B\subset A$ then $B$ is separable.</li>
+</ol>
+</dd>
+</dl>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/analysis_3/functional_1/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Functional Analysis | 1 Normed Spaces</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/analysis_1/math_analysis_13/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Mathematical Analysis | 13 Fourier Series</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

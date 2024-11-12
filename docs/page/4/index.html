@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.138.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>My Notes</title>
+
+<meta name="description" content="">
+<meta name="author" content="Chaohua Wang">
+<link rel="canonical" href="http://localhost:1313/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml">
+<link rel="alternate" type="application/json" href="http://localhost:1313/index.json">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '$', right: '$', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+
+
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My Notes (Alt + H)">My Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Posts">
+                    <span class="active">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bayesian Statistics| Introduction
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>这个专题主要介绍一些基础的 (theoretical) Bayesian statistics topics.
+目标人群：
+对Bayes有初步了解的，有一定 statistics，machine learning 基础的，且对理论有兴趣的人。整体上是基于 measure-theoretical probability， 所以读者最好有一定 measure theory 基础，基本上，具有数学本科三年级基础就足够了。
+主要内容:
+Parametric Bayes and posterior consistency.
+Non-parametric Bayes, including Dirichlet process prior and Gaussian process prior.
+General consistency theory for non-parametric Bayes.
+Reproducing kernel Hilbert space (RKHS) theory.
+大部分内容将参考 Ghosal, S., &amp; Van der Vaart, A. (2017). Fundamentals of nonparametric Bayesian inference，并结合一些其他论文。
+风格： 框架式的介绍，可以视为一种提纲，大部分技术性的、繁琐的证明细节将被省略，少部分结论会被证明，但也仅以粗略的形式给出。
+欢迎讨论。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-07-16 10:52:59 +0200 +0200'>July 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Bayesian Statistics| Introduction" href="http://localhost:1313/posts/bayes/bayes_0_intro/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 5 Linear Operators on Hilbert Spaces
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>There is an additional structure on $B(X,Y)$ if $X,Y$ are Hilbert spaces, which enables us to obtain a simpler characterization of invertibility. This is the adjoint of an operator.
+Definition and properties of adjoints. Adjoints and invertibility. Three important operators (normal, self-adjoint and unitary operators) that are related to the adjoint, and their properties. Spectrum of operators. 1. Adjoint In this section we define the adjoint and show its existence and uniqueness.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-25 10:52:59 +0200 +0200'>April 25, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 5 Linear Operators on Hilbert Spaces" href="http://localhost:1313/posts/analysis_3/functional_5/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 4 Duality and Hahn-Banach Theorem
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Dual Spaces In this section we describe the dual of several of the standard spaces.
+Theorem 1 If $X$ is a finite-dimensional normed linear space with basis $\{v_1,...,v_n\}$, then $X&#39;$ has a basis $\{f_1,...,f_n\}$ s.t. $f_j(v_k) = \delta_{jk}$. In particular, $dim (X&#39;) = dim (X)$. proof Let $x\in X$, we can represent is as $x = \sum_{k=1}^n \alpha_k v_k$. Define $f_j:X\to\mathbb{F}$ by $$f_j(x) = \alpha_j.$$ It can be verified that $f_j$ is a linear transformation s.t. $f_j(v_k) = \delta_{jk}$. Moreover, $f_j$ is continuous since $X$ is finite-dimensional, and thus $f_j\in X&#39;$. Next, we show that $\{f_1,...,f_n\}$ is a basis for $X&#39;$. Suppose that $\beta_1,...,\beta_n$ are scalars s.t. $\sum_{j=1}^n \beta_j f_j = 0$. Then ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-24 10:52:59 +0200 +0200'>April 24, 2021</span>&nbsp;·&nbsp;17 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 4 Duality and Hahn-Banach Theorem" href="http://localhost:1313/posts/analysis_3/functional_4/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 3 Linear Operators
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Continuous Linear Transformations Lemma 1 (Continuity) Let $X$ and $Y$ be two normed linear spaces and let $T:X\to Y$ be a linear transformation. The following are equivalent: T is uniformly continuous, $T$ is continuous, $T$ is continuous at $0$, there exists a number $M$ s.t. $\|T(x)\|_Y\leq M$ whenever $x\in X$ with $\|x\|_X\leq 1$, there exists a number $M$ s.t. $\|T(x)\|_Y \leq M\|x\|_X$ for all $x\in X$. proof $1 \Rightarrow 2\Rightarrow 3$ are trivial. We prove the left assertions only. $3\Rightarrow 4$. As $T$ is continuous at $0$, there exist $\delta$ s.t. $\|T(x)\|_Y &lt; 1$ whenveer $\|x\|_X &lt;\delta$. Let $w\in X$ and $\|w\|_X \leq 1$. As $$ \| \delta w/2 \|_X \leq \delta/2&lt;\delta, $$ $\|T(\delta w/2)\|_Y&lt;1$ and as $T$ is linear, it implies that $ \|T(w)\|_Y&lt; 2/\delta$. We draw the conclusion by taking $M = 2/\delta$. $4 \Rightarrow 5$. Since $T(0) = 0$, it is clear that $\|T(0)\|_Y \leq M \|0\|_X$. For any $w\in X, w\neq 0$, we have $\|T(\frac{w}{\|w\|_X}) \|_Y &lt; M$. By linearity again we have ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-23 10:52:59 +0200 +0200'>April 23, 2021</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 3 Linear Operators" href="http://localhost:1313/posts/analysis_3/functional_3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 2 Hilbert Spaces
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Inner Product spaces Definition 1 (Inner product) Let $X$ be a vector space. An inner product on $X$ is a function $\langle\cdot,\cdot\rangle:X\times X\to \mathbb{F}$, s.t. for all $x,y,z\in X$, $\alpha,\beta\in\mathbb{F}$, $\langle x,x \rangle\geq 0$, $\langle x,x \rangle = 0 \Leftrightarrow x = 0$ , $\langle \alpha x &#43; \beta y ,z\rangle = \alpha \langle x,z \rangle &#43; \beta \langle y,z \rangle$, $ \langle x,y \rangle = \overline{\langle y,x \rangle}$. A vector space $X$ with an inner product $\langle \rangle$ is called an inner product space.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-22 10:52:59 +0200 +0200'>April 22, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 2 Hilbert Spaces" href="http://localhost:1313/posts/analysis_3/functional_2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 1 Normed Spaces
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Finite-dimensional Normed Spaces Definition 1 (Norm) Let $X$ be a vector space over $\mathbb{F}$. A norm on $X$ is a function $\|\cdot\|:X\to\R$ s.t. for all $x,y\in X$ and $\alpha\in\mathbb{F}$, $\| x\|\geq 0$ , $\|x\|=0$ iff $x=0$, $\| \alpha x\| = |\alpha| \| x\|$, $\|x&#43;y\|\leq \|x\| &#43; \|y\|$. A vector $X$ equipped with a norm is called a normed vector space or just a normed space. In particular, a unit vector in $X$ is a vector $x$ s.t. $\|x\|=1$.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-21 10:52:59 +0200 +0200'>April 21, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 1 Normed Spaces" href="http://localhost:1313/posts/analysis_3/functional_1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Functional Analysis | 0 Preliminaries
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Functional Analysis | 0 Preliminaries Notation:
+$\R$: the set of real numbers, $\mathbb{C}$: the set of complex numbers, $\N$: the set of positive integers. $\mathbb{F} = \{\R,\mathbb{C}\}$, $\Re_z$: the real part of complex number $z$, $\Im_z$: the imaginary part of complex number $z$, $sp(A)$: span of set $A$. $dim V$: dimension of vector space $V$. 1. Linear Algebra Definition 1 (Vector space) A vector space over $\mathbb{F}$ is a non-empty set $V$ together with two function $x&#43;y:V\times V\to V, \alpha x: \mathbb{F}\times V\to V$ satisfying for all $x,y,z\in V$ and all $\alpha,\beta\in\mathbb{F}$, $x&#43;y = y&#43;x$, there exists a unique $0\in V$ s.t. $x&#43;0 = x$, there exists a unique $-x\in V$ s.t. $x &#43; (-x) = 0$, $1x = x$, $\alpha(x&#43;y) = \alpha x &#43; \alpha y, (\alpha&#43;\beta)x = \alpha x &#43; \beta x$. Definition 2 (Linear subspace) Let $V$ be a vector space. A non-empty set $U\subset V$ is a linear subspace of $V$ if $U$ is itself a vector space, which is equivalent to the condition $$ \alpha x &#43; \beta y \in U, \;\forall \alpha,\beta\in \mathbb{F}, x,y\in U.$$ Definition 3 Let $S$ be a set and let $V$ be a vector space over $\mathbb{F}$. We denote the set of functions $f:S\to V$ by $F(S,V)$. With the definition of scalar multiplication and vector addition, $F(S,V)$ is a vector space over $\mathbb{F}$. Definition 4 (Linear transformation) Let $V,W$ be vector spaces over $\mathbb{F}$. A function $T: V\to W$ is called a linear transformation if, for all $\alpha,\beta\in \mathbb{F}$ and $x,y\in V$ $$ T(\alpha x &#43; \beta y) = \alpha T(x) &#43; \beta T(y).$$ The set of all linear transformations $T:V\to W$ is denoted by $L(V,W)$. With the definition of scalar multiplication and vector addition, $L(V,W)$ is a vector space. 2. Metric Spaces Definition 5 (Metric space) A metric on a set $M$ is a function $d:M\times M\to \R$ with the following properties, $d(x,y)\geq 0$, $d(x,y)= 0 \Leftrightarrow x=y$, $d(x,y) = d(y,x)$, $d(x,z)\leq d(x,y) &#43; d(y,z)$. If $d$ is a metric on $M$, then the pair $(M,d)$ is called a metric space.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-20 10:52:59 +0200 +0200'>April 20, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Functional Analysis | 0 Preliminaries" href="http://localhost:1313/posts/analysis_3/functional_0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 13 Fourier Series
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Fourier Series Definition 1 (Trigonometric polynomial) A Trigonometric polynomial is a finite sum of the form $$ f(x) = a_0 &#43; \sum_{n=1}^N (a_n \cos nx &#43; b_n \sin nx),$$ where $a_i,b_i$ are complex numbers. It can be written in the form $$ \begin{equation}f(x) = \sum_{n=-N}^N c_n e^{inx},\end{equation}$$ which is more convenient for most purposes. It is clear that every Trigonometric polynomial has period $2\pi$. Notice that ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-13 10:52:59 +0200 +0200'>April 13, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 13 Fourier Series" href="http://localhost:1313/posts/analysis_1/math_analysis_13/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 12 Power Series
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In this Chapter we shall the power series formed by the sequence of power functions $\{c_n (x-x_0)^n\}$, i.e. of the form $$ \sum_{n=0}^\infty c_n (x-x_0)^n. \tag{1}$$ W.l.o.g. we shall focus on the case where $x_0 = 0$, i.e. $$ \sum_{n=0}^\infty c_n x^n. \tag{2}$$1. Power Series First, we study the convergence of series (2).
+Lemma 1 Suppose the series (2) converges for $|x|&lt; R$, then it is absolutely convergent on every $[-R&#43;\epsilon, R-\epsilon]$. proof Let $a_n = |c_n x^n|$, which goes to zero and is bounded. We have $\lim\sup_{n\to\infty}\sqrt[n]{a_n} = 0 &lt;1$. By root test we complete the proof. $\Box$ Theorem 2 Suppose the series (2) converges for $|x|&lt; R$, and define $$ f(x) = \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; R). \tag{3}$$ Then (2) converges uniformly on every $[-R&#43;\epsilon, R-\epsilon]$. The function $f$ is continuous and differentiable in $(-R,R)$, and $$ f&#39;(x) = \sum_{n=1}^\infty n c_n x^{n-1} , \quad (|x|&lt; R). \tag{4}$$ proof For $|x|&lt; R-\epsilon$, we have $$ |c_n x^n|\leq |c_n (R-\epsilon)^n|$$ and since $\sum c_n (R-\epsilon)^n$ converges absolutely by Lemma 1, the series (2) converges uniformly on $[-R&#43;\epsilon, R-\epsilon]$. Next, we have $\lim\sup_{n\to\infty} \sqrt[n]{n|c_n|} = \lim\sup_{n\to\infty} \sqrt[n]{|c_n|}$ since $\sqrt[n]{n} = 1$, which implies that $f$ and $f&#39;$ have the same interval of convergence. As (4) is also a power series, it converges uniformly in $[-R&#43;\epsilon, R-\epsilon]$. We can apply Theorem 11.10 (Differentiation) and obtain the assertion (4). Continuity of $f$ follows from the existence of $f&#39;$. $\Box$ Theorem 3 Suppose $\sum c_n$ converges, Put $$ f(x) = \sum_{n=0}^\infty c_n x^n, \quad (|x|&lt; 1).$$ Then $$ \lim_{x\to 1_-} f(x) = \sum_{n=0}^\infty c_n.$$ proof Let $f_n(x) = \sum_{j=0}^n c_j x^j$. $f_n \to f$ at $x=1$, so $f_n\to f$ uniformly on $[0,1]$. Since $f_n$ are continuous, then $f$ is continuous on $[0,1]$ (left continuous at $x = 1$). $\Box$ 2. Power Series Expansion If (1) converges for $|x-x_0|&lt; R$, and a function $f$ can be represented as $f(x) = \sum_{n=0}^\infty c_n (x-x_0)^n$, then we say $f$ is expanded in a power series about the point $x=x_0$.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-12 10:52:59 +0200 +0200'>April 12, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 12 Power Series" href="http://localhost:1313/posts/analysis_1/math_analysis_12/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mathematical Analysis | 11 Sequences and Series of Functions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>We have studied how to define a number by convergent sequences or series. In this chapter we discuss how to define a function by a sequence or series of functions, and study the properties of this function.
+1. Uniform Convergence Definition 1 (Pointwise convergence) Suppose $\{f_n\}$ be a sequence of functions defined on a set $E$, and suppose that the sequence of numbers $\{f_n(x)\}$ converges for every $x\in E$. We can define a function $f$ by $$ f(x) = \lim_{n\to\infty} f_n(x). \tag{1} $$ We say that $\{f_n\}$ converges pointwise to $f$ on $E$. Similarly, if $\sum f_n (x)$ converges for every $x\in E$, we can define $f$ by $$ f(x) = \sum_{n=1}^\infty f_n(x). \tag{2} $$ Definition 2 (Uniform convergence) We say that a sequence of functions $\{f_n\}$ converges uniformly to a function $f$ on $E$ if for every $\epsilon&gt;0$ there exists an integer $N$ s.t. $n\geq N$ implies $$ |f_n(x) - f(x)|&lt;\epsilon \tag{3} $$ for all $x\in E$. It is clear that every uniformly convergent sequence is pointwise convergent.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-11 10:52:59 +0200 +0200'>April 11, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Chaohua Wang</footer>
+  <a class="entry-link" aria-label="post link to Mathematical Analysis | 11 Sequences and Series of Functions" href="http://localhost:1313/posts/analysis_1/math_analysis_11/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/page/3/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/page/5/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">My Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
